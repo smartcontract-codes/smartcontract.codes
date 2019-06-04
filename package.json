@@ -1,0 +1,24 @@
+{
+  "name": "contracts-view",
+  "version": "0.0.0",
+  "description": "smart contract view",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo src/index.js:dist/bundle.js --dir ./src --live --open",
+    "build": "browserify --full-paths src/index.js > bundle.js",
+    "release": "rm -rf package-lock.json && npm version minor && npm publish",
+    "patch": "rm -rf package-lock.json && npm version patch && npm publish"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "budo": "^11.6.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "nanohtml": "^1.6.3",
+    "query-string": "^6.5.0"
+  }
+}
