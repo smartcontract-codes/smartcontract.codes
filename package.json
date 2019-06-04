@@ -10,7 +10,7 @@
     "patch": "rm -rf package-lock.json && npm version patch && npm publish"
   },
   "keywords": [],
-  "author": "",
+  "author": "alincode <alincode@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "browserify": "^16.2.3",
