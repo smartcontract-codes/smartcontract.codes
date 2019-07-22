@@ -1,9 +1,12 @@
 const _ = require('lodash')
-const html = require('nanohtml')
+const bel = require('bel')
+const csjs = require('csjs-inject')
 const queryString = require('query-string')
 const parsed = queryString.parse(location.search)
+const contracts = require('contracts')
+const makeCollectionArea = require('makeCollectionArea')
+let css
 
-const contracts = require('./contracts')
 let contractCount = contracts.length
 let currentUrl = 'window.location.href'
 let pagingCount = 6
@@ -75,15 +78,20 @@ function start() {
   let datas = _.chunk(contracts, pagingCount)
   let currentData = datas[currentPage - 1]
 
-  let element = html`
-    <ul>
-      ${currentData.map(
-        address =>
-          html`
-            <li>${address}</li>
-          `
-      )}
-    </ul>
+  let pagination = bel`
+    <div>
+      ${previousPage}
+      ${currentPage}
+      ${nextPage}
+      ${lastPage}
+    </div>
+  `
+  let collectionArea = makeCollectionArea(currentData)
+  let element = bel`
+    <div>
+      ${collectionArea}
+      ${pagination}
+    </div>
   `
   document.body.appendChild(element)
 }

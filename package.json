@@ -17,8 +17,9 @@
     "budo": "^11.6.2"
   },
   "dependencies": {
+    "bel": "^6.0.0",
+    "csjs-inject": "^1.0.1",
     "lodash": "^4.17.11",
-    "nanohtml": "^1.6.3",
     "query-string": "^6.5.0"
   }
 }
