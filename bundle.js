@@ -1,4 +1,734 @@
-(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({"/Users/alincode/code/contracts-view/node_modules/decode-uri-component/index.js":[function(require,module,exports){
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/appendChild.js":[function(require,module,exports){
+var trailingNewlineRegex = /\n[\s]+$/
+var leadingNewlineRegex = /^\n[\s]+/
+var trailingSpaceRegex = /[\s]+$/
+var leadingSpaceRegex = /^[\s]+/
+var multiSpaceRegex = /[\n\s]+/g
+
+var TEXT_TAGS = [
+  'a', 'abbr', 'b', 'bdi', 'bdo', 'br', 'cite', 'data', 'dfn', 'em', 'i',
+  'kbd', 'mark', 'q', 'rp', 'rt', 'rtc', 'ruby', 's', 'amp', 'small', 'span',
+  'strong', 'sub', 'sup', 'time', 'u', 'var', 'wbr'
+]
+
+var VERBATIM_TAGS = [
+  'code', 'pre', 'textarea'
+]
+
+module.exports = function appendChild (el, childs) {
+  if (!Array.isArray(childs)) return
+
+  var nodeName = el.nodeName.toLowerCase()
+
+  var hadText = false
+  var value, leader
+
+  for (var i = 0, len = childs.length; i < len; i++) {
+    var node = childs[i]
+    if (Array.isArray(node)) {
+      appendChild(el, node)
+      continue
+    }
+
+    if (typeof node === 'number' ||
+      typeof node === 'boolean' ||
+      typeof node === 'function' ||
+      node instanceof Date ||
+      node instanceof RegExp) {
+      node = node.toString()
+    }
+
+    var lastChild = el.childNodes[el.childNodes.length - 1]
+
+    // Iterate over text nodes
+    if (typeof node === 'string') {
+      hadText = true
+
+      // If we already had text, append to the existing text
+      if (lastChild && lastChild.nodeName === '#text') {
+        lastChild.nodeValue += node
+
+      // We didn't have a text node yet, create one
+      } else {
+        node = document.createTextNode(node)
+        el.appendChild(node)
+        lastChild = node
+      }
+
+      // If this is the last of the child nodes, make sure we close it out
+      // right
+      if (i === len - 1) {
+        hadText = false
+        // Trim the child text nodes if the current node isn't a
+        // node where whitespace matters.
+        if (TEXT_TAGS.indexOf(nodeName) === -1 &&
+          VERBATIM_TAGS.indexOf(nodeName) === -1) {
+          value = lastChild.nodeValue
+            .replace(leadingNewlineRegex, '')
+            .replace(trailingSpaceRegex, '')
+            .replace(trailingNewlineRegex, '')
+            .replace(multiSpaceRegex, ' ')
+          if (value === '') {
+            el.removeChild(lastChild)
+          } else {
+            lastChild.nodeValue = value
+          }
+        } else if (VERBATIM_TAGS.indexOf(nodeName) === -1) {
+          // The very first node in the list should not have leading
+          // whitespace. Sibling text nodes should have whitespace if there
+          // was any.
+          leader = i === 0 ? '' : ' '
+          value = lastChild.nodeValue
+            .replace(leadingNewlineRegex, leader)
+            .replace(leadingSpaceRegex, ' ')
+            .replace(trailingSpaceRegex, '')
+            .replace(trailingNewlineRegex, '')
+            .replace(multiSpaceRegex, ' ')
+          lastChild.nodeValue = value
+        }
+      }
+
+    // Iterate over DOM nodes
+    } else if (node && node.nodeType) {
+      // If the last node was a text node, make sure it is properly closed out
+      if (hadText) {
+        hadText = false
+
+        // Trim the child text nodes if the current node isn't a
+        // text node or a code node
+        if (TEXT_TAGS.indexOf(nodeName) === -1 &&
+          VERBATIM_TAGS.indexOf(nodeName) === -1) {
+          value = lastChild.nodeValue
+            .replace(leadingNewlineRegex, '')
+            .replace(trailingNewlineRegex, '')
+            .replace(multiSpaceRegex, ' ')
+
+          // Remove empty text nodes, append otherwise
+          if (value === '') {
+            el.removeChild(lastChild)
+          } else {
+            lastChild.nodeValue = value
+          }
+        // Trim the child nodes if the current node is not a node
+        // where all whitespace must be preserved
+        } else if (VERBATIM_TAGS.indexOf(nodeName) === -1) {
+          value = lastChild.nodeValue
+            .replace(leadingSpaceRegex, ' ')
+            .replace(leadingNewlineRegex, '')
+            .replace(trailingNewlineRegex, '')
+            .replace(multiSpaceRegex, ' ')
+          lastChild.nodeValue = value
+        }
+      }
+
+      // Store the last nodename
+      var _nodeName = node.nodeName
+      if (_nodeName) nodeName = _nodeName.toLowerCase()
+
+      // Append the node to the DOM
+      el.appendChild(node)
+    }
+  }
+}
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js":[function(require,module,exports){
+var hyperx = require('hyperx')
+var appendChild = require('./appendChild')
+
+var SVGNS = 'http://www.w3.org/2000/svg'
+var XLINKNS = 'http://www.w3.org/1999/xlink'
+
+var BOOL_PROPS = [
+  'autofocus', 'checked', 'defaultchecked', 'disabled', 'formnovalidate',
+  'indeterminate', 'readonly', 'required', 'selected', 'willvalidate'
+]
+
+var COMMENT_TAG = '!--'
+
+var SVG_TAGS = [
+  'svg', 'altGlyph', 'altGlyphDef', 'altGlyphItem', 'animate', 'animateColor',
+  'animateMotion', 'animateTransform', 'circle', 'clipPath', 'color-profile',
+  'cursor', 'defs', 'desc', 'ellipse', 'feBlend', 'feColorMatrix',
+  'feComponentTransfer', 'feComposite', 'feConvolveMatrix',
+  'feDiffuseLighting', 'feDisplacementMap', 'feDistantLight', 'feFlood',
+  'feFuncA', 'feFuncB', 'feFuncG', 'feFuncR', 'feGaussianBlur', 'feImage',
+  'feMerge', 'feMergeNode', 'feMorphology', 'feOffset', 'fePointLight',
+  'feSpecularLighting', 'feSpotLight', 'feTile', 'feTurbulence', 'filter',
+  'font', 'font-face', 'font-face-format', 'font-face-name', 'font-face-src',
+  'font-face-uri', 'foreignObject', 'g', 'glyph', 'glyphRef', 'hkern', 'image',
+  'line', 'linearGradient', 'marker', 'mask', 'metadata', 'missing-glyph',
+  'mpath', 'path', 'pattern', 'polygon', 'polyline', 'radialGradient', 'rect',
+  'set', 'stop', 'switch', 'symbol', 'text', 'textPath', 'title', 'tref',
+  'tspan', 'use', 'view', 'vkern'
+]
+
+function belCreateElement (tag, props, children) {
+  var el
+
+  // If an svg tag, it needs a namespace
+  if (SVG_TAGS.indexOf(tag) !== -1) {
+    props.namespace = SVGNS
+  }
+
+  // If we are using a namespace
+  var ns = false
+  if (props.namespace) {
+    ns = props.namespace
+    delete props.namespace
+  }
+
+  // Create the element
+  if (ns) {
+    el = document.createElementNS(ns, tag)
+  } else if (tag === COMMENT_TAG) {
+    return document.createComment(props.comment)
+  } else {
+    el = document.createElement(tag)
+  }
+
+  // Create the properties
+  for (var p in props) {
+    if (props.hasOwnProperty(p)) {
+      var key = p.toLowerCase()
+      var val = props[p]
+      // Normalize className
+      if (key === 'classname') {
+        key = 'class'
+        p = 'class'
+      }
+      // The for attribute gets transformed to htmlFor, but we just set as for
+      if (p === 'htmlFor') {
+        p = 'for'
+      }
+      // If a property is boolean, set itself to the key
+      if (BOOL_PROPS.indexOf(key) !== -1) {
+        if (val === 'true') val = key
+        else if (val === 'false') continue
+      }
+      // If a property prefers being set directly vs setAttribute
+      if (key.slice(0, 2) === 'on') {
+        el[p] = val
+      } else {
+        if (ns) {
+          if (p === 'xlink:href') {
+            el.setAttributeNS(XLINKNS, p, val)
+          } else if (/^xmlns($|:)/i.test(p)) {
+            // skip xmlns definitions
+          } else {
+            el.setAttributeNS(null, p, val)
+          }
+        } else {
+          el.setAttribute(p, val)
+        }
+      }
+    }
+  }
+
+  appendChild(el, children)
+  return el
+}
+
+module.exports = hyperx(belCreateElement, {comments: true})
+module.exports.default = module.exports
+module.exports.createElement = belCreateElement
+
+},{"./appendChild":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/appendChild.js","hyperx":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperx/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/csjs.js":[function(require,module,exports){
+(function (global){
+'use strict';
+
+var csjs = require('csjs');
+var insertCss = require('insert-css');
+
+function csjsInserter() {
+  var args = Array.prototype.slice.call(arguments);
+  var result = csjs.apply(null, args);
+  if (global.document) {
+    insertCss(csjs.getCss(result));
+  }
+  return result;
+}
+
+module.exports = csjsInserter;
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"csjs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/index.js","insert-css":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/insert-css/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/get-css.js":[function(require,module,exports){
+'use strict';
+
+module.exports = require('csjs/get-css');
+
+},{"csjs/get-css":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/get-css.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js":[function(require,module,exports){
+'use strict';
+
+var csjs = require('./csjs');
+
+module.exports = csjs;
+module.exports.csjs = csjs;
+module.exports.getCss = require('./get-css');
+
+},{"./csjs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/csjs.js","./get-css":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/get-css.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/csjs.js":[function(require,module,exports){
+'use strict';
+
+module.exports = require('./lib/csjs');
+
+},{"./lib/csjs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/csjs.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/get-css.js":[function(require,module,exports){
+'use strict';
+
+module.exports = require('./lib/get-css');
+
+},{"./lib/get-css":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/get-css.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/index.js":[function(require,module,exports){
+'use strict';
+
+var csjs = require('./csjs');
+
+module.exports = csjs();
+module.exports.csjs = csjs;
+module.exports.noScope = csjs({ noscope: true });
+module.exports.getCss = require('./get-css');
+
+},{"./csjs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/csjs.js","./get-css":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/get-css.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/base62-encode.js":[function(require,module,exports){
+'use strict';
+
+/**
+ * base62 encode implementation based on base62 module:
+ * https://github.com/andrew/base62.js
+ */
+
+var CHARS = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+module.exports = function encode(integer) {
+  if (integer === 0) {
+    return '0';
+  }
+  var str = '';
+  while (integer > 0) {
+    str = CHARS[integer % 62] + str;
+    integer = Math.floor(integer / 62);
+  }
+  return str;
+};
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/build-exports.js":[function(require,module,exports){
+'use strict';
+
+var makeComposition = require('./composition').makeComposition;
+
+module.exports = function createExports(classes, keyframes, compositions) {
+  var keyframesObj = Object.keys(keyframes).reduce(function(acc, key) {
+    var val = keyframes[key];
+    acc[val] = makeComposition([key], [val], true);
+    return acc;
+  }, {});
+
+  var exports = Object.keys(classes).reduce(function(acc, key) {
+    var val = classes[key];
+    var composition = compositions[key];
+    var extended = composition ? getClassChain(composition) : [];
+    var allClasses = [key].concat(extended);
+    var unscoped = allClasses.map(function(name) {
+      return classes[name] ? classes[name] : name;
+    });
+    acc[val] = makeComposition(allClasses, unscoped);
+    return acc;
+  }, keyframesObj);
+
+  return exports;
+}
+
+function getClassChain(obj) {
+  var visited = {}, acc = [];
+
+  function traverse(obj) {
+    return Object.keys(obj).forEach(function(key) {
+      if (!visited[key]) {
+        visited[key] = true;
+        acc.push(key);
+        traverse(obj[key]);
+      }
+    });
+  }
+
+  traverse(obj);
+  return acc;
+}
+
+},{"./composition":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/composition.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/composition.js":[function(require,module,exports){
+'use strict';
+
+module.exports = {
+  makeComposition: makeComposition,
+  isComposition: isComposition,
+  ignoreComposition: ignoreComposition
+};
+
+/**
+ * Returns an immutable composition object containing the given class names
+ * @param  {array} classNames - The input array of class names
+ * @return {Composition}      - An immutable object that holds multiple
+ *                              representations of the class composition
+ */
+function makeComposition(classNames, unscoped, isAnimation) {
+  var classString = classNames.join(' ');
+  return Object.create(Composition.prototype, {
+    classNames: { // the original array of class names
+      value: Object.freeze(classNames),
+      configurable: false,
+      writable: false,
+      enumerable: true
+    },
+    unscoped: { // the original array of class names
+      value: Object.freeze(unscoped),
+      configurable: false,
+      writable: false,
+      enumerable: true
+    },
+    className: { // space-separated class string for use in HTML
+      value: classString,
+      configurable: false,
+      writable: false,
+      enumerable: true
+    },
+    selector: { // comma-separated, period-prefixed string for use in CSS
+      value: classNames.map(function(name) {
+        return isAnimation ? name : '.' + name;
+      }).join(', '),
+      configurable: false,
+      writable: false,
+      enumerable: true
+    },
+    toString: { // toString() method, returns class string for use in HTML
+      value: function() {
+        return classString;
+      },
+      configurable: false,
+      writeable: false,
+      enumerable: false
+    }
+  });
+}
+
+/**
+ * Returns whether the input value is a Composition
+ * @param value      - value to check
+ * @return {boolean} - whether value is a Composition or not
+ */
+function isComposition(value) {
+  return value instanceof Composition;
+}
+
+function ignoreComposition(values) {
+  return values.reduce(function(acc, val) {
+    if (isComposition(val)) {
+      val.classNames.forEach(function(name, i) {
+        acc[name] = val.unscoped[i];
+      });
+    }
+    return acc;
+  }, {});
+}
+
+/**
+ * Private constructor for use in `instanceof` checks
+ */
+function Composition() {}
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/csjs.js":[function(require,module,exports){
+'use strict';
+
+var extractExtends = require('./css-extract-extends');
+var composition = require('./composition');
+var isComposition = composition.isComposition;
+var ignoreComposition = composition.ignoreComposition;
+var buildExports = require('./build-exports');
+var scopify = require('./scopeify');
+var cssKey = require('./css-key');
+var extractExports = require('./extract-exports');
+
+module.exports = function csjsTemplate(opts) {
+  opts = (typeof opts === 'undefined') ? {} : opts;
+  var noscope = (typeof opts.noscope === 'undefined') ? false : opts.noscope;
+
+  return function csjsHandler(strings, values) {
+    // Fast path to prevent arguments deopt
+    var values = Array(arguments.length - 1);
+    for (var i = 1; i < arguments.length; i++) {
+      values[i - 1] = arguments[i];
+    }
+    var css = joiner(strings, values.map(selectorize));
+    var ignores = ignoreComposition(values);
+
+    var scope = noscope ? extractExports(css) : scopify(css, ignores);
+    var extracted = extractExtends(scope.css);
+    var localClasses = without(scope.classes, ignores);
+    var localKeyframes = without(scope.keyframes, ignores);
+    var compositions = extracted.compositions;
+
+    var exports = buildExports(localClasses, localKeyframes, compositions);
+
+    return Object.defineProperty(exports, cssKey, {
+      enumerable: false,
+      configurable: false,
+      writeable: false,
+      value: extracted.css
+    });
+  }
+}
+
+/**
+ * Replaces class compositions with comma seperated class selectors
+ * @param  value - the potential class composition
+ * @return       - the original value or the selectorized class composition
+ */
+function selectorize(value) {
+  return isComposition(value) ? value.selector : value;
+}
+
+/**
+ * Joins template string literals and values
+ * @param  {array} strings - array of strings
+ * @param  {array} values  - array of values
+ * @return {string}        - strings and values joined
+ */
+function joiner(strings, values) {
+  return strings.map(function(str, i) {
+    return (i !== values.length) ? str + values[i] : str;
+  }).join('');
+}
+
+/**
+ * Returns first object without keys of second
+ * @param  {object} obj      - source object
+ * @param  {object} unwanted - object with unwanted keys
+ * @return {object}          - first object without unwanted keys
+ */
+function without(obj, unwanted) {
+  return Object.keys(obj).reduce(function(acc, key) {
+    if (!unwanted[key]) {
+      acc[key] = obj[key];
+    }
+    return acc;
+  }, {});
+}
+
+},{"./build-exports":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/build-exports.js","./composition":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/composition.js","./css-extract-extends":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/css-extract-extends.js","./css-key":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/css-key.js","./extract-exports":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/extract-exports.js","./scopeify":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/scopeify.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/css-extract-extends.js":[function(require,module,exports){
+'use strict';
+
+var makeComposition = require('./composition').makeComposition;
+
+var regex = /\.([^\s]+)(\s+)(extends\s+)(\.[^{]+)/g;
+
+module.exports = function extractExtends(css) {
+  var found, matches = [];
+  while (found = regex.exec(css)) {
+    matches.unshift(found);
+  }
+
+  function extractCompositions(acc, match) {
+    var extendee = getClassName(match[1]);
+    var keyword = match[3];
+    var extended = match[4];
+
+    // remove from output css
+    var index = match.index + match[1].length + match[2].length;
+    var len = keyword.length + extended.length;
+    acc.css = acc.css.slice(0, index) + " " + acc.css.slice(index + len + 1);
+
+    var extendedClasses = splitter(extended);
+
+    extendedClasses.forEach(function(className) {
+      if (!acc.compositions[extendee]) {
+        acc.compositions[extendee] = {};
+      }
+      if (!acc.compositions[className]) {
+        acc.compositions[className] = {};
+      }
+      acc.compositions[extendee][className] = acc.compositions[className];
+    });
+    return acc;
+  }
+
+  return matches.reduce(extractCompositions, {
+    css: css,
+    compositions: {}
+  });
+
+};
+
+function splitter(match) {
+  return match.split(',').map(getClassName);
+}
+
+function getClassName(str) {
+  var trimmed = str.trim();
+  return trimmed[0] === '.' ? trimmed.substr(1) : trimmed;
+}
+
+},{"./composition":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/composition.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/css-key.js":[function(require,module,exports){
+'use strict';
+
+/**
+ * CSS identifiers with whitespace are invalid
+ * Hence this key will not cause a collision
+ */
+
+module.exports = ' css ';
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/extract-exports.js":[function(require,module,exports){
+'use strict';
+
+var regex = require('./regex');
+var classRegex = regex.classRegex;
+var keyframesRegex = regex.keyframesRegex;
+
+module.exports = extractExports;
+
+function extractExports(css) {
+  return {
+    css: css,
+    keyframes: getExport(css, keyframesRegex),
+    classes: getExport(css, classRegex)
+  };
+}
+
+function getExport(css, regex) {
+  var prop = {};
+  var match;
+  while((match = regex.exec(css)) !== null) {
+    var name = match[2];
+    prop[name] = name;
+  }
+  return prop;
+}
+
+},{"./regex":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/regex.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/get-css.js":[function(require,module,exports){
+'use strict';
+
+var cssKey = require('./css-key');
+
+module.exports = function getCss(csjs) {
+  return csjs[cssKey];
+};
+
+},{"./css-key":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/css-key.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/hash-string.js":[function(require,module,exports){
+'use strict';
+
+/**
+ * djb2 string hash implementation based on string-hash module:
+ * https://github.com/darkskyapp/string-hash
+ */
+
+module.exports = function hashStr(str) {
+  var hash = 5381;
+  var i = str.length;
+
+  while (i) {
+    hash = (hash * 33) ^ str.charCodeAt(--i)
+  }
+  return hash >>> 0;
+};
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/regex.js":[function(require,module,exports){
+'use strict';
+
+var findClasses = /(\.)(?!\d)([^\s\.,{\[>+~#:)]*)(?![^{]*})/.source;
+var findKeyframes = /(@\S*keyframes\s*)([^{\s]*)/.source;
+var ignoreComments = /(?!(?:[^*/]|\*[^/]|\/[^*])*\*+\/)/.source;
+
+var classRegex = new RegExp(findClasses + ignoreComments, 'g');
+var keyframesRegex = new RegExp(findKeyframes + ignoreComments, 'g');
+
+module.exports = {
+  classRegex: classRegex,
+  keyframesRegex: keyframesRegex,
+  ignoreComments: ignoreComments,
+};
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/replace-animations.js":[function(require,module,exports){
+var ignoreComments = require('./regex').ignoreComments;
+
+module.exports = replaceAnimations;
+
+function replaceAnimations(result) {
+  var animations = Object.keys(result.keyframes).reduce(function(acc, key) {
+    acc[result.keyframes[key]] = key;
+    return acc;
+  }, {});
+  var unscoped = Object.keys(animations);
+
+  if (unscoped.length) {
+    var regexStr = '((?:animation|animation-name)\\s*:[^};]*)('
+      + unscoped.join('|') + ')([;\\s])' + ignoreComments;
+    var regex = new RegExp(regexStr, 'g');
+
+    var replaced = result.css.replace(regex, function(match, preamble, name, ending) {
+      return preamble + animations[name] + ending;
+    });
+
+    return {
+      css: replaced,
+      keyframes: result.keyframes,
+      classes: result.classes
+    }
+  }
+
+  return result;
+}
+
+},{"./regex":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/regex.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/scoped-name.js":[function(require,module,exports){
+'use strict';
+
+var encode = require('./base62-encode');
+var hash = require('./hash-string');
+
+module.exports = function fileScoper(fileSrc) {
+  var suffix = encode(hash(fileSrc));
+
+  return function scopedName(name) {
+    return name + '_' + suffix;
+  }
+};
+
+},{"./base62-encode":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/base62-encode.js","./hash-string":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/hash-string.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/scopeify.js":[function(require,module,exports){
+'use strict';
+
+var fileScoper = require('./scoped-name');
+var replaceAnimations = require('./replace-animations');
+var regex = require('./regex');
+var classRegex = regex.classRegex;
+var keyframesRegex = regex.keyframesRegex;
+
+module.exports = scopify;
+
+function scopify(css, ignores) {
+  var makeScopedName = fileScoper(css);
+  var replacers = {
+    classes: classRegex,
+    keyframes: keyframesRegex
+  };
+
+  function scopeCss(result, key) {
+    var replacer = replacers[key];
+    function replaceFn(fullMatch, prefix, name) {
+      var scopedName = ignores[name] ? name : makeScopedName(name);
+      result[key][scopedName] = name;
+      return prefix + scopedName;
+    }
+    return {
+      css: result.css.replace(replacer, replaceFn),
+      keyframes: result.keyframes,
+      classes: result.classes
+    };
+  }
+
+  var result = Object.keys(replacers).reduce(scopeCss, {
+    css: css,
+    keyframes: {},
+    classes: {}
+  });
+
+  return replaceAnimations(result);
+}
+
+},{"./regex":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/regex.js","./replace-animations":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/replace-animations.js","./scoped-name":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/scoped-name.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/decode-uri-component/index.js":[function(require,module,exports){
 'use strict';
 var token = '%[a-f0-9]{2}';
 var singleMatcher = new RegExp(token, 'gi');
@@ -94,7 +824,7 @@ module.exports = function (encodedURI) {
 	}
 };
 
-},{}],"/Users/alincode/code/contracts-view/node_modules/hyperscript-attribute-to-property/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperscript-attribute-to-property/index.js":[function(require,module,exports){
 module.exports = attributeToProperty
 
 var transform = {
@@ -115,7 +845,7 @@ function attributeToProperty (h) {
   }
 }
 
-},{}],"/Users/alincode/code/contracts-view/node_modules/hyperx/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperx/index.js":[function(require,module,exports){
 var attrToProp = require('hyperscript-attribute-to-property')
 
 var VAR = 0, TEXT = 1, OPEN = 2, CLOSE = 3, ATTR = 4
@@ -412,12 +1142,36 @@ var closeRE = RegExp('^(' + [
 ].join('|') + ')(?:[\.#][a-zA-Z0-9\u007F-\uFFFF_:-]+)*$')
 function selfClosing (tag) { return closeRE.test(tag) }
 
-},{"hyperscript-attribute-to-property":"/Users/alincode/code/contracts-view/node_modules/hyperscript-attribute-to-property/index.js"}],"/Users/alincode/code/contracts-view/node_modules/lodash/lodash.js":[function(require,module,exports){
+},{"hyperscript-attribute-to-property":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperscript-attribute-to-property/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/insert-css/index.js":[function(require,module,exports){
+var inserted = {};
+
+module.exports = function (css, options) {
+    if (inserted[css]) return;
+    inserted[css] = true;
+    
+    var elem = document.createElement('style');
+    elem.setAttribute('type', 'text/css');
+
+    if ('textContent' in elem) {
+      elem.textContent = css;
+    } else {
+      elem.styleSheet.cssText = css;
+    }
+    
+    var head = document.getElementsByTagName('head')[0];
+    if (options && options.prepend) {
+        head.insertBefore(elem, head.childNodes[0]);
+    } else {
+        head.appendChild(elem);
+    }
+};
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/lodash/lodash.js":[function(require,module,exports){
 (function (global){
 /**
  * @license
  * Lodash <https://lodash.com/>
- * Copyright JS Foundation and other contributors <https://js.foundation/>
+ * Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
  * Released under MIT license <https://lodash.com/license>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -428,7 +1182,7 @@ function selfClosing (tag) { return closeRE.test(tag) }
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.11';
+  var VERSION = '4.17.14';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
@@ -3087,16 +3841,10 @@ function selfClosing (tag) { return closeRE.test(tag) }
         value.forEach(function(subValue) {
           result.add(baseClone(subValue, bitmask, customizer, subValue, value, stack));
         });
-
-        return result;
-      }
-
-      if (isMap(value)) {
+      } else if (isMap(value)) {
         value.forEach(function(subValue, key) {
           result.set(key, baseClone(subValue, bitmask, customizer, key, value, stack));
         });
-
-        return result;
       }
 
       var keysFunc = isFull
@@ -4020,8 +4768,8 @@ function selfClosing (tag) { return closeRE.test(tag) }
         return;
       }
       baseFor(source, function(srcValue, key) {
+        stack || (stack = new Stack);
         if (isObject(srcValue)) {
-          stack || (stack = new Stack);
           baseMergeDeep(object, source, key, srcIndex, baseMerge, customizer, stack);
         }
         else {
@@ -5838,7 +6586,7 @@ function selfClosing (tag) { return closeRE.test(tag) }
       return function(number, precision) {
         number = toNumber(number);
         precision = precision == null ? 0 : nativeMin(toInteger(precision), 292);
-        if (precision) {
+        if (precision && nativeIsFinite(number)) {
           // Shift with exponential notation to avoid floating-point issues.
           // See [MDN](https://mdn.io/round#Examples) for more details.
           var pair = (toString(number) + 'e').split('e'),
@@ -7021,7 +7769,7 @@ function selfClosing (tag) { return closeRE.test(tag) }
     }
 
     /**
-     * Gets the value at `key`, unless `key` is "__proto__".
+     * Gets the value at `key`, unless `key` is "__proto__" or "constructor".
      *
      * @private
      * @param {Object} object The object to query.
@@ -7029,6 +7777,10 @@ function selfClosing (tag) { return closeRE.test(tag) }
      * @returns {*} Returns the property value.
      */
     function safeGet(object, key) {
+      if (key === 'constructor' && typeof object[key] === 'function') {
+        return;
+      }
+
       if (key == '__proto__') {
         return;
       }
@@ -10829,6 +11581,7 @@ function selfClosing (tag) { return closeRE.test(tag) }
           }
           if (maxing) {
             // Handle invocations in a tight loop.
+            clearTimeout(timerId);
             timerId = setTimeout(timerExpired, wait);
             return invokeFunc(lastCallTime);
           }
@@ -15215,9 +15968,12 @@ function selfClosing (tag) { return closeRE.test(tag) }
       , 'g');
 
       // Use a sourceURL for easier debugging.
+      // The sourceURL gets injected into the source that's eval-ed, so be careful
+      // with lookup (in case of e.g. prototype pollution), and strip newlines if any.
+      // A newline wouldn't be a valid sourceURL anyway, and it'd enable code injection.
       var sourceURL = '//# sourceURL=' +
-        ('sourceURL' in options
-          ? options.sourceURL
+        (hasOwnProperty.call(options, 'sourceURL')
+          ? (options.sourceURL + '').replace(/[\r\n]/g, ' ')
           : ('lodash.templateSources[' + (++templateCounter) + ']')
         ) + '\n';
 
@@ -15250,7 +16006,9 @@ function selfClosing (tag) { return closeRE.test(tag) }
 
       // If `variable` is not specified wrap a with-statement around the generated
       // code to add the data object to the top of the scope chain.
-      var variable = options.variable;
+      // Like with sourceURL, we take care to not check the option's prototype,
+      // as this configuration is a code injection vector.
+      var variable = hasOwnProperty.call(options, 'variable') && options.variable;
       if (!variable) {
         source = 'with (obj) {\n' + source + '\n}\n';
       }
@@ -17455,10 +18213,11 @@ function selfClosing (tag) { return closeRE.test(tag) }
     baseForOwn(LazyWrapper.prototype, function(func, methodName) {
       var lodashFunc = lodash[methodName];
       if (lodashFunc) {
-        var key = (lodashFunc.name + ''),
-            names = realNames[key] || (realNames[key] = []);
-
-        names.push({ 'name': methodName, 'func': lodashFunc });
+        var key = lodashFunc.name + '';
+        if (!hasOwnProperty.call(realNames, key)) {
+          realNames[key] = [];
+        }
+        realNames[key].push({ 'name': methodName, 'func': lodashFunc });
       }
     });
 
@@ -17523,289 +18282,7 @@ function selfClosing (tag) { return closeRE.test(tag) }
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],"/Users/alincode/code/contracts-view/node_modules/nanohtml/lib/append-child.js":[function(require,module,exports){
-'use strict'
-
-var trailingNewlineRegex = /\n[\s]+$/
-var leadingNewlineRegex = /^\n[\s]+/
-var trailingSpaceRegex = /[\s]+$/
-var leadingSpaceRegex = /^[\s]+/
-var multiSpaceRegex = /[\n\s]+/g
-
-var TEXT_TAGS = [
-  'a', 'abbr', 'b', 'bdi', 'bdo', 'br', 'cite', 'data', 'dfn', 'em', 'i',
-  'kbd', 'mark', 'q', 'rp', 'rt', 'rtc', 'ruby', 's', 'amp', 'small', 'span',
-  'strong', 'sub', 'sup', 'time', 'u', 'var', 'wbr'
-]
-
-var VERBATIM_TAGS = [
-  'code', 'pre', 'textarea'
-]
-
-module.exports = function appendChild (el, childs) {
-  if (!Array.isArray(childs)) return
-
-  var nodeName = el.nodeName.toLowerCase()
-
-  var hadText = false
-  var value, leader
-
-  for (var i = 0, len = childs.length; i < len; i++) {
-    var node = childs[i]
-    if (Array.isArray(node)) {
-      appendChild(el, node)
-      continue
-    }
-
-    if (typeof node === 'number' ||
-      typeof node === 'boolean' ||
-      typeof node === 'function' ||
-      node instanceof Date ||
-      node instanceof RegExp) {
-      node = node.toString()
-    }
-
-    var lastChild = el.childNodes[el.childNodes.length - 1]
-
-    // Iterate over text nodes
-    if (typeof node === 'string') {
-      hadText = true
-
-      // If we already had text, append to the existing text
-      if (lastChild && lastChild.nodeName === '#text') {
-        lastChild.nodeValue += node
-
-      // We didn't have a text node yet, create one
-      } else {
-        node = document.createTextNode(node)
-        el.appendChild(node)
-        lastChild = node
-      }
-
-      // If this is the last of the child nodes, make sure we close it out
-      // right
-      if (i === len - 1) {
-        hadText = false
-        // Trim the child text nodes if the current node isn't a
-        // node where whitespace matters.
-        if (TEXT_TAGS.indexOf(nodeName) === -1 &&
-          VERBATIM_TAGS.indexOf(nodeName) === -1) {
-          value = lastChild.nodeValue
-            .replace(leadingNewlineRegex, '')
-            .replace(trailingSpaceRegex, '')
-            .replace(trailingNewlineRegex, '')
-            .replace(multiSpaceRegex, ' ')
-          if (value === '') {
-            el.removeChild(lastChild)
-          } else {
-            lastChild.nodeValue = value
-          }
-        } else if (VERBATIM_TAGS.indexOf(nodeName) === -1) {
-          // The very first node in the list should not have leading
-          // whitespace. Sibling text nodes should have whitespace if there
-          // was any.
-          leader = i === 0 ? '' : ' '
-          value = lastChild.nodeValue
-            .replace(leadingNewlineRegex, leader)
-            .replace(leadingSpaceRegex, ' ')
-            .replace(trailingSpaceRegex, '')
-            .replace(trailingNewlineRegex, '')
-            .replace(multiSpaceRegex, ' ')
-          lastChild.nodeValue = value
-        }
-      }
-
-    // Iterate over DOM nodes
-    } else if (node && node.nodeType) {
-      // If the last node was a text node, make sure it is properly closed out
-      if (hadText) {
-        hadText = false
-
-        // Trim the child text nodes if the current node isn't a
-        // text node or a code node
-        if (TEXT_TAGS.indexOf(nodeName) === -1 &&
-          VERBATIM_TAGS.indexOf(nodeName) === -1) {
-          value = lastChild.nodeValue
-            .replace(leadingNewlineRegex, '')
-            .replace(trailingNewlineRegex, ' ')
-            .replace(multiSpaceRegex, ' ')
-
-          // Remove empty text nodes, append otherwise
-          if (value === '') {
-            el.removeChild(lastChild)
-          } else {
-            lastChild.nodeValue = value
-          }
-        // Trim the child nodes if the current node is not a node
-        // where all whitespace must be preserved
-        } else if (VERBATIM_TAGS.indexOf(nodeName) === -1) {
-          value = lastChild.nodeValue
-            .replace(leadingSpaceRegex, ' ')
-            .replace(leadingNewlineRegex, '')
-            .replace(trailingNewlineRegex, '')
-            .replace(multiSpaceRegex, ' ')
-          lastChild.nodeValue = value
-        }
-      }
-
-      // Store the last nodename
-      var _nodeName = node.nodeName
-      if (_nodeName) nodeName = _nodeName.toLowerCase()
-
-      // Append the node to the DOM
-      el.appendChild(node)
-    }
-  }
-}
-
-},{}],"/Users/alincode/code/contracts-view/node_modules/nanohtml/lib/bool-props.js":[function(require,module,exports){
-'use strict'
-
-module.exports = [
-  'async', 'autofocus', 'autoplay', 'checked', 'controls', 'default',
-  'defaultchecked', 'defer', 'disabled', 'formnovalidate', 'hidden',
-  'ismap', 'loop', 'multiple', 'muted', 'novalidate', 'open', 'playsinline',
-  'readonly', 'required', 'reversed', 'selected'
-]
-
-},{}],"/Users/alincode/code/contracts-view/node_modules/nanohtml/lib/browser.js":[function(require,module,exports){
-'use strict'
-
-var hyperx = require('hyperx')
-var appendChild = require('./append-child')
-var SVG_TAGS = require('./svg-tags')
-var BOOL_PROPS = require('./bool-props')
-// Props that need to be set directly rather than with el.setAttribute()
-var DIRECT_PROPS = require('./direct-props')
-
-var SVGNS = 'http://www.w3.org/2000/svg'
-var XLINKNS = 'http://www.w3.org/1999/xlink'
-
-var COMMENT_TAG = '!--'
-
-function nanoHtmlCreateElement (tag, props, children) {
-  var el
-
-  // If an svg tag, it needs a namespace
-  if (SVG_TAGS.indexOf(tag) !== -1) {
-    props.namespace = SVGNS
-  }
-
-  // If we are using a namespace
-  var ns = false
-  if (props.namespace) {
-    ns = props.namespace
-    delete props.namespace
-  }
-
-  // If we are extending a builtin element
-  var isCustomElement = false
-  if (props.is) {
-    isCustomElement = props.is
-    delete props.is
-  }
-
-  // Create the element
-  if (ns) {
-    if (isCustomElement) {
-      el = document.createElementNS(ns, tag, { is: isCustomElement })
-    } else {
-      el = document.createElementNS(ns, tag)
-    }
-  } else if (tag === COMMENT_TAG) {
-    return document.createComment(props.comment)
-  } else if (isCustomElement) {
-    el = document.createElement(tag, { is: isCustomElement })
-  } else {
-    el = document.createElement(tag)
-  }
-
-  // Create the properties
-  for (var p in props) {
-    if (props.hasOwnProperty(p)) {
-      var key = p.toLowerCase()
-      var val = props[p]
-      // Normalize className
-      if (key === 'classname') {
-        key = 'class'
-        p = 'class'
-      }
-      // The for attribute gets transformed to htmlFor, but we just set as for
-      if (p === 'htmlFor') {
-        p = 'for'
-      }
-      // If a property is boolean, set itself to the key
-      if (BOOL_PROPS.indexOf(key) !== -1) {
-        if (String(val) === 'true') val = key
-        else if (String(val) === 'false') continue
-      }
-      // If a property prefers being set directly vs setAttribute
-      if (key.slice(0, 2) === 'on' || DIRECT_PROPS.indexOf(key) !== -1) {
-        el[p] = val
-      } else {
-        if (ns) {
-          if (p === 'xlink:href') {
-            el.setAttributeNS(XLINKNS, p, val)
-          } else if (/^xmlns($|:)/i.test(p)) {
-            // skip xmlns definitions
-          } else {
-            el.setAttributeNS(null, p, val)
-          }
-        } else {
-          el.setAttribute(p, val)
-        }
-      }
-    }
-  }
-
-  appendChild(el, children)
-  return el
-}
-
-function createFragment (nodes) {
-  var fragment = document.createDocumentFragment()
-  for (var i = 0; i < nodes.length; i++) {
-    if (typeof nodes[i] === 'string') nodes[i] = document.createTextNode(nodes[i])
-    fragment.appendChild(nodes[i])
-  }
-  return fragment
-}
-
-module.exports = hyperx(nanoHtmlCreateElement, {
-  comments: true,
-  createFragment: createFragment
-})
-module.exports.default = module.exports
-module.exports.createElement = nanoHtmlCreateElement
-
-},{"./append-child":"/Users/alincode/code/contracts-view/node_modules/nanohtml/lib/append-child.js","./bool-props":"/Users/alincode/code/contracts-view/node_modules/nanohtml/lib/bool-props.js","./direct-props":"/Users/alincode/code/contracts-view/node_modules/nanohtml/lib/direct-props.js","./svg-tags":"/Users/alincode/code/contracts-view/node_modules/nanohtml/lib/svg-tags.js","hyperx":"/Users/alincode/code/contracts-view/node_modules/hyperx/index.js"}],"/Users/alincode/code/contracts-view/node_modules/nanohtml/lib/direct-props.js":[function(require,module,exports){
-'use strict'
-
-module.exports = [
-  'indeterminate'
-]
-
-},{}],"/Users/alincode/code/contracts-view/node_modules/nanohtml/lib/svg-tags.js":[function(require,module,exports){
-'use strict'
-
-module.exports = [
-  'svg', 'altGlyph', 'altGlyphDef', 'altGlyphItem', 'animate', 'animateColor',
-  'animateMotion', 'animateTransform', 'circle', 'clipPath', 'color-profile',
-  'cursor', 'defs', 'desc', 'ellipse', 'feBlend', 'feColorMatrix',
-  'feComponentTransfer', 'feComposite', 'feConvolveMatrix',
-  'feDiffuseLighting', 'feDisplacementMap', 'feDistantLight', 'feFlood',
-  'feFuncA', 'feFuncB', 'feFuncG', 'feFuncR', 'feGaussianBlur', 'feImage',
-  'feMerge', 'feMergeNode', 'feMorphology', 'feOffset', 'fePointLight',
-  'feSpecularLighting', 'feSpotLight', 'feTile', 'feTurbulence', 'filter',
-  'font', 'font-face', 'font-face-format', 'font-face-name', 'font-face-src',
-  'font-face-uri', 'foreignObject', 'g', 'glyph', 'glyphRef', 'hkern', 'image',
-  'line', 'linearGradient', 'marker', 'mask', 'metadata', 'missing-glyph',
-  'mpath', 'path', 'pattern', 'polygon', 'polyline', 'radialGradient', 'rect',
-  'set', 'stop', 'switch', 'symbol', 'text', 'textPath', 'title', 'tref',
-  'tspan', 'use', 'view', 'vkern'
-]
-
-},{}],"/Users/alincode/code/contracts-view/node_modules/query-string/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/query-string/index.js":[function(require,module,exports){
 'use strict';
 const strictUriEncode = require('strict-uri-encode');
 const decodeComponent = require('decode-uri-component');
@@ -17982,7 +18459,10 @@ function extract(input) {
 function parse(input, options) {
 	options = Object.assign({
 		decode: true,
-		arrayFormat: 'none'
+		sort: true,
+		arrayFormat: 'none',
+		parseNumbers: false,
+		parseBooleans: false
 	}, options);
 
 	const formatter = parserForArrayFormat(options);
@@ -18007,10 +18487,20 @@ function parse(input, options) {
 		// http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
 		value = value === undefined ? null : decode(value, options);
 
+		if (options.parseNumbers && !Number.isNaN(Number(value))) {
+			value = Number(value);
+		} else if (options.parseBooleans && value !== null && (value.toLowerCase() === 'true' || value.toLowerCase() === 'false')) {
+			value = value.toLowerCase() === 'true';
+		}
+
 		formatter(decode(key, options), value, ret);
 	}
 
-	return Object.keys(ret).sort().reduce((result, key) => {
+	if (options.sort === false) {
+		return ret;
+	}
+
+	return (options.sort === true ? Object.keys(ret).sort() : Object.keys(ret).sort(options.sort)).reduce((result, key) => {
 		const value = ret[key];
 		if (Boolean(value) && typeof value === 'object' && !Array.isArray(value)) {
 			// Sort object keys, not values
@@ -18072,7 +18562,7 @@ exports.parseUrl = (input, options) => {
 	};
 };
 
-},{"decode-uri-component":"/Users/alincode/code/contracts-view/node_modules/decode-uri-component/index.js","split-on-first":"/Users/alincode/code/contracts-view/node_modules/split-on-first/index.js","strict-uri-encode":"/Users/alincode/code/contracts-view/node_modules/strict-uri-encode/index.js"}],"/Users/alincode/code/contracts-view/node_modules/split-on-first/index.js":[function(require,module,exports){
+},{"decode-uri-component":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/decode-uri-component/index.js","split-on-first":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/split-on-first/index.js","strict-uri-encode":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/strict-uri-encode/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/split-on-first/index.js":[function(require,module,exports){
 'use strict';
 
 module.exports = (string, separator) => {
@@ -18096,48 +18586,22 @@ module.exports = (string, separator) => {
 	];
 };
 
-},{}],"/Users/alincode/code/contracts-view/node_modules/strict-uri-encode/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/strict-uri-encode/index.js":[function(require,module,exports){
 'use strict';
 module.exports = str => encodeURIComponent(str).replace(/[!'()*]/g, x => `%${x.charCodeAt(0).toString(16).toUpperCase()}`);
 
-},{}],"/Users/alincode/code/contracts-view/src/contracts.js":[function(require,module,exports){
-// https://etherscan.io/contractsVerified
-
-module.exports = [
-  '0x7aEF0c430A04d39Beb4F56c434e828EF788dB78c',
-  '0x9f7744961f795fAb5E1F4A36779197DAc020C2EC',
-  '0x85f9A3a6e7D0490fFe43E30eB69794fb15f4d943',
-  '0xf5DE9e4CBb4c0620Dc774BDb02b3223436D767DB',
-  '0x12Ac8Fa232888CDFF7B923ca584A887835a631f2',
-  '0x45C998A972E6449858206775D50F3925Eb1E5b1b',
-  '0xC8D2485654Ba543Ebc1a43660e39D0F7467aB5AD',
-  '0x501D60ED2cF1a4a6e7c754B5392006702eB9E434',
-  '0x956eBA6cc01941b50C36cf6c5c0480a14f0D669C',
-  '0x190a38BAf316ac2693983a77874F2036dc1D3bA0',
-  '0x54de839739D1efe000F534161d7feF77Ddd7f96c',
-  '0x93C32845faE42c83A70e5f06214c8433665C2ab5',
-  '0x60b4B0C6a1c518be1f7F68a8ceD6af510Fd21b4B',
-  '0x90D7689C6d2f4d56671B24CA924f11715EC949c1',
-  '0xb4450f8048dd4EaA6E24b6FDb4F8328B22B61bef',
-  '0x56cC955c30581c202671E8B55DB871abCD78BBa0',
-  '0x9639740A2536fFC5b3B97df6d9C1bD4fAe557C08',
-  '0x78FF1069B9088690F33Ae9550832B97f06e5d555',
-  '0xb0e50319c5734A6aBB12feb2C235003169361c4E',
-  '0x02a9BB92365B72fB735364aF2af55ebfA9Eb02c2',
-  '0x4c961Ce47d5278678253323E7AeC14e37333F7Ee',
-  '0xa2eA412AF6bADDEcdD121B235855f790AcBD6bCd',
-  '0x5688Ed108EF4999eabAFeF3748f69Ec800b0A6E9',
-]
-
-},{}],"/Users/alincode/code/contracts-view/src/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/index.js":[function(require,module,exports){
 const _ = require('lodash')
-const html = require('nanohtml')
+const bel = require('bel')
+const csjs = require('csjs-inject')
 const queryString = require('query-string')
 const parsed = queryString.parse(location.search)
+const contracts = require('contracts')
+const paginationButtons = require('paginationButtons')
+const makeCollectionArea = require('makeCollectionArea')
+let css
 
-const contracts = require('./contracts')
 let contractCount = contracts.length
-let currentUrl = 'window.location.href'
 let pagingCount = 6
 
 let currentPage = parsed.page ? parseInt(parsed.page) : 1
@@ -18193,10 +18657,6 @@ function closeAction() {
   location.url = ''
 }
 
-function goToPageUrl(page) {
-  const newUrl = `${window.location.origin}/?page=${page}`
-  if (currentUrl != newUrl) location.assign(newUrl)
-}
 
 // window.location.href
 // "http://192.168.0.163:9966/?page=1"
@@ -18207,19 +18667,228 @@ function start() {
   let datas = _.chunk(contracts, pagingCount)
   let currentData = datas[currentPage - 1]
 
-  let element = html`
-    <ul>
-      ${currentData.map(
-        address =>
-          html`
-            <li>${address}</li>
-          `
-      )}
-    </ul>
+  let collectionArea = makeCollectionArea(currentData)
+  let opts = {nextPage, previousPage, currentPage, lastPage}
+  let element = bel`
+    <div>
+      ${collectionArea}
+      ${paginationButtons(opts)}
+    </div>
   `
   document.body.appendChild(element)
 }
 
 start()
 
-},{"./contracts":"/Users/alincode/code/contracts-view/src/contracts.js","lodash":"/Users/alincode/code/contracts-view/node_modules/lodash/lodash.js","nanohtml":"/Users/alincode/code/contracts-view/node_modules/nanohtml/lib/browser.js","query-string":"/Users/alincode/code/contracts-view/node_modules/query-string/index.js"}]},{},["/Users/alincode/code/contracts-view/src/index.js"]);
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","lodash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/lodash/lodash.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js","paginationButtons":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js","query-string":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/query-string/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js":[function(require,module,exports){
+// https://etherscan.io/contractsVerified
+
+module.exports = [
+  `pragma solidity ^0.5.8;
+
+    import "https://gist.githubusercontent.com/ninabreznik/d8790c3f6902830bdcf74d8ffcc47889/raw/31022301b0fb0986041711d58d9417173b2bcde2/Lock";
+
+    contract Lockdrop {
+
+        enum Term {
+            ThreeMo,
+            SixMo,
+            TwelveMo
+        }
+        // Time constants
+        uint256 constant public LOCK_DROP_PERIOD = 1 days * 92; // 3 months
+        uint256 public LOCK_START_TIME;
+        uint256 public LOCK_END_TIME;
+        // ETH locking events
+        event Locked(address indexed owner, uint256 eth, Lock lockAddr, Term term, bytes edgewareAddr, bool isValidator, uint time);
+        event Signaled(address indexed contractAddr, bytes edgewareAddr, uint time);
+        constructor(uint startTime) public {
+            LOCK_START_TIME = startTime;
+            LOCK_END_TIME = startTime + LOCK_DROP_PERIOD;
+    }`,
+  `pragma solidity >0.4.23 <0.7.0;
+
+contract BlindAuction {
+    struct Bid {
+        bytes32 blindedBid;
+        uint deposit;
+    }
+
+    address payable public beneficiary;
+    uint public biddingEnd;
+    uint public revealEnd;
+    bool public ended;
+
+    mapping(address => Bid[]) public bids;
+
+    address public highestBidder;
+    uint public highestBid;
+
+    // Allowed withdrawals of previous bids
+    mapping(address => uint) pendingReturns;
+
+    event AuctionEnded(address winner, uint highestBid);
+
+    /// Modifiers are a convenient way to validate inputs to
+    /// functions. onlyBefore is applied to bid below:
+    /// The new function body is the modifier's body where
+    /// _ is replaced by the old function body.
+    modifier onlyBefore(uint _time) { require(now < _time); _; }
+    modifier onlyAfter(uint _time) { require(now > _time); _; }`,
+  '0x9f7744961f795fAb5E1F4A36779197DAc020C2EC',
+  '0x85f9A3a6e7D0490fFe43E30eB69794fb15f4d943',
+  '0xf5DE9e4CBb4c0620Dc774BDb02b3223436D767DB',
+  '0x12Ac8Fa232888CDFF7B923ca584A887835a631f2',
+  '0x45C998A972E6449858206775D50F3925Eb1E5b1b',
+  '0xC8D2485654Ba543Ebc1a43660e39D0F7467aB5AD',
+  '0x501D60ED2cF1a4a6e7c754B5392006702eB9E434',
+  '0x956eBA6cc01941b50C36cf6c5c0480a14f0D669C',
+  '0x190a38BAf316ac2693983a77874F2036dc1D3bA0',
+  '0x54de839739D1efe000F534161d7feF77Ddd7f96c',
+  '0x93C32845faE42c83A70e5f06214c8433665C2ab5',
+  '0x60b4B0C6a1c518be1f7F68a8ceD6af510Fd21b4B',
+  '0x90D7689C6d2f4d56671B24CA924f11715EC949c1',
+  '0xb4450f8048dd4EaA6E24b6FDb4F8328B22B61bef',
+  '0x56cC955c30581c202671E8B55DB871abCD78BBa0',
+  '0x9639740A2536fFC5b3B97df6d9C1bD4fAe557C08',
+  '0x78FF1069B9088690F33Ae9550832B97f06e5d555',
+  '0xb0e50319c5734A6aBB12feb2C235003169361c4E',
+  '0x02a9BB92365B72fB735364aF2af55ebfA9Eb02c2',
+  '0x4c961Ce47d5278678253323E7AeC14e37333F7Ee',
+  '0xa2eA412AF6bADDEcdD121B235855f790AcBD6bCd',
+  '0x5688Ed108EF4999eabAFeF3748f69Ec800b0A6E9',
+]
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js":[function(require,module,exports){
+const bel = require('bel')
+const csjs = require('csjs-inject')
+const contracts = require('contracts')
+let css
+
+module.exports = makeCollectionArea
+
+function makeCollectionArea(currentData) {
+  return bel`
+    <div class=${css.collectionArea}>
+      ${currentData.map(
+        address =>
+          bel`
+            <div class=${css.collectionBox}>
+              <pre class=${css.code}>${address}</pre>
+              <div class=${css.collectionBoxCover}>
+                <img class=${css.avatar} src="https://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=200&r=pg&d=mp">
+                <div class=${css.coverText}>
+                  <div class=${css.coverTextTitle}>New contract</div>
+                  <div class=${css.coverTextSubtitle}>Gregory Bowen</div>
+                </div>
+              </div>
+            </div>
+          `
+      )}
+    </div>
+  `
+}
+
+css = csjs`
+  .collectionArea {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .collectionBox {
+    width: 350px;
+    height: 280px;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 1%;
+    margin: 1%;
+    overflow: hidden;
+    position: relative;
+  }
+  .collectionBox:hover {
+    margin: 0%;
+    width: calc(350px * 1.1);
+    height: calc(280px * 1.1);
+    transition: 0.4s ease-in-out;
+    cursor: pointer;
+  }
+  .code {
+    height: inherit;
+  }
+  .collectionBoxCover {
+    position: absolute;
+    height: 90px;
+    background-color: white;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid black;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .avatar {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+  }
+  .coverText {
+    display: flex;
+    flex-direction: column;
+  }
+  .coverTextTitle {
+    font-weight: bold;
+    font-size: 30px;
+  }
+  .coverTextSubtitle {
+
+  }
+`
+
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js":[function(require,module,exports){
+const bel = require('bel')
+const csjs = require('csjs-inject')
+let currentUrl = 'window.location.href'
+let css
+
+module.exports = paginationButtons
+
+function paginationButtons ({nextPage, previousPage, currentPage, lastPage}) {
+  let el = bel`
+    <div class=${css.pagination}>
+      <div class="${css.previous} ${css.button}" onclick=${()=>goToPageUrl(previousPage)}>Previous</div>
+      <div class="${css.next} ${css.button}" onclick=${()=>goToPageUrl(nextPage)}>Next</div>
+    </div>`
+  return el
+}
+
+function goToPageUrl(page) {
+  const newUrl = `${window.location.origin}/?page=${page}`
+  if (currentUrl != newUrl && page != null) location.assign(newUrl)
+}
+
+css = csjs`
+  .pagination {
+    display: flex;
+    justify-content: center;
+  }
+  .button {
+    width: 50px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+  }
+  .button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+  .previous {}
+  .next {}
+`
+
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js"}]},{},["/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/index.js"]);

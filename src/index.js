@@ -4,11 +4,11 @@ const csjs = require('csjs-inject')
 const queryString = require('query-string')
 const parsed = queryString.parse(location.search)
 const contracts = require('contracts')
+const paginationButtons = require('paginationButtons')
 const makeCollectionArea = require('makeCollectionArea')
 let css
 
 let contractCount = contracts.length
-let currentUrl = 'window.location.href'
 let pagingCount = 6
 
 let currentPage = parsed.page ? parseInt(parsed.page) : 1
@@ -64,10 +64,6 @@ function closeAction() {
   location.url = ''
 }
 
-function goToPageUrl(page) {
-  const newUrl = `${window.location.origin}/?page=${page}`
-  if (currentUrl != newUrl) location.assign(newUrl)
-}
 
 // window.location.href
 // "http://192.168.0.163:9966/?page=1"
@@ -78,19 +74,12 @@ function start() {
   let datas = _.chunk(contracts, pagingCount)
   let currentData = datas[currentPage - 1]
 
-  let pagination = bel`
-    <div>
-      ${previousPage}
-      ${currentPage}
-      ${nextPage}
-      ${lastPage}
-    </div>
-  `
   let collectionArea = makeCollectionArea(currentData)
+  let opts = {nextPage, previousPage, currentPage, lastPage}
   let element = bel`
     <div>
       ${collectionArea}
-      ${pagination}
+      ${paginationButtons(opts)}
     </div>
   `
   document.body.appendChild(element)
