@@ -1,8 +1,8 @@
 # Contract Codepen
 
-[Demo](https://alincode.github.io/contracts-view/)
+[Demo](https://ethereum-play.github.io/collection-page/)
 
 ### feature
 
 ## License
-MIT © [alincode](https://github.com/alincode/solcjs-lightweight)
+MIT
