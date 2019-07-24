@@ -6,6 +6,9 @@ const parsed = queryString.parse(location.search)
 const contracts = require('contracts')
 const paginationButtons = require('paginationButtons')
 const makeCollectionArea = require('makeCollectionArea')
+const themes = require('themes')
+// set the default theme
+setTheme(themes('lightTheme'))
 let css
 
 let contractCount = contracts.length
@@ -27,32 +30,27 @@ console.log(`currentPage:${currentPage}`)
 console.log(`lastPage:${lastPage}`)
 console.log(`nextPage:${nextPage}`)
 
-let blocks = [
-  {
-    like: 0,
-    title: 'title 123',
-    publishAt: 123,
-    author: 'alin',
-  },
-  {
-    like: 0,
-    title: 'title 234',
-    publishAt: 234,
-    author: 'alin',
-  },
-  {
-    like: 0,
-    title: 'title 345',
-    publishAt: 345,
-    author: 'alin',
-  },
-  {
-    like: 0,
-    title: 'title 456',
-    publishAt: 456,
-    author: 'alin',
-  },
-]
+function setThemeVar([key, value]) {
+    const element = document.documentElement;
+    element.style.setProperty(key, value);
+}
+
+function setTheme (theme) {
+  let arr = Object.entries(theme)
+  for (var i = 0; i < arr.length; i++) {
+    setThemeVar(arr[i])
+  }
+}
+
+function themeSwitch () {
+  debugger
+  return bel`
+    <div class=${css.themeSwitch}>
+      <div onclick=${()=>setTheme(themes('lightTheme'))}>Light theme/</div>
+      <div onclick=${()=>setTheme(themes('darkTheme'))}>/Dark theme</div>
+    </div>
+  `
+}
 
 // ===== Action =====
 
@@ -70,7 +68,7 @@ function closeAction() {
 // window.location.origin
 // "http://192.168.0.163:9966"
 
-function start() {
+function start(theme) {
   let datas = _.chunk(contracts, pagingCount)
   let currentData = datas[currentPage - 1]
 
@@ -78,6 +76,7 @@ function start() {
   let opts = {nextPage, previousPage, currentPage, lastPage}
   let element = bel`
     <div>
+      ${themeSwitch()}
       ${collectionArea}
       ${paginationButtons(opts)}
     </div>
@@ -85,4 +84,13 @@ function start() {
   document.body.appendChild(element)
 }
 
+// ===== css =====
+
+css = csjs`
+  .themeSwitch {
+    display: flex;
+  }
+`
+
+// ===== Start =====
 start()

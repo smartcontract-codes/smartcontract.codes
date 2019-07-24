@@ -18599,6 +18599,9 @@ const parsed = queryString.parse(location.search)
 const contracts = require('contracts')
 const paginationButtons = require('paginationButtons')
 const makeCollectionArea = require('makeCollectionArea')
+const themes = require('themes')
+// set the default theme
+setTheme(themes('lightTheme'))
 let css
 
 let contractCount = contracts.length
@@ -18620,32 +18623,27 @@ console.log(`currentPage:${currentPage}`)
 console.log(`lastPage:${lastPage}`)
 console.log(`nextPage:${nextPage}`)
 
-let blocks = [
-  {
-    like: 0,
-    title: 'title 123',
-    publishAt: 123,
-    author: 'alin',
-  },
-  {
-    like: 0,
-    title: 'title 234',
-    publishAt: 234,
-    author: 'alin',
-  },
-  {
-    like: 0,
-    title: 'title 345',
-    publishAt: 345,
-    author: 'alin',
-  },
-  {
-    like: 0,
-    title: 'title 456',
-    publishAt: 456,
-    author: 'alin',
-  },
-]
+function setThemeVar([key, value]) {
+    const element = document.documentElement;
+    element.style.setProperty(key, value);
+}
+
+function setTheme (theme) {
+  let arr = Object.entries(theme)
+  for (var i = 0; i < arr.length; i++) {
+    setThemeVar(arr[i])
+  }
+}
+
+function themeSwitch () {
+  debugger
+  return bel`
+    <div class=${css.themeSwitch}>
+      <div onclick=${()=>setTheme(themes('lightTheme'))}>Light theme/</div>
+      <div onclick=${()=>setTheme(themes('darkTheme'))}>/Dark theme</div>
+    </div>
+  `
+}
 
 // ===== Action =====
 
@@ -18663,7 +18661,7 @@ function closeAction() {
 // window.location.origin
 // "http://192.168.0.163:9966"
 
-function start() {
+function start(theme) {
   let datas = _.chunk(contracts, pagingCount)
   let currentData = datas[currentPage - 1]
 
@@ -18671,6 +18669,7 @@ function start() {
   let opts = {nextPage, previousPage, currentPage, lastPage}
   let element = bel`
     <div>
+      ${themeSwitch()}
       ${collectionArea}
       ${paginationButtons(opts)}
     </div>
@@ -18678,9 +18677,18 @@ function start() {
   document.body.appendChild(element)
 }
 
+// ===== css =====
+
+css = csjs`
+  .themeSwitch {
+    display: flex;
+  }
+`
+
+// ===== Start =====
 start()
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","lodash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/lodash/lodash.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js","paginationButtons":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js","query-string":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/query-string/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","lodash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/lodash/lodash.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js","paginationButtons":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js","query-string":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/query-string/index.js","themes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/themes.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js":[function(require,module,exports){
 // https://etherscan.io/contractsVerified
 
 module.exports = [
@@ -18759,53 +18767,41 @@ contract BlindAuction {
   '0x5688Ed108EF4999eabAFeF3748f69Ec800b0A6E9',
 ]
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCard.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
-const contracts = require('contracts')
+
 let css
 
-module.exports = makeCollectionArea
+module.exports = makeCard
 
-function makeCollectionArea(currentData) {
-  return bel`
-    <div class=${css.collectionArea}>
-      ${currentData.map(
-        address =>
-          bel`
-            <div class=${css.collectionBox}>
-              <pre class=${css.code}>${address}</pre>
-              <div class=${css.collectionBoxCover}>
-                <img class=${css.avatar} src="https://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=200&r=pg&d=mp">
-                <div class=${css.coverText}>
-                  <div class=${css.coverTextTitle}>New contract</div>
-                  <div class=${css.coverTextSubtitle}>Gregory Bowen</div>
-                </div>
-              </div>
-            </div>
-          `
-      )}
-    </div>
-  `
+function makeCard (address) {
+  let card = bel`
+    <div class=${css.collectionCard}>
+      <pre class=${css.code}>${address}</pre>
+      <div class=${css.collectionCardCover}>
+        <img class=${css.avatar} src="https://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=200&r=pg&d=mp">
+        <div class=${css.coverText}>
+          <div class=${css.coverTextTitle}>New contract</div>
+          <div class=${css.coverTextSubtitle}>Gregory Bowen</div>
+        </div>
+      </div>
+    </div>`
+  return card
 }
 
 css = csjs`
-  .collectionArea {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .collectionBox {
+  .collectionCard {
     width: 350px;
     height: 280px;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid var(--secondary);
     padding: 1%;
     margin: 1%;
     overflow: hidden;
     position: relative;
   }
-  .collectionBox:hover {
+  .collectionCard:hover {
     margin: 0%;
     width: calc(350px * 1.1);
     height: calc(280px * 1.1);
@@ -18815,14 +18811,14 @@ css = csjs`
   .code {
     height: inherit;
   }
-  .collectionBoxCover {
+  .collectionCardCover {
     position: absolute;
     height: 90px;
-    background-color: white;
+    background-color: var(--secondary);
     width: 100%;
     bottom: 0;
     left: 0;
-    border-top: 1px solid black;
+    border-top: 1px solid var(--primary);
     padding: 10px 0;
     display: flex;
     flex-direction: row;
@@ -18846,7 +18842,34 @@ css = csjs`
   }
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js":[function(require,module,exports){
+const bel = require('bel')
+const csjs = require('csjs-inject')
+const contracts = require('contracts')
+const makeCard = require('makeCard')
+let css
+
+module.exports = makeCollectionArea
+
+function makeCollectionArea(currentData) {
+  return bel`
+    <div class=${css.collectionArea}>
+      ${currentData.map(
+        address => makeCard(address)
+      )}
+    </div>
+  `
+}
+
+css = csjs`
+  .collectionArea {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+`
+
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","makeCard":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCard.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 let currentUrl = 'window.location.href'
@@ -18875,7 +18898,8 @@ css = csjs`
   }
   .button {
     width: 50px;
-    border: 1px solid black;
+    border: 1px solid var(--secondary);
+    background-color: var(--primary);
     border-radius: 5px;
     padding: 1%;
     display: flex;
@@ -18883,7 +18907,7 @@ css = csjs`
     margin: 5px;
   }
   .button:hover {
-    background-color: black;
+    background-color: var(--secondary);
     color: white;
     cursor: pointer;
   }
@@ -18891,4 +18915,23 @@ css = csjs`
   .next {}
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js"}]},{},["/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/index.js"]);
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/themes.js":[function(require,module,exports){
+module.exports = themes
+
+function themes (themeName) {
+  const lightTheme = {
+    '--primary': '#edc9ff',
+    '--secondary': '#c6ffea'
+  }
+  const darkTheme = {
+    '--primary': '#14b9d5',
+    '--secondary': '#ed1e7b'
+  }
+  const themes = {
+    lightTheme,
+    darkTheme
+  }
+  return themes[themeName] || themes['lightTheme']
+}
+
+},{}]},{},["/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/index.js"]);
