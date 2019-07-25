@@ -19,6 +19,7 @@
   "dependencies": {
     "bel": "^6.0.0",
     "csjs-inject": "^1.0.1",
+    "dat-sdk": "^0.1.0",
     "lodash": "^4.17.11",
     "query-string": "^6.5.0"
   }

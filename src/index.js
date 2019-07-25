@@ -1,38 +1,21 @@
 const _ = require('lodash')
 const bel = require('bel')
 const csjs = require('csjs-inject')
+let css
 const queryString = require('query-string')
 const parsed = queryString.parse(location.search)
-const contracts = require('contracts')
+const search = require('search')
 const paginationButtons = require('paginationButtons')
 const makeCollectionArea = require('makeCollectionArea')
+
+// ===== theme =====
+
 const themes = require('themes')
-// set the default theme
-setTheme(themes('lightTheme'))
-let css
-
-let contractCount = contracts.length
-let pagingCount = 6
-
-let currentPage = parsed.page ? parseInt(parsed.page) : 1
-let previousPage = currentPage == 1 ? null : currentPage - 1
-// let firstPage = 1
-let lastPage =
-  contracts.length <= pagingCount
-    ? null
-    : Math.ceil(contractCount / pagingCount)
-let nextPage =
-  lastPage != null && currentPage < lastPage ? currentPage + 1 : null
-
-console.log(`contracts.length:${contractCount}`)
-console.log(`previousPage:${previousPage}`)
-console.log(`currentPage:${currentPage}`)
-console.log(`lastPage:${lastPage}`)
-console.log(`nextPage:${nextPage}`)
+setTheme(themes('darkTheme'))
 
 function setThemeVar([key, value]) {
-    const element = document.documentElement;
-    element.style.setProperty(key, value);
+  const element = document.documentElement;
+  element.style.setProperty(key, value);
 }
 
 function setTheme (theme) {
@@ -43,15 +26,14 @@ function setTheme (theme) {
 }
 
 function themeSwitch () {
-  debugger
   return bel`
-    <div class=${css.themeSwitch}>
-      <div onclick=${()=>setTheme(themes('lightTheme'))}>Light theme/</div>
-      <div onclick=${()=>setTheme(themes('darkTheme'))}>/Dark theme</div>
-    </div>
+  <div class=${css.themeSwitch}>
+  <div onclick=${()=>setTheme(themes('lightTheme'))}>Light theme/</div>
+  <div onclick=${()=>setTheme(themes('darkTheme'))}>/Dark theme</div>
+  </div>
   `
 }
-
+const contracts = require('contracts')(start)
 // ===== Action =====
 
 function clickAction() {
@@ -62,13 +44,34 @@ function closeAction() {
   location.url = ''
 }
 
-
 // window.location.href
 // "http://192.168.0.163:9966/?page=1"
 // window.location.origin
 // "http://192.168.0.163:9966"
 
-function start(theme) {
+function start(contracts) {
+
+  // ===== pagination =====
+
+  let contractCount = contracts.length
+  let pagingCount = 8 // cards displayed per page
+
+  let currentPage = parsed.page ? parseInt(parsed.page) : 1
+  let previousPage = currentPage == 1 ? null : currentPage - 1
+  // let firstPage = 1
+  let lastPage =
+    contracts.length <= pagingCount
+      ? null
+      : Math.ceil(contractCount / pagingCount)
+  let nextPage =
+    lastPage != null && currentPage < lastPage ? currentPage + 1 : null
+
+  console.log(`contracts.length:${contractCount}`)
+  console.log(`previousPage:${previousPage}`)
+  console.log(`currentPage:${currentPage}`)
+  console.log(`lastPage:${lastPage}`)
+  console.log(`nextPage:${nextPage}`)
+
   let datas = _.chunk(contracts, pagingCount)
   let currentData = datas[currentPage - 1]
 
@@ -77,6 +80,7 @@ function start(theme) {
   let element = bel`
     <div>
       ${themeSwitch()}
+      ${search()}
       ${collectionArea}
       ${paginationButtons(opts)}
     </div>
@@ -87,8 +91,12 @@ function start(theme) {
 // ===== css =====
 
 css = csjs`
+  body {
+    background-color: var(--background)
+  }
   .themeSwitch {
     display: flex;
+    color: var(--primary)
   }
 `
 
