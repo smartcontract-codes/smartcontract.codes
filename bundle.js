@@ -62566,26 +62566,28 @@ function getContracts (done) {
       if (err) console.log(err)
       if (addresses) {
         for (var i=0; i<addresses.length; i++) {
-          getArr(i, addresses, done)
+          getContractsArr(i, addresses, done)
         }
       }
     })
   })
 }
 
-
-function getArr (x, addresses, done) {
+// loop over address/src/contractsArr
+function getContractsArr (x, addresses, done) {
   archive.readdir(`${addresses[x]}/src/`, (err, contractsArr) => {
     if (err) console.log(err)
     if (contractsArr) {
       counter = counter + contractsArr.length
       for (var i=0; i<contractsArr.length; i++) {
+        console.log(`contractsArr.length: ${contractsArr.length}`)
         getSourceCode(x, i, addresses, contractsArr, done)
       }
     }
   })
 }
 
+// get source code and oush it to `contracts` array
 function getSourceCode (x, i, addresses, contractsArr, done) {
   archive.readFile(`${addresses[x]}/src/${contractsArr[i]}`, 'utf8', (err, contract) => {
     if (err) console.log(err)
@@ -62728,7 +62730,7 @@ function paginationButtons ({nextPage, previousPage, currentPage, lastPage}) {
 // ===== helper functions =====
 
 function goToPageUrl(page) {
-  const newUrl = `${window.location.origin}/?page=${page}`
+  const newUrl = `${window.location.href}?page=${page}`
   if (currentUrl != newUrl && page != null) location.assign(newUrl)
 }
 
@@ -62768,10 +62770,12 @@ module.exports = search
 function search () {
   return bel`
     <div class=${css.searchBar}>
-      <input type="text" value="Search contract">
+      <input type="text" value="Search contract" onclick="${(e)=>e.target.select()}">
     </div>
   `
 }
+
+
 
 // ===== css =====
 
@@ -62808,7 +62812,7 @@ function themes (themeName) {
     '--card-cover-secondary': '#ffffff',
     '--search-input-border': '#c6ffea',
     '--search-input-background': '#c6ffea' ,
-    'font-size-large': '20px'
+    '--font-size-large': '20px'
   }
   const darkTheme = {
     '--background': '#181920',
@@ -62821,7 +62825,7 @@ function themes (themeName) {
     '--card-cover-secondary': '#6700ff',
     '--search-input-border': '#6700ff',
     '--search-input-background': '#6700ff',
-    '--font-size-large': '20'
+    '--font-size-large': '20px'
   }
   const themes = {
     lightTheme,
