@@ -1,10 +1,8 @@
-const _ = require('lodash')
 const bel = require('bel')
 const csjs = require('csjs-inject')
 let css
-const queryString = require('query-string')
-const parsed = queryString.parse(location.search)
 const search = require('search')
+const pagination = require('pagination')
 const paginationButtons = require('paginationButtons')
 const makeCollectionArea = require('makeCollectionArea')
 
@@ -33,7 +31,8 @@ function themeSwitch () {
   </div>
   `
 }
-const contracts = require('contracts')(start)
+
+require('contracts')(start)
 // ===== Action =====
 
 function clickAction() {
@@ -51,38 +50,17 @@ function closeAction() {
 
 function start(contracts) {
 
-  // ===== pagination =====
+  let ops = pagination(contracts)
 
-  let contractCount = contracts.length
-  let pagingCount = 8 // cards displayed per page
-
-  let currentPage = parsed.page ? parseInt(parsed.page) : 1
-  let previousPage = currentPage == 1 ? null : currentPage - 1
-  // let firstPage = 1
-  let lastPage =
-    contracts.length <= pagingCount
-      ? null
-      : Math.ceil(contractCount / pagingCount)
-  let nextPage =
-    lastPage != null && currentPage < lastPage ? currentPage + 1 : null
-
-  console.log(`contracts.length:${contractCount}`)
-  console.log(`previousPage:${previousPage}`)
-  console.log(`currentPage:${currentPage}`)
-  console.log(`lastPage:${lastPage}`)
-  console.log(`nextPage:${nextPage}`)
-
-  let datas = _.chunk(contracts, pagingCount)
-  let currentData = datas[currentPage - 1]
-
-  let collectionArea = makeCollectionArea(currentData)
-  let opts = {nextPage, previousPage, currentPage, lastPage}
+  const collectionContainer = bel`<div>${
+    makeCollectionArea(ops.currentData)
+  }</div>`
   let element = bel`
     <div>
       ${themeSwitch()}
-      ${search()}
-      ${collectionArea}
-      ${paginationButtons(opts)}
+      ${search(contracts, collectionContainer, ops)}
+      ${collectionContainer}
+      ${paginationButtons(ops)}
     </div>
   `
   document.body.appendChild(element)
@@ -99,6 +77,3 @@ css = csjs`
     color: var(--primary)
   }
 `
-
-// ===== Start =====
-start()
