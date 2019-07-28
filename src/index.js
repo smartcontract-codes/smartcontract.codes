@@ -1,10 +1,14 @@
 const bel = require('bel')
 const csjs = require('csjs-inject')
 let css
+const queryString = require('query-string')
+const parsed = queryString.parse(location.search)
+const header = require('header')
 const search = require('search')
 const pagination = require('pagination')
 const paginationButtons = require('paginationButtons')
 const makeCollectionArea = require('makeCollectionArea')
+
 
 // ===== theme =====
 
@@ -26,8 +30,8 @@ function setTheme (theme) {
 function themeSwitch () {
   return bel`
   <div class=${css.themeSwitch}>
-  <div onclick=${()=>setTheme(themes('lightTheme'))}>Light theme/</div>
-  <div onclick=${()=>setTheme(themes('darkTheme'))}>/Dark theme</div>
+    <span class="${css.colorplate} ${css.cubeWhite}" onclick=${()=>setTheme(themes('lightTheme'))}></span>
+    <span class="${css.colorplate} ${css.cubeDark}" onclick=${()=>setTheme(themes('darkTheme'))}></span>
   </div>
   `
 }
@@ -56,11 +60,14 @@ function start(contracts) {
     makeCollectionArea(ops.currentData)
   }</div>`
   let element = bel`
-    <div>
-      ${themeSwitch()}
-      ${search(contracts, collectionContainer, ops)}
-      ${collectionContainer}
-      ${paginationButtons(collectionContainer, ops)}
+    <div class=${css.wrapper}>
+      ${header()}
+      <div class=${css.content}>
+        ${themeSwitch()}
+        ${search(contracts, collectionContainer, ops)}
+        ${collectionContainer}
+        ${paginationButtons(collectionContainer, ops)}
+      </div>
     </div>
   `
   document.body.appendChild(element)
@@ -69,11 +76,96 @@ function start(contracts) {
 // ===== css =====
 
 css = csjs`
-  body {
-    background-color: var(--background)
+  @import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+  html {
+    font-size: 65%;
   }
+  body {
+    height: 100%;
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--body-color);
+    background-color: var(--body-background);
+    font-size: 100%;
+  }
+  .wrapper {
+    display: grid;
+    grid-template-areas: 
+      "header"
+      "content";
+    grid-template-rows: 120px 1fr;
+    padding: 0 38px;
+  }
+  .content {
+    grid-area: content;
+    display: grid;
+    grid-template-areas:
+      "themeSwitch"
+      "search"
+      "collection"
+      "pagination"
+  }
+  a {
+    text-decoration: none;
+    color: var(--body-color);
+  }
+  button {
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
   .themeSwitch {
-    display: flex;
-    color: var(--primary)
+    grid-area: themeSwitch;
+    justify-self: end;
+    color: var(--primary);
+    padding-bottom: 15px;
+  }
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+  h1 {
+    font-size: 6rem;
+  }
+  h2 {
+    font-size: 5rem;
+  }
+  h3 {
+    font-size: 4rem;
+  }
+  h4 {
+    font-size: 3rem;
+  }
+  h5 {
+    font-size: 2rem;
+  }
+  h6 {
+    font-size: 1.6rem;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+  ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .colorplate {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    border: 1px solid #888;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .cubeWhite {
+    background-color: #fff;
+  }
+  .cubeDark {
+    background-color: #1D1D26; 
   }
 `
