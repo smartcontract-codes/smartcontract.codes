@@ -1,4 +1,4 @@
-(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/@geut/discovery-swarm-webrtc/index.js":[function(require,module,exports){
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({"/Users/fannieyeh/prj/play/web/collection-page/node_modules/@geut/discovery-swarm-webrtc/index.js":[function(require,module,exports){
 (function (process){
 const assert = require('assert')
 const EventEmitter = require('events')
@@ -111,7 +111,7 @@ class DiscoverySwarmWebrtc extends EventEmitter {
 module.exports = (...args) => new DiscoverySwarmWebrtc(...args)
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/assert.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","pump":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pump/index.js","sub-signalhub":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sub-signalhub/index.js","webrtc-swarm":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/webrtc-swarm/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/index.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","assert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/assert/assert.js","events":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify/node_modules/events/events.js","pump":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pump/index.js","sub-signalhub":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sub-signalhub/index.js","webrtc-swarm":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/webrtc-swarm/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/index.js":[function(require,module,exports){
 (function (Buffer){
 var from = require('from2')
 var mutexify = require('mutexify')
@@ -824,7 +824,7 @@ function getCache (opts) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./messages":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/messages.js","array-lru":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/array-lru/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","codecs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/codecs/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","from2":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/from2/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","mutexify":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/mutexify/index.js","process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/process-nextick-args/index.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/messages.js":[function(require,module,exports){
+},{"./messages":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/messages.js","array-lru":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/array-lru/index.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","codecs":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/codecs/index.js","events":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify/node_modules/events/events.js","from2":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/from2/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","mutexify":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/mutexify/index.js","process-nextick-args":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/process-nextick-args/index.js","varint":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/messages.js":[function(require,module,exports){
 (function (Buffer){
 // This file is auto generated by the protocol-buffers cli tool
 
@@ -940,7 +940,7 @@ function defined (val) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","protocol-buffers-encodings":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/codecs/index.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","protocol-buffers-encodings":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/protocol-buffers-encodings/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/codecs/index.js":[function(require,module,exports){
 (function (Buffer){
 module.exports = codecs
 
@@ -1015,7 +1015,7 @@ function createString (type) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/process-nextick-args/index.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/process-nextick-args/index.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -1062,7 +1062,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/decode.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/decode.js":[function(require,module,exports){
 module.exports = read
 
 var MSB = 0x80
@@ -1093,7 +1093,7 @@ function read(buf, offset) {
   return res
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/encode.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/encode.js":[function(require,module,exports){
 module.exports = encode
 
 var MSB = 0x80
@@ -1121,14 +1121,14 @@ function encode(num, out, offset) {
   return out
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/index.js":[function(require,module,exports){
 module.exports = {
     encode: require('./encode.js')
   , decode: require('./decode.js')
   , encodingLength: require('./length.js')
 }
 
-},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/length.js":[function(require,module,exports){
+},{"./decode.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/decode.js","./encode.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/encode.js","./length.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/length.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/length.js":[function(require,module,exports){
 
 var N1 = Math.pow(2,  7)
 var N2 = Math.pow(2, 14)
@@ -1155,7 +1155,7 @@ module.exports = function (value) {
   )
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/array-lru/crc16.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/array-lru/crc16.js":[function(require,module,exports){
 // crc16 impl, optimized for numeric inputs
 
 var TABLE = [
@@ -1208,7 +1208,7 @@ function crc16 (n) {
   return crc
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/array-lru/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/array-lru/index.js":[function(require,module,exports){
 var hash = require('./crc16')
 
 module.exports = LRU
@@ -1323,7 +1323,7 @@ function maskedHash (mask) {
   }
 }
 
-},{"./crc16":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/array-lru/crc16.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1.js":[function(require,module,exports){
+},{"./crc16":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/array-lru/crc16.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1.js":[function(require,module,exports){
 var asn1 = exports;
 
 asn1.bignum = require('bn.js');
@@ -1334,7 +1334,7 @@ asn1.constants = require('./asn1/constants');
 asn1.decoders = require('./asn1/decoders');
 asn1.encoders = require('./asn1/encoders');
 
-},{"./asn1/api":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/api.js","./asn1/base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/index.js","./asn1/constants":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/constants/index.js","./asn1/decoders":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/decoders/index.js","./asn1/encoders":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/encoders/index.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/api.js":[function(require,module,exports){
+},{"./asn1/api":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/api.js","./asn1/base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/base/index.js","./asn1/constants":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/constants/index.js","./asn1/decoders":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/decoders/index.js","./asn1/encoders":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/encoders/index.js","bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/api.js":[function(require,module,exports){
 var asn1 = require('../asn1');
 var inherits = require('inherits');
 
@@ -1397,7 +1397,7 @@ Entity.prototype.encode = function encode(data, enc, /* internal */ reporter) {
   return this._getEncoder(enc).encode(data, reporter);
 };
 
-},{"../asn1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","vm":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/vm-browserify/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/buffer.js":[function(require,module,exports){
+},{"../asn1":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","vm":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/vm-browserify/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/base/buffer.js":[function(require,module,exports){
 var inherits = require('inherits');
 var Reporter = require('../base').Reporter;
 var Buffer = require('buffer').Buffer;
@@ -1515,7 +1515,7 @@ EncoderBuffer.prototype.join = function join(out, offset) {
   return out;
 };
 
-},{"../base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/index.js":[function(require,module,exports){
+},{"../base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/base/index.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/base/index.js":[function(require,module,exports){
 var base = exports;
 
 base.Reporter = require('./reporter').Reporter;
@@ -1523,7 +1523,7 @@ base.DecoderBuffer = require('./buffer').DecoderBuffer;
 base.EncoderBuffer = require('./buffer').EncoderBuffer;
 base.Node = require('./node');
 
-},{"./buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/buffer.js","./node":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/node.js","./reporter":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/reporter.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/node.js":[function(require,module,exports){
+},{"./buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/base/buffer.js","./node":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/base/node.js","./reporter":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/base/reporter.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/base/node.js":[function(require,module,exports){
 var Reporter = require('../base').Reporter;
 var EncoderBuffer = require('../base').EncoderBuffer;
 var DecoderBuffer = require('../base').DecoderBuffer;
@@ -2159,7 +2159,7 @@ Node.prototype._isPrintstr = function isPrintstr(str) {
   return /^[A-Za-z0-9 '\(\)\+,\-\.\/:=\?]*$/.test(str);
 };
 
-},{"../base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/index.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/reporter.js":[function(require,module,exports){
+},{"../base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/base/index.js","minimalistic-assert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/minimalistic-assert/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/base/reporter.js":[function(require,module,exports){
 var inherits = require('inherits');
 
 function Reporter(options) {
@@ -2282,7 +2282,7 @@ ReporterError.prototype.rethrow = function rethrow(msg) {
   return this;
 };
 
-},{"inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/constants/der.js":[function(require,module,exports){
+},{"inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/constants/der.js":[function(require,module,exports){
 var constants = require('../constants');
 
 exports.tagClass = {
@@ -2326,7 +2326,7 @@ exports.tag = {
 };
 exports.tagByName = constants._reverse(exports.tag);
 
-},{"../constants":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/constants/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/constants/index.js":[function(require,module,exports){
+},{"../constants":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/constants/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/constants/index.js":[function(require,module,exports){
 var constants = exports;
 
 // Helper
@@ -2347,7 +2347,7 @@ constants._reverse = function reverse(map) {
 
 constants.der = require('./der');
 
-},{"./der":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/constants/der.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/decoders/der.js":[function(require,module,exports){
+},{"./der":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/constants/der.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/decoders/der.js":[function(require,module,exports){
 var inherits = require('inherits');
 
 var asn1 = require('../../asn1');
@@ -2673,13 +2673,13 @@ function derDecodeLen(buf, primitive, fail) {
   return len;
 }
 
-},{"../../asn1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/decoders/index.js":[function(require,module,exports){
+},{"../../asn1":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/decoders/index.js":[function(require,module,exports){
 var decoders = exports;
 
 decoders.der = require('./der');
 decoders.pem = require('./pem');
 
-},{"./der":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/decoders/der.js","./pem":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/decoders/pem.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/decoders/pem.js":[function(require,module,exports){
+},{"./der":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/decoders/der.js","./pem":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/decoders/pem.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/decoders/pem.js":[function(require,module,exports){
 var inherits = require('inherits');
 var Buffer = require('buffer').Buffer;
 
@@ -2730,7 +2730,7 @@ PEMDecoder.prototype.decode = function decode(data, options) {
   return DERDecoder.prototype.decode.call(this, input, options);
 };
 
-},{"./der":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/decoders/der.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/encoders/der.js":[function(require,module,exports){
+},{"./der":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/decoders/der.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/encoders/der.js":[function(require,module,exports){
 var inherits = require('inherits');
 var Buffer = require('buffer').Buffer;
 
@@ -3027,13 +3027,13 @@ function encodeTag(tag, primitive, cls, reporter) {
   return res;
 }
 
-},{"../../asn1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/encoders/index.js":[function(require,module,exports){
+},{"../../asn1":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/encoders/index.js":[function(require,module,exports){
 var encoders = exports;
 
 encoders.der = require('./der');
 encoders.pem = require('./pem');
 
-},{"./der":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/encoders/der.js","./pem":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/encoders/pem.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/encoders/pem.js":[function(require,module,exports){
+},{"./der":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/encoders/der.js","./pem":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/encoders/pem.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/encoders/pem.js":[function(require,module,exports){
 var inherits = require('inherits');
 
 var DEREncoder = require('./der');
@@ -3056,7 +3056,7 @@ PEMEncoder.prototype.encode = function encode(data, options) {
   return out.join('\n');
 };
 
-},{"./der":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/encoders/der.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/assert.js":[function(require,module,exports){
+},{"./der":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1/encoders/der.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/assert/assert.js":[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -3566,7 +3566,7 @@ var objectKeys = Object.keys || function (obj) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"object-assign":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/object-assign/index.js","util/":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/util/util.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
+},{"object-assign":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/object-assign/index.js","util/":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/assert/node_modules/util/util.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/assert/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -3591,14 +3591,14 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/util/support/isBufferBrowser.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/assert/node_modules/util/support/isBufferBrowser.js":[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/util/util.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/assert/node_modules/util/util.js":[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -4188,7 +4188,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/util/support/isBufferBrowser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/atomic-batcher/index.js":[function(require,module,exports){
+},{"./support/isBuffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/assert/node_modules/util/support/isBufferBrowser.js","_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/assert/node_modules/inherits/inherits_browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/atomic-batcher/index.js":[function(require,module,exports){
 module.exports = batcher
 
 function batcher (run) {
@@ -4250,7 +4250,7 @@ function callAll (list, err) {
   for (var i = 0; i < list.length; i++) list[i](err)
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/base64-js/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/base64-js/index.js":[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -4403,7 +4403,7 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/appendChild.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bel/appendChild.js":[function(require,module,exports){
 var trailingNewlineRegex = /\n[\s]+$/
 var leadingNewlineRegex = /^\n[\s]+/
 var trailingSpaceRegex = /[\s]+$/
@@ -4536,7 +4536,7 @@ module.exports = function appendChild (el, childs) {
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bel/browser.js":[function(require,module,exports){
 var hyperx = require('hyperx')
 var appendChild = require('./appendChild')
 
@@ -4637,7 +4637,7 @@ module.exports = hyperx(belCreateElement, {comments: true})
 module.exports.default = module.exports
 module.exports.createElement = belCreateElement
 
-},{"./appendChild":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/appendChild.js","hyperx":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperx/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bitfield-rle/index.js":[function(require,module,exports){
+},{"./appendChild":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bel/appendChild.js","hyperx":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hyperx/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bitfield-rle/index.js":[function(require,module,exports){
 var varint = require('varint')
 var alloc = require('buffer-alloc-unsafe')
 
@@ -4804,7 +4804,7 @@ function align (n) {
   }
 }
 
-},{"buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc-unsafe/index.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/blake2b-wasm/blake2b.js":[function(require,module,exports){
+},{"buffer-alloc-unsafe":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-alloc-unsafe/index.js","varint":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/varint/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/blake2b-wasm/blake2b.js":[function(require,module,exports){
 
 module.exports = loadWebAssembly
 
@@ -4867,7 +4867,7 @@ function charCodeAt (c) {
   return c.charCodeAt(0)
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/blake2b-wasm/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/blake2b-wasm/index.js":[function(require,module,exports){
 var assert = require('nanoassert')
 var wasm = require('./blake2b')()
 
@@ -4997,7 +4997,7 @@ function toHex (n) {
   return n.toString(16)
 }
 
-},{"./blake2b":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/blake2b-wasm/blake2b.js","nanoassert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/nanoassert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/blake2b/index.js":[function(require,module,exports){
+},{"./blake2b":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/blake2b-wasm/blake2b.js","nanoassert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/nanoassert/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/blake2b/index.js":[function(require,module,exports){
 var assert = require('nanoassert')
 var b2wasm = require('blake2b-wasm')
 
@@ -5312,7 +5312,7 @@ b2wasm.ready(function (err) {
   }
 })
 
-},{"blake2b-wasm":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/blake2b-wasm/index.js","nanoassert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/nanoassert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js":[function(require,module,exports){
+},{"blake2b-wasm":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/blake2b-wasm/index.js","nanoassert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/nanoassert/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js":[function(require,module,exports){
 (function (module, exports) {
   'use strict';
 
@@ -8741,7 +8741,7 @@ b2wasm.ready(function (err) {
   };
 })(typeof module === 'undefined' || module, this);
 
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/brorand/index.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browser-resolve/empty.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/brorand/index.js":[function(require,module,exports){
 var r;
 
 module.exports = function rand(len) {
@@ -8808,9 +8808,9 @@ if (typeof self === 'object') {
   }
 }
 
-},{"crypto":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js":[function(require,module,exports){
+},{"crypto":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browser-resolve/empty.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browser-resolve/empty.js":[function(require,module,exports){
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/aes.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/aes.js":[function(require,module,exports){
 // based on the aes implimentation in triple sec
 // https://github.com/keybase/triplesec
 // which is in turn based on the one from crypto-js
@@ -9040,7 +9040,7 @@ AES.prototype.scrub = function () {
 
 module.exports.AES = AES
 
-},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/authCipher.js":[function(require,module,exports){
+},{"safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/authCipher.js":[function(require,module,exports){
 var aes = require('./aes')
 var Buffer = require('safe-buffer').Buffer
 var Transform = require('cipher-base')
@@ -9159,7 +9159,7 @@ StreamCipher.prototype.setAAD = function setAAD (buf) {
 
 module.exports = StreamCipher
 
-},{"./aes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/aes.js","./ghash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/ghash.js","./incr32":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/incr32.js","buffer-xor":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-xor/index.js","cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/browser.js":[function(require,module,exports){
+},{"./aes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/aes.js","./ghash":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/ghash.js","./incr32":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/incr32.js","buffer-xor":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-xor/index.js","cipher-base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/cipher-base/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/browser.js":[function(require,module,exports){
 var ciphers = require('./encrypter')
 var deciphers = require('./decrypter')
 var modes = require('./modes/list.json')
@@ -9174,7 +9174,7 @@ exports.createDecipher = exports.Decipher = deciphers.createDecipher
 exports.createDecipheriv = exports.Decipheriv = deciphers.createDecipheriv
 exports.listCiphers = exports.getCiphers = getCiphers
 
-},{"./decrypter":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/decrypter.js","./encrypter":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/encrypter.js","./modes/list.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/list.json"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/decrypter.js":[function(require,module,exports){
+},{"./decrypter":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/decrypter.js","./encrypter":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/encrypter.js","./modes/list.json":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/list.json"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/decrypter.js":[function(require,module,exports){
 var AuthCipher = require('./authCipher')
 var Buffer = require('safe-buffer').Buffer
 var MODES = require('./modes')
@@ -9300,7 +9300,7 @@ function createDecipher (suite, password) {
 exports.createDecipher = createDecipher
 exports.createDecipheriv = createDecipheriv
 
-},{"./aes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/aes.js","./authCipher":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/authCipher.js","./modes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/index.js","./streamCipher":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/streamCipher.js","cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js","evp_bytestokey":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/evp_bytestokey/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/encrypter.js":[function(require,module,exports){
+},{"./aes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/aes.js","./authCipher":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/authCipher.js","./modes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/index.js","./streamCipher":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/streamCipher.js","cipher-base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/cipher-base/index.js","evp_bytestokey":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/evp_bytestokey/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/encrypter.js":[function(require,module,exports){
 var MODES = require('./modes')
 var AuthCipher = require('./authCipher')
 var Buffer = require('safe-buffer').Buffer
@@ -9416,7 +9416,7 @@ function createCipher (suite, password) {
 exports.createCipheriv = createCipheriv
 exports.createCipher = createCipher
 
-},{"./aes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/aes.js","./authCipher":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/authCipher.js","./modes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/index.js","./streamCipher":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/streamCipher.js","cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js","evp_bytestokey":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/evp_bytestokey/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/ghash.js":[function(require,module,exports){
+},{"./aes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/aes.js","./authCipher":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/authCipher.js","./modes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/index.js","./streamCipher":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/streamCipher.js","cipher-base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/cipher-base/index.js","evp_bytestokey":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/evp_bytestokey/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/ghash.js":[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 var ZEROES = Buffer.alloc(16, 0)
 
@@ -9507,7 +9507,7 @@ GHASH.prototype.final = function (abl, bl) {
 
 module.exports = GHASH
 
-},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/incr32.js":[function(require,module,exports){
+},{"safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/incr32.js":[function(require,module,exports){
 function incr32 (iv) {
   var len = iv.length
   var item
@@ -9524,7 +9524,7 @@ function incr32 (iv) {
 }
 module.exports = incr32
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/cbc.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/cbc.js":[function(require,module,exports){
 var xor = require('buffer-xor')
 
 exports.encrypt = function (self, block) {
@@ -9543,7 +9543,7 @@ exports.decrypt = function (self, block) {
   return xor(out, pad)
 }
 
-},{"buffer-xor":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-xor/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/cfb.js":[function(require,module,exports){
+},{"buffer-xor":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-xor/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/cfb.js":[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 var xor = require('buffer-xor')
 
@@ -9578,7 +9578,7 @@ exports.encrypt = function (self, data, decrypt) {
   return out
 }
 
-},{"buffer-xor":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-xor/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/cfb1.js":[function(require,module,exports){
+},{"buffer-xor":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-xor/index.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/cfb1.js":[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 
 function encryptByte (self, byteParam, decrypt) {
@@ -9622,7 +9622,7 @@ exports.encrypt = function (self, chunk, decrypt) {
   return out
 }
 
-},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/cfb8.js":[function(require,module,exports){
+},{"safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/cfb8.js":[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 
 function encryptByte (self, byteParam, decrypt) {
@@ -9649,7 +9649,7 @@ exports.encrypt = function (self, chunk, decrypt) {
   return out
 }
 
-},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/ctr.js":[function(require,module,exports){
+},{"safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/ctr.js":[function(require,module,exports){
 var xor = require('buffer-xor')
 var Buffer = require('safe-buffer').Buffer
 var incr32 = require('../incr32')
@@ -9681,7 +9681,7 @@ exports.encrypt = function (self, chunk) {
   return xor(chunk, pad)
 }
 
-},{"../incr32":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/incr32.js","buffer-xor":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-xor/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/ecb.js":[function(require,module,exports){
+},{"../incr32":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/incr32.js","buffer-xor":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-xor/index.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/ecb.js":[function(require,module,exports){
 exports.encrypt = function (self, block) {
   return self._cipher.encryptBlock(block)
 }
@@ -9690,7 +9690,7 @@ exports.decrypt = function (self, block) {
   return self._cipher.decryptBlock(block)
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/index.js":[function(require,module,exports){
 var modeModules = {
   ECB: require('./ecb'),
   CBC: require('./cbc'),
@@ -9710,7 +9710,7 @@ for (var key in modes) {
 
 module.exports = modes
 
-},{"./cbc":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/cbc.js","./cfb":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/cfb.js","./cfb1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/cfb1.js","./cfb8":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/cfb8.js","./ctr":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/ctr.js","./ecb":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/ecb.js","./list.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/list.json","./ofb":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/ofb.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/list.json":[function(require,module,exports){
+},{"./cbc":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/cbc.js","./cfb":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/cfb.js","./cfb1":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/cfb1.js","./cfb8":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/cfb8.js","./ctr":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/ctr.js","./ecb":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/ecb.js","./list.json":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/list.json","./ofb":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/ofb.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/list.json":[function(require,module,exports){
 module.exports={
   "aes-128-ecb": {
     "cipher": "AES",
@@ -9903,7 +9903,7 @@ module.exports={
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/ofb.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/ofb.js":[function(require,module,exports){
 (function (Buffer){
 var xor = require('buffer-xor')
 
@@ -9923,7 +9923,7 @@ exports.encrypt = function (self, chunk) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","buffer-xor":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-xor/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/streamCipher.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","buffer-xor":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-xor/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/streamCipher.js":[function(require,module,exports){
 var aes = require('./aes')
 var Buffer = require('safe-buffer').Buffer
 var Transform = require('cipher-base')
@@ -9952,7 +9952,7 @@ StreamCipher.prototype._final = function () {
 
 module.exports = StreamCipher
 
-},{"./aes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/aes.js","cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-cipher/browser.js":[function(require,module,exports){
+},{"./aes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/aes.js","cipher-base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/cipher-base/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-cipher/browser.js":[function(require,module,exports){
 var DES = require('browserify-des')
 var aes = require('browserify-aes/browser')
 var aesModes = require('browserify-aes/modes')
@@ -10021,7 +10021,7 @@ exports.createDecipher = exports.Decipher = createDecipher
 exports.createDecipheriv = exports.Decipheriv = createDecipheriv
 exports.listCiphers = exports.getCiphers = getCiphers
 
-},{"browserify-aes/browser":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/browser.js","browserify-aes/modes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/index.js","browserify-des":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-des/index.js","browserify-des/modes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-des/modes.js","evp_bytestokey":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/evp_bytestokey/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-des/index.js":[function(require,module,exports){
+},{"browserify-aes/browser":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/browser.js","browserify-aes/modes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/modes/index.js","browserify-des":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-des/index.js","browserify-des/modes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-des/modes.js","evp_bytestokey":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/evp_bytestokey/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-des/index.js":[function(require,module,exports){
 var CipherBase = require('cipher-base')
 var des = require('des.js')
 var inherits = require('inherits')
@@ -10073,7 +10073,7 @@ DES.prototype._final = function () {
   return Buffer.from(this._des.final())
 }
 
-},{"cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js","des.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-des/modes.js":[function(require,module,exports){
+},{"cipher-base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/cipher-base/index.js","des.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/des.js/lib/des.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-des/modes.js":[function(require,module,exports){
 exports['des-ecb'] = {
   key: 8,
   iv: 0
@@ -10099,7 +10099,7 @@ exports['des-ede'] = {
   iv: 0
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-rsa/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-rsa/index.js":[function(require,module,exports){
 (function (Buffer){
 var bn = require('bn.js');
 var randomBytes = require('randombytes');
@@ -10143,10 +10143,10 @@ function getr(priv) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/algos.js":[function(require,module,exports){
+},{"bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","randombytes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/randombytes/browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-sign/algos.js":[function(require,module,exports){
 module.exports = require('./browser/algorithms.json')
 
-},{"./browser/algorithms.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/algorithms.json"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/algorithms.json":[function(require,module,exports){
+},{"./browser/algorithms.json":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-sign/browser/algorithms.json"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-sign/browser/algorithms.json":[function(require,module,exports){
 module.exports={
   "sha224WithRSAEncryption": {
     "sign": "rsa",
@@ -10300,7 +10300,7 @@ module.exports={
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/curves.json":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-sign/browser/curves.json":[function(require,module,exports){
 module.exports={
   "1.3.132.0.10": "secp256k1",
   "1.3.132.0.33": "p224",
@@ -10310,7 +10310,7 @@ module.exports={
   "1.3.132.0.35": "p521"
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-sign/browser/index.js":[function(require,module,exports){
 (function (Buffer){
 var createHash = require('create-hash')
 var stream = require('stream')
@@ -10405,7 +10405,7 @@ module.exports = {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./algorithms.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/algorithms.json","./sign":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/sign.js","./verify":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/verify.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","create-hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/browser.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-browserify/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/sign.js":[function(require,module,exports){
+},{"./algorithms.json":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-sign/browser/algorithms.json","./sign":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-sign/browser/sign.js","./verify":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-sign/browser/verify.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","create-hash":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/create-hash/browser.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/stream-browserify/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-sign/browser/sign.js":[function(require,module,exports){
 (function (Buffer){
 // much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
 var createHmac = require('create-hmac')
@@ -10554,7 +10554,7 @@ module.exports.getKey = getKey
 module.exports.makeKey = makeKey
 
 }).call(this,require("buffer").Buffer)
-},{"./curves.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/curves.json","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","browserify-rsa":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-rsa/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","create-hmac":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hmac/browser.js","elliptic":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic.js","parse-asn1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/verify.js":[function(require,module,exports){
+},{"./curves.json":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-sign/browser/curves.json","bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js","browserify-rsa":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-rsa/index.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","create-hmac":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/create-hmac/browser.js","elliptic":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic.js","parse-asn1":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/parse-asn1/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-sign/browser/verify.js":[function(require,module,exports){
 (function (Buffer){
 // much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
 var BN = require('bn.js')
@@ -10641,7 +10641,532 @@ function checkValue (b, q) {
 module.exports = verify
 
 }).call(this,require("buffer").Buffer)
-},{"./curves.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/curves.json","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","elliptic":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic.js","parse-asn1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc-unsafe/index.js":[function(require,module,exports){
+},{"./curves.json":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-sign/browser/curves.json","bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","elliptic":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic.js","parse-asn1":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/parse-asn1/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify/node_modules/events/events.js":[function(require,module,exports){
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+var objectCreate = Object.create || objectCreatePolyfill
+var objectKeys = Object.keys || objectKeysPolyfill
+var bind = Function.prototype.bind || functionBindPolyfill
+
+function EventEmitter() {
+  if (!this._events || !Object.prototype.hasOwnProperty.call(this, '_events')) {
+    this._events = objectCreate(null);
+    this._eventsCount = 0;
+  }
+
+  this._maxListeners = this._maxListeners || undefined;
+}
+module.exports = EventEmitter;
+
+// Backwards-compat with node 0.10.x
+EventEmitter.EventEmitter = EventEmitter;
+
+EventEmitter.prototype._events = undefined;
+EventEmitter.prototype._maxListeners = undefined;
+
+// By default EventEmitters will print a warning if more than 10 listeners are
+// added to it. This is a useful default which helps finding memory leaks.
+var defaultMaxListeners = 10;
+
+var hasDefineProperty;
+try {
+  var o = {};
+  if (Object.defineProperty) Object.defineProperty(o, 'x', { value: 0 });
+  hasDefineProperty = o.x === 0;
+} catch (err) { hasDefineProperty = false }
+if (hasDefineProperty) {
+  Object.defineProperty(EventEmitter, 'defaultMaxListeners', {
+    enumerable: true,
+    get: function() {
+      return defaultMaxListeners;
+    },
+    set: function(arg) {
+      // check whether the input is a positive number (whose value is zero or
+      // greater and not a NaN).
+      if (typeof arg !== 'number' || arg < 0 || arg !== arg)
+        throw new TypeError('"defaultMaxListeners" must be a positive number');
+      defaultMaxListeners = arg;
+    }
+  });
+} else {
+  EventEmitter.defaultMaxListeners = defaultMaxListeners;
+}
+
+// Obviously not all Emitters should be limited to 10. This function allows
+// that to be increased. Set to zero for unlimited.
+EventEmitter.prototype.setMaxListeners = function setMaxListeners(n) {
+  if (typeof n !== 'number' || n < 0 || isNaN(n))
+    throw new TypeError('"n" argument must be a positive number');
+  this._maxListeners = n;
+  return this;
+};
+
+function $getMaxListeners(that) {
+  if (that._maxListeners === undefined)
+    return EventEmitter.defaultMaxListeners;
+  return that._maxListeners;
+}
+
+EventEmitter.prototype.getMaxListeners = function getMaxListeners() {
+  return $getMaxListeners(this);
+};
+
+// These standalone emit* functions are used to optimize calling of event
+// handlers for fast cases because emit() itself often has a variable number of
+// arguments and can be deoptimized because of that. These functions always have
+// the same number of arguments and thus do not get deoptimized, so the code
+// inside them can execute faster.
+function emitNone(handler, isFn, self) {
+  if (isFn)
+    handler.call(self);
+  else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+    for (var i = 0; i < len; ++i)
+      listeners[i].call(self);
+  }
+}
+function emitOne(handler, isFn, self, arg1) {
+  if (isFn)
+    handler.call(self, arg1);
+  else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+    for (var i = 0; i < len; ++i)
+      listeners[i].call(self, arg1);
+  }
+}
+function emitTwo(handler, isFn, self, arg1, arg2) {
+  if (isFn)
+    handler.call(self, arg1, arg2);
+  else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+    for (var i = 0; i < len; ++i)
+      listeners[i].call(self, arg1, arg2);
+  }
+}
+function emitThree(handler, isFn, self, arg1, arg2, arg3) {
+  if (isFn)
+    handler.call(self, arg1, arg2, arg3);
+  else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+    for (var i = 0; i < len; ++i)
+      listeners[i].call(self, arg1, arg2, arg3);
+  }
+}
+
+function emitMany(handler, isFn, self, args) {
+  if (isFn)
+    handler.apply(self, args);
+  else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+    for (var i = 0; i < len; ++i)
+      listeners[i].apply(self, args);
+  }
+}
+
+EventEmitter.prototype.emit = function emit(type) {
+  var er, handler, len, args, i, events;
+  var doError = (type === 'error');
+
+  events = this._events;
+  if (events)
+    doError = (doError && events.error == null);
+  else if (!doError)
+    return false;
+
+  // If there is no 'error' event listener then throw.
+  if (doError) {
+    if (arguments.length > 1)
+      er = arguments[1];
+    if (er instanceof Error) {
+      throw er; // Unhandled 'error' event
+    } else {
+      // At least give some kind of context to the user
+      var err = new Error('Unhandled "error" event. (' + er + ')');
+      err.context = er;
+      throw err;
+    }
+    return false;
+  }
+
+  handler = events[type];
+
+  if (!handler)
+    return false;
+
+  var isFn = typeof handler === 'function';
+  len = arguments.length;
+  switch (len) {
+      // fast cases
+    case 1:
+      emitNone(handler, isFn, this);
+      break;
+    case 2:
+      emitOne(handler, isFn, this, arguments[1]);
+      break;
+    case 3:
+      emitTwo(handler, isFn, this, arguments[1], arguments[2]);
+      break;
+    case 4:
+      emitThree(handler, isFn, this, arguments[1], arguments[2], arguments[3]);
+      break;
+      // slower
+    default:
+      args = new Array(len - 1);
+      for (i = 1; i < len; i++)
+        args[i - 1] = arguments[i];
+      emitMany(handler, isFn, this, args);
+  }
+
+  return true;
+};
+
+function _addListener(target, type, listener, prepend) {
+  var m;
+  var events;
+  var existing;
+
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
+
+  events = target._events;
+  if (!events) {
+    events = target._events = objectCreate(null);
+    target._eventsCount = 0;
+  } else {
+    // To avoid recursion in the case that type === "newListener"! Before
+    // adding it to the listeners, first emit "newListener".
+    if (events.newListener) {
+      target.emit('newListener', type,
+          listener.listener ? listener.listener : listener);
+
+      // Re-assign `events` because a newListener handler could have caused the
+      // this._events to be assigned to a new object
+      events = target._events;
+    }
+    existing = events[type];
+  }
+
+  if (!existing) {
+    // Optimize the case of one listener. Don't need the extra array object.
+    existing = events[type] = listener;
+    ++target._eventsCount;
+  } else {
+    if (typeof existing === 'function') {
+      // Adding the second element, need to change to array.
+      existing = events[type] =
+          prepend ? [listener, existing] : [existing, listener];
+    } else {
+      // If we've already got an array, just append.
+      if (prepend) {
+        existing.unshift(listener);
+      } else {
+        existing.push(listener);
+      }
+    }
+
+    // Check for listener leak
+    if (!existing.warned) {
+      m = $getMaxListeners(target);
+      if (m && m > 0 && existing.length > m) {
+        existing.warned = true;
+        var w = new Error('Possible EventEmitter memory leak detected. ' +
+            existing.length + ' "' + String(type) + '" listeners ' +
+            'added. Use emitter.setMaxListeners() to ' +
+            'increase limit.');
+        w.name = 'MaxListenersExceededWarning';
+        w.emitter = target;
+        w.type = type;
+        w.count = existing.length;
+        if (typeof console === 'object' && console.warn) {
+          console.warn('%s: %s', w.name, w.message);
+        }
+      }
+    }
+  }
+
+  return target;
+}
+
+EventEmitter.prototype.addListener = function addListener(type, listener) {
+  return _addListener(this, type, listener, false);
+};
+
+EventEmitter.prototype.on = EventEmitter.prototype.addListener;
+
+EventEmitter.prototype.prependListener =
+    function prependListener(type, listener) {
+      return _addListener(this, type, listener, true);
+    };
+
+function onceWrapper() {
+  if (!this.fired) {
+    this.target.removeListener(this.type, this.wrapFn);
+    this.fired = true;
+    switch (arguments.length) {
+      case 0:
+        return this.listener.call(this.target);
+      case 1:
+        return this.listener.call(this.target, arguments[0]);
+      case 2:
+        return this.listener.call(this.target, arguments[0], arguments[1]);
+      case 3:
+        return this.listener.call(this.target, arguments[0], arguments[1],
+            arguments[2]);
+      default:
+        var args = new Array(arguments.length);
+        for (var i = 0; i < args.length; ++i)
+          args[i] = arguments[i];
+        this.listener.apply(this.target, args);
+    }
+  }
+}
+
+function _onceWrap(target, type, listener) {
+  var state = { fired: false, wrapFn: undefined, target: target, type: type, listener: listener };
+  var wrapped = bind.call(onceWrapper, state);
+  wrapped.listener = listener;
+  state.wrapFn = wrapped;
+  return wrapped;
+}
+
+EventEmitter.prototype.once = function once(type, listener) {
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
+  this.on(type, _onceWrap(this, type, listener));
+  return this;
+};
+
+EventEmitter.prototype.prependOnceListener =
+    function prependOnceListener(type, listener) {
+      if (typeof listener !== 'function')
+        throw new TypeError('"listener" argument must be a function');
+      this.prependListener(type, _onceWrap(this, type, listener));
+      return this;
+    };
+
+// Emits a 'removeListener' event if and only if the listener was removed.
+EventEmitter.prototype.removeListener =
+    function removeListener(type, listener) {
+      var list, events, position, i, originalListener;
+
+      if (typeof listener !== 'function')
+        throw new TypeError('"listener" argument must be a function');
+
+      events = this._events;
+      if (!events)
+        return this;
+
+      list = events[type];
+      if (!list)
+        return this;
+
+      if (list === listener || list.listener === listener) {
+        if (--this._eventsCount === 0)
+          this._events = objectCreate(null);
+        else {
+          delete events[type];
+          if (events.removeListener)
+            this.emit('removeListener', type, list.listener || listener);
+        }
+      } else if (typeof list !== 'function') {
+        position = -1;
+
+        for (i = list.length - 1; i >= 0; i--) {
+          if (list[i] === listener || list[i].listener === listener) {
+            originalListener = list[i].listener;
+            position = i;
+            break;
+          }
+        }
+
+        if (position < 0)
+          return this;
+
+        if (position === 0)
+          list.shift();
+        else
+          spliceOne(list, position);
+
+        if (list.length === 1)
+          events[type] = list[0];
+
+        if (events.removeListener)
+          this.emit('removeListener', type, originalListener || listener);
+      }
+
+      return this;
+    };
+
+EventEmitter.prototype.removeAllListeners =
+    function removeAllListeners(type) {
+      var listeners, events, i;
+
+      events = this._events;
+      if (!events)
+        return this;
+
+      // not listening for removeListener, no need to emit
+      if (!events.removeListener) {
+        if (arguments.length === 0) {
+          this._events = objectCreate(null);
+          this._eventsCount = 0;
+        } else if (events[type]) {
+          if (--this._eventsCount === 0)
+            this._events = objectCreate(null);
+          else
+            delete events[type];
+        }
+        return this;
+      }
+
+      // emit removeListener for all listeners on all events
+      if (arguments.length === 0) {
+        var keys = objectKeys(events);
+        var key;
+        for (i = 0; i < keys.length; ++i) {
+          key = keys[i];
+          if (key === 'removeListener') continue;
+          this.removeAllListeners(key);
+        }
+        this.removeAllListeners('removeListener');
+        this._events = objectCreate(null);
+        this._eventsCount = 0;
+        return this;
+      }
+
+      listeners = events[type];
+
+      if (typeof listeners === 'function') {
+        this.removeListener(type, listeners);
+      } else if (listeners) {
+        // LIFO order
+        for (i = listeners.length - 1; i >= 0; i--) {
+          this.removeListener(type, listeners[i]);
+        }
+      }
+
+      return this;
+    };
+
+function _listeners(target, type, unwrap) {
+  var events = target._events;
+
+  if (!events)
+    return [];
+
+  var evlistener = events[type];
+  if (!evlistener)
+    return [];
+
+  if (typeof evlistener === 'function')
+    return unwrap ? [evlistener.listener || evlistener] : [evlistener];
+
+  return unwrap ? unwrapListeners(evlistener) : arrayClone(evlistener, evlistener.length);
+}
+
+EventEmitter.prototype.listeners = function listeners(type) {
+  return _listeners(this, type, true);
+};
+
+EventEmitter.prototype.rawListeners = function rawListeners(type) {
+  return _listeners(this, type, false);
+};
+
+EventEmitter.listenerCount = function(emitter, type) {
+  if (typeof emitter.listenerCount === 'function') {
+    return emitter.listenerCount(type);
+  } else {
+    return listenerCount.call(emitter, type);
+  }
+};
+
+EventEmitter.prototype.listenerCount = listenerCount;
+function listenerCount(type) {
+  var events = this._events;
+
+  if (events) {
+    var evlistener = events[type];
+
+    if (typeof evlistener === 'function') {
+      return 1;
+    } else if (evlistener) {
+      return evlistener.length;
+    }
+  }
+
+  return 0;
+}
+
+EventEmitter.prototype.eventNames = function eventNames() {
+  return this._eventsCount > 0 ? Reflect.ownKeys(this._events) : [];
+};
+
+// About 1.5x faster than the two-arg version of Array#splice().
+function spliceOne(list, index) {
+  for (var i = index, k = i + 1, n = list.length; k < n; i += 1, k += 1)
+    list[i] = list[k];
+  list.pop();
+}
+
+function arrayClone(arr, n) {
+  var copy = new Array(n);
+  for (var i = 0; i < n; ++i)
+    copy[i] = arr[i];
+  return copy;
+}
+
+function unwrapListeners(arr) {
+  var ret = new Array(arr.length);
+  for (var i = 0; i < ret.length; ++i) {
+    ret[i] = arr[i].listener || arr[i];
+  }
+  return ret;
+}
+
+function objectCreatePolyfill(proto) {
+  var F = function() {};
+  F.prototype = proto;
+  return new F;
+}
+function objectKeysPolyfill(obj) {
+  var keys = [];
+  for (var k in obj) if (Object.prototype.hasOwnProperty.call(obj, k)) {
+    keys.push(k);
+  }
+  return k;
+}
+function functionBindPolyfill(context) {
+  var fn = this;
+  return function () {
+    return fn.apply(context, arguments);
+  };
+}
+
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-alloc-unsafe/index.js":[function(require,module,exports){
 (function (Buffer){
 function allocUnsafe (size) {
   if (typeof size !== 'number') {
@@ -10662,7 +11187,7 @@ function allocUnsafe (size) {
 module.exports = allocUnsafe
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc/index.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-alloc/index.js":[function(require,module,exports){
 (function (Buffer){
 var bufferFill = require('buffer-fill')
 var allocUnsafe = require('buffer-alloc-unsafe')
@@ -10698,7 +11223,7 @@ module.exports = function alloc (size, fill, encoding) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc-unsafe/index.js","buffer-fill":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-fill/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-fill/index.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","buffer-alloc-unsafe":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-alloc-unsafe/index.js","buffer-fill":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-fill/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-fill/index.js":[function(require,module,exports){
 (function (Buffer){
 /* Node.js 6.4.0 and up has full support */
 var hasFullSupport = (function () {
@@ -10815,7 +11340,7 @@ function fill (buffer, val, start, end, encoding) {
 module.exports = fill
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-from/index.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-from/index.js":[function(require,module,exports){
 (function (Buffer){
 var toString = Object.prototype.toString
 
@@ -10888,7 +11413,7 @@ function bufferFrom (value, encodingOrOffset, length) {
 module.exports = bufferFrom
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-xor/index.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-xor/index.js":[function(require,module,exports){
 (function (Buffer){
 module.exports = function xor (a, b) {
   var length = Math.min(a.length, b.length)
@@ -10902,7 +11427,7 @@ module.exports = function xor (a, b) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js":[function(require,module,exports){
 (function (Buffer){
 /*!
  * The buffer module from node.js, for the browser.
@@ -10952,7 +11477,7 @@ function typedArraySupport () {
   // Can typed array instances can be augmented?
   try {
     var arr = new Uint8Array(1)
-    arr.__proto__ = { __proto__: Uint8Array.prototype, foo: function () { return 42 } }
+    arr.__proto__ = {__proto__: Uint8Array.prototype, foo: function () { return 42 }}
     return arr.foo() === 42
   } catch (e) {
     return false
@@ -10960,24 +11485,26 @@ function typedArraySupport () {
 }
 
 Object.defineProperty(Buffer.prototype, 'parent', {
-  enumerable: true,
   get: function () {
-    if (!Buffer.isBuffer(this)) return undefined
+    if (!(this instanceof Buffer)) {
+      return undefined
+    }
     return this.buffer
   }
 })
 
 Object.defineProperty(Buffer.prototype, 'offset', {
-  enumerable: true,
   get: function () {
-    if (!Buffer.isBuffer(this)) return undefined
+    if (!(this instanceof Buffer)) {
+      return undefined
+    }
     return this.byteOffset
   }
 })
 
 function createBuffer (length) {
   if (length > K_MAX_LENGTH) {
-    throw new RangeError('The value "' + length + '" is invalid for option "size"')
+    throw new RangeError('Invalid typed array length')
   }
   // Return an augmented `Uint8Array` instance
   var buf = new Uint8Array(length)
@@ -10999,8 +11526,8 @@ function Buffer (arg, encodingOrOffset, length) {
   // Common case.
   if (typeof arg === 'number') {
     if (typeof encodingOrOffset === 'string') {
-      throw new TypeError(
-        'The "string" argument must be of type string. Received type number'
+      throw new Error(
+        'If encoding is specified then the first argument must be a string'
       )
     }
     return allocUnsafe(arg)
@@ -11009,7 +11536,7 @@ function Buffer (arg, encodingOrOffset, length) {
 }
 
 // Fix subarray() in ES2016. See: https://github.com/feross/buffer/pull/97
-if (typeof Symbol !== 'undefined' && Symbol.species != null &&
+if (typeof Symbol !== 'undefined' && Symbol.species &&
     Buffer[Symbol.species] === Buffer) {
   Object.defineProperty(Buffer, Symbol.species, {
     value: null,
@@ -11022,51 +11549,19 @@ if (typeof Symbol !== 'undefined' && Symbol.species != null &&
 Buffer.poolSize = 8192 // not used by this implementation
 
 function from (value, encodingOrOffset, length) {
+  if (typeof value === 'number') {
+    throw new TypeError('"value" argument must not be a number')
+  }
+
+  if (isArrayBuffer(value) || (value && isArrayBuffer(value.buffer))) {
+    return fromArrayBuffer(value, encodingOrOffset, length)
+  }
+
   if (typeof value === 'string') {
     return fromString(value, encodingOrOffset)
   }
 
-  if (ArrayBuffer.isView(value)) {
-    return fromArrayLike(value)
-  }
-
-  if (value == null) {
-    throw TypeError(
-      'The first argument must be one of type string, Buffer, ArrayBuffer, Array, ' +
-      'or Array-like Object. Received type ' + (typeof value)
-    )
-  }
-
-  if (isInstance(value, ArrayBuffer) ||
-      (value && isInstance(value.buffer, ArrayBuffer))) {
-    return fromArrayBuffer(value, encodingOrOffset, length)
-  }
-
-  if (typeof value === 'number') {
-    throw new TypeError(
-      'The "value" argument must not be of type number. Received type number'
-    )
-  }
-
-  var valueOf = value.valueOf && value.valueOf()
-  if (valueOf != null && valueOf !== value) {
-    return Buffer.from(valueOf, encodingOrOffset, length)
-  }
-
-  var b = fromObject(value)
-  if (b) return b
-
-  if (typeof Symbol !== 'undefined' && Symbol.toPrimitive != null &&
-      typeof value[Symbol.toPrimitive] === 'function') {
-    return Buffer.from(
-      value[Symbol.toPrimitive]('string'), encodingOrOffset, length
-    )
-  }
-
-  throw new TypeError(
-    'The first argument must be one of type string, Buffer, ArrayBuffer, Array, ' +
-    'or Array-like Object. Received type ' + (typeof value)
-  )
+  return fromObject(value)
 }
 
 /**
@@ -11090,7 +11585,7 @@ function assertSize (size) {
   if (typeof size !== 'number') {
     throw new TypeError('"size" argument must be of type number')
   } else if (size < 0) {
-    throw new RangeError('The value "' + size + '" is invalid for option "size"')
+    throw new RangeError('"size" argument must not be negative')
   }
 }
 
@@ -11205,16 +11700,20 @@ function fromObject (obj) {
     return buf
   }
 
-  if (obj.length !== undefined) {
-    if (typeof obj.length !== 'number' || numberIsNaN(obj.length)) {
-      return createBuffer(0)
+  if (obj) {
+    if (ArrayBuffer.isView(obj) || 'length' in obj) {
+      if (typeof obj.length !== 'number' || numberIsNaN(obj.length)) {
+        return createBuffer(0)
+      }
+      return fromArrayLike(obj)
     }
-    return fromArrayLike(obj)
+
+    if (obj.type === 'Buffer' && Array.isArray(obj.data)) {
+      return fromArrayLike(obj.data)
+    }
   }
 
-  if (obj.type === 'Buffer' && Array.isArray(obj.data)) {
-    return fromArrayLike(obj.data)
-  }
+  throw new TypeError('The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object.')
 }
 
 function checked (length) {
@@ -11235,17 +11734,12 @@ function SlowBuffer (length) {
 }
 
 Buffer.isBuffer = function isBuffer (b) {
-  return b != null && b._isBuffer === true &&
-    b !== Buffer.prototype // so Buffer.isBuffer(Buffer.prototype) will be false
+  return b != null && b._isBuffer === true
 }
 
 Buffer.compare = function compare (a, b) {
-  if (isInstance(a, Uint8Array)) a = Buffer.from(a, a.offset, a.byteLength)
-  if (isInstance(b, Uint8Array)) b = Buffer.from(b, b.offset, b.byteLength)
   if (!Buffer.isBuffer(a) || !Buffer.isBuffer(b)) {
-    throw new TypeError(
-      'The "buf1", "buf2" arguments must be one of type Buffer or Uint8Array'
-    )
+    throw new TypeError('Arguments must be Buffers')
   }
 
   if (a === b) return 0
@@ -11306,7 +11800,7 @@ Buffer.concat = function concat (list, length) {
   var pos = 0
   for (i = 0; i < list.length; ++i) {
     var buf = list[i]
-    if (isInstance(buf, Uint8Array)) {
+    if (ArrayBuffer.isView(buf)) {
       buf = Buffer.from(buf)
     }
     if (!Buffer.isBuffer(buf)) {
@@ -11322,19 +11816,15 @@ function byteLength (string, encoding) {
   if (Buffer.isBuffer(string)) {
     return string.length
   }
-  if (ArrayBuffer.isView(string) || isInstance(string, ArrayBuffer)) {
+  if (ArrayBuffer.isView(string) || isArrayBuffer(string)) {
     return string.byteLength
   }
   if (typeof string !== 'string') {
-    throw new TypeError(
-      'The "string" argument must be one of type string, Buffer, or ArrayBuffer. ' +
-      'Received type ' + typeof string
-    )
+    string = '' + string
   }
 
   var len = string.length
-  var mustMatch = (arguments.length > 2 && arguments[2] === true)
-  if (!mustMatch && len === 0) return 0
+  if (len === 0) return 0
 
   // Use a for loop to avoid recursion
   var loweredCase = false
@@ -11346,6 +11836,7 @@ function byteLength (string, encoding) {
         return len
       case 'utf8':
       case 'utf-8':
+      case undefined:
         return utf8ToBytes(string).length
       case 'ucs2':
       case 'ucs-2':
@@ -11357,9 +11848,7 @@ function byteLength (string, encoding) {
       case 'base64':
         return base64ToBytes(string).length
       default:
-        if (loweredCase) {
-          return mustMatch ? -1 : utf8ToBytes(string).length // assume utf8
-        }
+        if (loweredCase) return utf8ToBytes(string).length // assume utf8
         encoding = ('' + encoding).toLowerCase()
         loweredCase = true
     }
@@ -11506,20 +11995,16 @@ Buffer.prototype.equals = function equals (b) {
 Buffer.prototype.inspect = function inspect () {
   var str = ''
   var max = exports.INSPECT_MAX_BYTES
-  str = this.toString('hex', 0, max).replace(/(.{2})/g, '$1 ').trim()
-  if (this.length > max) str += ' ... '
+  if (this.length > 0) {
+    str = this.toString('hex', 0, max).match(/.{2}/g).join(' ')
+    if (this.length > max) str += ' ... '
+  }
   return '<Buffer ' + str + '>'
 }
 
 Buffer.prototype.compare = function compare (target, start, end, thisStart, thisEnd) {
-  if (isInstance(target, Uint8Array)) {
-    target = Buffer.from(target, target.offset, target.byteLength)
-  }
   if (!Buffer.isBuffer(target)) {
-    throw new TypeError(
-      'The "target" argument must be one of type Buffer or Uint8Array. ' +
-      'Received type ' + (typeof target)
-    )
+    throw new TypeError('Argument must be a Buffer')
   }
 
   if (start === undefined) {
@@ -11598,7 +12083,7 @@ function bidirectionalIndexOf (buffer, val, byteOffset, encoding, dir) {
   } else if (byteOffset < -0x80000000) {
     byteOffset = -0x80000000
   }
-  byteOffset = +byteOffset // Coerce to Number.
+  byteOffset = +byteOffset  // Coerce to Number.
   if (numberIsNaN(byteOffset)) {
     // byteOffset: it it's undefined, null, NaN, "foo", etc, search whole buffer
     byteOffset = dir ? 0 : (buffer.length - 1)
@@ -11850,8 +12335,8 @@ function utf8Slice (buf, start, end) {
     var codePoint = null
     var bytesPerSequence = (firstByte > 0xEF) ? 4
       : (firstByte > 0xDF) ? 3
-        : (firstByte > 0xBF) ? 2
-          : 1
+      : (firstByte > 0xBF) ? 2
+      : 1
 
     if (i + bytesPerSequence <= end) {
       var secondByte, thirdByte, fourthByte, tempCodePoint
@@ -12514,7 +12999,7 @@ Buffer.prototype.fill = function fill (val, start, end, encoding) {
   } else {
     var bytes = Buffer.isBuffer(val)
       ? val
-      : Buffer.from(val, encoding)
+      : new Buffer(val, encoding)
     var len = bytes.length
     if (len === 0) {
       throw new TypeError('The value "' + val +
@@ -12669,21 +13154,20 @@ function blitBuffer (src, dst, offset, length) {
   return i
 }
 
-// ArrayBuffer or Uint8Array objects from other contexts (i.e. iframes) do not pass
-// the `instanceof` check but they should be treated as of that type.
-// See: https://github.com/feross/buffer/issues/166
-function isInstance (obj, type) {
-  return obj instanceof type ||
-    (obj != null && obj.constructor != null && obj.constructor.name != null &&
-      obj.constructor.name === type.name)
+// ArrayBuffers from another context (i.e. an iframe) do not pass the `instanceof` check
+// but they should be treated as valid. See: https://github.com/feross/buffer/issues/166
+function isArrayBuffer (obj) {
+  return obj instanceof ArrayBuffer ||
+    (obj != null && obj.constructor != null && obj.constructor.name === 'ArrayBuffer' &&
+      typeof obj.byteLength === 'number')
 }
+
 function numberIsNaN (obj) {
-  // For IE11 support
   return obj !== obj // eslint-disable-line no-self-compare
 }
 
 }).call(this,require("buffer").Buffer)
-},{"base64-js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/base64-js/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","ieee754":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ieee754/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bulk-write-stream/index.js":[function(require,module,exports){
+},{"base64-js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/base64-js/index.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","ieee754":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/ieee754/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bulk-write-stream/index.js":[function(require,module,exports){
 var stream = require('readable-stream')
 var inherits = require('inherits')
 var bufferFrom = require('buffer-from')
@@ -12756,7 +13240,7 @@ Bulk.prototype._flusher = function (cb) {
 
 module.exports = Bulk
 
-},{"buffer-from":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-from/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js":[function(require,module,exports){
+},{"buffer-from":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-from/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","readable-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/readable-browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/cipher-base/index.js":[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 var Transform = require('stream').Transform
 var StringDecoder = require('string_decoder').StringDecoder
@@ -12857,7 +13341,7 @@ CipherBase.prototype._toString = function (value, enc, fin) {
 
 module.exports = CipherBase
 
-},{"inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js","stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-browserify/index.js","string_decoder":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/string_decoder/lib/string_decoder.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/codecs/index.js":[function(require,module,exports){
+},{"inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js","stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/stream-browserify/index.js","string_decoder":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/string_decoder/lib/string_decoder.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/codecs/index.js":[function(require,module,exports){
 (function (Buffer){
 module.exports = codecs
 
@@ -12928,7 +13412,7 @@ function createString (type) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/core-util-is/lib/util.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/core-util-is/lib/util.js":[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -13038,8 +13522,8 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 
-}).call(this,{"isBuffer":require("../../insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../../insert-module-globals/node_modules/is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/insert-module-globals/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/count-trailing-zeros/ctz.js":[function(require,module,exports){
+}).call(this,{"isBuffer":require("../../is-buffer/index.js")})
+},{"../../is-buffer/index.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/is-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/count-trailing-zeros/ctz.js":[function(require,module,exports){
 module.exports = function(v) {
   var c = 32
   v &= -v
@@ -13052,7 +13536,7 @@ module.exports = function(v) {
   return c
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-ecdh/browser.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/create-ecdh/browser.js":[function(require,module,exports){
 (function (Buffer){
 var elliptic = require('elliptic')
 var BN = require('bn.js')
@@ -13180,7 +13664,7 @@ function formatReturnValue (bn, enc, len) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","elliptic":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/browser.js":[function(require,module,exports){
+},{"bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","elliptic":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/create-hash/browser.js":[function(require,module,exports){
 'use strict'
 var inherits = require('inherits')
 var MD5 = require('md5.js')
@@ -13212,14 +13696,14 @@ module.exports = function createHash (alg) {
   return new Hash(sha(alg))
 }
 
-},{"cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","md5.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/md5.js/index.js","ripemd160":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ripemd160/index.js","sha.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/md5.js":[function(require,module,exports){
+},{"cipher-base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/cipher-base/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","md5.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/md5.js/index.js","ripemd160":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/ripemd160/index.js","sha.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/create-hash/md5.js":[function(require,module,exports){
 var MD5 = require('md5.js')
 
 module.exports = function (buffer) {
   return new MD5().update(buffer).digest()
 }
 
-},{"md5.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/md5.js/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hmac/browser.js":[function(require,module,exports){
+},{"md5.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/md5.js/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/create-hmac/browser.js":[function(require,module,exports){
 'use strict'
 var inherits = require('inherits')
 var Legacy = require('./legacy')
@@ -13283,7 +13767,7 @@ module.exports = function createHmac (alg, key) {
   return new Hmac(alg, key)
 }
 
-},{"./legacy":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hmac/legacy.js","cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js","create-hash/md5":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/md5.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","ripemd160":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ripemd160/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js","sha.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hmac/legacy.js":[function(require,module,exports){
+},{"./legacy":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/create-hmac/legacy.js","cipher-base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/cipher-base/index.js","create-hash/md5":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/create-hash/md5.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","ripemd160":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/ripemd160/index.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js","sha.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/create-hmac/legacy.js":[function(require,module,exports){
 'use strict'
 var inherits = require('inherits')
 var Buffer = require('safe-buffer').Buffer
@@ -13331,7 +13815,7 @@ Hmac.prototype._final = function () {
 }
 module.exports = Hmac
 
-},{"cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/crypto-browserify/index.js":[function(require,module,exports){
+},{"cipher-base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/cipher-base/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/crypto-browserify/index.js":[function(require,module,exports){
 'use strict'
 
 exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = require('randombytes')
@@ -13430,7 +13914,7 @@ exports.constants = {
   'POINT_CONVERSION_HYBRID': 6
 }
 
-},{"browserify-cipher":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-cipher/browser.js","browserify-sign":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/index.js","browserify-sign/algos":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/algos.js","create-ecdh":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-ecdh/browser.js","create-hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/browser.js","create-hmac":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hmac/browser.js","diffie-hellman":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/browser.js","pbkdf2":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/browser.js","public-encrypt":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/browser.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js","randomfill":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randomfill/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/csjs.js":[function(require,module,exports){
+},{"browserify-cipher":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-cipher/browser.js","browserify-sign":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-sign/browser/index.js","browserify-sign/algos":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-sign/algos.js","create-ecdh":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/create-ecdh/browser.js","create-hash":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/create-hash/browser.js","create-hmac":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/create-hmac/browser.js","diffie-hellman":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/diffie-hellman/browser.js","pbkdf2":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pbkdf2/browser.js","public-encrypt":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/public-encrypt/browser.js","randombytes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/randombytes/browser.js","randomfill":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/randomfill/browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs-inject/csjs.js":[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -13449,12 +13933,12 @@ function csjsInserter() {
 module.exports = csjsInserter;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"csjs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/index.js","insert-css":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/insert-css/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/get-css.js":[function(require,module,exports){
+},{"csjs":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/index.js","insert-css":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/insert-css/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs-inject/get-css.js":[function(require,module,exports){
 'use strict';
 
 module.exports = require('csjs/get-css');
 
-},{"csjs/get-css":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/get-css.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js":[function(require,module,exports){
+},{"csjs/get-css":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/get-css.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs-inject/index.js":[function(require,module,exports){
 'use strict';
 
 var csjs = require('./csjs');
@@ -13463,17 +13947,17 @@ module.exports = csjs;
 module.exports.csjs = csjs;
 module.exports.getCss = require('./get-css');
 
-},{"./csjs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/csjs.js","./get-css":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/get-css.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/csjs.js":[function(require,module,exports){
+},{"./csjs":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs-inject/csjs.js","./get-css":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs-inject/get-css.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/csjs.js":[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/csjs');
 
-},{"./lib/csjs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/csjs.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/get-css.js":[function(require,module,exports){
+},{"./lib/csjs":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/csjs.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/get-css.js":[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/get-css');
 
-},{"./lib/get-css":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/get-css.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/index.js":[function(require,module,exports){
+},{"./lib/get-css":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/get-css.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/index.js":[function(require,module,exports){
 'use strict';
 
 var csjs = require('./csjs');
@@ -13483,7 +13967,7 @@ module.exports.csjs = csjs;
 module.exports.noScope = csjs({ noscope: true });
 module.exports.getCss = require('./get-css');
 
-},{"./csjs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/csjs.js","./get-css":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/get-css.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/base62-encode.js":[function(require,module,exports){
+},{"./csjs":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/csjs.js","./get-css":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/get-css.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/base62-encode.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -13505,7 +13989,7 @@ module.exports = function encode(integer) {
   return str;
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/build-exports.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/build-exports.js":[function(require,module,exports){
 'use strict';
 
 var makeComposition = require('./composition').makeComposition;
@@ -13549,7 +14033,7 @@ function getClassChain(obj) {
   return acc;
 }
 
-},{"./composition":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/composition.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/composition.js":[function(require,module,exports){
+},{"./composition":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/composition.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/composition.js":[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -13629,7 +14113,7 @@ function ignoreComposition(values) {
  */
 function Composition() {}
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/csjs.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/csjs.js":[function(require,module,exports){
 'use strict';
 
 var extractExtends = require('./css-extract-extends');
@@ -13707,7 +14191,7 @@ function without(obj, unwanted) {
   }, {});
 }
 
-},{"./build-exports":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/build-exports.js","./composition":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/composition.js","./css-extract-extends":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/css-extract-extends.js","./css-key":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/css-key.js","./extract-exports":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/extract-exports.js","./scopeify":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/scopeify.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/css-extract-extends.js":[function(require,module,exports){
+},{"./build-exports":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/build-exports.js","./composition":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/composition.js","./css-extract-extends":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/css-extract-extends.js","./css-key":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/css-key.js","./extract-exports":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/extract-exports.js","./scopeify":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/scopeify.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/css-extract-extends.js":[function(require,module,exports){
 'use strict';
 
 var makeComposition = require('./composition').makeComposition;
@@ -13760,7 +14244,7 @@ function getClassName(str) {
   return trimmed[0] === '.' ? trimmed.substr(1) : trimmed;
 }
 
-},{"./composition":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/composition.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/css-key.js":[function(require,module,exports){
+},{"./composition":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/composition.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/css-key.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -13770,7 +14254,7 @@ function getClassName(str) {
 
 module.exports = ' css ';
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/extract-exports.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/extract-exports.js":[function(require,module,exports){
 'use strict';
 
 var regex = require('./regex');
@@ -13797,7 +14281,7 @@ function getExport(css, regex) {
   return prop;
 }
 
-},{"./regex":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/regex.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/get-css.js":[function(require,module,exports){
+},{"./regex":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/regex.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/get-css.js":[function(require,module,exports){
 'use strict';
 
 var cssKey = require('./css-key');
@@ -13806,7 +14290,7 @@ module.exports = function getCss(csjs) {
   return csjs[cssKey];
 };
 
-},{"./css-key":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/css-key.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/hash-string.js":[function(require,module,exports){
+},{"./css-key":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/css-key.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/hash-string.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -13824,7 +14308,7 @@ module.exports = function hashStr(str) {
   return hash >>> 0;
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/regex.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/regex.js":[function(require,module,exports){
 'use strict';
 
 var findClasses = /(\.)(?!\d)([^\s\.,{\[>+~#:)]*)(?![^{]*})/.source;
@@ -13840,7 +14324,7 @@ module.exports = {
   ignoreComments: ignoreComments,
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/replace-animations.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/replace-animations.js":[function(require,module,exports){
 var ignoreComments = require('./regex').ignoreComments;
 
 module.exports = replaceAnimations;
@@ -13871,7 +14355,7 @@ function replaceAnimations(result) {
   return result;
 }
 
-},{"./regex":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/regex.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/scoped-name.js":[function(require,module,exports){
+},{"./regex":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/regex.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/scoped-name.js":[function(require,module,exports){
 'use strict';
 
 var encode = require('./base62-encode');
@@ -13885,7 +14369,7 @@ module.exports = function fileScoper(fileSrc) {
   }
 };
 
-},{"./base62-encode":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/base62-encode.js","./hash-string":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/hash-string.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/scopeify.js":[function(require,module,exports){
+},{"./base62-encode":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/base62-encode.js","./hash-string":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/hash-string.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/scopeify.js":[function(require,module,exports){
 'use strict';
 
 var fileScoper = require('./scoped-name');
@@ -13926,7 +14410,7 @@ function scopify(css, ignores) {
   return replaceAnimations(result);
 }
 
-},{"./regex":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/regex.js","./replace-animations":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/replace-animations.js","./scoped-name":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/scoped-name.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cuid/dist/browser-cuid.js":[function(require,module,exports){
+},{"./regex":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/regex.js","./replace-animations":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/replace-animations.js","./scoped-name":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs/lib/scoped-name.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/cuid/dist/browser-cuid.js":[function(require,module,exports){
 /**
  * cuid.js
  * Collision-resistant UID generator for browsers and node.
@@ -14038,7 +14522,7 @@ function scopify(css, ignores) {
 
 }(this.applitude || this));
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-encoding/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/dat-encoding/index.js":[function(require,module,exports){
 'use strict'
 
 var Buffer = require('safe-buffer').Buffer
@@ -14063,7 +14547,7 @@ function decode (str) {
 exports.encode = exports.toStr = encode
 exports.decode = exports.toBuf = decode
 
-},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-sdk/dns-web.js":[function(require,module,exports){
+},{"safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/dat-sdk/dns-web.js":[function(require,module,exports){
 
 // TODO: Persist to local storage
 
@@ -14125,7 +14609,7 @@ module.exports = ({
 
 function noop () {}
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-sdk/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/dat-sdk/index.js":[function(require,module,exports){
 const discovery = require('hyperdiscovery')
 const datStorage = require('universal-dat-storage')
 const DatEncoding = require('dat-encoding')
@@ -14259,7 +14743,7 @@ function SDK ({ storageOpts, swarmOpts, driveOpts, coreOpts, dnsOpts } = {}) {
   }
 }
 
-},{"dat-dns":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-sdk/dns-web.js","dat-encoding":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-encoding/index.js","hypercore":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/index.js","hypercore-crypto":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-crypto/index.js","hyperdiscovery":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdiscovery/index.js","hyperdrive":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdrive/index.js","universal-dat-storage":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/universal-dat-storage/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-swarm-defaults/index.js":[function(require,module,exports){
+},{"dat-dns":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/dat-sdk/dns-web.js","dat-encoding":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/dat-encoding/index.js","hypercore":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore/index.js","hypercore-crypto":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-crypto/index.js","hyperdiscovery":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hyperdiscovery/index.js","hyperdrive":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hyperdrive/index.js","universal-dat-storage":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/universal-dat-storage/browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/dat-swarm-defaults/index.js":[function(require,module,exports){
 var DAT_DOMAIN = 'dat.local'
 var DEFAULT_DISCOVERY = [
   'discovery1.datprotocol.com',
@@ -14281,36 +14765,102 @@ module.exports = function (opts) {
   return Object.assign({}, DEFAULT_OPTS, opts) // opts takes priority
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/debug/src/browser.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/debug/src/browser.js":[function(require,module,exports){
 (function (process){
+/* eslint-env browser */
+
 /**
  * This is the web browser implementation of `debug()`.
- *
- * Expose `debug()` as the module.
  */
 
-exports = module.exports = require('./debug');
 exports.log = log;
 exports.formatArgs = formatArgs;
 exports.save = save;
 exports.load = load;
 exports.useColors = useColors;
-exports.storage = 'undefined' != typeof chrome
-               && 'undefined' != typeof chrome.storage
-                  ? chrome.storage.local
-                  : localstorage();
+exports.storage = localstorage();
 
 /**
  * Colors.
  */
 
 exports.colors = [
-  'lightseagreen',
-  'forestgreen',
-  'goldenrod',
-  'dodgerblue',
-  'darkorchid',
-  'crimson'
+	'#0000CC',
+	'#0000FF',
+	'#0033CC',
+	'#0033FF',
+	'#0066CC',
+	'#0066FF',
+	'#0099CC',
+	'#0099FF',
+	'#00CC00',
+	'#00CC33',
+	'#00CC66',
+	'#00CC99',
+	'#00CCCC',
+	'#00CCFF',
+	'#3300CC',
+	'#3300FF',
+	'#3333CC',
+	'#3333FF',
+	'#3366CC',
+	'#3366FF',
+	'#3399CC',
+	'#3399FF',
+	'#33CC00',
+	'#33CC33',
+	'#33CC66',
+	'#33CC99',
+	'#33CCCC',
+	'#33CCFF',
+	'#6600CC',
+	'#6600FF',
+	'#6633CC',
+	'#6633FF',
+	'#66CC00',
+	'#66CC33',
+	'#9900CC',
+	'#9900FF',
+	'#9933CC',
+	'#9933FF',
+	'#99CC00',
+	'#99CC33',
+	'#CC0000',
+	'#CC0033',
+	'#CC0066',
+	'#CC0099',
+	'#CC00CC',
+	'#CC00FF',
+	'#CC3300',
+	'#CC3333',
+	'#CC3366',
+	'#CC3399',
+	'#CC33CC',
+	'#CC33FF',
+	'#CC6600',
+	'#CC6633',
+	'#CC9900',
+	'#CC9933',
+	'#CCCC00',
+	'#CCCC33',
+	'#FF0000',
+	'#FF0033',
+	'#FF0066',
+	'#FF0099',
+	'#FF00CC',
+	'#FF00FF',
+	'#FF3300',
+	'#FF3333',
+	'#FF3366',
+	'#FF3399',
+	'#FF33CC',
+	'#FF33FF',
+	'#FF6600',
+	'#FF6633',
+	'#FF9900',
+	'#FF9933',
+	'#FFCC00',
+	'#FFCC33'
 ];
 
 /**
@@ -14321,38 +14871,31 @@ exports.colors = [
  * TODO: add a `localStorage` variable to explicitly enable/disable colors
  */
 
+// eslint-disable-next-line complexity
 function useColors() {
-  // NB: In an Electron preload script, document will be defined but not fully
-  // initialized. Since we know we're in Chrome, we'll just detect this case
-  // explicitly
-  if (typeof window !== 'undefined' && window.process && window.process.type === 'renderer') {
-    return true;
-  }
+	// NB: In an Electron preload script, document will be defined but not fully
+	// initialized. Since we know we're in Chrome, we'll just detect this case
+	// explicitly
+	if (typeof window !== 'undefined' && window.process && (window.process.type === 'renderer' || window.process.__nwjs)) {
+		return true;
+	}
 
-  // is webkit? http://stackoverflow.com/a/16459606/376773
-  // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
-  return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
-    // is firebug? http://stackoverflow.com/a/398120/376773
-    (typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
-    // is firefox >= v31?
-    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
-    // double check webkit in userAgent just in case we are in a worker
-    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+	// Internet Explorer and Edge do not support colors.
+	if (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
+		return false;
+	}
+
+	// Is webkit? http://stackoverflow.com/a/16459606/376773
+	// document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+	return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
+		// Is firebug? http://stackoverflow.com/a/398120/376773
+		(typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
+		// Is firefox >= v31?
+		// https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
+		// Double check webkit in userAgent just in case we are in a worker
+		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
 }
-
-/**
- * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
- */
-
-exports.formatters.j = function(v) {
-  try {
-    return JSON.stringify(v);
-  } catch (err) {
-    return '[UnexpectedJSONParseError]: ' + err.message;
-  }
-};
-
 
 /**
  * Colorize log arguments if enabled.
@@ -14361,36 +14904,38 @@ exports.formatters.j = function(v) {
  */
 
 function formatArgs(args) {
-  var useColors = this.useColors;
+	args[0] = (this.useColors ? '%c' : '') +
+		this.namespace +
+		(this.useColors ? ' %c' : ' ') +
+		args[0] +
+		(this.useColors ? '%c ' : ' ') +
+		'+' + module.exports.humanize(this.diff);
 
-  args[0] = (useColors ? '%c' : '')
-    + this.namespace
-    + (useColors ? ' %c' : ' ')
-    + args[0]
-    + (useColors ? '%c ' : ' ')
-    + '+' + exports.humanize(this.diff);
+	if (!this.useColors) {
+		return;
+	}
 
-  if (!useColors) return;
+	const c = 'color: ' + this.color;
+	args.splice(1, 0, c, 'color: inherit');
 
-  var c = 'color: ' + this.color;
-  args.splice(1, 0, c, 'color: inherit')
+	// The final "%c" is somewhat tricky, because there could be other
+	// arguments passed either before or after the %c, so we need to
+	// figure out the correct index to insert the CSS into
+	let index = 0;
+	let lastC = 0;
+	args[0].replace(/%[a-zA-Z%]/g, match => {
+		if (match === '%%') {
+			return;
+		}
+		index++;
+		if (match === '%c') {
+			// We only are interested in the *last* %c
+			// (the user may have provided their own)
+			lastC = index;
+		}
+	});
 
-  // the final "%c" is somewhat tricky, because there could be other
-  // arguments passed either before or after the %c, so we need to
-  // figure out the correct index to insert the CSS into
-  var index = 0;
-  var lastC = 0;
-  args[0].replace(/%[a-zA-Z%]/g, function(match) {
-    if ('%%' === match) return;
-    index++;
-    if ('%c' === match) {
-      // we only are interested in the *last* %c
-      // (the user may have provided their own)
-      lastC = index;
-    }
-  });
-
-  args.splice(lastC, 0, c);
+	args.splice(lastC, 0, c);
 }
 
 /**
@@ -14399,13 +14944,12 @@ function formatArgs(args) {
  *
  * @api public
  */
-
-function log() {
-  // this hackery is required for IE8/9, where
-  // the `console.log` function doesn't have 'apply'
-  return 'object' === typeof console
-    && console.log
-    && Function.prototype.apply.call(console.log, console, arguments);
+function log(...args) {
+	// This hackery is required for IE8/9, where
+	// the `console.log` function doesn't have 'apply'
+	return typeof console === 'object' &&
+		console.log &&
+		console.log(...args);
 }
 
 /**
@@ -14414,15 +14958,17 @@ function log() {
  * @param {String} namespaces
  * @api private
  */
-
 function save(namespaces) {
-  try {
-    if (null == namespaces) {
-      exports.storage.removeItem('debug');
-    } else {
-      exports.storage.debug = namespaces;
-    }
-  } catch(e) {}
+	try {
+		if (namespaces) {
+			exports.storage.setItem('debug', namespaces);
+		} else {
+			exports.storage.removeItem('debug');
+		}
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
 }
 
 /**
@@ -14431,26 +14977,22 @@ function save(namespaces) {
  * @return {String} returns the previously persisted debug modes
  * @api private
  */
-
 function load() {
-  var r;
-  try {
-    r = exports.storage.debug;
-  } catch(e) {}
+	let r;
+	try {
+		r = exports.storage.getItem('debug');
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
 
-  // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
-  if (!r && typeof process !== 'undefined' && 'env' in process) {
-    r = process.env.DEBUG;
-  }
+	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+	if (!r && typeof process !== 'undefined' && 'env' in process) {
+		r = process.env.DEBUG;
+	}
 
-  return r;
+	return r;
 }
-
-/**
- * Enable namespaces listed in `localStorage.debug` initially.
- */
-
-exports.enable(load());
 
 /**
  * Localstorage attempts to return the localstorage.
@@ -14464,217 +15006,398 @@ exports.enable(load());
  */
 
 function localstorage() {
-  try {
-    return window.localStorage;
-  } catch (e) {}
+	try {
+		// TVMLKit (Apple TV JS Runtime) does not have a window object, just localStorage in the global context
+		// The Browser also has localStorage in the global context.
+		return localStorage;
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
 }
 
+module.exports = require('./common')(exports);
+
+const {formatters} = module.exports;
+
+/**
+ * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+ */
+
+formatters.j = function (v) {
+	try {
+		return JSON.stringify(v);
+	} catch (error) {
+		return '[UnexpectedJSONParseError]: ' + error.message;
+	}
+};
+
 }).call(this,require('_process'))
-},{"./debug":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/debug/src/debug.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/debug/src/debug.js":[function(require,module,exports){
+},{"./common":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/debug/src/common.js","_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/debug/src/common.js":[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
  * implementations of `debug()`.
- *
- * Expose `debug()` as the module.
  */
 
-exports = module.exports = createDebug.debug = createDebug['default'] = createDebug;
-exports.coerce = coerce;
-exports.disable = disable;
-exports.enable = enable;
-exports.enabled = enabled;
-exports.humanize = require('ms');
+function setup(env) {
+	createDebug.debug = createDebug;
+	createDebug.default = createDebug;
+	createDebug.coerce = coerce;
+	createDebug.disable = disable;
+	createDebug.enable = enable;
+	createDebug.enabled = enabled;
+	createDebug.humanize = require('ms');
 
-/**
- * The currently active debug mode names, and names to skip.
- */
+	Object.keys(env).forEach(key => {
+		createDebug[key] = env[key];
+	});
 
-exports.names = [];
-exports.skips = [];
+	/**
+	* Active `debug` instances.
+	*/
+	createDebug.instances = [];
 
-/**
- * Map of special "%n" handling functions, for the debug "format" argument.
- *
- * Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
- */
+	/**
+	* The currently active debug mode names, and names to skip.
+	*/
 
-exports.formatters = {};
+	createDebug.names = [];
+	createDebug.skips = [];
 
-/**
- * Previous log timestamp.
- */
+	/**
+	* Map of special "%n" handling functions, for the debug "format" argument.
+	*
+	* Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
+	*/
+	createDebug.formatters = {};
 
-var prevTime;
+	/**
+	* Selects a color for a debug namespace
+	* @param {String} namespace The namespace string for the for the debug instance to be colored
+	* @return {Number|String} An ANSI color code for the given namespace
+	* @api private
+	*/
+	function selectColor(namespace) {
+		let hash = 0;
 
-/**
- * Select a color.
- * @param {String} namespace
- * @return {Number}
- * @api private
- */
+		for (let i = 0; i < namespace.length; i++) {
+			hash = ((hash << 5) - hash) + namespace.charCodeAt(i);
+			hash |= 0; // Convert to 32bit integer
+		}
 
-function selectColor(namespace) {
-  var hash = 0, i;
+		return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
+	}
+	createDebug.selectColor = selectColor;
 
-  for (i in namespace) {
-    hash  = ((hash << 5) - hash) + namespace.charCodeAt(i);
-    hash |= 0; // Convert to 32bit integer
-  }
+	/**
+	* Create a debugger with the given `namespace`.
+	*
+	* @param {String} namespace
+	* @return {Function}
+	* @api public
+	*/
+	function createDebug(namespace) {
+		let prevTime;
 
-  return exports.colors[Math.abs(hash) % exports.colors.length];
+		function debug(...args) {
+			// Disabled?
+			if (!debug.enabled) {
+				return;
+			}
+
+			const self = debug;
+
+			// Set `diff` timestamp
+			const curr = Number(new Date());
+			const ms = curr - (prevTime || curr);
+			self.diff = ms;
+			self.prev = prevTime;
+			self.curr = curr;
+			prevTime = curr;
+
+			args[0] = createDebug.coerce(args[0]);
+
+			if (typeof args[0] !== 'string') {
+				// Anything else let's inspect with %O
+				args.unshift('%O');
+			}
+
+			// Apply any `formatters` transformations
+			let index = 0;
+			args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
+				// If we encounter an escaped % then don't increase the array index
+				if (match === '%%') {
+					return match;
+				}
+				index++;
+				const formatter = createDebug.formatters[format];
+				if (typeof formatter === 'function') {
+					const val = args[index];
+					match = formatter.call(self, val);
+
+					// Now we need to remove `args[index]` since it's inlined in the `format`
+					args.splice(index, 1);
+					index--;
+				}
+				return match;
+			});
+
+			// Apply env-specific formatting (colors, etc.)
+			createDebug.formatArgs.call(self, args);
+
+			const logFn = self.log || createDebug.log;
+			logFn.apply(self, args);
+		}
+
+		debug.namespace = namespace;
+		debug.enabled = createDebug.enabled(namespace);
+		debug.useColors = createDebug.useColors();
+		debug.color = selectColor(namespace);
+		debug.destroy = destroy;
+		debug.extend = extend;
+		// Debug.formatArgs = formatArgs;
+		// debug.rawLog = rawLog;
+
+		// env-specific initialization logic for debug instances
+		if (typeof createDebug.init === 'function') {
+			createDebug.init(debug);
+		}
+
+		createDebug.instances.push(debug);
+
+		return debug;
+	}
+
+	function destroy() {
+		const index = createDebug.instances.indexOf(this);
+		if (index !== -1) {
+			createDebug.instances.splice(index, 1);
+			return true;
+		}
+		return false;
+	}
+
+	function extend(namespace, delimiter) {
+		const newDebug = createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
+		newDebug.log = this.log;
+		return newDebug;
+	}
+
+	/**
+	* Enables a debug mode by namespaces. This can include modes
+	* separated by a colon and wildcards.
+	*
+	* @param {String} namespaces
+	* @api public
+	*/
+	function enable(namespaces) {
+		createDebug.save(namespaces);
+
+		createDebug.names = [];
+		createDebug.skips = [];
+
+		let i;
+		const split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
+		const len = split.length;
+
+		for (i = 0; i < len; i++) {
+			if (!split[i]) {
+				// ignore empty strings
+				continue;
+			}
+
+			namespaces = split[i].replace(/\*/g, '.*?');
+
+			if (namespaces[0] === '-') {
+				createDebug.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
+			} else {
+				createDebug.names.push(new RegExp('^' + namespaces + '$'));
+			}
+		}
+
+		for (i = 0; i < createDebug.instances.length; i++) {
+			const instance = createDebug.instances[i];
+			instance.enabled = createDebug.enabled(instance.namespace);
+		}
+	}
+
+	/**
+	* Disable debug output.
+	*
+	* @return {String} namespaces
+	* @api public
+	*/
+	function disable() {
+		const namespaces = [
+			...createDebug.names.map(toNamespace),
+			...createDebug.skips.map(toNamespace).map(namespace => '-' + namespace)
+		].join(',');
+		createDebug.enable('');
+		return namespaces;
+	}
+
+	/**
+	* Returns true if the given mode name is enabled, false otherwise.
+	*
+	* @param {String} name
+	* @return {Boolean}
+	* @api public
+	*/
+	function enabled(name) {
+		if (name[name.length - 1] === '*') {
+			return true;
+		}
+
+		let i;
+		let len;
+
+		for (i = 0, len = createDebug.skips.length; i < len; i++) {
+			if (createDebug.skips[i].test(name)) {
+				return false;
+			}
+		}
+
+		for (i = 0, len = createDebug.names.length; i < len; i++) {
+			if (createDebug.names[i].test(name)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	* Convert regexp to namespace
+	*
+	* @param {RegExp} regxep
+	* @return {String} namespace
+	* @api private
+	*/
+	function toNamespace(regexp) {
+		return regexp.toString()
+			.substring(2, regexp.toString().length - 2)
+			.replace(/\.\*\?$/, '*');
+	}
+
+	/**
+	* Coerce `val`.
+	*
+	* @param {Mixed} val
+	* @return {Mixed}
+	* @api private
+	*/
+	function coerce(val) {
+		if (val instanceof Error) {
+			return val.stack || val.message;
+		}
+		return val;
+	}
+
+	createDebug.enable(createDebug.load());
+
+	return createDebug;
 }
 
-/**
- * Create a debugger with the given `namespace`.
- *
- * @param {String} namespace
- * @return {Function}
- * @api public
- */
+module.exports = setup;
 
-function createDebug(namespace) {
+},{"ms":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/ms/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/decode-uri-component/index.js":[function(require,module,exports){
+'use strict';
+var token = '%[a-f0-9]{2}';
+var singleMatcher = new RegExp(token, 'gi');
+var multiMatcher = new RegExp('(' + token + ')+', 'gi');
 
-  function debug() {
-    // disabled?
-    if (!debug.enabled) return;
+function decodeComponents(components, split) {
+	try {
+		// Try to decode the entire string first
+		return decodeURIComponent(components.join(''));
+	} catch (err) {
+		// Do nothing
+	}
 
-    var self = debug;
+	if (components.length === 1) {
+		return components;
+	}
 
-    // set `diff` timestamp
-    var curr = +new Date();
-    var ms = curr - (prevTime || curr);
-    self.diff = ms;
-    self.prev = prevTime;
-    self.curr = curr;
-    prevTime = curr;
+	split = split || 1;
 
-    // turn the `arguments` into a proper Array
-    var args = new Array(arguments.length);
-    for (var i = 0; i < args.length; i++) {
-      args[i] = arguments[i];
-    }
+	// Split the array in 2 parts
+	var left = components.slice(0, split);
+	var right = components.slice(split);
 
-    args[0] = exports.coerce(args[0]);
-
-    if ('string' !== typeof args[0]) {
-      // anything else let's inspect with %O
-      args.unshift('%O');
-    }
-
-    // apply any `formatters` transformations
-    var index = 0;
-    args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
-      // if we encounter an escaped % then don't increase the array index
-      if (match === '%%') return match;
-      index++;
-      var formatter = exports.formatters[format];
-      if ('function' === typeof formatter) {
-        var val = args[index];
-        match = formatter.call(self, val);
-
-        // now we need to remove `args[index]` since it's inlined in the `format`
-        args.splice(index, 1);
-        index--;
-      }
-      return match;
-    });
-
-    // apply env-specific formatting (colors, etc.)
-    exports.formatArgs.call(self, args);
-
-    var logFn = debug.log || exports.log || console.log.bind(console);
-    logFn.apply(self, args);
-  }
-
-  debug.namespace = namespace;
-  debug.enabled = exports.enabled(namespace);
-  debug.useColors = exports.useColors();
-  debug.color = selectColor(namespace);
-
-  // env-specific initialization logic for debug instances
-  if ('function' === typeof exports.init) {
-    exports.init(debug);
-  }
-
-  return debug;
+	return Array.prototype.concat.call([], decodeComponents(left), decodeComponents(right));
 }
 
-/**
- * Enables a debug mode by namespaces. This can include modes
- * separated by a colon and wildcards.
- *
- * @param {String} namespaces
- * @api public
- */
+function decode(input) {
+	try {
+		return decodeURIComponent(input);
+	} catch (err) {
+		var tokens = input.match(singleMatcher);
 
-function enable(namespaces) {
-  exports.save(namespaces);
+		for (var i = 1; i < tokens.length; i++) {
+			input = decodeComponents(tokens, i).join('');
 
-  exports.names = [];
-  exports.skips = [];
+			tokens = input.match(singleMatcher);
+		}
 
-  var split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
-  var len = split.length;
-
-  for (var i = 0; i < len; i++) {
-    if (!split[i]) continue; // ignore empty strings
-    namespaces = split[i].replace(/\*/g, '.*?');
-    if (namespaces[0] === '-') {
-      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
-    } else {
-      exports.names.push(new RegExp('^' + namespaces + '$'));
-    }
-  }
+		return input;
+	}
 }
 
-/**
- * Disable debug output.
- *
- * @api public
- */
+function customDecodeURIComponent(input) {
+	// Keep track of all the replacements and prefill the map with the `BOM`
+	var replaceMap = {
+		'%FE%FF': '\uFFFD\uFFFD',
+		'%FF%FE': '\uFFFD\uFFFD'
+	};
 
-function disable() {
-  exports.enable('');
+	var match = multiMatcher.exec(input);
+	while (match) {
+		try {
+			// Decode as big chunks as possible
+			replaceMap[match[0]] = decodeURIComponent(match[0]);
+		} catch (err) {
+			var result = decode(match[0]);
+
+			if (result !== match[0]) {
+				replaceMap[match[0]] = result;
+			}
+		}
+
+		match = multiMatcher.exec(input);
+	}
+
+	// Add `%C2` at the end of the map to make sure it does not replace the combinator before everything else
+	replaceMap['%C2'] = '\uFFFD';
+
+	var entries = Object.keys(replaceMap);
+
+	for (var i = 0; i < entries.length; i++) {
+		// Replace all decoded components
+		var key = entries[i];
+		input = input.replace(new RegExp(key, 'g'), replaceMap[key]);
+	}
+
+	return input;
 }
 
-/**
- * Returns true if the given mode name is enabled, false otherwise.
- *
- * @param {String} name
- * @return {Boolean}
- * @api public
- */
+module.exports = function (encodedURI) {
+	if (typeof encodedURI !== 'string') {
+		throw new TypeError('Expected `encodedURI` to be of type `string`, got `' + typeof encodedURI + '`');
+	}
 
-function enabled(name) {
-  var i, len;
-  for (i = 0, len = exports.skips.length; i < len; i++) {
-    if (exports.skips[i].test(name)) {
-      return false;
-    }
-  }
-  for (i = 0, len = exports.names.length; i < len; i++) {
-    if (exports.names[i].test(name)) {
-      return true;
-    }
-  }
-  return false;
-}
+	try {
+		encodedURI = encodedURI.replace(/\+/g, ' ');
 
-/**
- * Coerce `val`.
- *
- * @param {Mixed} val
- * @return {Mixed}
- * @api private
- */
+		// Try the built in decoder first
+		return decodeURIComponent(encodedURI);
+	} catch (err) {
+		// Fallback to a more advanced decoder
+		return customDecodeURIComponent(encodedURI);
+	}
+};
 
-function coerce(val) {
-  if (val instanceof Error) return val.stack || val.message;
-  return val;
-}
-
-},{"ms":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ms/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/des.js/lib/des.js":[function(require,module,exports){
 'use strict';
 
 exports.utils = require('./des/utils');
@@ -14683,7 +15406,7 @@ exports.DES = require('./des/des');
 exports.CBC = require('./des/cbc');
 exports.EDE = require('./des/ede');
 
-},{"./des/cbc":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/cbc.js","./des/cipher":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/cipher.js","./des/des":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/des.js","./des/ede":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/ede.js","./des/utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/cbc.js":[function(require,module,exports){
+},{"./des/cbc":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/des.js/lib/des/cbc.js","./des/cipher":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/des.js/lib/des/cipher.js","./des/des":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/des.js/lib/des/des.js","./des/ede":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/des.js/lib/des/ede.js","./des/utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/des.js/lib/des/utils.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/des.js/lib/des/cbc.js":[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -14750,7 +15473,7 @@ proto._update = function _update(inp, inOff, out, outOff) {
   }
 };
 
-},{"inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/cipher.js":[function(require,module,exports){
+},{"inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","minimalistic-assert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/minimalistic-assert/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/des.js/lib/des/cipher.js":[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -14893,7 +15616,7 @@ Cipher.prototype._finalDecrypt = function _finalDecrypt() {
   return this._unpad(out);
 };
 
-},{"minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/des.js":[function(require,module,exports){
+},{"minimalistic-assert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/minimalistic-assert/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/des.js/lib/des/des.js":[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -15038,7 +15761,7 @@ DES.prototype._decrypt = function _decrypt(state, lStart, rStart, out, off) {
   utils.rip(l, r, out, off);
 };
 
-},{"../des":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/ede.js":[function(require,module,exports){
+},{"../des":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/des.js/lib/des.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","minimalistic-assert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/minimalistic-assert/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/des.js/lib/des/ede.js":[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -15095,7 +15818,7 @@ EDE.prototype._update = function _update(inp, inOff, out, outOff) {
 EDE.prototype._pad = DES.prototype._pad;
 EDE.prototype._unpad = DES.prototype._unpad;
 
-},{"../des":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/utils.js":[function(require,module,exports){
+},{"../des":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/des.js/lib/des.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","minimalistic-assert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/minimalistic-assert/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/des.js/lib/des/utils.js":[function(require,module,exports){
 'use strict';
 
 exports.readUInt32BE = function readUInt32BE(bytes, off) {
@@ -15353,7 +16076,7 @@ exports.padSplit = function padSplit(num, size, group) {
   return out.join(' ');
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/browser.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/diffie-hellman/browser.js":[function(require,module,exports){
 (function (Buffer){
 var generatePrime = require('./lib/generatePrime')
 var primes = require('./lib/primes.json')
@@ -15399,7 +16122,7 @@ exports.DiffieHellmanGroup = exports.createDiffieHellmanGroup = exports.getDiffi
 exports.createDiffieHellman = exports.DiffieHellman = createDiffieHellman
 
 }).call(this,require("buffer").Buffer)
-},{"./lib/dh":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/lib/dh.js","./lib/generatePrime":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/lib/generatePrime.js","./lib/primes.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/lib/primes.json","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/lib/dh.js":[function(require,module,exports){
+},{"./lib/dh":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/diffie-hellman/lib/dh.js","./lib/generatePrime":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/diffie-hellman/lib/generatePrime.js","./lib/primes.json":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/diffie-hellman/lib/primes.json","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/diffie-hellman/lib/dh.js":[function(require,module,exports){
 (function (Buffer){
 var BN = require('bn.js');
 var MillerRabin = require('miller-rabin');
@@ -15567,7 +16290,7 @@ function formatReturnValue(bn, enc) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./generatePrime":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/lib/generatePrime.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","miller-rabin":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/miller-rabin/lib/mr.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/lib/generatePrime.js":[function(require,module,exports){
+},{"./generatePrime":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/diffie-hellman/lib/generatePrime.js","bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","miller-rabin":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/miller-rabin/lib/mr.js","randombytes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/randombytes/browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/diffie-hellman/lib/generatePrime.js":[function(require,module,exports){
 var randomBytes = require('randombytes');
 module.exports = findPrime;
 findPrime.simpleSieve = simpleSieve;
@@ -15674,7 +16397,7 @@ function findPrime(bits, gen) {
 
 }
 
-},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","miller-rabin":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/miller-rabin/lib/mr.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/lib/primes.json":[function(require,module,exports){
+},{"bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js","miller-rabin":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/miller-rabin/lib/mr.js","randombytes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/randombytes/browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/diffie-hellman/lib/primes.json":[function(require,module,exports){
 module.exports={
     "modp1": {
         "gen": "02",
@@ -15709,7 +16432,7 @@ module.exports={
         "prime": "ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552bb9ed529077096966d670c354e4abc9804f1746c08ca18217c32905e462e36ce3be39e772c180e86039b2783a2ec07a28fb5c55df06f4c52c9de2bcbf6955817183995497cea956ae515d2261898fa051015728e5a8aaac42dad33170d04507a33a85521abdf1cba64ecfb850458dbef0a8aea71575d060c7db3970f85a6e1e4c7abf5ae8cdb0933d71e8c94e04a25619dcee3d2261ad2ee6bf12ffa06d98a0864d87602733ec86a64521f2b18177b200cbbe117577a615d6c770988c0bad946e208e24fa074e5ab3143db5bfce0fd108e4b82d120a92108011a723c12a787e6d788719a10bdba5b2699c327186af4e23c1a946834b6150bda2583e9ca2ad44ce8dbbbc2db04de8ef92e8efc141fbecaa6287c59474e6bc05d99b2964fa090c3a2233ba186515be7ed1f612970cee2d7afb81bdd762170481cd0069127d5b05aa993b4ea988d8fddc186ffb7dc90a6c08f4df435c93402849236c3fab4d27c7026c1d4dcb2602646dec9751e763dba37bdf8ff9406ad9e530ee5db382f413001aeb06a53ed9027d831179727b0865a8918da3edbebcf9b14ed44ce6cbaced4bb1bdb7f1447e6cc254b332051512bd7af426fb8f401378cd2bf5983ca01c64b92ecf032ea15d1721d03f482d7ce6e74fef6d55e702f46980c82b5a84031900b1c9e59e7c97fbec7e8f323a97a7e36cc88be0f1d45b7ff585ac54bd407b22b4154aacc8f6d7ebf48e1d814cc5ed20f8037e0a79715eef29be32806a1d58bb7c5da76f550aa3d8a1fbff0eb19ccb1a313d55cda56c9ec2ef29632387fe8d76e3c0468043e8f663f4860ee12bf2d5b0b7474d6e694f91e6dbe115974a3926f12fee5e438777cb6a932df8cd8bec4d073b931ba3bc832b68d9dd300741fa7bf8afc47ed2576f6936ba424663aab639c5ae4f5683423b4742bf1c978238f16cbe39d652de3fdb8befc848ad922222e04a4037c0713eb57a81a23f0c73473fc646cea306b4bcbc8862f8385ddfa9d4b7fa2c087e879683303ed5bdd3a062b3cf5b3a278a66d2a13f83f44f82ddf310ee074ab6a364597e899a0255dc164f31cc50846851df9ab48195ded7ea1b1d510bd7ee74d73faf36bc31ecfa268359046f4eb879f924009438b481c6cd7889a002ed5ee382bc9190da6fc026e479558e4475677e9aa9e3050e2765694dfc81f56e880b96e7160c980dd98edd3dfffffffffffffffff"
     }
 }
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-stream/client.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/discovery-swarm-stream/client.js":[function(require,module,exports){
 (function (Buffer){
 var EventEmitter = require('events')
 
@@ -15832,7 +16555,7 @@ module.exports = class DiscoverySwarmClient extends EventEmitter {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-stream/index.js","./proxystream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-stream/proxystream.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-stream/index.js":[function(require,module,exports){
+},{"./":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/discovery-swarm-stream/index.js","./proxystream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/discovery-swarm-stream/proxystream.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","events":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify/node_modules/events/events.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/discovery-swarm-stream/index.js":[function(require,module,exports){
 var Duplex = require('readable-stream').Duplex
 var lps = require('length-prefixed-stream')
 var messages = require('./messages')
@@ -15914,7 +16637,7 @@ module.exports = class DiscoverySwarmStream extends Duplex {
   _read () {}
 }
 
-},{"./messages":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-stream/messages.js","length-prefixed-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/index.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-stream/messages.js":[function(require,module,exports){
+},{"./messages":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/discovery-swarm-stream/messages.js","length-prefixed-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/length-prefixed-stream/index.js","readable-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/readable-browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/discovery-swarm-stream/messages.js":[function(require,module,exports){
 (function (Buffer){
 // This file is auto generated by the protocol-buffers cli tool
 
@@ -16040,7 +16763,7 @@ function defined (val) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","protocol-buffers-encodings":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-stream/proxystream.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","protocol-buffers-encodings":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/protocol-buffers-encodings/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/discovery-swarm-stream/proxystream.js":[function(require,module,exports){
 var Duplex = require('readable-stream').Duplex
 
 module.exports = class ProxyStream extends Duplex {
@@ -16090,7 +16813,7 @@ module.exports = class ProxyStream extends Duplex {
   }
 }
 
-},{"readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-web/index.js":[function(require,module,exports){
+},{"readable-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/readable-browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/discovery-swarm-web/index.js":[function(require,module,exports){
 /* global self */
 const signalhubws = require('signalhubws')
 const webrtcSwarm = require('@geut/discovery-swarm-webrtc')
@@ -16311,7 +17034,7 @@ function setSecure (url) {
   }
 }
 
-},{"@geut/discovery-swarm-webrtc":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/@geut/discovery-swarm-webrtc/index.js","discovery-swarm-stream/client":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-stream/client.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js","signalhubws":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signalhubws/index.js","websocket-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/websocket-stream/stream.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/duplexify/index.js":[function(require,module,exports){
+},{"@geut/discovery-swarm-webrtc":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/@geut/discovery-swarm-webrtc/index.js","discovery-swarm-stream/client":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/discovery-swarm-stream/client.js","events":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify/node_modules/events/events.js","randombytes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/randombytes/browser.js","signalhubws":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/signalhubws/index.js","websocket-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/websocket-stream/stream.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/duplexify/index.js":[function(require,module,exports){
 (function (process,Buffer){
 var stream = require('readable-stream')
 var eos = require('end-of-stream')
@@ -16549,7 +17272,7 @@ Duplexify.prototype.end = function(data, enc, cb) {
 module.exports = Duplexify
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","end-of-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/end-of-stream/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js","stream-shift":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-shift/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","end-of-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/end-of-stream/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","readable-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/readable-browser.js","stream-shift":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/stream-shift/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic.js":[function(require,module,exports){
 'use strict';
 
 var elliptic = exports;
@@ -16564,7 +17287,7 @@ elliptic.curves = require('./elliptic/curves');
 elliptic.ec = require('./elliptic/ec');
 elliptic.eddsa = require('./elliptic/eddsa');
 
-},{"../package.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/package.json","./elliptic/curve":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/index.js","./elliptic/curves":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curves.js","./elliptic/ec":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/ec/index.js","./elliptic/eddsa":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/eddsa/index.js","./elliptic/utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","brorand":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/brorand/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/base.js":[function(require,module,exports){
+},{"../package.json":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/package.json","./elliptic/curve":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curve/index.js","./elliptic/curves":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curves.js","./elliptic/ec":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/ec/index.js","./elliptic/eddsa":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/eddsa/index.js","./elliptic/utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/utils.js","brorand":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/brorand/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curve/base.js":[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -16940,7 +17663,7 @@ BasePoint.prototype.dblp = function dblp(k) {
   return r;
 };
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/edwards.js":[function(require,module,exports){
+},{"../utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/utils.js","bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curve/edwards.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -17374,7 +18097,7 @@ Point.prototype.eqXToP = function eqXToP(x) {
 Point.prototype.toP = Point.prototype.normalize;
 Point.prototype.mixedAdd = Point.prototype.add;
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","./base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/base.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/index.js":[function(require,module,exports){
+},{"../utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/utils.js","./base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curve/base.js","bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curve/index.js":[function(require,module,exports){
 'use strict';
 
 var curve = exports;
@@ -17384,7 +18107,7 @@ curve.short = require('./short');
 curve.mont = require('./mont');
 curve.edwards = require('./edwards');
 
-},{"./base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/base.js","./edwards":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/edwards.js","./mont":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/mont.js","./short":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/short.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/mont.js":[function(require,module,exports){
+},{"./base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curve/base.js","./edwards":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curve/edwards.js","./mont":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curve/mont.js","./short":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curve/short.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curve/mont.js":[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -17564,7 +18287,7 @@ Point.prototype.getX = function getX() {
   return this.x.fromRed();
 };
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","./base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/base.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/short.js":[function(require,module,exports){
+},{"../utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/utils.js","./base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curve/base.js","bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curve/short.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -18502,7 +19225,7 @@ JPoint.prototype.isInfinity = function isInfinity() {
   return this.z.cmpn(0) === 0;
 };
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","./base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/base.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curves.js":[function(require,module,exports){
+},{"../utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/utils.js","./base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curve/base.js","bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curves.js":[function(require,module,exports){
 'use strict';
 
 var curves = exports;
@@ -18710,7 +19433,7 @@ defineCurve('secp256k1', {
   ]
 });
 
-},{"./curve":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/index.js","./precomputed/secp256k1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/precomputed/secp256k1.js","./utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","hash.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/ec/index.js":[function(require,module,exports){
+},{"./curve":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curve/index.js","./precomputed/secp256k1":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/precomputed/secp256k1.js","./utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/utils.js","hash.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/ec/index.js":[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -18953,7 +19676,7 @@ EC.prototype.getKeyRecoveryParam = function(e, signature, Q, enc) {
   throw new Error('Unable to find valid recovery factor');
 };
 
-},{"../curves":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curves.js","../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","./key":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/ec/key.js","./signature":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/ec/signature.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","brorand":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/brorand/index.js","hmac-drbg":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hmac-drbg/lib/hmac-drbg.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/ec/key.js":[function(require,module,exports){
+},{"../curves":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curves.js","../utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/utils.js","./key":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/ec/key.js","./signature":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/ec/signature.js","bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js","brorand":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/brorand/index.js","hmac-drbg":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hmac-drbg/lib/hmac-drbg.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/ec/key.js":[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -19073,7 +19796,7 @@ KeyPair.prototype.inspect = function inspect() {
          ' pub: ' + (this.pub && this.pub.inspect()) + ' >';
 };
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/ec/signature.js":[function(require,module,exports){
+},{"../utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/utils.js","bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/ec/signature.js":[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -19209,7 +19932,7 @@ Signature.prototype.toDER = function toDER(enc) {
   return utils.encode(res, enc);
 };
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/eddsa/index.js":[function(require,module,exports){
+},{"../utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/utils.js","bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/eddsa/index.js":[function(require,module,exports){
 'use strict';
 
 var hash = require('hash.js');
@@ -19329,7 +20052,7 @@ EDDSA.prototype.isPoint = function isPoint(val) {
   return val instanceof this.pointClass;
 };
 
-},{"../curves":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curves.js","../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","./key":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/eddsa/key.js","./signature":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/eddsa/signature.js","hash.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/eddsa/key.js":[function(require,module,exports){
+},{"../curves":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/curves.js","../utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/utils.js","./key":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/eddsa/key.js","./signature":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/eddsa/signature.js","hash.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/eddsa/key.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -19426,7 +20149,7 @@ KeyPair.prototype.getPublic = function getPublic(enc) {
 
 module.exports = KeyPair;
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/eddsa/signature.js":[function(require,module,exports){
+},{"../utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/utils.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/eddsa/signature.js":[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -19493,7 +20216,7 @@ Signature.prototype.toHex = function toHex() {
 
 module.exports = Signature;
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/precomputed/secp256k1.js":[function(require,module,exports){
+},{"../utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/utils.js","bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/precomputed/secp256k1.js":[function(require,module,exports){
 module.exports = {
   doubles: {
     step: 4,
@@ -20275,7 +20998,7 @@ module.exports = {
   }
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/lib/elliptic/utils.js":[function(require,module,exports){
 'use strict';
 
 var utils = exports;
@@ -20397,38 +21120,32 @@ function intFromLE(bytes) {
 utils.intFromLE = intFromLE;
 
 
-},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js","minimalistic-crypto-utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-crypto-utils/lib/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/package.json":[function(require,module,exports){
+},{"bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js","minimalistic-assert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/minimalistic-assert/index.js","minimalistic-crypto-utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/minimalistic-crypto-utils/lib/utils.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/elliptic/package.json":[function(require,module,exports){
 module.exports={
-  "_args": [
-    [
-      "elliptic@6.5.0",
-      "/home/ninabreznik/Documents/code/ethereum/play/collection-page"
-    ]
-  ],
-  "_development": true,
-  "_from": "elliptic@6.5.0",
+  "_from": "elliptic@^6.0.0",
   "_id": "elliptic@6.5.0",
   "_inBundle": false,
   "_integrity": "sha512-eFOJTMyCYb7xtE/caJ6JJu+bhi67WCYNbkGSknu20pmM8Ke/bqOfdnZWxyoGN26JgfxTbXrsCkEw4KheCT/KGg==",
   "_location": "/elliptic",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
+    "type": "range",
     "registry": true,
-    "raw": "elliptic@6.5.0",
+    "raw": "elliptic@^6.0.0",
     "name": "elliptic",
     "escapedName": "elliptic",
-    "rawSpec": "6.5.0",
+    "rawSpec": "^6.0.0",
     "saveSpec": null,
-    "fetchSpec": "6.5.0"
+    "fetchSpec": "^6.0.0"
   },
   "_requiredBy": [
     "/browserify-sign",
     "/create-ecdh"
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.5.0.tgz",
-  "_spec": "6.5.0",
-  "_where": "/home/ninabreznik/Documents/code/ethereum/play/collection-page",
+  "_shasum": "2b8ed4c891b7de3200e14412a5b8248c7af505ca",
+  "_spec": "elliptic@^6.0.0",
+  "_where": "/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-sign",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -20436,6 +21153,7 @@ module.exports={
   "bugs": {
     "url": "https://github.com/indutny/elliptic/issues"
   },
+  "bundleDependencies": false,
   "dependencies": {
     "bn.js": "^4.4.0",
     "brorand": "^1.0.1",
@@ -20445,6 +21163,7 @@ module.exports={
     "minimalistic-assert": "^1.0.0",
     "minimalistic-crypto-utils": "^1.0.0"
   },
+  "deprecated": false,
   "description": "EC cryptography",
   "devDependencies": {
     "brfs": "^1.4.3",
@@ -20490,7 +21209,7 @@ module.exports={
   "version": "6.5.0"
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/end-of-stream/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/end-of-stream/index.js":[function(require,module,exports){
 var once = require('once');
 
 var noop = function() {};
@@ -20579,532 +21298,7 @@ var eos = function(stream, opts, callback) {
 
 module.exports = eos;
 
-},{"once":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/once/once.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js":[function(require,module,exports){
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-var objectCreate = Object.create || objectCreatePolyfill
-var objectKeys = Object.keys || objectKeysPolyfill
-var bind = Function.prototype.bind || functionBindPolyfill
-
-function EventEmitter() {
-  if (!this._events || !Object.prototype.hasOwnProperty.call(this, '_events')) {
-    this._events = objectCreate(null);
-    this._eventsCount = 0;
-  }
-
-  this._maxListeners = this._maxListeners || undefined;
-}
-module.exports = EventEmitter;
-
-// Backwards-compat with node 0.10.x
-EventEmitter.EventEmitter = EventEmitter;
-
-EventEmitter.prototype._events = undefined;
-EventEmitter.prototype._maxListeners = undefined;
-
-// By default EventEmitters will print a warning if more than 10 listeners are
-// added to it. This is a useful default which helps finding memory leaks.
-var defaultMaxListeners = 10;
-
-var hasDefineProperty;
-try {
-  var o = {};
-  if (Object.defineProperty) Object.defineProperty(o, 'x', { value: 0 });
-  hasDefineProperty = o.x === 0;
-} catch (err) { hasDefineProperty = false }
-if (hasDefineProperty) {
-  Object.defineProperty(EventEmitter, 'defaultMaxListeners', {
-    enumerable: true,
-    get: function() {
-      return defaultMaxListeners;
-    },
-    set: function(arg) {
-      // check whether the input is a positive number (whose value is zero or
-      // greater and not a NaN).
-      if (typeof arg !== 'number' || arg < 0 || arg !== arg)
-        throw new TypeError('"defaultMaxListeners" must be a positive number');
-      defaultMaxListeners = arg;
-    }
-  });
-} else {
-  EventEmitter.defaultMaxListeners = defaultMaxListeners;
-}
-
-// Obviously not all Emitters should be limited to 10. This function allows
-// that to be increased. Set to zero for unlimited.
-EventEmitter.prototype.setMaxListeners = function setMaxListeners(n) {
-  if (typeof n !== 'number' || n < 0 || isNaN(n))
-    throw new TypeError('"n" argument must be a positive number');
-  this._maxListeners = n;
-  return this;
-};
-
-function $getMaxListeners(that) {
-  if (that._maxListeners === undefined)
-    return EventEmitter.defaultMaxListeners;
-  return that._maxListeners;
-}
-
-EventEmitter.prototype.getMaxListeners = function getMaxListeners() {
-  return $getMaxListeners(this);
-};
-
-// These standalone emit* functions are used to optimize calling of event
-// handlers for fast cases because emit() itself often has a variable number of
-// arguments and can be deoptimized because of that. These functions always have
-// the same number of arguments and thus do not get deoptimized, so the code
-// inside them can execute faster.
-function emitNone(handler, isFn, self) {
-  if (isFn)
-    handler.call(self);
-  else {
-    var len = handler.length;
-    var listeners = arrayClone(handler, len);
-    for (var i = 0; i < len; ++i)
-      listeners[i].call(self);
-  }
-}
-function emitOne(handler, isFn, self, arg1) {
-  if (isFn)
-    handler.call(self, arg1);
-  else {
-    var len = handler.length;
-    var listeners = arrayClone(handler, len);
-    for (var i = 0; i < len; ++i)
-      listeners[i].call(self, arg1);
-  }
-}
-function emitTwo(handler, isFn, self, arg1, arg2) {
-  if (isFn)
-    handler.call(self, arg1, arg2);
-  else {
-    var len = handler.length;
-    var listeners = arrayClone(handler, len);
-    for (var i = 0; i < len; ++i)
-      listeners[i].call(self, arg1, arg2);
-  }
-}
-function emitThree(handler, isFn, self, arg1, arg2, arg3) {
-  if (isFn)
-    handler.call(self, arg1, arg2, arg3);
-  else {
-    var len = handler.length;
-    var listeners = arrayClone(handler, len);
-    for (var i = 0; i < len; ++i)
-      listeners[i].call(self, arg1, arg2, arg3);
-  }
-}
-
-function emitMany(handler, isFn, self, args) {
-  if (isFn)
-    handler.apply(self, args);
-  else {
-    var len = handler.length;
-    var listeners = arrayClone(handler, len);
-    for (var i = 0; i < len; ++i)
-      listeners[i].apply(self, args);
-  }
-}
-
-EventEmitter.prototype.emit = function emit(type) {
-  var er, handler, len, args, i, events;
-  var doError = (type === 'error');
-
-  events = this._events;
-  if (events)
-    doError = (doError && events.error == null);
-  else if (!doError)
-    return false;
-
-  // If there is no 'error' event listener then throw.
-  if (doError) {
-    if (arguments.length > 1)
-      er = arguments[1];
-    if (er instanceof Error) {
-      throw er; // Unhandled 'error' event
-    } else {
-      // At least give some kind of context to the user
-      var err = new Error('Unhandled "error" event. (' + er + ')');
-      err.context = er;
-      throw err;
-    }
-    return false;
-  }
-
-  handler = events[type];
-
-  if (!handler)
-    return false;
-
-  var isFn = typeof handler === 'function';
-  len = arguments.length;
-  switch (len) {
-      // fast cases
-    case 1:
-      emitNone(handler, isFn, this);
-      break;
-    case 2:
-      emitOne(handler, isFn, this, arguments[1]);
-      break;
-    case 3:
-      emitTwo(handler, isFn, this, arguments[1], arguments[2]);
-      break;
-    case 4:
-      emitThree(handler, isFn, this, arguments[1], arguments[2], arguments[3]);
-      break;
-      // slower
-    default:
-      args = new Array(len - 1);
-      for (i = 1; i < len; i++)
-        args[i - 1] = arguments[i];
-      emitMany(handler, isFn, this, args);
-  }
-
-  return true;
-};
-
-function _addListener(target, type, listener, prepend) {
-  var m;
-  var events;
-  var existing;
-
-  if (typeof listener !== 'function')
-    throw new TypeError('"listener" argument must be a function');
-
-  events = target._events;
-  if (!events) {
-    events = target._events = objectCreate(null);
-    target._eventsCount = 0;
-  } else {
-    // To avoid recursion in the case that type === "newListener"! Before
-    // adding it to the listeners, first emit "newListener".
-    if (events.newListener) {
-      target.emit('newListener', type,
-          listener.listener ? listener.listener : listener);
-
-      // Re-assign `events` because a newListener handler could have caused the
-      // this._events to be assigned to a new object
-      events = target._events;
-    }
-    existing = events[type];
-  }
-
-  if (!existing) {
-    // Optimize the case of one listener. Don't need the extra array object.
-    existing = events[type] = listener;
-    ++target._eventsCount;
-  } else {
-    if (typeof existing === 'function') {
-      // Adding the second element, need to change to array.
-      existing = events[type] =
-          prepend ? [listener, existing] : [existing, listener];
-    } else {
-      // If we've already got an array, just append.
-      if (prepend) {
-        existing.unshift(listener);
-      } else {
-        existing.push(listener);
-      }
-    }
-
-    // Check for listener leak
-    if (!existing.warned) {
-      m = $getMaxListeners(target);
-      if (m && m > 0 && existing.length > m) {
-        existing.warned = true;
-        var w = new Error('Possible EventEmitter memory leak detected. ' +
-            existing.length + ' "' + String(type) + '" listeners ' +
-            'added. Use emitter.setMaxListeners() to ' +
-            'increase limit.');
-        w.name = 'MaxListenersExceededWarning';
-        w.emitter = target;
-        w.type = type;
-        w.count = existing.length;
-        if (typeof console === 'object' && console.warn) {
-          console.warn('%s: %s', w.name, w.message);
-        }
-      }
-    }
-  }
-
-  return target;
-}
-
-EventEmitter.prototype.addListener = function addListener(type, listener) {
-  return _addListener(this, type, listener, false);
-};
-
-EventEmitter.prototype.on = EventEmitter.prototype.addListener;
-
-EventEmitter.prototype.prependListener =
-    function prependListener(type, listener) {
-      return _addListener(this, type, listener, true);
-    };
-
-function onceWrapper() {
-  if (!this.fired) {
-    this.target.removeListener(this.type, this.wrapFn);
-    this.fired = true;
-    switch (arguments.length) {
-      case 0:
-        return this.listener.call(this.target);
-      case 1:
-        return this.listener.call(this.target, arguments[0]);
-      case 2:
-        return this.listener.call(this.target, arguments[0], arguments[1]);
-      case 3:
-        return this.listener.call(this.target, arguments[0], arguments[1],
-            arguments[2]);
-      default:
-        var args = new Array(arguments.length);
-        for (var i = 0; i < args.length; ++i)
-          args[i] = arguments[i];
-        this.listener.apply(this.target, args);
-    }
-  }
-}
-
-function _onceWrap(target, type, listener) {
-  var state = { fired: false, wrapFn: undefined, target: target, type: type, listener: listener };
-  var wrapped = bind.call(onceWrapper, state);
-  wrapped.listener = listener;
-  state.wrapFn = wrapped;
-  return wrapped;
-}
-
-EventEmitter.prototype.once = function once(type, listener) {
-  if (typeof listener !== 'function')
-    throw new TypeError('"listener" argument must be a function');
-  this.on(type, _onceWrap(this, type, listener));
-  return this;
-};
-
-EventEmitter.prototype.prependOnceListener =
-    function prependOnceListener(type, listener) {
-      if (typeof listener !== 'function')
-        throw new TypeError('"listener" argument must be a function');
-      this.prependListener(type, _onceWrap(this, type, listener));
-      return this;
-    };
-
-// Emits a 'removeListener' event if and only if the listener was removed.
-EventEmitter.prototype.removeListener =
-    function removeListener(type, listener) {
-      var list, events, position, i, originalListener;
-
-      if (typeof listener !== 'function')
-        throw new TypeError('"listener" argument must be a function');
-
-      events = this._events;
-      if (!events)
-        return this;
-
-      list = events[type];
-      if (!list)
-        return this;
-
-      if (list === listener || list.listener === listener) {
-        if (--this._eventsCount === 0)
-          this._events = objectCreate(null);
-        else {
-          delete events[type];
-          if (events.removeListener)
-            this.emit('removeListener', type, list.listener || listener);
-        }
-      } else if (typeof list !== 'function') {
-        position = -1;
-
-        for (i = list.length - 1; i >= 0; i--) {
-          if (list[i] === listener || list[i].listener === listener) {
-            originalListener = list[i].listener;
-            position = i;
-            break;
-          }
-        }
-
-        if (position < 0)
-          return this;
-
-        if (position === 0)
-          list.shift();
-        else
-          spliceOne(list, position);
-
-        if (list.length === 1)
-          events[type] = list[0];
-
-        if (events.removeListener)
-          this.emit('removeListener', type, originalListener || listener);
-      }
-
-      return this;
-    };
-
-EventEmitter.prototype.removeAllListeners =
-    function removeAllListeners(type) {
-      var listeners, events, i;
-
-      events = this._events;
-      if (!events)
-        return this;
-
-      // not listening for removeListener, no need to emit
-      if (!events.removeListener) {
-        if (arguments.length === 0) {
-          this._events = objectCreate(null);
-          this._eventsCount = 0;
-        } else if (events[type]) {
-          if (--this._eventsCount === 0)
-            this._events = objectCreate(null);
-          else
-            delete events[type];
-        }
-        return this;
-      }
-
-      // emit removeListener for all listeners on all events
-      if (arguments.length === 0) {
-        var keys = objectKeys(events);
-        var key;
-        for (i = 0; i < keys.length; ++i) {
-          key = keys[i];
-          if (key === 'removeListener') continue;
-          this.removeAllListeners(key);
-        }
-        this.removeAllListeners('removeListener');
-        this._events = objectCreate(null);
-        this._eventsCount = 0;
-        return this;
-      }
-
-      listeners = events[type];
-
-      if (typeof listeners === 'function') {
-        this.removeListener(type, listeners);
-      } else if (listeners) {
-        // LIFO order
-        for (i = listeners.length - 1; i >= 0; i--) {
-          this.removeListener(type, listeners[i]);
-        }
-      }
-
-      return this;
-    };
-
-function _listeners(target, type, unwrap) {
-  var events = target._events;
-
-  if (!events)
-    return [];
-
-  var evlistener = events[type];
-  if (!evlistener)
-    return [];
-
-  if (typeof evlistener === 'function')
-    return unwrap ? [evlistener.listener || evlistener] : [evlistener];
-
-  return unwrap ? unwrapListeners(evlistener) : arrayClone(evlistener, evlistener.length);
-}
-
-EventEmitter.prototype.listeners = function listeners(type) {
-  return _listeners(this, type, true);
-};
-
-EventEmitter.prototype.rawListeners = function rawListeners(type) {
-  return _listeners(this, type, false);
-};
-
-EventEmitter.listenerCount = function(emitter, type) {
-  if (typeof emitter.listenerCount === 'function') {
-    return emitter.listenerCount(type);
-  } else {
-    return listenerCount.call(emitter, type);
-  }
-};
-
-EventEmitter.prototype.listenerCount = listenerCount;
-function listenerCount(type) {
-  var events = this._events;
-
-  if (events) {
-    var evlistener = events[type];
-
-    if (typeof evlistener === 'function') {
-      return 1;
-    } else if (evlistener) {
-      return evlistener.length;
-    }
-  }
-
-  return 0;
-}
-
-EventEmitter.prototype.eventNames = function eventNames() {
-  return this._eventsCount > 0 ? Reflect.ownKeys(this._events) : [];
-};
-
-// About 1.5x faster than the two-arg version of Array#splice().
-function spliceOne(list, index) {
-  for (var i = index, k = i + 1, n = list.length; k < n; i += 1, k += 1)
-    list[i] = list[k];
-  list.pop();
-}
-
-function arrayClone(arr, n) {
-  var copy = new Array(n);
-  for (var i = 0; i < n; ++i)
-    copy[i] = arr[i];
-  return copy;
-}
-
-function unwrapListeners(arr) {
-  var ret = new Array(arr.length);
-  for (var i = 0; i < ret.length; ++i) {
-    ret[i] = arr[i].listener || arr[i];
-  }
-  return ret;
-}
-
-function objectCreatePolyfill(proto) {
-  var F = function() {};
-  F.prototype = proto;
-  return new F;
-}
-function objectKeysPolyfill(obj) {
-  var keys = [];
-  for (var k in obj) if (Object.prototype.hasOwnProperty.call(obj, k)) {
-    keys.push(k);
-  }
-  return k;
-}
-function functionBindPolyfill(context) {
-  var fn = this;
-  return function () {
-    return fn.apply(context, arguments);
-  };
-}
-
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/evp_bytestokey/index.js":[function(require,module,exports){
+},{"once":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/once/once.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/evp_bytestokey/index.js":[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 var MD5 = require('md5.js')
 
@@ -21151,7 +21345,7 @@ function EVP_BytesToKey (password, salt, keyBits, ivLen) {
 
 module.exports = EVP_BytesToKey
 
-},{"md5.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/md5.js/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/fast-bitfield/index.js":[function(require,module,exports){
+},{"md5.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/md5.js/index.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/fast-bitfield/index.js":[function(require,module,exports){
 'use strict'
 
 const ctz = require('count-trailing-zeros')
@@ -21598,7 +21792,7 @@ function factor (n, out) {
   out[3] = ((n - (out[2] = (n & 32767))) / 32768) & 32767
 }
 
-},{"count-trailing-zeros":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/count-trailing-zeros/ctz.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/flat-tree/index.js":[function(require,module,exports){
+},{"count-trailing-zeros":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/count-trailing-zeros/ctz.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/flat-tree/index.js":[function(require,module,exports){
 exports.fullRoots = function (index, result) {
   if (index & 1) throw new Error('You can only look up roots for depth(0) blocks')
   if (!result) result = []
@@ -21805,7 +21999,7 @@ Iterator.prototype.rightChild = function () {
   return this.index
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/from2/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/from2/index.js":[function(require,module,exports){
 (function (process){
 var Readable = require('readable-stream').Readable
 var inherits = require('inherits')
@@ -21912,7 +22106,7 @@ function defaults(opts) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/get-browser-rtc/index.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","readable-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/readable-browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/get-browser-rtc/index.js":[function(require,module,exports){
 // originally pulled out of simple-peer
 
 module.exports = function getBrowserRTC () {
@@ -21929,7 +22123,7 @@ module.exports = function getBrowserRTC () {
   return wrtc
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash-base/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash-base/index.js":[function(require,module,exports){
 'use strict'
 var Buffer = require('safe-buffer').Buffer
 var Transform = require('stream').Transform
@@ -22026,7 +22220,7 @@ HashBase.prototype._digest = function () {
 
 module.exports = HashBase
 
-},{"inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js","stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-browserify/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash.js":[function(require,module,exports){
+},{"inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js","stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/stream-browserify/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash.js":[function(require,module,exports){
 var hash = exports;
 
 hash.utils = require('./hash/utils');
@@ -22043,7 +22237,7 @@ hash.sha384 = hash.sha.sha384;
 hash.sha512 = hash.sha.sha512;
 hash.ripemd160 = hash.ripemd.ripemd160;
 
-},{"./hash/common":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/common.js","./hash/hmac":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/hmac.js","./hash/ripemd":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/ripemd.js","./hash/sha":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha.js","./hash/utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/common.js":[function(require,module,exports){
+},{"./hash/common":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/common.js","./hash/hmac":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/hmac.js","./hash/ripemd":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/ripemd.js","./hash/sha":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha.js","./hash/utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/utils.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/common.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -22137,7 +22331,7 @@ BlockHash.prototype._pad = function pad() {
   return res;
 };
 
-},{"./utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/hmac.js":[function(require,module,exports){
+},{"./utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/utils.js","minimalistic-assert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/minimalistic-assert/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/hmac.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -22186,7 +22380,7 @@ Hmac.prototype.digest = function digest(enc) {
   return this.outer.digest(enc);
 };
 
-},{"./utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/ripemd.js":[function(require,module,exports){
+},{"./utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/utils.js","minimalistic-assert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/minimalistic-assert/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/ripemd.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -22334,7 +22528,7 @@ var sh = [
   8, 5, 12, 9, 12, 5, 14, 6, 8, 13, 6, 5, 15, 13, 11, 11
 ];
 
-},{"./common":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/common.js","./utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha.js":[function(require,module,exports){
+},{"./common":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/common.js","./utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/utils.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha.js":[function(require,module,exports){
 'use strict';
 
 exports.sha1 = require('./sha/1');
@@ -22343,7 +22537,7 @@ exports.sha256 = require('./sha/256');
 exports.sha384 = require('./sha/384');
 exports.sha512 = require('./sha/512');
 
-},{"./sha/1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/1.js","./sha/224":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/224.js","./sha/256":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/256.js","./sha/384":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/384.js","./sha/512":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/512.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/1.js":[function(require,module,exports){
+},{"./sha/1":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha/1.js","./sha/224":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha/224.js","./sha/256":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha/256.js","./sha/384":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha/384.js","./sha/512":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha/512.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha/1.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -22419,7 +22613,7 @@ SHA1.prototype._digest = function digest(enc) {
     return utils.split32(this.h, 'big');
 };
 
-},{"../common":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/common.js","../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js","./common":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/common.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/224.js":[function(require,module,exports){
+},{"../common":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/common.js","../utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/utils.js","./common":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha/common.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha/224.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -22451,7 +22645,7 @@ SHA224.prototype._digest = function digest(enc) {
 };
 
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js","./256":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/256.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/256.js":[function(require,module,exports){
+},{"../utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/utils.js","./256":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha/256.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha/256.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -22558,7 +22752,7 @@ SHA256.prototype._digest = function digest(enc) {
     return utils.split32(this.h, 'big');
 };
 
-},{"../common":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/common.js","../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js","./common":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/common.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/384.js":[function(require,module,exports){
+},{"../common":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/common.js","../utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/utils.js","./common":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha/common.js","minimalistic-assert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/minimalistic-assert/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha/384.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -22595,7 +22789,7 @@ SHA384.prototype._digest = function digest(enc) {
     return utils.split32(this.h.slice(0, 12), 'big');
 };
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js","./512":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/512.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/512.js":[function(require,module,exports){
+},{"../utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/utils.js","./512":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha/512.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha/512.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -22927,7 +23121,7 @@ function g1_512_lo(xh, xl) {
   return r;
 }
 
-},{"../common":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/common.js","../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/common.js":[function(require,module,exports){
+},{"../common":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/common.js","../utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/utils.js","minimalistic-assert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/minimalistic-assert/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/sha/common.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -22978,7 +23172,7 @@ function g1_256(x) {
 }
 exports.g1_256 = g1_256;
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js":[function(require,module,exports){
+},{"../utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/utils.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash/utils.js":[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -23258,7 +23452,7 @@ function shr64_lo(ah, al, num) {
 }
 exports.shr64_lo = shr64_lo;
 
-},{"inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hmac-drbg/lib/hmac-drbg.js":[function(require,module,exports){
+},{"inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","minimalistic-assert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/minimalistic-assert/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hmac-drbg/lib/hmac-drbg.js":[function(require,module,exports){
 'use strict';
 
 var hash = require('hash.js');
@@ -23373,7 +23567,7 @@ HmacDRBG.prototype.generate = function generate(len, enc, add, addEnc) {
   return utils.encode(res, enc);
 };
 
-},{"hash.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js","minimalistic-crypto-utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-crypto-utils/lib/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-crypto/index.js":[function(require,module,exports){
+},{"hash.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash.js/lib/hash.js","minimalistic-assert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/minimalistic-assert/index.js","minimalistic-crypto-utils":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/minimalistic-crypto-utils/lib/utils.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-crypto/index.js":[function(require,module,exports){
 var sodium = require('sodium-universal')
 var uint64be = require('uint64be')
 var bufferFrom = require('buffer-from')
@@ -23473,7 +23667,7 @@ function blake2b (buffers) {
   return digest
 }
 
-},{"buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc-unsafe/index.js","buffer-from":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-from/index.js","sodium-universal":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-universal/browser.js","uint64be":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/uint64be/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/feed.js":[function(require,module,exports){
+},{"buffer-alloc-unsafe":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-alloc-unsafe/index.js","buffer-from":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-from/index.js","sodium-universal":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-universal/browser.js","uint64be":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/uint64be/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/feed.js":[function(require,module,exports){
 (function (process){
 var events = require('events')
 var inherits = require('inherits')
@@ -23714,7 +23908,7 @@ function decode (enc, data, start, end) {
 }
 
 }).call(this,require('_process'))
-},{"./messages":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/messages.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc-unsafe/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/index.js":[function(require,module,exports){
+},{"./messages":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/messages.js","_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","buffer-alloc-unsafe":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-alloc-unsafe/index.js","events":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify/node_modules/events/events.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","varint":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/node_modules/varint/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/index.js":[function(require,module,exports){
 (function (process){
 var stream = require('readable-stream')
 var inherits = require('inherits')
@@ -24231,7 +24425,7 @@ function randomBytes (n) {
 }
 
 }).call(this,require('_process'))
-},{"./feed":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/feed.js","./messages":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/messages.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc-unsafe/index.js","buffer-from":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-from/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js","sodium-universal":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-universal/browser.js","sorted-indexof":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sorted-indexof/index.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/messages.js":[function(require,module,exports){
+},{"./feed":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/feed.js","./messages":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/messages.js","_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","buffer-alloc-unsafe":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-alloc-unsafe/index.js","buffer-from":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-from/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","readable-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/readable-browser.js","sodium-universal":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-universal/browser.js","sorted-indexof":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sorted-indexof/index.js","varint":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/node_modules/varint/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/messages.js":[function(require,module,exports){
 (function (Buffer){
 // This file is auto generated by the protocol-buffers cli tool
 
@@ -25316,15 +25510,15 @@ function defined (val) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","protocol-buffers-encodings":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/decode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/decode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/encode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/index.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
-},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/length.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/index.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","protocol-buffers-encodings":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/protocol-buffers-encodings/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/node_modules/varint/decode.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/decode.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/node_modules/varint/encode.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/node_modules/varint/index.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
+},{"./decode.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/node_modules/varint/decode.js","./encode.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/node_modules/varint/encode.js","./length.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/node_modules/varint/length.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/node_modules/varint/length.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore/index.js":[function(require,module,exports){
 (function (process,Buffer){
 var low = require('last-one-wins')
 var remove = require('unordered-array-remove')
@@ -26883,7 +27077,7 @@ function createError (code, errno, msg) {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./lib/bitfield":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/bitfield.js","./lib/replicate":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/replicate.js","./lib/safe-buffer-equals":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/safe-buffer-equals.js","./lib/storage":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/storage.js","./lib/tree-index":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/tree-index.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","atomic-batcher":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/atomic-batcher/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","bulk-write-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bulk-write-stream/index.js","codecs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/codecs/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","fd-lock":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js","flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/flat-tree/index.js","from2":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/from2/index.js","hypercore-crypto":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-crypto/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","inspect-custom-symbol":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inspect-custom-symbol/browser.js","last-one-wins":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/last-one-wins/index.js","merkle-tree-stream/generator":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/merkle-tree-stream/generator.js","pretty-hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pretty-hash/index.js","random-access-file":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-file/browser.js","sparse-bitfield":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sparse-bitfield/index.js","thunky":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/thunky/index.js","unordered-array-remove":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unordered-array-remove/index.js","unordered-set":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unordered-set/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/bitfield.js":[function(require,module,exports){
+},{"./lib/bitfield":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore/lib/bitfield.js","./lib/replicate":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore/lib/replicate.js","./lib/safe-buffer-equals":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore/lib/safe-buffer-equals.js","./lib/storage":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore/lib/storage.js","./lib/tree-index":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore/lib/tree-index.js","_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","atomic-batcher":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/atomic-batcher/index.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","bulk-write-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bulk-write-stream/index.js","codecs":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/codecs/index.js","events":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify/node_modules/events/events.js","fd-lock":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browser-resolve/empty.js","flat-tree":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/flat-tree/index.js","from2":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/from2/index.js","hypercore-crypto":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-crypto/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","inspect-custom-symbol":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inspect-custom-symbol/browser.js","last-one-wins":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/last-one-wins/index.js","merkle-tree-stream/generator":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/merkle-tree-stream/generator.js","pretty-hash":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pretty-hash/index.js","random-access-file":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-file/browser.js","sparse-bitfield":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sparse-bitfield/index.js","thunky":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/thunky/index.js","unordered-array-remove":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/unordered-array-remove/index.js","unordered-set":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/unordered-set/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore/lib/bitfield.js":[function(require,module,exports){
 (function (Buffer){
 var flat = require('flat-tree')
 var rle = require('bitfield-rle')
@@ -27212,7 +27406,7 @@ function getIndexValue (n) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"bitfield-rle":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bitfield-rle/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/flat-tree/index.js","memory-pager":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/memory-pager/index.js","sparse-bitfield":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sparse-bitfield/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/replicate.js":[function(require,module,exports){
+},{"bitfield-rle":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bitfield-rle/index.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","flat-tree":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/flat-tree/index.js","memory-pager":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/memory-pager/index.js","sparse-bitfield":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sparse-bitfield/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore/lib/replicate.js":[function(require,module,exports){
 var protocol = require('hypercore-protocol')
 var bitfield = require('fast-bitfield')
 var set = require('unordered-set')
@@ -27831,7 +28025,7 @@ function nextRandom (ite, start, end) {
   return i === -1 || i >= end ? ite.seek(start).next(true) : i
 }
 
-},{"./safe-buffer-equals":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/safe-buffer-equals.js","./tree-index":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/tree-index.js","bitfield-rle":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bitfield-rle/index.js","fast-bitfield":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/fast-bitfield/index.js","hypercore-protocol":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/index.js","unordered-set":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unordered-set/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/safe-buffer-equals.js":[function(require,module,exports){
+},{"./safe-buffer-equals":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore/lib/safe-buffer-equals.js","./tree-index":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore/lib/tree-index.js","bitfield-rle":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bitfield-rle/index.js","fast-bitfield":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/fast-bitfield/index.js","hypercore-protocol":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/index.js","unordered-set":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/unordered-set/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore/lib/safe-buffer-equals.js":[function(require,module,exports){
 (function (Buffer){
 // buffer-equals, but handle 'null' buffer parameters.
 module.exports = function safeBufferEquals (a, b) {
@@ -27841,7 +28035,7 @@ module.exports = function safeBufferEquals (a, b) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/storage.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore/lib/storage.js":[function(require,module,exports){
 (function (Buffer){
 var uint64be = require('uint64be')
 var flat = require('flat-tree')
@@ -28220,7 +28414,7 @@ function readAll (st, offset, pageSize, cb) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"array-lru":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/array-lru/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/flat-tree/index.js","uint64be":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/uint64be/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/tree-index.js":[function(require,module,exports){
+},{"array-lru":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/array-lru/index.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","flat-tree":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/flat-tree/index.js","uint64be":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/uint64be/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore/lib/tree-index.js":[function(require,module,exports){
 var flat = require('flat-tree')
 var bitfield = require('sparse-bitfield')
 
@@ -28388,7 +28582,7 @@ function addFullRoots (verifiedBy, nodes, root, remoteTree) {
   }
 }
 
-},{"flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/flat-tree/index.js","sparse-bitfield":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sparse-bitfield/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdiscovery/index.js":[function(require,module,exports){
+},{"flat-tree":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/flat-tree/index.js","sparse-bitfield":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sparse-bitfield/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hyperdiscovery/index.js":[function(require,module,exports){
 const crypto = require('crypto')
 const EventEmitter = require('events')
 
@@ -28638,707 +28832,7 @@ function defaultTrue (x) {
   return x === undefined ? true : x
 }
 
-},{"crypto":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/crypto-browserify/index.js","dat-encoding":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-encoding/index.js","dat-swarm-defaults":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-swarm-defaults/index.js","debug":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdiscovery/node_modules/debug/src/browser.js","discovery-swarm":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-web/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","hypercore-protocol":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdiscovery/node_modules/debug/src/browser.js":[function(require,module,exports){
-(function (process){
-/* eslint-env browser */
-
-/**
- * This is the web browser implementation of `debug()`.
- */
-
-exports.log = log;
-exports.formatArgs = formatArgs;
-exports.save = save;
-exports.load = load;
-exports.useColors = useColors;
-exports.storage = localstorage();
-
-/**
- * Colors.
- */
-
-exports.colors = [
-	'#0000CC',
-	'#0000FF',
-	'#0033CC',
-	'#0033FF',
-	'#0066CC',
-	'#0066FF',
-	'#0099CC',
-	'#0099FF',
-	'#00CC00',
-	'#00CC33',
-	'#00CC66',
-	'#00CC99',
-	'#00CCCC',
-	'#00CCFF',
-	'#3300CC',
-	'#3300FF',
-	'#3333CC',
-	'#3333FF',
-	'#3366CC',
-	'#3366FF',
-	'#3399CC',
-	'#3399FF',
-	'#33CC00',
-	'#33CC33',
-	'#33CC66',
-	'#33CC99',
-	'#33CCCC',
-	'#33CCFF',
-	'#6600CC',
-	'#6600FF',
-	'#6633CC',
-	'#6633FF',
-	'#66CC00',
-	'#66CC33',
-	'#9900CC',
-	'#9900FF',
-	'#9933CC',
-	'#9933FF',
-	'#99CC00',
-	'#99CC33',
-	'#CC0000',
-	'#CC0033',
-	'#CC0066',
-	'#CC0099',
-	'#CC00CC',
-	'#CC00FF',
-	'#CC3300',
-	'#CC3333',
-	'#CC3366',
-	'#CC3399',
-	'#CC33CC',
-	'#CC33FF',
-	'#CC6600',
-	'#CC6633',
-	'#CC9900',
-	'#CC9933',
-	'#CCCC00',
-	'#CCCC33',
-	'#FF0000',
-	'#FF0033',
-	'#FF0066',
-	'#FF0099',
-	'#FF00CC',
-	'#FF00FF',
-	'#FF3300',
-	'#FF3333',
-	'#FF3366',
-	'#FF3399',
-	'#FF33CC',
-	'#FF33FF',
-	'#FF6600',
-	'#FF6633',
-	'#FF9900',
-	'#FF9933',
-	'#FFCC00',
-	'#FFCC33'
-];
-
-/**
- * Currently only WebKit-based Web Inspectors, Firefox >= v31,
- * and the Firebug extension (any Firefox version) are known
- * to support "%c" CSS customizations.
- *
- * TODO: add a `localStorage` variable to explicitly enable/disable colors
- */
-
-// eslint-disable-next-line complexity
-function useColors() {
-	// NB: In an Electron preload script, document will be defined but not fully
-	// initialized. Since we know we're in Chrome, we'll just detect this case
-	// explicitly
-	if (typeof window !== 'undefined' && window.process && (window.process.type === 'renderer' || window.process.__nwjs)) {
-		return true;
-	}
-
-	// Internet Explorer and Edge do not support colors.
-	if (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
-		return false;
-	}
-
-	// Is webkit? http://stackoverflow.com/a/16459606/376773
-	// document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
-	return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
-		// Is firebug? http://stackoverflow.com/a/398120/376773
-		(typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
-		// Is firefox >= v31?
-		// https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
-		// Double check webkit in userAgent just in case we are in a worker
-		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
-}
-
-/**
- * Colorize log arguments if enabled.
- *
- * @api public
- */
-
-function formatArgs(args) {
-	args[0] = (this.useColors ? '%c' : '') +
-		this.namespace +
-		(this.useColors ? ' %c' : ' ') +
-		args[0] +
-		(this.useColors ? '%c ' : ' ') +
-		'+' + module.exports.humanize(this.diff);
-
-	if (!this.useColors) {
-		return;
-	}
-
-	const c = 'color: ' + this.color;
-	args.splice(1, 0, c, 'color: inherit');
-
-	// The final "%c" is somewhat tricky, because there could be other
-	// arguments passed either before or after the %c, so we need to
-	// figure out the correct index to insert the CSS into
-	let index = 0;
-	let lastC = 0;
-	args[0].replace(/%[a-zA-Z%]/g, match => {
-		if (match === '%%') {
-			return;
-		}
-		index++;
-		if (match === '%c') {
-			// We only are interested in the *last* %c
-			// (the user may have provided their own)
-			lastC = index;
-		}
-	});
-
-	args.splice(lastC, 0, c);
-}
-
-/**
- * Invokes `console.log()` when available.
- * No-op when `console.log` is not a "function".
- *
- * @api public
- */
-function log(...args) {
-	// This hackery is required for IE8/9, where
-	// the `console.log` function doesn't have 'apply'
-	return typeof console === 'object' &&
-		console.log &&
-		console.log(...args);
-}
-
-/**
- * Save `namespaces`.
- *
- * @param {String} namespaces
- * @api private
- */
-function save(namespaces) {
-	try {
-		if (namespaces) {
-			exports.storage.setItem('debug', namespaces);
-		} else {
-			exports.storage.removeItem('debug');
-		}
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-}
-
-/**
- * Load `namespaces`.
- *
- * @return {String} returns the previously persisted debug modes
- * @api private
- */
-function load() {
-	let r;
-	try {
-		r = exports.storage.getItem('debug');
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-
-	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
-	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = process.env.DEBUG;
-	}
-
-	return r;
-}
-
-/**
- * Localstorage attempts to return the localstorage.
- *
- * This is necessary because safari throws
- * when a user disables cookies/localstorage
- * and you attempt to access it.
- *
- * @return {LocalStorage}
- * @api private
- */
-
-function localstorage() {
-	try {
-		// TVMLKit (Apple TV JS Runtime) does not have a window object, just localStorage in the global context
-		// The Browser also has localStorage in the global context.
-		return localStorage;
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-}
-
-module.exports = require('./common')(exports);
-
-const {formatters} = module.exports;
-
-/**
- * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
- */
-
-formatters.j = function (v) {
-	try {
-		return JSON.stringify(v);
-	} catch (error) {
-		return '[UnexpectedJSONParseError]: ' + error.message;
-	}
-};
-
-}).call(this,require('_process'))
-},{"./common":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdiscovery/node_modules/debug/src/common.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdiscovery/node_modules/debug/src/common.js":[function(require,module,exports){
-
-/**
- * This is the common logic for both the Node.js and web browser
- * implementations of `debug()`.
- */
-
-function setup(env) {
-	createDebug.debug = createDebug;
-	createDebug.default = createDebug;
-	createDebug.coerce = coerce;
-	createDebug.disable = disable;
-	createDebug.enable = enable;
-	createDebug.enabled = enabled;
-	createDebug.humanize = require('ms');
-
-	Object.keys(env).forEach(key => {
-		createDebug[key] = env[key];
-	});
-
-	/**
-	* Active `debug` instances.
-	*/
-	createDebug.instances = [];
-
-	/**
-	* The currently active debug mode names, and names to skip.
-	*/
-
-	createDebug.names = [];
-	createDebug.skips = [];
-
-	/**
-	* Map of special "%n" handling functions, for the debug "format" argument.
-	*
-	* Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
-	*/
-	createDebug.formatters = {};
-
-	/**
-	* Selects a color for a debug namespace
-	* @param {String} namespace The namespace string for the for the debug instance to be colored
-	* @return {Number|String} An ANSI color code for the given namespace
-	* @api private
-	*/
-	function selectColor(namespace) {
-		let hash = 0;
-
-		for (let i = 0; i < namespace.length; i++) {
-			hash = ((hash << 5) - hash) + namespace.charCodeAt(i);
-			hash |= 0; // Convert to 32bit integer
-		}
-
-		return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
-	}
-	createDebug.selectColor = selectColor;
-
-	/**
-	* Create a debugger with the given `namespace`.
-	*
-	* @param {String} namespace
-	* @return {Function}
-	* @api public
-	*/
-	function createDebug(namespace) {
-		let prevTime;
-
-		function debug(...args) {
-			// Disabled?
-			if (!debug.enabled) {
-				return;
-			}
-
-			const self = debug;
-
-			// Set `diff` timestamp
-			const curr = Number(new Date());
-			const ms = curr - (prevTime || curr);
-			self.diff = ms;
-			self.prev = prevTime;
-			self.curr = curr;
-			prevTime = curr;
-
-			args[0] = createDebug.coerce(args[0]);
-
-			if (typeof args[0] !== 'string') {
-				// Anything else let's inspect with %O
-				args.unshift('%O');
-			}
-
-			// Apply any `formatters` transformations
-			let index = 0;
-			args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
-				// If we encounter an escaped % then don't increase the array index
-				if (match === '%%') {
-					return match;
-				}
-				index++;
-				const formatter = createDebug.formatters[format];
-				if (typeof formatter === 'function') {
-					const val = args[index];
-					match = formatter.call(self, val);
-
-					// Now we need to remove `args[index]` since it's inlined in the `format`
-					args.splice(index, 1);
-					index--;
-				}
-				return match;
-			});
-
-			// Apply env-specific formatting (colors, etc.)
-			createDebug.formatArgs.call(self, args);
-
-			const logFn = self.log || createDebug.log;
-			logFn.apply(self, args);
-		}
-
-		debug.namespace = namespace;
-		debug.enabled = createDebug.enabled(namespace);
-		debug.useColors = createDebug.useColors();
-		debug.color = selectColor(namespace);
-		debug.destroy = destroy;
-		debug.extend = extend;
-		// Debug.formatArgs = formatArgs;
-		// debug.rawLog = rawLog;
-
-		// env-specific initialization logic for debug instances
-		if (typeof createDebug.init === 'function') {
-			createDebug.init(debug);
-		}
-
-		createDebug.instances.push(debug);
-
-		return debug;
-	}
-
-	function destroy() {
-		const index = createDebug.instances.indexOf(this);
-		if (index !== -1) {
-			createDebug.instances.splice(index, 1);
-			return true;
-		}
-		return false;
-	}
-
-	function extend(namespace, delimiter) {
-		const newDebug = createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
-		newDebug.log = this.log;
-		return newDebug;
-	}
-
-	/**
-	* Enables a debug mode by namespaces. This can include modes
-	* separated by a colon and wildcards.
-	*
-	* @param {String} namespaces
-	* @api public
-	*/
-	function enable(namespaces) {
-		createDebug.save(namespaces);
-
-		createDebug.names = [];
-		createDebug.skips = [];
-
-		let i;
-		const split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
-		const len = split.length;
-
-		for (i = 0; i < len; i++) {
-			if (!split[i]) {
-				// ignore empty strings
-				continue;
-			}
-
-			namespaces = split[i].replace(/\*/g, '.*?');
-
-			if (namespaces[0] === '-') {
-				createDebug.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
-			} else {
-				createDebug.names.push(new RegExp('^' + namespaces + '$'));
-			}
-		}
-
-		for (i = 0; i < createDebug.instances.length; i++) {
-			const instance = createDebug.instances[i];
-			instance.enabled = createDebug.enabled(instance.namespace);
-		}
-	}
-
-	/**
-	* Disable debug output.
-	*
-	* @return {String} namespaces
-	* @api public
-	*/
-	function disable() {
-		const namespaces = [
-			...createDebug.names.map(toNamespace),
-			...createDebug.skips.map(toNamespace).map(namespace => '-' + namespace)
-		].join(',');
-		createDebug.enable('');
-		return namespaces;
-	}
-
-	/**
-	* Returns true if the given mode name is enabled, false otherwise.
-	*
-	* @param {String} name
-	* @return {Boolean}
-	* @api public
-	*/
-	function enabled(name) {
-		if (name[name.length - 1] === '*') {
-			return true;
-		}
-
-		let i;
-		let len;
-
-		for (i = 0, len = createDebug.skips.length; i < len; i++) {
-			if (createDebug.skips[i].test(name)) {
-				return false;
-			}
-		}
-
-		for (i = 0, len = createDebug.names.length; i < len; i++) {
-			if (createDebug.names[i].test(name)) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	* Convert regexp to namespace
-	*
-	* @param {RegExp} regxep
-	* @return {String} namespace
-	* @api private
-	*/
-	function toNamespace(regexp) {
-		return regexp.toString()
-			.substring(2, regexp.toString().length - 2)
-			.replace(/\.\*\?$/, '*');
-	}
-
-	/**
-	* Coerce `val`.
-	*
-	* @param {Mixed} val
-	* @return {Mixed}
-	* @api private
-	*/
-	function coerce(val) {
-		if (val instanceof Error) {
-			return val.stack || val.message;
-		}
-		return val;
-	}
-
-	createDebug.enable(createDebug.load());
-
-	return createDebug;
-}
-
-module.exports = setup;
-
-},{"ms":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdiscovery/node_modules/ms/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdiscovery/node_modules/ms/index.js":[function(require,module,exports){
-/**
- * Helpers.
- */
-
-var s = 1000;
-var m = s * 60;
-var h = m * 60;
-var d = h * 24;
-var w = d * 7;
-var y = d * 365.25;
-
-/**
- * Parse or format the given `val`.
- *
- * Options:
- *
- *  - `long` verbose formatting [false]
- *
- * @param {String|Number} val
- * @param {Object} [options]
- * @throws {Error} throw an error if val is not a non-empty string or a number
- * @return {String|Number}
- * @api public
- */
-
-module.exports = function(val, options) {
-  options = options || {};
-  var type = typeof val;
-  if (type === 'string' && val.length > 0) {
-    return parse(val);
-  } else if (type === 'number' && isFinite(val)) {
-    return options.long ? fmtLong(val) : fmtShort(val);
-  }
-  throw new Error(
-    'val is not a non-empty string or a valid number. val=' +
-      JSON.stringify(val)
-  );
-};
-
-/**
- * Parse the given `str` and return milliseconds.
- *
- * @param {String} str
- * @return {Number}
- * @api private
- */
-
-function parse(str) {
-  str = String(str);
-  if (str.length > 100) {
-    return;
-  }
-  var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
-    str
-  );
-  if (!match) {
-    return;
-  }
-  var n = parseFloat(match[1]);
-  var type = (match[2] || 'ms').toLowerCase();
-  switch (type) {
-    case 'years':
-    case 'year':
-    case 'yrs':
-    case 'yr':
-    case 'y':
-      return n * y;
-    case 'weeks':
-    case 'week':
-    case 'w':
-      return n * w;
-    case 'days':
-    case 'day':
-    case 'd':
-      return n * d;
-    case 'hours':
-    case 'hour':
-    case 'hrs':
-    case 'hr':
-    case 'h':
-      return n * h;
-    case 'minutes':
-    case 'minute':
-    case 'mins':
-    case 'min':
-    case 'm':
-      return n * m;
-    case 'seconds':
-    case 'second':
-    case 'secs':
-    case 'sec':
-    case 's':
-      return n * s;
-    case 'milliseconds':
-    case 'millisecond':
-    case 'msecs':
-    case 'msec':
-    case 'ms':
-      return n;
-    default:
-      return undefined;
-  }
-}
-
-/**
- * Short format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtShort(ms) {
-  var msAbs = Math.abs(ms);
-  if (msAbs >= d) {
-    return Math.round(ms / d) + 'd';
-  }
-  if (msAbs >= h) {
-    return Math.round(ms / h) + 'h';
-  }
-  if (msAbs >= m) {
-    return Math.round(ms / m) + 'm';
-  }
-  if (msAbs >= s) {
-    return Math.round(ms / s) + 's';
-  }
-  return ms + 'ms';
-}
-
-/**
- * Long format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtLong(ms) {
-  var msAbs = Math.abs(ms);
-  if (msAbs >= d) {
-    return plural(ms, msAbs, d, 'day');
-  }
-  if (msAbs >= h) {
-    return plural(ms, msAbs, h, 'hour');
-  }
-  if (msAbs >= m) {
-    return plural(ms, msAbs, m, 'minute');
-  }
-  if (msAbs >= s) {
-    return plural(ms, msAbs, s, 'second');
-  }
-  return ms + ' ms';
-}
-
-/**
- * Pluralization helper.
- */
-
-function plural(ms, msAbs, n, name) {
-  var isPlural = msAbs >= n * 1.5;
-  return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');
-}
-
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdrive/index.js":[function(require,module,exports){
+},{"crypto":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/crypto-browserify/index.js","dat-encoding":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/dat-encoding/index.js","dat-swarm-defaults":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/dat-swarm-defaults/index.js","debug":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/debug/src/browser.js","discovery-swarm":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/discovery-swarm-web/index.js","events":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify/node_modules/events/events.js","hypercore-protocol":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore-protocol/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hyperdrive/index.js":[function(require,module,exports){
 (function (process,Buffer){
 var hypercore = require('hypercore')
 var mutexify = require('mutexify')
@@ -30320,7 +29814,7 @@ function contentKeyPair (secretKey) {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./lib/cursor":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdrive/lib/cursor.js","./lib/messages":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdrive/lib/messages.js","./lib/stat":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdrive/lib/stat.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","append-tree":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","duplexify":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/duplexify/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","from2":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/from2/index.js","hypercore":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","mutexify":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/mutexify/index.js","path":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/path-browserify/index.js","random-access-file":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-file/browser.js","sodium-universal":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-universal/browser.js","stream-collector":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-collector/index.js","stream-each":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-each/index.js","thunky":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/thunky/index.js","uint64be":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/uint64be/index.js","unixify":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unixify/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdrive/lib/cursor.js":[function(require,module,exports){
+},{"./lib/cursor":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hyperdrive/lib/cursor.js","./lib/messages":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hyperdrive/lib/messages.js","./lib/stat":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hyperdrive/lib/stat.js","_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","append-tree":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/index.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","duplexify":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/duplexify/index.js","events":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify/node_modules/events/events.js","from2":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/from2/index.js","hypercore":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hypercore/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","mutexify":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/mutexify/index.js","path":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/path-browserify/index.js","random-access-file":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-file/browser.js","sodium-universal":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-universal/browser.js","stream-collector":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/stream-collector/index.js","stream-each":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/stream-each/index.js","thunky":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/thunky/index.js","uint64be":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/uint64be/index.js","unixify":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/unixify/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hyperdrive/lib/cursor.js":[function(require,module,exports){
 var thunky = require('thunky')
 
 module.exports = Cursor
@@ -30464,7 +29958,7 @@ Cursor.prototype._seekAndNext = function (cb) {
 
 function noop () {}
 
-},{"thunky":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/thunky/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdrive/lib/messages.js":[function(require,module,exports){
+},{"thunky":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/thunky/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hyperdrive/lib/messages.js":[function(require,module,exports){
 (function (Buffer){
 // This file is auto generated by the protocol-buffers cli tool
 
@@ -30746,7 +30240,7 @@ function defined (val) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","protocol-buffers-encodings":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdrive/lib/stat.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","protocol-buffers-encodings":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/protocol-buffers-encodings/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hyperdrive/lib/stat.js":[function(require,module,exports){
 // http://man7.org/linux/man-pages/man2/stat.2.html
 
 module.exports = Stat
@@ -30796,7 +30290,7 @@ function check (mask) {
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperscript-attribute-to-property/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hyperscript-attribute-to-property/index.js":[function(require,module,exports){
 module.exports = attributeToProperty
 
 var transform = {
@@ -30817,7 +30311,7 @@ function attributeToProperty (h) {
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperx/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hyperx/index.js":[function(require,module,exports){
 var attrToProp = require('hyperscript-attribute-to-property')
 
 var VAR = 0, TEXT = 1, OPEN = 2, CLOSE = 3, ATTR = 4
@@ -31114,7 +30608,7 @@ var closeRE = RegExp('^(' + [
 ].join('|') + ')(?:[\.#][a-zA-Z0-9\u007F-\uFFFF_:-]+)*$')
 function selfClosing (tag) { return closeRE.test(tag) }
 
-},{"hyperscript-attribute-to-property":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperscript-attribute-to-property/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ieee754/index.js":[function(require,module,exports){
+},{"hyperscript-attribute-to-property":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hyperscript-attribute-to-property/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/ieee754/index.js":[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = (nBytes * 8) - mLen - 1
@@ -31200,7 +30694,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -31229,7 +30723,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/insert-css/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/insert-css/index.js":[function(require,module,exports){
 var inserted = {};
 
 module.exports = function (css, options) {
@@ -31253,7 +30747,10 @@ module.exports = function (css, options) {
     }
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/insert-module-globals/node_modules/is-buffer/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inspect-custom-symbol/browser.js":[function(require,module,exports){
+module.exports = Symbol.for('util.inspect.custom')
+
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/is-buffer/index.js":[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -31276,10 +30773,7 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inspect-custom-symbol/browser.js":[function(require,module,exports){
-module.exports = Symbol.for('util.inspect.custom')
-
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/is-options/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/is-options/index.js":[function(require,module,exports){
 (function (Buffer){
 module.exports = isOptions
 
@@ -31287,15 +30781,15 @@ function isOptions (opts) {
   return typeof opts === 'object' && opts && !Buffer.isBuffer(opts)
 }
 
-}).call(this,{"isBuffer":require("../insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../insert-module-globals/node_modules/is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/insert-module-globals/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/isarray/index.js":[function(require,module,exports){
+}).call(this,{"isBuffer":require("../is-buffer/index.js")})
+},{"../is-buffer/index.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/is-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/isarray/index.js":[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/last-one-wins/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/last-one-wins/index.js":[function(require,module,exports){
 module.exports = function (work) {
   var pending = null
   var callback = null
@@ -31341,7 +30835,7 @@ module.exports = function (work) {
 
 function noop (_) {}
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/decode.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/length-prefixed-stream/decode.js":[function(require,module,exports){
 var varint = require('varint')
 var stream = require('readable-stream')
 var util = require('util')
@@ -31440,7 +30934,7 @@ Decoder.prototype.destroy = function (err) {
 
 module.exports = Decoder
 
-},{"buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc-unsafe/index.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js","util":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/util.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/encode.js":[function(require,module,exports){
+},{"buffer-alloc-unsafe":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-alloc-unsafe/index.js","readable-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/readable-browser.js","util":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/util/util.js","varint":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/length-prefixed-stream/node_modules/varint/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/length-prefixed-stream/encode.js":[function(require,module,exports){
 var varint = require('varint')
 var stream = require('readable-stream')
 var util = require('util')
@@ -31483,19 +30977,19 @@ Encoder.prototype.destroy = function (err) {
 
 module.exports = Encoder
 
-},{"buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc-unsafe/index.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js","util":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/util.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/index.js":[function(require,module,exports){
+},{"buffer-alloc-unsafe":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-alloc-unsafe/index.js","readable-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/readable-browser.js","util":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/util/util.js","varint":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/length-prefixed-stream/node_modules/varint/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/length-prefixed-stream/index.js":[function(require,module,exports){
 exports.encode = require('./encode')
 exports.decode = require('./decode')
 
-},{"./decode":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/decode.js","./encode":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/encode.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/decode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/decode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/encode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/index.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
-},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/length.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/md5.js/index.js":[function(require,module,exports){
+},{"./decode":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/length-prefixed-stream/decode.js","./encode":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/length-prefixed-stream/encode.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/length-prefixed-stream/node_modules/varint/decode.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/decode.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/length-prefixed-stream/node_modules/varint/encode.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/length-prefixed-stream/node_modules/varint/index.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
+},{"./decode.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/length-prefixed-stream/node_modules/varint/decode.js","./encode.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/length-prefixed-stream/node_modules/varint/encode.js","./length.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/length-prefixed-stream/node_modules/varint/length.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/length-prefixed-stream/node_modules/varint/length.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/md5.js/index.js":[function(require,module,exports){
 'use strict'
 var inherits = require('inherits')
 var HashBase = require('hash-base')
@@ -31643,7 +31137,7 @@ function fnI (a, b, c, d, m, k, s) {
 
 module.exports = MD5
 
-},{"hash-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/memory-pager/index.js":[function(require,module,exports){
+},{"hash-base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash-base/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/memory-pager/index.js":[function(require,module,exports){
 (function (Buffer){
 module.exports = Pager
 
@@ -31807,7 +31301,7 @@ function factor (n, out) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/merkle-tree-stream/generator.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/merkle-tree-stream/generator.js":[function(require,module,exports){
 (function (Buffer){
 // a more low level interface to the merkle tree stream.
 // useful for certain applications the require non-streamy access to the algos.
@@ -31872,7 +31366,7 @@ MerkleGenerator.prototype.next = function (data, nodes) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/flat-tree/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/miller-rabin/lib/mr.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","flat-tree":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/flat-tree/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/miller-rabin/lib/mr.js":[function(require,module,exports){
 var bn = require('bn.js');
 var brorand = require('brorand');
 
@@ -31989,7 +31483,7 @@ MillerRabin.prototype.getDivisor = function getDivisor(n, k) {
   return false;
 };
 
-},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","brorand":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/brorand/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js":[function(require,module,exports){
+},{"bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js","brorand":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/brorand/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/minimalistic-assert/index.js":[function(require,module,exports){
 module.exports = assert;
 
 function assert(val, msg) {
@@ -32002,7 +31496,7 @@ assert.equal = function assertEqual(l, r, msg) {
     throw new Error(msg || ('Assertion failed: ' + l + ' != ' + r));
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-crypto-utils/lib/utils.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/minimalistic-crypto-utils/lib/utils.js":[function(require,module,exports){
 'use strict';
 
 var utils = exports;
@@ -32062,7 +31556,7 @@ utils.encode = function encode(arr, enc) {
     return arr;
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ms/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/ms/index.js":[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -32071,6 +31565,7 @@ var s = 1000;
 var m = s * 60;
 var h = m * 60;
 var d = h * 24;
+var w = d * 7;
 var y = d * 365.25;
 
 /**
@@ -32092,7 +31587,7 @@ module.exports = function(val, options) {
   var type = typeof val;
   if (type === 'string' && val.length > 0) {
     return parse(val);
-  } else if (type === 'number' && isNaN(val) === false) {
+  } else if (type === 'number' && isFinite(val)) {
     return options.long ? fmtLong(val) : fmtShort(val);
   }
   throw new Error(
@@ -32114,7 +31609,7 @@ function parse(str) {
   if (str.length > 100) {
     return;
   }
-  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(
+  var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
     str
   );
   if (!match) {
@@ -32129,6 +31624,10 @@ function parse(str) {
     case 'yr':
     case 'y':
       return n * y;
+    case 'weeks':
+    case 'week':
+    case 'w':
+      return n * w;
     case 'days':
     case 'day':
     case 'd':
@@ -32171,16 +31670,17 @@ function parse(str) {
  */
 
 function fmtShort(ms) {
-  if (ms >= d) {
+  var msAbs = Math.abs(ms);
+  if (msAbs >= d) {
     return Math.round(ms / d) + 'd';
   }
-  if (ms >= h) {
+  if (msAbs >= h) {
     return Math.round(ms / h) + 'h';
   }
-  if (ms >= m) {
+  if (msAbs >= m) {
     return Math.round(ms / m) + 'm';
   }
-  if (ms >= s) {
+  if (msAbs >= s) {
     return Math.round(ms / s) + 's';
   }
   return ms + 'ms';
@@ -32195,28 +31695,32 @@ function fmtShort(ms) {
  */
 
 function fmtLong(ms) {
-  return plural(ms, d, 'day') ||
-    plural(ms, h, 'hour') ||
-    plural(ms, m, 'minute') ||
-    plural(ms, s, 'second') ||
-    ms + ' ms';
+  var msAbs = Math.abs(ms);
+  if (msAbs >= d) {
+    return plural(ms, msAbs, d, 'day');
+  }
+  if (msAbs >= h) {
+    return plural(ms, msAbs, h, 'hour');
+  }
+  if (msAbs >= m) {
+    return plural(ms, msAbs, m, 'minute');
+  }
+  if (msAbs >= s) {
+    return plural(ms, msAbs, s, 'second');
+  }
+  return ms + ' ms';
 }
 
 /**
  * Pluralization helper.
  */
 
-function plural(ms, n, name) {
-  if (ms < n) {
-    return;
-  }
-  if (ms < n * 1.5) {
-    return Math.floor(ms / n) + ' ' + name;
-  }
-  return Math.ceil(ms / n) + ' ' + name + 's';
+function plural(ms, msAbs, n, name) {
+  var isPlural = msAbs >= n * 1.5;
+  return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/mutexify/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/mutexify/index.js":[function(require,module,exports){
 (function (process){
 var mutexify = function() {
   var queue = []
@@ -32249,7 +31753,7 @@ var mutexify = function() {
 module.exports = mutexify
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/nanoassert/index.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/nanoassert/index.js":[function(require,module,exports){
 assert.notEqual = notEqual
 assert.notOk = notOk
 assert.equal = equal
@@ -32273,7 +31777,7 @@ function assert (t, m) {
   if (!t) throw new Error(m || 'AssertionError')
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/next-tick/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/next-tick/index.js":[function(require,module,exports){
 (function (process,setImmediate){
 'use strict';
 
@@ -32348,7 +31852,28 @@ module.exports = (function () {
 }());
 
 }).call(this,require('_process'),require("timers").setImmediate)
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","timers":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/timers-browserify/main.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/object-assign/index.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","timers":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/timers-browserify/main.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/normalize-path/index.js":[function(require,module,exports){
+/*!
+ * normalize-path <https://github.com/jonschlinkert/normalize-path>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+var removeTrailingSeparator = require('remove-trailing-separator');
+
+module.exports = function normalizePath(str, stripTrailing) {
+  if (typeof str !== 'string') {
+    throw new TypeError('expected a string');
+  }
+  str = str.replace(/[\\\/]+/g, '/');
+  if (stripTrailing !== false) {
+    str = removeTrailingSeparator(str);
+  }
+  return str;
+};
+
+},{"remove-trailing-separator":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/remove-trailing-separator/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/object-assign/index.js":[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -32440,7 +31965,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/once/once.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/once/once.js":[function(require,module,exports){
 var wrappy = require('wrappy')
 module.exports = wrappy(once)
 module.exports.strict = wrappy(onceStrict)
@@ -32484,7 +32009,7 @@ function onceStrict (fn) {
   return f
 }
 
-},{"wrappy":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/wrappy/wrappy.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/aesid.json":[function(require,module,exports){
+},{"wrappy":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/wrappy/wrappy.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/parse-asn1/aesid.json":[function(require,module,exports){
 module.exports={"2.16.840.1.101.3.4.1.1": "aes-128-ecb",
 "2.16.840.1.101.3.4.1.2": "aes-128-cbc",
 "2.16.840.1.101.3.4.1.3": "aes-128-ofb",
@@ -32498,7 +32023,7 @@ module.exports={"2.16.840.1.101.3.4.1.1": "aes-128-ecb",
 "2.16.840.1.101.3.4.1.43": "aes-256-ofb",
 "2.16.840.1.101.3.4.1.44": "aes-256-cfb"
 }
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/asn1.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/parse-asn1/asn1.js":[function(require,module,exports){
 // from https://github.com/indutny/self-signed/blob/gh-pages/lib/asn1.js
 // Fedor, you are amazing.
 'use strict'
@@ -32622,7 +32147,7 @@ exports.signature = asn1.define('signature', function () {
   )
 })
 
-},{"./certificate":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/certificate.js","asn1.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/certificate.js":[function(require,module,exports){
+},{"./certificate":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/parse-asn1/certificate.js","asn1.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/parse-asn1/certificate.js":[function(require,module,exports){
 // from https://github.com/Rantanen/node-dtls/blob/25a7dc861bda38cfeac93a723500eea4f0ac2e86/Certificate.js
 // thanks to @Rantanen
 
@@ -32713,7 +32238,7 @@ var X509Certificate = asn.define('X509Certificate', function () {
 
 module.exports = X509Certificate
 
-},{"asn1.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/fixProc.js":[function(require,module,exports){
+},{"asn1.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/asn1.js/lib/asn1.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/parse-asn1/fixProc.js":[function(require,module,exports){
 // adapted from https://github.com/apatil/pemstrip
 var findProc = /Proc-Type: 4,ENCRYPTED[\n\r]+DEK-Info: AES-((?:128)|(?:192)|(?:256))-CBC,([0-9A-H]+)[\n\r]+([0-9A-z\n\r\+\/\=]+)[\n\r]+/m
 var startRegex = /^-----BEGIN ((?:.*? KEY)|CERTIFICATE)-----/m
@@ -32746,7 +32271,7 @@ module.exports = function (okey, password) {
   }
 }
 
-},{"browserify-aes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/browser.js","evp_bytestokey":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/evp_bytestokey/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/index.js":[function(require,module,exports){
+},{"browserify-aes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/browser.js","evp_bytestokey":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/evp_bytestokey/index.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/parse-asn1/index.js":[function(require,module,exports){
 var asn1 = require('./asn1')
 var aesid = require('./aesid.json')
 var fixProc = require('./fixProc')
@@ -32855,7 +32380,7 @@ function decrypt (data, password) {
   return Buffer.concat(out)
 }
 
-},{"./aesid.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/aesid.json","./asn1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/asn1.js","./fixProc":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/fixProc.js","browserify-aes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/browser.js","pbkdf2":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/path-browserify/index.js":[function(require,module,exports){
+},{"./aesid.json":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/parse-asn1/aesid.json","./asn1":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/parse-asn1/asn1.js","./fixProc":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/parse-asn1/fixProc.js","browserify-aes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-aes/browser.js","pbkdf2":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pbkdf2/browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/path-browserify/index.js":[function(require,module,exports){
 (function (process){
 // .dirname, .basename, and .extname methods are extracted from Node.js v8.11.1,
 // backported and transplited with Babel, with backwards-compat fixes
@@ -33161,11 +32686,11 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/browser.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pbkdf2/browser.js":[function(require,module,exports){
 exports.pbkdf2 = require('./lib/async')
 exports.pbkdf2Sync = require('./lib/sync')
 
-},{"./lib/async":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/async.js","./lib/sync":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/sync-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/async.js":[function(require,module,exports){
+},{"./lib/async":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pbkdf2/lib/async.js","./lib/sync":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pbkdf2/lib/sync-browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pbkdf2/lib/async.js":[function(require,module,exports){
 (function (process,global){
 var checkParameters = require('./precondition')
 var defaultEncoding = require('./default-encoding')
@@ -33269,7 +32794,7 @@ module.exports = function (password, salt, iterations, keylen, digest, callback)
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./default-encoding":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/default-encoding.js","./precondition":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/precondition.js","./sync":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/sync-browser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/default-encoding.js":[function(require,module,exports){
+},{"./default-encoding":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pbkdf2/lib/default-encoding.js","./precondition":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pbkdf2/lib/precondition.js","./sync":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pbkdf2/lib/sync-browser.js","_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pbkdf2/lib/default-encoding.js":[function(require,module,exports){
 (function (process){
 var defaultEncoding
 /* istanbul ignore next */
@@ -33283,7 +32808,7 @@ if (process.browser) {
 module.exports = defaultEncoding
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/precondition.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pbkdf2/lib/precondition.js":[function(require,module,exports){
 (function (Buffer){
 var MAX_ALLOC = Math.pow(2, 30) - 1 // default in iojs
 
@@ -33314,8 +32839,8 @@ module.exports = function (password, salt, iterations, keylen) {
   }
 }
 
-}).call(this,{"isBuffer":require("../../insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../../insert-module-globals/node_modules/is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/insert-module-globals/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/sync-browser.js":[function(require,module,exports){
+}).call(this,{"isBuffer":require("../../is-buffer/index.js")})
+},{"../../is-buffer/index.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/is-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pbkdf2/lib/sync-browser.js":[function(require,module,exports){
 var md5 = require('create-hash/md5')
 var RIPEMD160 = require('ripemd160')
 var sha = require('sha.js')
@@ -33421,7 +32946,7 @@ function pbkdf2 (password, salt, iterations, keylen, digest) {
 
 module.exports = pbkdf2
 
-},{"./default-encoding":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/default-encoding.js","./precondition":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/precondition.js","create-hash/md5":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/md5.js","ripemd160":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ripemd160/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js","sha.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pretty-hash/index.js":[function(require,module,exports){
+},{"./default-encoding":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pbkdf2/lib/default-encoding.js","./precondition":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pbkdf2/lib/precondition.js","create-hash/md5":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/create-hash/md5.js","ripemd160":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/ripemd160/index.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js","sha.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pretty-hash/index.js":[function(require,module,exports){
 (function (Buffer){
 
 module.exports = function prettyHash (buf) {
@@ -33431,8 +32956,8 @@ module.exports = function prettyHash (buf) {
   }
   return buf
 }
-}).call(this,{"isBuffer":require("../insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../insert-module-globals/node_modules/is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/insert-module-globals/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process-nextick-args/index.js":[function(require,module,exports){
+}).call(this,{"isBuffer":require("../is-buffer/index.js")})
+},{"../is-buffer/index.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/is-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process-nextick-args/index.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -33481,7 +33006,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js":[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -33667,7 +33192,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/protocol-buffers-encodings/index.js":[function(require,module,exports){
 (function (Buffer){
 var varint = require('varint')
 var svarint = require('signed-varint')
@@ -33957,15 +33482,15 @@ function bufferLength (val) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","signed-varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/index.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/decode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/decode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/encode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/index.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
-},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/length.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/browser.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","signed-varint":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/signed-varint/index.js","varint":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/decode.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/decode.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/encode.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/index.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
+},{"./decode.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/decode.js","./encode.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/encode.js","./length.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/length.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/length.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/public-encrypt/browser.js":[function(require,module,exports){
 exports.publicEncrypt = require('./publicEncrypt')
 exports.privateDecrypt = require('./privateDecrypt')
 
@@ -33977,7 +33502,7 @@ exports.publicDecrypt = function publicDecrypt (key, buf) {
   return exports.privateDecrypt(key, buf, true)
 }
 
-},{"./privateDecrypt":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/privateDecrypt.js","./publicEncrypt":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/publicEncrypt.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/mgf.js":[function(require,module,exports){
+},{"./privateDecrypt":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/public-encrypt/privateDecrypt.js","./publicEncrypt":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/public-encrypt/publicEncrypt.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/public-encrypt/mgf.js":[function(require,module,exports){
 var createHash = require('create-hash')
 var Buffer = require('safe-buffer').Buffer
 
@@ -33998,7 +33523,7 @@ function i2ops (c) {
   return out
 }
 
-},{"create-hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/privateDecrypt.js":[function(require,module,exports){
+},{"create-hash":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/create-hash/browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/public-encrypt/privateDecrypt.js":[function(require,module,exports){
 var parseKeys = require('parse-asn1')
 var mgf = require('./mgf')
 var xor = require('./xor')
@@ -34105,7 +33630,7 @@ function compare (a, b) {
   return dif
 }
 
-},{"./mgf":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/mgf.js","./withPublic":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/withPublic.js","./xor":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/xor.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","browserify-rsa":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-rsa/index.js","create-hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/browser.js","parse-asn1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/publicEncrypt.js":[function(require,module,exports){
+},{"./mgf":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/public-encrypt/mgf.js","./withPublic":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/public-encrypt/withPublic.js","./xor":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/public-encrypt/xor.js","bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js","browserify-rsa":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-rsa/index.js","create-hash":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/create-hash/browser.js","parse-asn1":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/parse-asn1/index.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/public-encrypt/publicEncrypt.js":[function(require,module,exports){
 var parseKeys = require('parse-asn1')
 var randomBytes = require('randombytes')
 var createHash = require('create-hash')
@@ -34195,7 +33720,7 @@ function nonZero (len) {
   return out
 }
 
-},{"./mgf":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/mgf.js","./withPublic":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/withPublic.js","./xor":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/xor.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","browserify-rsa":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-rsa/index.js","create-hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/browser.js","parse-asn1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/index.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/withPublic.js":[function(require,module,exports){
+},{"./mgf":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/public-encrypt/mgf.js","./withPublic":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/public-encrypt/withPublic.js","./xor":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/public-encrypt/xor.js","bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js","browserify-rsa":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify-rsa/index.js","create-hash":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/create-hash/browser.js","parse-asn1":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/parse-asn1/index.js","randombytes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/randombytes/browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/public-encrypt/withPublic.js":[function(require,module,exports){
 var BN = require('bn.js')
 var Buffer = require('safe-buffer').Buffer
 
@@ -34209,7 +33734,7 @@ function withPublic (paddedMsg, key) {
 
 module.exports = withPublic
 
-},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/xor.js":[function(require,module,exports){
+},{"bn.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bn.js/lib/bn.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/public-encrypt/xor.js":[function(require,module,exports){
 module.exports = function xor (a, b) {
   var len = a.length
   var i = -1
@@ -34219,7 +33744,7 @@ module.exports = function xor (a, b) {
   return a
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pump/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/pump/index.js":[function(require,module,exports){
 (function (process){
 var once = require('once')
 var eos = require('end-of-stream')
@@ -34305,7 +33830,287 @@ var pump = function () {
 module.exports = pump
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","end-of-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/end-of-stream/index.js","fs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js","once":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/once/once.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-chrome-file/index.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","end-of-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/end-of-stream/index.js","fs":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browser-resolve/empty.js","once":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/once/once.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/query-string/index.js":[function(require,module,exports){
+'use strict';
+const strictUriEncode = require('strict-uri-encode');
+const decodeComponent = require('decode-uri-component');
+const splitOnFirst = require('split-on-first');
+
+function encoderForArrayFormat(options) {
+	switch (options.arrayFormat) {
+		case 'index':
+			return key => (result, value) => {
+				const index = result.length;
+				if (value === undefined) {
+					return result;
+				}
+
+				if (value === null) {
+					return [...result, [encode(key, options), '[', index, ']'].join('')];
+				}
+
+				return [
+					...result,
+					[encode(key, options), '[', encode(index, options), ']=', encode(value, options)].join('')
+				];
+			};
+
+		case 'bracket':
+			return key => (result, value) => {
+				if (value === undefined) {
+					return result;
+				}
+
+				if (value === null) {
+					return [...result, [encode(key, options), '[]'].join('')];
+				}
+
+				return [...result, [encode(key, options), '[]=', encode(value, options)].join('')];
+			};
+
+		case 'comma':
+			return key => (result, value, index) => {
+				if (value === null || value === undefined || value.length === 0) {
+					return result;
+				}
+
+				if (index === 0) {
+					return [[encode(key, options), '=', encode(value, options)].join('')];
+				}
+
+				return [[result, encode(value, options)].join(',')];
+			};
+
+		default:
+			return key => (result, value) => {
+				if (value === undefined) {
+					return result;
+				}
+
+				if (value === null) {
+					return [...result, encode(key, options)];
+				}
+
+				return [...result, [encode(key, options), '=', encode(value, options)].join('')];
+			};
+	}
+}
+
+function parserForArrayFormat(options) {
+	let result;
+
+	switch (options.arrayFormat) {
+		case 'index':
+			return (key, value, accumulator) => {
+				result = /\[(\d*)\]$/.exec(key);
+
+				key = key.replace(/\[\d*\]$/, '');
+
+				if (!result) {
+					accumulator[key] = value;
+					return;
+				}
+
+				if (accumulator[key] === undefined) {
+					accumulator[key] = {};
+				}
+
+				accumulator[key][result[1]] = value;
+			};
+
+		case 'bracket':
+			return (key, value, accumulator) => {
+				result = /(\[\])$/.exec(key);
+				key = key.replace(/\[\]$/, '');
+
+				if (!result) {
+					accumulator[key] = value;
+					return;
+				}
+
+				if (accumulator[key] === undefined) {
+					accumulator[key] = [value];
+					return;
+				}
+
+				accumulator[key] = [].concat(accumulator[key], value);
+			};
+
+		case 'comma':
+			return (key, value, accumulator) => {
+				const isArray = typeof value === 'string' && value.split('').indexOf(',') > -1;
+				const newValue = isArray ? value.split(',') : value;
+				accumulator[key] = newValue;
+			};
+
+		default:
+			return (key, value, accumulator) => {
+				if (accumulator[key] === undefined) {
+					accumulator[key] = value;
+					return;
+				}
+
+				accumulator[key] = [].concat(accumulator[key], value);
+			};
+	}
+}
+
+function encode(value, options) {
+	if (options.encode) {
+		return options.strict ? strictUriEncode(value) : encodeURIComponent(value);
+	}
+
+	return value;
+}
+
+function decode(value, options) {
+	if (options.decode) {
+		return decodeComponent(value);
+	}
+
+	return value;
+}
+
+function keysSorter(input) {
+	if (Array.isArray(input)) {
+		return input.sort();
+	}
+
+	if (typeof input === 'object') {
+		return keysSorter(Object.keys(input))
+			.sort((a, b) => Number(a) - Number(b))
+			.map(key => input[key]);
+	}
+
+	return input;
+}
+
+function removeHash(input) {
+	const hashStart = input.indexOf('#');
+	if (hashStart !== -1) {
+		input = input.slice(0, hashStart);
+	}
+
+	return input;
+}
+
+function extract(input) {
+	input = removeHash(input);
+	const queryStart = input.indexOf('?');
+	if (queryStart === -1) {
+		return '';
+	}
+
+	return input.slice(queryStart + 1);
+}
+
+function parse(input, options) {
+	options = Object.assign({
+		decode: true,
+		sort: true,
+		arrayFormat: 'none',
+		parseNumbers: false,
+		parseBooleans: false
+	}, options);
+
+	const formatter = parserForArrayFormat(options);
+
+	// Create an object with no prototype
+	const ret = Object.create(null);
+
+	if (typeof input !== 'string') {
+		return ret;
+	}
+
+	input = input.trim().replace(/^[?#&]/, '');
+
+	if (!input) {
+		return ret;
+	}
+
+	for (const param of input.split('&')) {
+		let [key, value] = splitOnFirst(param.replace(/\+/g, ' '), '=');
+
+		// Missing `=` should be `null`:
+		// http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
+		value = value === undefined ? null : decode(value, options);
+
+		if (options.parseNumbers && !Number.isNaN(Number(value)) && (typeof value === 'string' && value.trim() !== '')) {
+			value = Number(value);
+		} else if (options.parseBooleans && value !== null && (value.toLowerCase() === 'true' || value.toLowerCase() === 'false')) {
+			value = value.toLowerCase() === 'true';
+		}
+
+		formatter(decode(key, options), value, ret);
+	}
+
+	if (options.sort === false) {
+		return ret;
+	}
+
+	return (options.sort === true ? Object.keys(ret).sort() : Object.keys(ret).sort(options.sort)).reduce((result, key) => {
+		const value = ret[key];
+		if (Boolean(value) && typeof value === 'object' && !Array.isArray(value)) {
+			// Sort object keys, not values
+			result[key] = keysSorter(value);
+		} else {
+			result[key] = value;
+		}
+
+		return result;
+	}, Object.create(null));
+}
+
+exports.extract = extract;
+exports.parse = parse;
+
+exports.stringify = (object, options) => {
+	if (!object) {
+		return '';
+	}
+
+	options = Object.assign({
+		encode: true,
+		strict: true,
+		arrayFormat: 'none'
+	}, options);
+
+	const formatter = encoderForArrayFormat(options);
+	const keys = Object.keys(object);
+
+	if (options.sort !== false) {
+		keys.sort(options.sort);
+	}
+
+	return keys.map(key => {
+		const value = object[key];
+
+		if (value === undefined) {
+			return '';
+		}
+
+		if (value === null) {
+			return encode(key, options);
+		}
+
+		if (Array.isArray(value)) {
+			return value
+				.reduce(formatter(key), [])
+				.join('&');
+		}
+
+		return encode(key, options) + '=' + encode(value, options);
+	}).filter(x => x.length > 0).join('&');
+};
+
+exports.parseUrl = (input, options) => {
+	return {
+		url: removeHash(input).split('?')[0] || '',
+		query: parse(extract(input), options)
+	};
+};
+
+},{"decode-uri-component":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/decode-uri-component/index.js","split-on-first":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/split-on-first/index.js","strict-uri-encode":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/strict-uri-encode/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-chrome-file/index.js":[function(require,module,exports){
 (function (Buffer){
 const ras = require('random-access-storage')
 
@@ -34568,12 +34373,12 @@ ReadRequest.prototype.run = function (req) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","random-access-storage":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-storage/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-file/browser.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","random-access-storage":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-storage/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-file/browser.js":[function(require,module,exports){
 module.exports = function () {
   throw new Error('random-access-file is not supported in the browser')
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb-mutable-file/lib/IndexedDB.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-idb-mutable-file/lib/IndexedDB.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34581,7 +34386,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 const indexedDB = exports.indexedDB = window.indexedDB;
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb-mutable-file/lib/random-access-idb-mutable-file.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-idb-mutable-file/lib/random-access-idb-mutable-file.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34861,7 +34666,7 @@ const RequestType = {
 exports.default = RandomAccessProvider;
 module.exports = exports["default"];
 
-},{"./IndexedDB":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb-mutable-file/lib/IndexedDB.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","random-access-storage":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb-mutable-file/node_modules/random-access-storage/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb-mutable-file/node_modules/random-access-storage/index.js":[function(require,module,exports){
+},{"./IndexedDB":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-idb-mutable-file/lib/IndexedDB.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","random-access-storage":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-idb-mutable-file/node_modules/random-access-storage/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-idb-mutable-file/node_modules/random-access-storage/index.js":[function(require,module,exports){
 (function (process){
 var events = require('events')
 var inherits = require('inherits')
@@ -35115,7 +34920,7 @@ function nextTickCallback (req, err, val) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb/index.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","events":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify/node_modules/events/events.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-idb/index.js":[function(require,module,exports){
 (function (Buffer){
 var RandomAccess = require('random-access-storage')
 var inherits = require('inherits')
@@ -35297,7 +35102,7 @@ function backify (r, cb) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./lib/blocks.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb/lib/blocks.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","buffer-alloc":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc/index.js","buffer-from":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb/node_modules/buffer-from/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","next-tick":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/next-tick/index.js","once":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/once/once.js","random-access-storage":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-storage/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb/lib/blocks.js":[function(require,module,exports){
+},{"./lib/blocks.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-idb/lib/blocks.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","buffer-alloc":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-alloc/index.js","buffer-from":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-idb/node_modules/buffer-from/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","next-tick":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/next-tick/index.js","once":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/once/once.js","random-access-storage":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-storage/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-idb/lib/blocks.js":[function(require,module,exports){
 module.exports = function (size, start, end) {
   var result = []
   for (var n = Math.floor(start/size)*size; n < end; n += size) {
@@ -35310,9 +35115,9 @@ module.exports = function (size, start, end) {
   return result
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb/node_modules/buffer-from/index.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-from/index.js"][0].apply(exports,arguments)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-memory/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-idb/node_modules/buffer-from/index.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-from/index.js"][0].apply(exports,arguments)
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-memory/index.js":[function(require,module,exports){
 (function (process,Buffer){
 const RandomAccess = require('random-access-storage')
 const isOptions = require('is-options')
@@ -35452,7 +35257,7 @@ function callbackNT (req, err, data) {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","is-options":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/is-options/index.js","random-access-storage":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-storage/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-storage/index.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","is-options":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/is-options/index.js","random-access-storage":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-storage/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-storage/index.js":[function(require,module,exports){
 (function (process){
 var events = require('events')
 var inherits = require('inherits')
@@ -35717,7 +35522,7 @@ function nextTickCallback (req, err, val) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-web/index.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","events":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify/node_modules/events/events.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-web/index.js":[function(require,module,exports){
 /* global self */
 const global = (typeof window !== 'undefined') ? window : self
 
@@ -35753,7 +35558,7 @@ if (requestFileSystem) {
 
 module.exports = storage
 
-},{"./mutable-file-wrapper.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-web/mutable-file-wrapper.js","random-access-chrome-file":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-chrome-file/index.js","random-access-idb":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb/index.js","random-access-memory":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-memory/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-web/mutable-file-wrapper.js":[function(require,module,exports){
+},{"./mutable-file-wrapper.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-web/mutable-file-wrapper.js","random-access-chrome-file":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-chrome-file/index.js","random-access-idb":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-idb/index.js","random-access-memory":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-memory/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-web/mutable-file-wrapper.js":[function(require,module,exports){
 
 module.exports = function mutableStorage (options) {
   const randomAccess = require('random-access-storage')
@@ -35824,7 +35629,7 @@ module.exports = function mutableStorage (options) {
   }
 }
 
-},{"random-access-idb-mutable-file":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb-mutable-file/lib/random-access-idb-mutable-file.js","random-access-storage":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-storage/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js":[function(require,module,exports){
+},{"random-access-idb-mutable-file":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-idb-mutable-file/lib/random-access-idb-mutable-file.js","random-access-storage":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-storage/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/randombytes/browser.js":[function(require,module,exports){
 (function (process,global){
 'use strict'
 
@@ -35878,7 +35683,7 @@ function randomBytes (size, cb) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randomfill/browser.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/randomfill/browser.js":[function(require,module,exports){
 (function (process,global){
 'use strict'
 
@@ -35990,10 +35795,10 @@ function randomFillSync (buf, offset, size) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/duplex-browser.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","randombytes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/randombytes/browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/duplex-browser.js":[function(require,module,exports){
 module.exports = require('./lib/_stream_duplex.js');
 
-},{"./lib/_stream_duplex.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_duplex.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_duplex.js":[function(require,module,exports){
+},{"./lib/_stream_duplex.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_duplex.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_duplex.js":[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -36125,7 +35930,7 @@ Duplex.prototype._destroy = function (err, cb) {
 
   pna.nextTick(cb, err);
 };
-},{"./_stream_readable":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_readable.js","./_stream_writable":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_writable.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/core-util-is/lib/util.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process-nextick-args/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_passthrough.js":[function(require,module,exports){
+},{"./_stream_readable":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_readable.js","./_stream_writable":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_writable.js","core-util-is":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/core-util-is/lib/util.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","process-nextick-args":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process-nextick-args/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_passthrough.js":[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -36173,7 +35978,7 @@ function PassThrough(options) {
 PassThrough.prototype._transform = function (chunk, encoding, cb) {
   cb(null, chunk);
 };
-},{"./_stream_transform":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_transform.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/core-util-is/lib/util.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_readable.js":[function(require,module,exports){
+},{"./_stream_transform":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_transform.js","core-util-is":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/core-util-is/lib/util.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_readable.js":[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -37195,7 +37000,7 @@ function indexOf(xs, x) {
   return -1;
 }
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./_stream_duplex":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_duplex.js","./internal/streams/BufferList":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/internal/streams/BufferList.js","./internal/streams/destroy":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/internal/streams/destroy.js","./internal/streams/stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/internal/streams/stream-browser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/core-util-is/lib/util.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","isarray":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/isarray/index.js","process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process-nextick-args/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js","string_decoder/":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/string_decoder/lib/string_decoder.js","util":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_transform.js":[function(require,module,exports){
+},{"./_stream_duplex":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_duplex.js","./internal/streams/BufferList":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/internal/streams/BufferList.js","./internal/streams/destroy":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/internal/streams/destroy.js","./internal/streams/stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/internal/streams/stream-browser.js","_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","core-util-is":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/core-util-is/lib/util.js","events":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify/node_modules/events/events.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","isarray":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/isarray/index.js","process-nextick-args":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process-nextick-args/index.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js","string_decoder/":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/string_decoder/lib/string_decoder.js","util":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browser-resolve/empty.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_transform.js":[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -37410,7 +37215,7 @@ function done(stream, er, data) {
 
   return stream.push(null);
 }
-},{"./_stream_duplex":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_duplex.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/core-util-is/lib/util.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_writable.js":[function(require,module,exports){
+},{"./_stream_duplex":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_duplex.js","core-util-is":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/core-util-is/lib/util.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_writable.js":[function(require,module,exports){
 (function (process,global,setImmediate){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -38100,7 +37905,7 @@ Writable.prototype._destroy = function (err, cb) {
   cb(err);
 };
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("timers").setImmediate)
-},{"./_stream_duplex":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_duplex.js","./internal/streams/destroy":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/internal/streams/destroy.js","./internal/streams/stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/internal/streams/stream-browser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/core-util-is/lib/util.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process-nextick-args/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js","timers":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/timers-browserify/main.js","util-deprecate":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util-deprecate/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/internal/streams/BufferList.js":[function(require,module,exports){
+},{"./_stream_duplex":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_duplex.js","./internal/streams/destroy":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/internal/streams/destroy.js","./internal/streams/stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/internal/streams/stream-browser.js","_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","core-util-is":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/core-util-is/lib/util.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","process-nextick-args":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process-nextick-args/index.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js","timers":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/timers-browserify/main.js","util-deprecate":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/util-deprecate/browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/internal/streams/BufferList.js":[function(require,module,exports){
 'use strict';
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38180,7 +37985,7 @@ if (util && util.inspect && util.inspect.custom) {
     return this.constructor.name + ' ' + obj;
   };
 }
-},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js","util":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/internal/streams/destroy.js":[function(require,module,exports){
+},{"safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js","util":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browser-resolve/empty.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/internal/streams/destroy.js":[function(require,module,exports){
 'use strict';
 
 /*<replacement>*/
@@ -38255,13 +38060,13 @@ module.exports = {
   destroy: destroy,
   undestroy: undestroy
 };
-},{"process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process-nextick-args/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/internal/streams/stream-browser.js":[function(require,module,exports){
+},{"process-nextick-args":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process-nextick-args/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/internal/streams/stream-browser.js":[function(require,module,exports){
 module.exports = require('events').EventEmitter;
 
-},{"events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/passthrough.js":[function(require,module,exports){
+},{"events":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify/node_modules/events/events.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/passthrough.js":[function(require,module,exports){
 module.exports = require('./readable').PassThrough
 
-},{"./readable":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js":[function(require,module,exports){
+},{"./readable":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/readable-browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/readable-browser.js":[function(require,module,exports){
 exports = module.exports = require('./lib/_stream_readable.js');
 exports.Stream = exports;
 exports.Readable = exports;
@@ -38270,13 +38075,13 @@ exports.Duplex = require('./lib/_stream_duplex.js');
 exports.Transform = require('./lib/_stream_transform.js');
 exports.PassThrough = require('./lib/_stream_passthrough.js');
 
-},{"./lib/_stream_duplex.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_duplex.js","./lib/_stream_passthrough.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_passthrough.js","./lib/_stream_readable.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_readable.js","./lib/_stream_transform.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_transform.js","./lib/_stream_writable.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_writable.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/transform.js":[function(require,module,exports){
+},{"./lib/_stream_duplex.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_duplex.js","./lib/_stream_passthrough.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_passthrough.js","./lib/_stream_readable.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_readable.js","./lib/_stream_transform.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_transform.js","./lib/_stream_writable.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_writable.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/transform.js":[function(require,module,exports){
 module.exports = require('./readable').Transform
 
-},{"./readable":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/writable-browser.js":[function(require,module,exports){
+},{"./readable":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/readable-browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/writable-browser.js":[function(require,module,exports){
 module.exports = require('./lib/_stream_writable.js');
 
-},{"./lib/_stream_writable.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_writable.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/remove-trailing-separator/index.js":[function(require,module,exports){
+},{"./lib/_stream_writable.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/lib/_stream_writable.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/remove-trailing-separator/index.js":[function(require,module,exports){
 (function (process){
 var isWin = process.platform === 'win32';
 
@@ -38297,7 +38102,7 @@ function isSeparator(str, i) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ripemd160/index.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/ripemd160/index.js":[function(require,module,exports){
 'use strict'
 var Buffer = require('buffer').Buffer
 var inherits = require('inherits')
@@ -38462,7 +38267,7 @@ function fn5 (a, b, c, d, e, m, k, s) {
 
 module.exports = RIPEMD160
 
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","hash-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","hash-base":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/hash-base/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js":[function(require,module,exports){
 /* eslint-disable node/no-deprecated-api */
 var buffer = require('buffer')
 var Buffer = buffer.Buffer
@@ -38526,7 +38331,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
   return buffer.SlowBuffer(size)
 }
 
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/hash.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/hash.js":[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 
 // prototype class for hash functions
@@ -38609,7 +38414,7 @@ Hash.prototype._update = function () {
 
 module.exports = Hash
 
-},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/index.js":[function(require,module,exports){
+},{"safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/index.js":[function(require,module,exports){
 var exports = module.exports = function SHA (algorithm) {
   algorithm = algorithm.toLowerCase()
 
@@ -38626,7 +38431,7 @@ exports.sha256 = require('./sha256')
 exports.sha384 = require('./sha384')
 exports.sha512 = require('./sha512')
 
-},{"./sha":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha.js","./sha1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha1.js","./sha224":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha224.js","./sha256":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha256.js","./sha384":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha384.js","./sha512":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha512.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha.js":[function(require,module,exports){
+},{"./sha":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/sha.js","./sha1":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/sha1.js","./sha224":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/sha224.js","./sha256":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/sha256.js","./sha384":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/sha384.js","./sha512":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/sha512.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/sha.js":[function(require,module,exports){
 /*
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-0, as defined
  * in FIPS PUB 180-1
@@ -38722,7 +38527,7 @@ Sha.prototype._hash = function () {
 
 module.exports = Sha
 
-},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/hash.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha1.js":[function(require,module,exports){
+},{"./hash":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/hash.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/sha1.js":[function(require,module,exports){
 /*
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-1, as defined
  * in FIPS PUB 180-1
@@ -38823,7 +38628,7 @@ Sha1.prototype._hash = function () {
 
 module.exports = Sha1
 
-},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/hash.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha224.js":[function(require,module,exports){
+},{"./hash":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/hash.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/sha224.js":[function(require,module,exports){
 /**
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-256, as defined
  * in FIPS 180-2
@@ -38878,7 +38683,7 @@ Sha224.prototype._hash = function () {
 
 module.exports = Sha224
 
-},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/hash.js","./sha256":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha256.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha256.js":[function(require,module,exports){
+},{"./hash":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/hash.js","./sha256":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/sha256.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/sha256.js":[function(require,module,exports){
 /**
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-256, as defined
  * in FIPS 180-2
@@ -39015,7 +38820,7 @@ Sha256.prototype._hash = function () {
 
 module.exports = Sha256
 
-},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/hash.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha384.js":[function(require,module,exports){
+},{"./hash":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/hash.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/sha384.js":[function(require,module,exports){
 var inherits = require('inherits')
 var SHA512 = require('./sha512')
 var Hash = require('./hash')
@@ -39074,7 +38879,7 @@ Sha384.prototype._hash = function () {
 
 module.exports = Sha384
 
-},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/hash.js","./sha512":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha512.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha512.js":[function(require,module,exports){
+},{"./hash":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/hash.js","./sha512":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/sha512.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/sha512.js":[function(require,module,exports){
 var inherits = require('inherits')
 var Hash = require('./hash')
 var Buffer = require('safe-buffer').Buffer
@@ -39336,7 +39141,7 @@ Sha512.prototype._hash = function () {
 
 module.exports = Sha512
 
-},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/hash.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signalhubws/index.js":[function(require,module,exports){
+},{"./hash":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sha.js/hash.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/signalhubws/index.js":[function(require,module,exports){
 (function (process){
 const events = require('events')
 const through2 = require('through2')
@@ -39522,7 +39327,7 @@ module.exports = function (app, urls, WebSocketClass = WebSocket) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","through2":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signalhubws/node_modules/through2/through2.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signalhubws/node_modules/through2/through2.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","events":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify/node_modules/events/events.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","through2":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/signalhubws/node_modules/through2/through2.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/signalhubws/node_modules/through2/through2.js":[function(require,module,exports){
 (function (process){
 var Transform = require('readable-stream').Transform
   , inherits  = require('util').inherits
@@ -39621,7 +39426,7 @@ module.exports.obj = through2(function (options, transform, flush) {
 })
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js","util":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/util.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/index.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","readable-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/readable-browser.js","util":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/util/util.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/signed-varint/index.js":[function(require,module,exports){
 var varint = require('varint')
 exports.encode = function encode (v, b, o) {
   v = v >= 0 ? v*2 : v*-2 - 1
@@ -39639,15 +39444,15 @@ exports.encodingLength = function (v) {
   return varint.encodingLength(v >= 0 ? v*2 : v*-2 - 1)
 }
 
-},{"varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/node_modules/varint/decode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/decode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/node_modules/varint/encode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/node_modules/varint/index.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
-},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/node_modules/varint/length.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/simple-peer/index.js":[function(require,module,exports){
+},{"varint":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/signed-varint/node_modules/varint/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/signed-varint/node_modules/varint/decode.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/decode.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/signed-varint/node_modules/varint/encode.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/signed-varint/node_modules/varint/index.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
+},{"./decode.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/signed-varint/node_modules/varint/decode.js","./encode.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/signed-varint/node_modules/varint/encode.js","./length.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/signed-varint/node_modules/varint/length.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/signed-varint/node_modules/varint/length.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/simple-peer/index.js":[function(require,module,exports){
 (function (Buffer){
 module.exports = Peer
 
@@ -40401,7 +40206,554 @@ Peer.prototype._transformConstraints = function (constraints) {
 function noop () {}
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","debug":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/debug/src/browser.js","get-browser-rtc":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/get-browser-rtc/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/siphash24/fallback.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","debug":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/simple-peer/node_modules/debug/src/browser.js","get-browser-rtc":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/get-browser-rtc/index.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","randombytes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/randombytes/browser.js","readable-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/readable-browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/simple-peer/node_modules/debug/src/browser.js":[function(require,module,exports){
+(function (process){
+/**
+ * This is the web browser implementation of `debug()`.
+ *
+ * Expose `debug()` as the module.
+ */
+
+exports = module.exports = require('./debug');
+exports.log = log;
+exports.formatArgs = formatArgs;
+exports.save = save;
+exports.load = load;
+exports.useColors = useColors;
+exports.storage = 'undefined' != typeof chrome
+               && 'undefined' != typeof chrome.storage
+                  ? chrome.storage.local
+                  : localstorage();
+
+/**
+ * Colors.
+ */
+
+exports.colors = [
+  'lightseagreen',
+  'forestgreen',
+  'goldenrod',
+  'dodgerblue',
+  'darkorchid',
+  'crimson'
+];
+
+/**
+ * Currently only WebKit-based Web Inspectors, Firefox >= v31,
+ * and the Firebug extension (any Firefox version) are known
+ * to support "%c" CSS customizations.
+ *
+ * TODO: add a `localStorage` variable to explicitly enable/disable colors
+ */
+
+function useColors() {
+  // NB: In an Electron preload script, document will be defined but not fully
+  // initialized. Since we know we're in Chrome, we'll just detect this case
+  // explicitly
+  if (typeof window !== 'undefined' && window.process && window.process.type === 'renderer') {
+    return true;
+  }
+
+  // is webkit? http://stackoverflow.com/a/16459606/376773
+  // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+  return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
+    // is firebug? http://stackoverflow.com/a/398120/376773
+    (typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
+    // is firefox >= v31?
+    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
+    // double check webkit in userAgent just in case we are in a worker
+    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+}
+
+/**
+ * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+ */
+
+exports.formatters.j = function(v) {
+  try {
+    return JSON.stringify(v);
+  } catch (err) {
+    return '[UnexpectedJSONParseError]: ' + err.message;
+  }
+};
+
+
+/**
+ * Colorize log arguments if enabled.
+ *
+ * @api public
+ */
+
+function formatArgs(args) {
+  var useColors = this.useColors;
+
+  args[0] = (useColors ? '%c' : '')
+    + this.namespace
+    + (useColors ? ' %c' : ' ')
+    + args[0]
+    + (useColors ? '%c ' : ' ')
+    + '+' + exports.humanize(this.diff);
+
+  if (!useColors) return;
+
+  var c = 'color: ' + this.color;
+  args.splice(1, 0, c, 'color: inherit')
+
+  // the final "%c" is somewhat tricky, because there could be other
+  // arguments passed either before or after the %c, so we need to
+  // figure out the correct index to insert the CSS into
+  var index = 0;
+  var lastC = 0;
+  args[0].replace(/%[a-zA-Z%]/g, function(match) {
+    if ('%%' === match) return;
+    index++;
+    if ('%c' === match) {
+      // we only are interested in the *last* %c
+      // (the user may have provided their own)
+      lastC = index;
+    }
+  });
+
+  args.splice(lastC, 0, c);
+}
+
+/**
+ * Invokes `console.log()` when available.
+ * No-op when `console.log` is not a "function".
+ *
+ * @api public
+ */
+
+function log() {
+  // this hackery is required for IE8/9, where
+  // the `console.log` function doesn't have 'apply'
+  return 'object' === typeof console
+    && console.log
+    && Function.prototype.apply.call(console.log, console, arguments);
+}
+
+/**
+ * Save `namespaces`.
+ *
+ * @param {String} namespaces
+ * @api private
+ */
+
+function save(namespaces) {
+  try {
+    if (null == namespaces) {
+      exports.storage.removeItem('debug');
+    } else {
+      exports.storage.debug = namespaces;
+    }
+  } catch(e) {}
+}
+
+/**
+ * Load `namespaces`.
+ *
+ * @return {String} returns the previously persisted debug modes
+ * @api private
+ */
+
+function load() {
+  var r;
+  try {
+    r = exports.storage.debug;
+  } catch(e) {}
+
+  // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+  if (!r && typeof process !== 'undefined' && 'env' in process) {
+    r = process.env.DEBUG;
+  }
+
+  return r;
+}
+
+/**
+ * Enable namespaces listed in `localStorage.debug` initially.
+ */
+
+exports.enable(load());
+
+/**
+ * Localstorage attempts to return the localstorage.
+ *
+ * This is necessary because safari throws
+ * when a user disables cookies/localstorage
+ * and you attempt to access it.
+ *
+ * @return {LocalStorage}
+ * @api private
+ */
+
+function localstorage() {
+  try {
+    return window.localStorage;
+  } catch (e) {}
+}
+
+}).call(this,require('_process'))
+},{"./debug":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/simple-peer/node_modules/debug/src/debug.js","_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/simple-peer/node_modules/debug/src/debug.js":[function(require,module,exports){
+
+/**
+ * This is the common logic for both the Node.js and web browser
+ * implementations of `debug()`.
+ *
+ * Expose `debug()` as the module.
+ */
+
+exports = module.exports = createDebug.debug = createDebug['default'] = createDebug;
+exports.coerce = coerce;
+exports.disable = disable;
+exports.enable = enable;
+exports.enabled = enabled;
+exports.humanize = require('ms');
+
+/**
+ * The currently active debug mode names, and names to skip.
+ */
+
+exports.names = [];
+exports.skips = [];
+
+/**
+ * Map of special "%n" handling functions, for the debug "format" argument.
+ *
+ * Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
+ */
+
+exports.formatters = {};
+
+/**
+ * Previous log timestamp.
+ */
+
+var prevTime;
+
+/**
+ * Select a color.
+ * @param {String} namespace
+ * @return {Number}
+ * @api private
+ */
+
+function selectColor(namespace) {
+  var hash = 0, i;
+
+  for (i in namespace) {
+    hash  = ((hash << 5) - hash) + namespace.charCodeAt(i);
+    hash |= 0; // Convert to 32bit integer
+  }
+
+  return exports.colors[Math.abs(hash) % exports.colors.length];
+}
+
+/**
+ * Create a debugger with the given `namespace`.
+ *
+ * @param {String} namespace
+ * @return {Function}
+ * @api public
+ */
+
+function createDebug(namespace) {
+
+  function debug() {
+    // disabled?
+    if (!debug.enabled) return;
+
+    var self = debug;
+
+    // set `diff` timestamp
+    var curr = +new Date();
+    var ms = curr - (prevTime || curr);
+    self.diff = ms;
+    self.prev = prevTime;
+    self.curr = curr;
+    prevTime = curr;
+
+    // turn the `arguments` into a proper Array
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
+
+    args[0] = exports.coerce(args[0]);
+
+    if ('string' !== typeof args[0]) {
+      // anything else let's inspect with %O
+      args.unshift('%O');
+    }
+
+    // apply any `formatters` transformations
+    var index = 0;
+    args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
+      // if we encounter an escaped % then don't increase the array index
+      if (match === '%%') return match;
+      index++;
+      var formatter = exports.formatters[format];
+      if ('function' === typeof formatter) {
+        var val = args[index];
+        match = formatter.call(self, val);
+
+        // now we need to remove `args[index]` since it's inlined in the `format`
+        args.splice(index, 1);
+        index--;
+      }
+      return match;
+    });
+
+    // apply env-specific formatting (colors, etc.)
+    exports.formatArgs.call(self, args);
+
+    var logFn = debug.log || exports.log || console.log.bind(console);
+    logFn.apply(self, args);
+  }
+
+  debug.namespace = namespace;
+  debug.enabled = exports.enabled(namespace);
+  debug.useColors = exports.useColors();
+  debug.color = selectColor(namespace);
+
+  // env-specific initialization logic for debug instances
+  if ('function' === typeof exports.init) {
+    exports.init(debug);
+  }
+
+  return debug;
+}
+
+/**
+ * Enables a debug mode by namespaces. This can include modes
+ * separated by a colon and wildcards.
+ *
+ * @param {String} namespaces
+ * @api public
+ */
+
+function enable(namespaces) {
+  exports.save(namespaces);
+
+  exports.names = [];
+  exports.skips = [];
+
+  var split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
+  var len = split.length;
+
+  for (var i = 0; i < len; i++) {
+    if (!split[i]) continue; // ignore empty strings
+    namespaces = split[i].replace(/\*/g, '.*?');
+    if (namespaces[0] === '-') {
+      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
+    } else {
+      exports.names.push(new RegExp('^' + namespaces + '$'));
+    }
+  }
+}
+
+/**
+ * Disable debug output.
+ *
+ * @api public
+ */
+
+function disable() {
+  exports.enable('');
+}
+
+/**
+ * Returns true if the given mode name is enabled, false otherwise.
+ *
+ * @param {String} name
+ * @return {Boolean}
+ * @api public
+ */
+
+function enabled(name) {
+  var i, len;
+  for (i = 0, len = exports.skips.length; i < len; i++) {
+    if (exports.skips[i].test(name)) {
+      return false;
+    }
+  }
+  for (i = 0, len = exports.names.length; i < len; i++) {
+    if (exports.names[i].test(name)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * Coerce `val`.
+ *
+ * @param {Mixed} val
+ * @return {Mixed}
+ * @api private
+ */
+
+function coerce(val) {
+  if (val instanceof Error) return val.stack || val.message;
+  return val;
+}
+
+},{"ms":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/simple-peer/node_modules/ms/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/simple-peer/node_modules/ms/index.js":[function(require,module,exports){
+/**
+ * Helpers.
+ */
+
+var s = 1000;
+var m = s * 60;
+var h = m * 60;
+var d = h * 24;
+var y = d * 365.25;
+
+/**
+ * Parse or format the given `val`.
+ *
+ * Options:
+ *
+ *  - `long` verbose formatting [false]
+ *
+ * @param {String|Number} val
+ * @param {Object} [options]
+ * @throws {Error} throw an error if val is not a non-empty string or a number
+ * @return {String|Number}
+ * @api public
+ */
+
+module.exports = function(val, options) {
+  options = options || {};
+  var type = typeof val;
+  if (type === 'string' && val.length > 0) {
+    return parse(val);
+  } else if (type === 'number' && isNaN(val) === false) {
+    return options.long ? fmtLong(val) : fmtShort(val);
+  }
+  throw new Error(
+    'val is not a non-empty string or a valid number. val=' +
+      JSON.stringify(val)
+  );
+};
+
+/**
+ * Parse the given `str` and return milliseconds.
+ *
+ * @param {String} str
+ * @return {Number}
+ * @api private
+ */
+
+function parse(str) {
+  str = String(str);
+  if (str.length > 100) {
+    return;
+  }
+  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(
+    str
+  );
+  if (!match) {
+    return;
+  }
+  var n = parseFloat(match[1]);
+  var type = (match[2] || 'ms').toLowerCase();
+  switch (type) {
+    case 'years':
+    case 'year':
+    case 'yrs':
+    case 'yr':
+    case 'y':
+      return n * y;
+    case 'days':
+    case 'day':
+    case 'd':
+      return n * d;
+    case 'hours':
+    case 'hour':
+    case 'hrs':
+    case 'hr':
+    case 'h':
+      return n * h;
+    case 'minutes':
+    case 'minute':
+    case 'mins':
+    case 'min':
+    case 'm':
+      return n * m;
+    case 'seconds':
+    case 'second':
+    case 'secs':
+    case 'sec':
+    case 's':
+      return n * s;
+    case 'milliseconds':
+    case 'millisecond':
+    case 'msecs':
+    case 'msec':
+    case 'ms':
+      return n;
+    default:
+      return undefined;
+  }
+}
+
+/**
+ * Short format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtShort(ms) {
+  if (ms >= d) {
+    return Math.round(ms / d) + 'd';
+  }
+  if (ms >= h) {
+    return Math.round(ms / h) + 'h';
+  }
+  if (ms >= m) {
+    return Math.round(ms / m) + 'm';
+  }
+  if (ms >= s) {
+    return Math.round(ms / s) + 's';
+  }
+  return ms + 'ms';
+}
+
+/**
+ * Long format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtLong(ms) {
+  return plural(ms, d, 'day') ||
+    plural(ms, h, 'hour') ||
+    plural(ms, m, 'minute') ||
+    plural(ms, s, 'second') ||
+    ms + ' ms';
+}
+
+/**
+ * Pluralization helper.
+ */
+
+function plural(ms, n, name) {
+  if (ms < n) {
+    return;
+  }
+  if (ms < n * 1.5) {
+    return Math.floor(ms / n) + ' ' + name;
+  }
+  return Math.ceil(ms / n) + ' ' + name + 's';
+}
+
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/siphash24/fallback.js":[function(require,module,exports){
 module.exports = fallback
 
 function _add (a, b) {
@@ -40523,7 +40875,7 @@ function fallback (out, m, key) { // modified from https://github.com/jedisct1/s
   out[7] = (h.h >> 24) & 0xff
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/siphash24/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/siphash24/index.js":[function(require,module,exports){
 var wasm = require('./siphash24')
 var fallback = require('./fallback')
 var assert = require('nanoassert')
@@ -40564,7 +40916,7 @@ function siphash24 (data, key, out, noAssert) {
   return out
 }
 
-},{"./fallback":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/siphash24/fallback.js","./siphash24":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/siphash24/siphash24.js","nanoassert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/nanoassert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/siphash24/siphash24.js":[function(require,module,exports){
+},{"./fallback":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/siphash24/fallback.js","./siphash24":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/siphash24/siphash24.js","nanoassert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/nanoassert/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/siphash24/siphash24.js":[function(require,module,exports){
 
 module.exports = loadWebAssembly
 
@@ -40627,7 +40979,7 @@ function charCodeAt (c) {
   return c.charCodeAt(0)
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/crypto_generichash.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-javascript/crypto_generichash.js":[function(require,module,exports){
 var blake2b = require('blake2b')
 
 module.exports.crypto_generichash_PRIMITIVE = 'blake2b'
@@ -40663,7 +41015,7 @@ blake2b.ready(function (err) {
   module.exports.crypto_generichash_WASM_LOADED = blake2b.WASM_LOADED
 })
 
-},{"blake2b":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/blake2b/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/crypto_kdf.js":[function(require,module,exports){
+},{"blake2b":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/blake2b/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-javascript/crypto_kdf.js":[function(require,module,exports){
 var assert = require('nanoassert')
 var randombytes_buf = require('./randombytes').randombytes_buf
 var blake2b = require('blake2b')
@@ -40704,7 +41056,7 @@ module.exports.crypto_kdf_keygen = function crypto_kdf_keygen (out) {
   randombytes_buf(out.subarray(0, module.exports.crypto_kdf_KEYBYTES))
 }
 
-},{"./randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/randombytes.js","blake2b":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/blake2b/index.js","nanoassert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/nanoassert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/crypto_shorthash.js":[function(require,module,exports){
+},{"./randombytes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-javascript/randombytes.js","blake2b":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/blake2b/index.js","nanoassert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/nanoassert/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-javascript/crypto_shorthash.js":[function(require,module,exports){
 var siphash = require('siphash24')
 
 exports.crypto_shorthash_PRIMITIVE = 'siphash24'
@@ -40718,7 +41070,7 @@ function shorthash (out, data, key, noAssert) {
   siphash(data, key, out, noAssert)
 }
 
-},{"siphash24":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/siphash24/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/crypto_stream.js":[function(require,module,exports){
+},{"siphash24":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/siphash24/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-javascript/crypto_stream.js":[function(require,module,exports){
 var xsalsa20 = require('xsalsa20')
 
 exports.crypto_stream_KEYBYTES = 32
@@ -40753,7 +41105,7 @@ XOR.prototype.final = function () {
   this._instance = null
 }
 
-},{"xsalsa20":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/xsalsa20/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/index.js":[function(require,module,exports){
+},{"xsalsa20":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/xsalsa20/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-javascript/index.js":[function(require,module,exports){
 'use strict';
 
 // Based on https://github.com/dchest/tweetnacl-js/blob/6dcbcaf5f5cbfd313f2dcfe763db35c828c8ff5b/nacl-fast.js.
@@ -42558,7 +42910,7 @@ function forward (submodule) {
   })
 }
 
-},{"./crypto_generichash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/crypto_generichash.js","./crypto_kdf":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/crypto_kdf.js","./crypto_shorthash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/crypto_shorthash.js","./crypto_stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/crypto_stream.js","./randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/randombytes.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/randombytes.js":[function(require,module,exports){
+},{"./crypto_generichash":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-javascript/crypto_generichash.js","./crypto_kdf":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-javascript/crypto_kdf.js","./crypto_shorthash":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-javascript/crypto_shorthash.js","./crypto_stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-javascript/crypto_stream.js","./randombytes":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-javascript/randombytes.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-javascript/randombytes.js":[function(require,module,exports){
 (function (global){
 var assert = require('nanoassert')
 var randombytes = (function () {
@@ -42602,10 +42954,10 @@ module.exports.randombytes_buf = function (out) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"crypto":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js","nanoassert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/nanoassert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-universal/browser.js":[function(require,module,exports){
+},{"crypto":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browser-resolve/empty.js","nanoassert":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/nanoassert/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-universal/browser.js":[function(require,module,exports){
 module.exports = require('sodium-javascript')
 
-},{"sodium-javascript":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sorted-indexof/index.js":[function(require,module,exports){
+},{"sodium-javascript":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sodium-javascript/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sorted-indexof/index.js":[function(require,module,exports){
 module.exports = indexOf
 
 function indexOf (left, right) {
@@ -42636,7 +42988,7 @@ function indexOf (left, right) {
   return result
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sparse-bitfield/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sparse-bitfield/index.js":[function(require,module,exports){
 (function (Buffer){
 var pager = require('memory-pager')
 
@@ -42735,7 +43087,31 @@ function powerOfTwo (x) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","memory-pager":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/memory-pager/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-browserify/index.js":[function(require,module,exports){
+},{"buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer/index.js","memory-pager":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/memory-pager/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/split-on-first/index.js":[function(require,module,exports){
+'use strict';
+
+module.exports = (string, separator) => {
+	if (!(typeof string === 'string' && typeof separator === 'string')) {
+		throw new TypeError('Expected the arguments to be of type `string`');
+	}
+
+	if (separator === '') {
+		return [string];
+	}
+
+	const separatorIndex = string.indexOf(separator);
+
+	if (separatorIndex === -1) {
+		return [string];
+	}
+
+	return [
+		string.slice(0, separatorIndex),
+		string.slice(separatorIndex + separator.length)
+	];
+};
+
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/stream-browserify/index.js":[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -42864,7 +43240,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","readable-stream/duplex.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/duplex-browser.js","readable-stream/passthrough.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/passthrough.js","readable-stream/readable.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js","readable-stream/transform.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/transform.js","readable-stream/writable.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/writable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-collector/index.js":[function(require,module,exports){
+},{"events":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify/node_modules/events/events.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","readable-stream/duplex.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/duplex-browser.js","readable-stream/passthrough.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/passthrough.js","readable-stream/readable.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/readable-browser.js","readable-stream/transform.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/transform.js","readable-stream/writable.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/writable-browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/stream-collector/index.js":[function(require,module,exports){
 var once = require('once')
 
 module.exports = function(stream, cb) {
@@ -42890,7 +43266,7 @@ module.exports = function(stream, cb) {
 
   return stream
 }
-},{"once":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/once/once.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-each/index.js":[function(require,module,exports){
+},{"once":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/once/once.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/stream-each/index.js":[function(require,module,exports){
 var eos = require('end-of-stream')
 var shift = require('stream-shift')
 
@@ -42951,7 +43327,7 @@ function each (stream, fn, cb) {
   }
 }
 
-},{"end-of-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/end-of-stream/index.js","stream-shift":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-shift/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-shift/index.js":[function(require,module,exports){
+},{"end-of-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/end-of-stream/index.js","stream-shift":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/stream-shift/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/stream-shift/index.js":[function(require,module,exports){
 module.exports = shift
 
 function shift (stream) {
@@ -42973,7 +43349,11 @@ function getStateLength (state) {
   return state.length
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/string_decoder/lib/string_decoder.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/strict-uri-encode/index.js":[function(require,module,exports){
+'use strict';
+module.exports = str => encodeURIComponent(str).replace(/[!'()*]/g, x => `%${x.charCodeAt(0).toString(16).toUpperCase()}`);
+
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/string_decoder/lib/string_decoder.js":[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -43270,7 +43650,7 @@ function simpleWrite(buf) {
 function simpleEnd(buf) {
   return buf && buf.length ? this.write(buf) : '';
 }
-},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sub-signalhub/index.js":[function(require,module,exports){
+},{"safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/sub-signalhub/index.js":[function(require,module,exports){
 module.exports = function (instance, prefix) {
   return new SubSignalhub(instance, prefix)
 }
@@ -43295,7 +43675,7 @@ class SubSignalhub {
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/through2/through2.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/through2/through2.js":[function(require,module,exports){
 (function (process){
 var Transform = require('readable-stream').Transform
   , inherits  = require('util').inherits
@@ -43395,7 +43775,7 @@ module.exports.obj = through2(function (options, transform, flush) {
 })
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js","util":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/util.js","xtend":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/xtend/immutable.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/thunky/index.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","readable-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/readable-browser.js","util":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/util/util.js","xtend":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/xtend/immutable.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/thunky/index.js":[function(require,module,exports){
 (function (process){
 'use strict'
 
@@ -43454,7 +43834,7 @@ function nextTickArgs (fn, a, b) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/timers-browserify/main.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/timers-browserify/main.js":[function(require,module,exports){
 (function (setImmediate,clearImmediate){
 var nextTick = require('process/browser.js').nextTick;
 var apply = Function.prototype.apply;
@@ -43533,7 +43913,7 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
   delete immediateIds[id];
 };
 }).call(this,require("timers").setImmediate,require("timers").clearImmediate)
-},{"process/browser.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","timers":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/timers-browserify/main.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/uint64be/index.js":[function(require,module,exports){
+},{"process/browser.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","timers":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/timers-browserify/main.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/uint64be/index.js":[function(require,module,exports){
 var bufferAlloc = require('buffer-alloc')
 
 var UINT_32_MAX = Math.pow(2, 32)
@@ -43566,7 +43946,7 @@ exports.decode = function (buf, offset) {
 exports.encode.bytes = 8
 exports.decode.bytes = 8
 
-},{"buffer-alloc":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/universal-dat-storage/browser.js":[function(require,module,exports){
+},{"buffer-alloc":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/buffer-alloc/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/universal-dat-storage/browser.js":[function(require,module,exports){
 const DatEncoding = require('dat-encoding')
 const path = require('path')
 const RAW = require('random-access-web')
@@ -43626,7 +44006,7 @@ module.exports = (options) => new DatStorage(options)
 
 module.exports.DatStorage = DatStorage
 
-},{"dat-encoding":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-encoding/index.js","path":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/path-browserify/index.js","random-access-web":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-web/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unixify/index.js":[function(require,module,exports){
+},{"dat-encoding":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/dat-encoding/index.js","path":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/path-browserify/index.js","random-access-web":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/random-access-web/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/unixify/index.js":[function(require,module,exports){
 /*!
  * unixify <https://github.com/jonschlinkert/unixify>
  *
@@ -43643,28 +44023,7 @@ module.exports = function unixify(filepath, stripTrailing) {
   return filepath.replace(/^([a-zA-Z]+:|\.\/)/, '');
 };
 
-},{"normalize-path":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unixify/node_modules/normalize-path/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unixify/node_modules/normalize-path/index.js":[function(require,module,exports){
-/*!
- * normalize-path <https://github.com/jonschlinkert/normalize-path>
- *
- * Copyright (c) 2014-2017, Jon Schlinkert.
- * Released under the MIT License.
- */
-
-var removeTrailingSeparator = require('remove-trailing-separator');
-
-module.exports = function normalizePath(str, stripTrailing) {
-  if (typeof str !== 'string') {
-    throw new TypeError('expected a string');
-  }
-  str = str.replace(/[\\\/]+/g, '/');
-  if (stripTrailing !== false) {
-    str = removeTrailingSeparator(str);
-  }
-  return str;
-};
-
-},{"remove-trailing-separator":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/remove-trailing-separator/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unordered-array-remove/index.js":[function(require,module,exports){
+},{"normalize-path":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/normalize-path/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/unordered-array-remove/index.js":[function(require,module,exports){
 module.exports = remove
 
 function remove (arr, i) {
@@ -43678,7 +44037,7 @@ function remove (arr, i) {
   return last
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unordered-set/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/unordered-set/index.js":[function(require,module,exports){
 exports.add = add
 exports.has = has
 exports.remove = remove
@@ -43716,7 +44075,7 @@ function swap (list, a, b) {
   list[b._index] = b
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util-deprecate/browser.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/util-deprecate/browser.js":[function(require,module,exports){
 (function (global){
 
 /**
@@ -43787,13 +44146,13 @@ function config (name) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/inherits/inherits_browser.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/support/isBufferBrowser.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/util/support/isBufferBrowser.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/util.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/util/util.js"][0].apply(exports,arguments)
-},{"./support/isBuffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/support/isBufferBrowser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/varint/decode.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/util/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/assert/node_modules/inherits/inherits_browser.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/util/support/isBufferBrowser.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/assert/node_modules/util/support/isBufferBrowser.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/util/util.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/assert/node_modules/util/util.js"][0].apply(exports,arguments)
+},{"./support/isBuffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/util/support/isBufferBrowser.js","_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/util/node_modules/inherits/inherits_browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/varint/decode.js":[function(require,module,exports){
 module.exports = read
 
 var MSB = 0x80
@@ -43825,13 +44184,13 @@ function read(buf, offset) {
   return res
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/varint/encode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/varint/index.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
-},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/varint/length.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/vm-browserify/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/varint/encode.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/varint/index.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
+},{"./decode.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/varint/decode.js","./encode.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/varint/encode.js","./length.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/varint/length.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/varint/length.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/vm-browserify/index.js":[function(require,module,exports){
 var indexOf = function (xs, item) {
     if (xs.indexOf) return xs.indexOf(item);
     else for (var i = 0; i < xs.length; i++) {
@@ -43982,7 +44341,7 @@ exports.createContext = Script.createContext = function (context) {
     return copy;
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/webrtc-swarm/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/webrtc-swarm/index.js":[function(require,module,exports){
 (function (process){
 var SimplePeer = require('simple-peer')
 var inherits = require('inherits')
@@ -44168,7 +44527,13 @@ function connect (swarm, hub) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","cuid":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cuid/dist/browser-cuid.js","debug":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/debug/src/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","once":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/once/once.js","simple-peer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/simple-peer/index.js","through2":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/through2/through2.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/websocket-stream/stream.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","cuid":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/cuid/dist/browser-cuid.js","debug":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/webrtc-swarm/node_modules/debug/src/browser.js","events":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/browserify/node_modules/events/events.js","inherits":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/inherits/inherits_browser.js","once":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/once/once.js","simple-peer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/simple-peer/index.js","through2":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/through2/through2.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/webrtc-swarm/node_modules/debug/src/browser.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/simple-peer/node_modules/debug/src/browser.js"][0].apply(exports,arguments)
+},{"./debug":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/webrtc-swarm/node_modules/debug/src/debug.js","_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/webrtc-swarm/node_modules/debug/src/debug.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/simple-peer/node_modules/debug/src/debug.js"][0].apply(exports,arguments)
+},{"ms":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/webrtc-swarm/node_modules/ms/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/webrtc-swarm/node_modules/ms/index.js":[function(require,module,exports){
+arguments[4]["/Users/fannieyeh/prj/play/web/collection-page/node_modules/simple-peer/node_modules/ms/index.js"][0].apply(exports,arguments)
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/websocket-stream/stream.js":[function(require,module,exports){
 (function (process,global){
 'use strict'
 
@@ -44344,7 +44709,7 @@ function WebSocketStream(target, protocols, options) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","duplexify":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/duplexify/index.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js","ws":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/websocket-stream/ws-fallback.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/websocket-stream/ws-fallback.js":[function(require,module,exports){
+},{"_process":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/process/browser.js","duplexify":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/duplexify/index.js","readable-stream":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/readable-stream/readable-browser.js","safe-buffer":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/safe-buffer/index.js","ws":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/websocket-stream/ws-fallback.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/websocket-stream/ws-fallback.js":[function(require,module,exports){
 
 var ws = null
 
@@ -44358,7 +44723,7 @@ if (typeof WebSocket !== 'undefined') {
 
 module.exports = ws
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/wrappy/wrappy.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/wrappy/wrappy.js":[function(require,module,exports){
 // Returns a wrapper function that returns a wrapped callback
 // The wrapper function should do some stuff, and return a
 // presumably different callback function.
@@ -44393,7 +44758,7 @@ function wrappy (fn, cb) {
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/xsalsa20/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/xsalsa20/index.js":[function(require,module,exports){
 var xsalsa20 = require('./xsalsa20')()
 
 var SIGMA = new Uint8Array([101, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, 101, 32, 107])
@@ -44841,7 +45206,7 @@ function core_hsalsa20(o,p,k,c) {
   o[31] = x9 >>> 24 & 0xff
 }
 
-},{"./xsalsa20":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/xsalsa20/xsalsa20.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/xsalsa20/xsalsa20.js":[function(require,module,exports){
+},{"./xsalsa20":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/xsalsa20/xsalsa20.js"}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/xsalsa20/xsalsa20.js":[function(require,module,exports){
 
 module.exports = loadWebAssembly
 
@@ -44904,7 +45269,7 @@ function charCodeAt (c) {
   return c.charCodeAt(0)
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/xtend/immutable.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/node_modules/xtend/immutable.js":[function(require,module,exports){
 module.exports = extend
 
 var hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -44925,14 +45290,18 @@ function extend() {
     return target
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/index.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/src/index.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 let css
+const queryString = require('query-string')
+const parsed = queryString.parse(location.search)
+const header = require('header')
 const search = require('search')
 const pagination = require('pagination')
 const paginationButtons = require('paginationButtons')
 const makeCollectionArea = require('makeCollectionArea')
+
 
 // ===== theme =====
 
@@ -44954,8 +45323,8 @@ function setTheme (theme) {
 function themeSwitch () {
   return bel`
   <div class=${css.themeSwitch}>
-  <div onclick=${()=>setTheme(themes('lightTheme'))}>Light theme/</div>
-  <div onclick=${()=>setTheme(themes('darkTheme'))}>/Dark theme</div>
+    <span class="${css.colorplate} ${css.cubeWhite}" onclick=${()=>setTheme(themes('lightTheme'))}></span>
+    <span class="${css.colorplate} ${css.cubeDark}" onclick=${()=>setTheme(themes('darkTheme'))}></span>
   </div>
   `
 }
@@ -44984,11 +45353,14 @@ function start(contracts) {
     makeCollectionArea(ops.currentData)
   }</div>`
   let element = bel`
-    <div>
-      ${themeSwitch()}
-      ${search(contracts, collectionContainer, ops)}
-      ${collectionContainer}
-      ${paginationButtons(collectionContainer, ops)}
+    <div class=${css.wrapper}>
+      ${header()}
+      <div class=${css.content}>
+        ${themeSwitch()}
+        ${search(contracts, collectionContainer, ops)}
+        ${collectionContainer}
+        ${paginationButtons(collectionContainer, ops)}
+      </div>
     </div>
   `
   document.body.appendChild(element)
@@ -44997,16 +45369,101 @@ function start(contracts) {
 // ===== css =====
 
 css = csjs`
-  body {
-    background-color: var(--background)
+  @import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+  html {
+    font-size: 65%;
   }
+  body {
+    height: 100%;
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--body-color);
+    background-color: var(--body-background);
+    font-size: 100%;
+  }
+  .wrapper {
+    display: grid;
+    grid-template-areas: 
+      "header"
+      "content";
+    grid-template-rows: 120px 1fr;
+    padding: 0 38px;
+  }
+  .content {
+    grid-area: content;
+    display: grid;
+    grid-template-areas:
+      "themeSwitch"
+      "search"
+      "collection"
+      "pagination"
+  }
+  a {
+    text-decoration: none;
+    color: var(--body-color);
+  }
+  button {
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
   .themeSwitch {
-    display: flex;
-    color: var(--primary)
+    grid-area: themeSwitch;
+    justify-self: end;
+    color: var(--primary);
+    padding-bottom: 15px;
+  }
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+  h1 {
+    font-size: 6rem;
+  }
+  h2 {
+    font-size: 5rem;
+  }
+  h3 {
+    font-size: 4rem;
+  }
+  h4 {
+    font-size: 3rem;
+  }
+  h5 {
+    font-size: 2rem;
+  }
+  h6 {
+    font-size: 1.6rem;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+  ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .colorplate {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    border: 1px solid #888;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .cubeWhite {
+    background-color: #fff;
+  }
+  .cubeDark {
+    background-color: #1D1D26; 
   }
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/pagination.js","paginationButtons":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js","search":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/search.js","themes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/themes.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js":[function(require,module,exports){
+},{"bel":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bel/browser.js","contracts":"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/contracts.js","csjs-inject":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs-inject/index.js","header":"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/header.js","makeCollectionArea":"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/makeCollectionArea.js","pagination":"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/pagination.js","paginationButtons":"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/paginationButtons.js","query-string":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/query-string/index.js","search":"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/search.js","themes":"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/themes.js"}],"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/contracts.js":[function(require,module,exports){
 const SDK = require('dat-sdk')
 const { Hypercore, Hyperdrive, resolveName, deleteStorage, destroy } = SDK()
 
@@ -45054,7 +45511,106 @@ function getSourceCode (x, i, addresses, contractsArr, done) {
   })
 }
 
-},{"dat-sdk":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-sdk/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCard.js":[function(require,module,exports){
+},{"dat-sdk":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/dat-sdk/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/header.js":[function(require,module,exports){
+const bel = require('bel')
+const csjs = require('csjs-inject')
+let css
+module.exports = header
+
+function header () {
+  return bel`
+    <header class="${css.header}">
+        <div class="${css.logo}">
+            <img src="./images/logo.svg" alt="PlayProject">
+            <h2>PlayProject</h2>
+        </div>
+        <nav class="${css.nav}">
+            <button class="${css.buttonDefault} ${css.createNewProject}">
+                <span class="icon-new">
+                  <object data="./images/icons/icon-new.svg" type="image/svg+xml"></object>
+                </span>
+            </button>
+            <a href="#">
+                <span class="${css.avatar}"><img src="./images/user-avatar.jpg" alt="User Avatar"></span>
+            </a>
+        </nav>
+    </header>
+  `
+}
+
+
+
+// ===== css =====
+
+css = csjs`
+  .header {
+    grid-area: header;
+    display: grid;
+    grid-template-areas:
+      "logo" "nav";
+    grid-template-rows: 120px;
+    grid-template-columns: 10fr 2fr;
+    align-items: center;
+  }
+  .logo {
+    grid-area: logo;
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .logo img {
+    vertical-align: middle;
+    margin-right: 17px;
+    width: 43px;
+  }
+  .logo h2 {
+    display: inline;
+    vertical-align: middle;
+  }
+  .nav {
+    grid-area: nav;
+    grid-row: 1;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    justify-items: right;
+    align-items: center;
+  }
+  .avatar {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    border-radius: 100px;
+    background-color: #333;
+    overflow: hidden;
+    margin-left: 15px;
+  }
+  .createNewProject {
+    width: 45px;
+    height: 45px;
+  }
+  .createNewProject span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .buttonDefault {
+    background-color: var(--button-primary);
+    transition: background ease-in-out .3s
+  }
+  .buttonDefault:hover {
+    background-color: var(--button-primary-hover);
+  }
+
+  @media (max-width: 639px) {
+    .logo h2 {
+      font-size: 3rem;
+    }
+    .logo img {
+      width: 35px;
+    }
+  }
+`
+},{"bel":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bel/browser.js","csjs-inject":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs-inject/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/makeCard.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 
@@ -45066,12 +45622,30 @@ function makeCard (address) {
   let card = bel`
     <div class=${css.collectionCard}>
       <pre class=${css.code}>${address}</pre>
+      
       <div class=${css.cardCover}>
-        <img class=${css.avatar} src="https://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=200&r=pg&d=mp">
-        <div class=${css.coverText}>
-          <div class=${css.coverTextTitle}>New contract</div>
-          <div class=${css.coverTextSubtitle}>Gregory Bowen</div>
+        <div class=${css.avatar}>
+          <img src="https://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=200&r=pg&d=mp">
         </div>
+        <div class=${css.coverInfo}>
+          <h5 class=${css.coverTitle}>WithdrawDAO contract</h5>
+          <p class=${css.cardUserInfo}>0xAA5c4244F05c</p>
+          <span class=${css.cardTime}>A year ago</span>
+        </div>
+        <aside class=${css.cardVisitInfo}>
+              <span>
+                <i class="icon-view"><object data="./images/icons/icon-view.svg" type="image/svg+xml"></object></i> 
+                1,068,298
+              </span>
+              <span>
+                <i class="icon-share"><object data="./images/icons/icon-share.svg" type="image/svg+xml"></object></i> 
+                6,321
+              </span>
+              <span>
+                <i class="icon-favorite"><object data="./images/icons/icon-favorite.svg" type="image/svg+xml"></object></i> 
+                15,023
+              </span>
+        </aside>
       </div>
     </div>`
   return card
@@ -45082,64 +45656,143 @@ function makeCard (address) {
 
 css = csjs`
   .collectionCard {
-    width: 350px;
-    height: 280px;
-    border-radius: 5px;
-    border: 1px solid var(--primary);
-    padding: 1%;
-    margin: 1%;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
     overflow: hidden;
     position: relative;
-    background-color: var(--editor-primary);
-    color: var(--font-primary);
+    background-color: var(--editor-preview);
+    border: 0px solid var(--card-cover-border);
+    transition: all 0.4s ease-in-out;
+    box-shadow: var(--card-shadow);
   }
   .collectionCard:hover {
-    margin: 0%;
-    width: calc(350px * 1.1);
-    height: calc(280px * 1.1);
-    transition: 0.4s ease-in-out;
+    margin-left: -25px;
+    margin-top: -15px;
+    width: calc(100% * 1.1);
+    height: calc(100% * 1.1);
     cursor: pointer;
-    background-color: var(--editor-secondary);
+    border: var(--card-hover-border);
+    box-shadow: var(--card-hover-shadow);
+    z-index: 3;
   }
   .code {
     height: inherit;
   }
+  .collectionCard:before {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: var(--card-code-overlay);
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+  }
+  .collectionCard:hover:before {
+    opacity: 1;
+  }
   .cardCover {
     pointer-events: none;
     position: absolute;
-    height: 90px;
-    background-color: var(--card-cover-primary);
+    z-index: 1;
+    background-color: var(--card-cover);
     width: 100%;
+    height: 45px;
     bottom: 0;
     left: 0;
-    border-top: 1px solid var(--primary);
-    padding: 10px 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 63px 1fr;
+    grid-template-rows: 1fr auto;
+    grid-gap: 10px 5px;
+    transition: all .3s ease-in-out;
+    padding: 10px 0 5px 0;
   }
   .collectionCard:hover .cardCover {
-    background-color: var(--card-cover-secondary);
+    background-color: var(--card-hover-cover);
+    height: 70px;
+    border-radius: 6px 6px 0 0;
   }
   .avatar {
-    width: 50px;
-    height: 50px;
-    padding: 10px;
+    width: 43px;
+    height: 43px;
+    border-radius: 4px;
+    overflow: hidden;
+    align-self: center;
+    justify-self: center;
   }
-  .coverText {
-    display: flex;
-    flex-direction: column;
+  .coverInfo {
+    display: grid;
+    grid-template-rows: 55% 45%;
+    grid-template-columns: 50% 50%;
   }
-  .coverTextTitle {
-    font-weight: bold;
-    font-size: 30px;
+  .coverTitle {
+    color: var(--card-cover-title);
+    font-weight: normal;
+    grid-row: 1;
+    grid-column: 1 / col-end 2;
+    align-self: end;
+    transition: all .3s ease-in-out;
   }
-  .coverTextSubtitle {
+  .collectionCard:hover .coverTitle,  .collectionCard:hover .cardTime {
+    color: var(--card-hover-cover-title);
+  }
+  .cardUserInfo {
+    align-self: center;
+    font-size: var(--text-xsmall);
+    color: var(--card-cover-userInfo);
+  }
+  .cardUserInfo:after {
+    display: inline-block;
+    content: '...';
+  }
+  .cardTime {
+    grid-row: 2;
+    grid-column: 2 / col-end 2;
+    justify-self: end;
+    align-self: center;
+    padding-right: 10px;
+    color: var(--card-time);
+    font-size: var(--text-xsmall);
+    transition: all .3s ease-in-out;
+  }
+  .cardVisitInfo {
+    opacity: 0;
+    width: 100%;
+    height: 30px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    grid-column: 1 / span 2;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: start;
+    transition: all .8s ease-in-out;
+  }
+  .cardVisitInfo i {
+    display: inline-block;
+    width: 12px;
+    margin-right: 2px;
+  }
+  .collectionCard:hover .cardVisitInfo {
+    opacity: 1;
+  }
+  pre {
+    width: 88%;
+    margin: 0;
+    padding: 15px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.4rem;
+    line-height: 22px;
+    overflow: hidden;
+  }
 
-  }
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js":[function(require,module,exports){
+},{"bel":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bel/browser.js","csjs-inject":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs-inject/index.js"}],"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/makeCollectionArea.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 const contracts = require('contracts')
@@ -45160,14 +45813,56 @@ function makeCollectionArea(currentData) {
 
 css = csjs`
   .collectionArea {
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-gap: 30px;
+    margin-bottom: 60px;
   }
+
+  @media (min-width: 480px) {
+    .collectionArea {
+      grid-auto-rows: 250px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .collectionArea {
+      grid-auto-rows: 250px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 960px) {
+    .collectionArea {
+      grid-auto-rows: 250px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1366px) {
+    .collectionArea {
+      grid-auto-rows: 280px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  @media (min-width: 1920px) {
+    .collectionArea {
+      grid-auto-rows: 300px;
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  @media (min-width: 2560px) {
+    .collectionArea {
+      grid-auto-rows: 350px;
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","makeCard":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCard.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/pagination.js":[function(require,module,exports){
+},{"bel":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bel/browser.js","contracts":"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/contracts.js","csjs-inject":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs-inject/index.js","makeCard":"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/makeCard.js"}],"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/pagination.js":[function(require,module,exports){
 
 module.exports = pagination
 
@@ -45209,7 +45904,7 @@ function pagination (contracts) {
 
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js":[function(require,module,exports){
+},{}],"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/paginationButtons.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 const makeCollectionArea = require('makeCollectionArea')
@@ -45220,12 +45915,25 @@ module.exports = paginationButtons
 function paginationButtons (collectionContainer, ops ) {
   let el = bel`
     <div class=${css.pagination}>
-      <div class="${css.previous} ${css.button}"
-        onclick=${()=>goToPrevious(ops, collectionContainer)}>Previous
-      </div>
-      <div class="${css.next} ${css.button}"
-        onclick=${()=>goToNext(ops, collectionContainer)}>Next
-      </div>
+      <button class="${css.button} ${css.round} ${css.previous}" onclick=${()=>goToPrevious(ops, collectionContainer)}>Previous</button>
+      <ul class=${css.pages}>
+        <li>
+          <span class=${css.current}>1</span>
+        </li>
+        <li>
+          <a href="#">2</a>
+        </li>
+        <li>
+          <a href="#">3</a>
+        </li>
+        <li>
+          <a href="#">4</a>
+        </li>
+        <li>
+          <a href="#">5</a>
+        </li>
+      </ul>
+      <button class="${css.button} ${css.default} ${css.round} ${css.next} " onclick=${()=>goToNext(ops, collectionContainer)}>Next</button>
     </div>`
   return el
 }
@@ -45270,31 +45978,86 @@ function goToPageUrl(page) {
 
 css = csjs`
   .pagination {
-    display: flex;
-    justify-content: center;
+    grid-area: pagination;
+    text-align: center;
+    padding-bottom: 60px;
   }
   .button {
-    width: 50px;
-    border: 1px solid var(--secondary);
-    background-color: var(--primary);
-    border-radius: 5px;
-    padding: 1%;
-    display: flex;
-    justify-content: center;
-    margin: 5px;
+    width: 123px;
+    height: 44px;
+    border: var(--button-border);
+    background-color: var(--button-white);
+    color: var(--button-default-text);
+    font-size: 18px;
+    line-height: 44px;
+    transition: all .3s ease-in-out;
   }
   .button:hover {
-    background-color: var(--secondary);
-    color: white;
+    background-color: var(--button-default-hover);
+    color:  var(--button-default-text-hover);
     cursor: pointer;
   }
-  .previous {}
-  .next {}
+  .previous {
+    border: var(--button-border);
+  }
+  .next {
+  }
+  .round {
+    border-radius: 22px;
+  }
+  .default {
+    background-color: var(--button-default);
+  }
+  .pages {
+    margin: 0 10px;
+    display: inline-grid;
+    grid-template: auto / repeat(5, 45px);
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+  }
+  .pages li {
+    font-size: var(--text-normal);
+    color: #8d8d8d8;
+  }
+  .pages li a {
+    border-radius: 4px;
+    padding: 4px 8px;
+    border: var(--pages-border);
+    color: var(--pages-text);
+    transition: all .3s ease-in-out;
+  }
+  .pages li a:hover {
+    background: var(--pages-hover-background)
+  }
+  .current {
+    border-radius: 4px;
+    padding: 4px 8px;
+    background: var(--pages-current-background);
+  }
+
+  @media (max-width: 560px) {
+    .pages {
+      display: none;
+    }
+    .pagination {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-content: space-between;
+    }
+    .previous {
+      justify-self: start;
+    }
+    .next {
+      justify-self: end;
+    }
+  }
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/search.js":[function(require,module,exports){
+},{"bel":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bel/browser.js","csjs-inject":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs-inject/index.js","makeCollectionArea":"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/makeCollectionArea.js"}],"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/search.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
+let css
 const pagination = require('pagination')
 const makeCollectionArea = require('makeCollectionArea')
 
@@ -45303,12 +46066,13 @@ module.exports = search
 function search (contracts,collectionContainer, ops) {
   return bel`
     <div class=${css.searchBar}>
-      <input type="text" value="Search contract" onchange=${(e)=>showMatches(e, contracts, collectionContainer)} onclick="${(e)=>e.target.select()}">
+      <button class=${css.submit}>
+        <object data="./images/icons/icon-search.svg" type="image/svg+xml"></object>
+      </button>
+      <input type="text" value="Search contract" onchange=${(e)=>showMatches(e, contracts, collectionContainer)}">
     </div>
   `
 }
-
-// ===== helpers =====
 
 function showMatches (e, contracts, collectionContainer) {
   //location.assign(window.location.href)
@@ -45328,55 +46092,126 @@ function getMatches (contracts, val) {
 }
 
 
-
 // ===== css =====
 
 css = csjs`
   .searchBar {
-    margin: 40px 0 20px 0;
-    display: flex;
-    justify-content: center;
+    position: relative;
+    padding-bottom: 50px;
   }
   input[type="text"] {
     height: 40px;
-    width: 80%;
-    border: 1px solid var(--search-input-border);
-    border-radius: 5px;
-    background-color: var(--search-input-background);
-    font-size: var(--font-size-large);
-    padding-left: 15px;
+    width: calc(100% - 65px);
+    border: var(--search-input);
+    border-radius: 6px;
+    background: var(--search-input-background);
+    text-transform: uppercase;
+    font-size: var(--search-input-text);
+    padding: 4px 50px 4px 15px;
+    color: var(--search-input-color);
+    outline: none;
+    font-family: 'Nunito', sans-serif;
+  }
+  .submit {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: transparent;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  .submit object {
+    width: 30px;
+    height: 30px;
   }
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/pagination.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/themes.js":[function(require,module,exports){
+},{"bel":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bel/browser.js","csjs-inject":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs-inject/index.js","makeCollectionArea":"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/makeCollectionArea.js","pagination":"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/pagination.js"}],"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/themes.js":[function(require,module,exports){
 module.exports = themes
 
+
+const bluePurple = '#6700ff'
+const lightGreen = '#09FFC3'
+const lightGreenHover = '#A1FFE8'
+const greyEB = '#EBEBEB'
+const grey8D = '#8D8D8D'
+const grey31 = '#313136'
+const grey33 = '#333333'
+const greyBB = '#BBBBBB'
+const white = '#ffffff'
+const dark18 = '#181920'
+const dark1d = '#1d1d26'
+const peach = 'rgba(255, 41,117, 100)'
+const transparent = 'rgba(0,0,0,0)'
 function themes (themeName) {
   const lightTheme = {
-    '--background': '#ffffff',
-    '--primary': '#edc9ff',
-    '--secondary': '#c6ffea',
-    '--editor-primary': '#ffffff',
-    '--editor-secondary': '#ffffff',
-    '--font-primary': '#88888d',
-    '--card-cover-primary': '#ffffff',
-    '--card-cover-secondary': '#ffffff',
-    '--search-input-border': '#c6ffea',
-    '--search-input-background': '#c6ffea' ,
-    '--font-size-large': '20px'
+    '--body-color': grey33,
+    '--body-background': greyEB,
+    '--button-default': lightGreen,
+    '--button-default-hover': white,
+    '--button-default-text': dark1d,
+    '--button-default-text-hover': dark1d,
+    '--button-border': '0px solid var(--button-white)',
+    '--editor-preview': white,
+    '--card-cover': greyEB,
+    '--card-hover-cover': lightGreen,
+    '--card-cover-border': transparent,
+    '--card-border': transparent,
+    '--card-hover-border': '0px solid var(--card-border)',
+    '--card-code-overlay': 'linear-gradient(0deg, rgba(0,0,0, .1) 0%, rgba(0,0,0, .28) 100%)',
+    '--card-shadow': '0px 6px 8px rgba(144, 144, 144, .3)',
+    '--card-hover-shadow': '0px 6px 8px rgba(144, 144, 144, .3)',
+    '--card-cover-title': grey31,
+    '--card-hover-cover-title': grey31,
+    '--card-cover-userInfo': grey33,
+    '--card-time': grey8D,
+    '--card-hover-time': grey8D,
+    '--search-input': `1px solid var(--search-input-border)`,
+    '--search-input-border': 'rgba(255,255,255, 0)',
+    '--search-input-background': white,
+    '--search-input-color': grey8D,
+    '--search-input-text': '2rem',
+    '--text-large': '2rem',
+    '--text-normal': '1.6rem',
+    '--text-small': '1.4rem',
+    '--text-xsmall': '1.2rem',
+    '--pages-current-background': white,
+    '--pages-border': '0px solid rgba(0,0,0,0)',
+    '--pages-text': grey8D,
+    '--pages-hover-background': white,
   }
   const darkTheme = {
-    '--background': '#181920',
-    '--primary': '#14b9d5',
-    '--secondary': '#ed1e7b',
-    '--editor-primary': '#1d1d26',
-    '--editor-secondary': '#2a174d',
-    '--font-primary': '#88888d',
-    '--card-cover-primary': '#313136',
-    '--card-cover-secondary': '#6700ff',
-    '--search-input-border': '#6700ff',
-    '--search-input-background': '#6700ff',
-    '--font-size-large': '20px'
+    '--body-color': white,
+    '--body-background': dark18,
+    '--button-default': transparent,
+    '--button-default-hover': bluePurple,
+    '--button-default-text': peach,
+    '--button-default-text-hover': peach,
+    '--button-border': '1px solid #6700ff',
+    '--editor-preview': dark1d,
+    '--card-cover': grey31,
+    '--card-hover-cover': bluePurple,
+    '--card-cover-border': transparent,
+    '--card-border': bluePurple,
+    '--card-hover-border': '1px solid var(--card-border)',
+    '--card-code-overlay': 'linear-gradient(0deg, rgba(103,0,255, .1) 0%, rgba(103,0,255, .28) 100%)',
+    '--card-shadow': '0px 2px 30px rgba(103, 0, 255, 0)',
+    '--card-hover-shadow': '0px 2px 30px rgba(103, 0, 255, .6)',
+    '--card-cover-title': lightGreen,
+    '--card-hover-cover-title': white,
+    '--card-cover-userInfo': white,
+    '--card-time': greyBB,
+    '--card-hover-time': white,
+    '--search-input': `1px solid var(--search-input-border)`,
+    '--search-input-border': bluePurple,
+    '--search-input-background': 'none',
+    '--search-input-color': lightGreen,
+    '--search-input-text': '20px',
+    '--pages-current-background': transparent,
+    '--pages-border': '1px solid #6700ff',
+    '--pages-text': peach,
+    '--pages-hover-background': bluePurple,
   }
   const themes = {
     lightTheme,
@@ -45385,4 +46220,4 @@ function themes (themeName) {
   return themes[themeName] || themes['lightTheme']
 }
 
-},{}]},{},["/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/index.js"]);
+},{}]},{},["/Users/fannieyeh/prj/play/web/collection-page/src/index.js"]);
