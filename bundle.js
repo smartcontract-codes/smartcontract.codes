@@ -14674,103 +14674,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ms/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/decode-uri-component/index.js":[function(require,module,exports){
-'use strict';
-var token = '%[a-f0-9]{2}';
-var singleMatcher = new RegExp(token, 'gi');
-var multiMatcher = new RegExp('(' + token + ')+', 'gi');
-
-function decodeComponents(components, split) {
-	try {
-		// Try to decode the entire string first
-		return decodeURIComponent(components.join(''));
-	} catch (err) {
-		// Do nothing
-	}
-
-	if (components.length === 1) {
-		return components;
-	}
-
-	split = split || 1;
-
-	// Split the array in 2 parts
-	var left = components.slice(0, split);
-	var right = components.slice(split);
-
-	return Array.prototype.concat.call([], decodeComponents(left), decodeComponents(right));
-}
-
-function decode(input) {
-	try {
-		return decodeURIComponent(input);
-	} catch (err) {
-		var tokens = input.match(singleMatcher);
-
-		for (var i = 1; i < tokens.length; i++) {
-			input = decodeComponents(tokens, i).join('');
-
-			tokens = input.match(singleMatcher);
-		}
-
-		return input;
-	}
-}
-
-function customDecodeURIComponent(input) {
-	// Keep track of all the replacements and prefill the map with the `BOM`
-	var replaceMap = {
-		'%FE%FF': '\uFFFD\uFFFD',
-		'%FF%FE': '\uFFFD\uFFFD'
-	};
-
-	var match = multiMatcher.exec(input);
-	while (match) {
-		try {
-			// Decode as big chunks as possible
-			replaceMap[match[0]] = decodeURIComponent(match[0]);
-		} catch (err) {
-			var result = decode(match[0]);
-
-			if (result !== match[0]) {
-				replaceMap[match[0]] = result;
-			}
-		}
-
-		match = multiMatcher.exec(input);
-	}
-
-	// Add `%C2` at the end of the map to make sure it does not replace the combinator before everything else
-	replaceMap['%C2'] = '\uFFFD';
-
-	var entries = Object.keys(replaceMap);
-
-	for (var i = 0; i < entries.length; i++) {
-		// Replace all decoded components
-		var key = entries[i];
-		input = input.replace(new RegExp(key, 'g'), replaceMap[key]);
-	}
-
-	return input;
-}
-
-module.exports = function (encodedURI) {
-	if (typeof encodedURI !== 'string') {
-		throw new TypeError('Expected `encodedURI` to be of type `string`, got `' + typeof encodedURI + '`');
-	}
-
-	try {
-		encodedURI = encodedURI.replace(/\+/g, ' ');
-
-		// Try the built in decoder first
-		return decodeURIComponent(encodedURI);
-	} catch (err) {
-		// Fallback to a more advanced decoder
-		return customDecodeURIComponent(encodedURI);
-	}
-};
-
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des.js":[function(require,module,exports){
+},{"ms":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ms/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des.js":[function(require,module,exports){
 'use strict';
 
 exports.utils = require('./des/utils');
@@ -20495,30 +20399,36 @@ utils.intFromLE = intFromLE;
 
 },{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js","minimalistic-crypto-utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-crypto-utils/lib/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/package.json":[function(require,module,exports){
 module.exports={
-  "_from": "elliptic@^6.0.0",
+  "_args": [
+    [
+      "elliptic@6.5.0",
+      "/home/ninabreznik/Documents/code/ethereum/play/collection-page"
+    ]
+  ],
+  "_development": true,
+  "_from": "elliptic@6.5.0",
   "_id": "elliptic@6.5.0",
   "_inBundle": false,
   "_integrity": "sha512-eFOJTMyCYb7xtE/caJ6JJu+bhi67WCYNbkGSknu20pmM8Ke/bqOfdnZWxyoGN26JgfxTbXrsCkEw4KheCT/KGg==",
   "_location": "/elliptic",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "elliptic@^6.0.0",
+    "raw": "elliptic@6.5.0",
     "name": "elliptic",
     "escapedName": "elliptic",
-    "rawSpec": "^6.0.0",
+    "rawSpec": "6.5.0",
     "saveSpec": null,
-    "fetchSpec": "^6.0.0"
+    "fetchSpec": "6.5.0"
   },
   "_requiredBy": [
     "/browserify-sign",
     "/create-ecdh"
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.5.0.tgz",
-  "_shasum": "2b8ed4c891b7de3200e14412a5b8248c7af505ca",
-  "_spec": "elliptic@^6.0.0",
-  "_where": "/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign",
+  "_spec": "6.5.0",
+  "_where": "/home/ninabreznik/Documents/code/ethereum/play/collection-page",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -20526,7 +20436,6 @@ module.exports={
   "bugs": {
     "url": "https://github.com/indutny/elliptic/issues"
   },
-  "bundleDependencies": false,
   "dependencies": {
     "bn.js": "^4.4.0",
     "brorand": "^1.0.1",
@@ -20536,7 +20445,6 @@ module.exports={
     "minimalistic-assert": "^1.0.0",
     "minimalistic-crypto-utils": "^1.0.0"
   },
-  "deprecated": false,
   "description": "EC cryptography",
   "devDependencies": {
     "brfs": "^1.4.3",
@@ -34397,287 +34305,7 @@ var pump = function () {
 module.exports = pump
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","end-of-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/end-of-stream/index.js","fs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js","once":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/once/once.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/query-string/index.js":[function(require,module,exports){
-'use strict';
-const strictUriEncode = require('strict-uri-encode');
-const decodeComponent = require('decode-uri-component');
-const splitOnFirst = require('split-on-first');
-
-function encoderForArrayFormat(options) {
-	switch (options.arrayFormat) {
-		case 'index':
-			return key => (result, value) => {
-				const index = result.length;
-				if (value === undefined) {
-					return result;
-				}
-
-				if (value === null) {
-					return [...result, [encode(key, options), '[', index, ']'].join('')];
-				}
-
-				return [
-					...result,
-					[encode(key, options), '[', encode(index, options), ']=', encode(value, options)].join('')
-				];
-			};
-
-		case 'bracket':
-			return key => (result, value) => {
-				if (value === undefined) {
-					return result;
-				}
-
-				if (value === null) {
-					return [...result, [encode(key, options), '[]'].join('')];
-				}
-
-				return [...result, [encode(key, options), '[]=', encode(value, options)].join('')];
-			};
-
-		case 'comma':
-			return key => (result, value, index) => {
-				if (value === null || value === undefined || value.length === 0) {
-					return result;
-				}
-
-				if (index === 0) {
-					return [[encode(key, options), '=', encode(value, options)].join('')];
-				}
-
-				return [[result, encode(value, options)].join(',')];
-			};
-
-		default:
-			return key => (result, value) => {
-				if (value === undefined) {
-					return result;
-				}
-
-				if (value === null) {
-					return [...result, encode(key, options)];
-				}
-
-				return [...result, [encode(key, options), '=', encode(value, options)].join('')];
-			};
-	}
-}
-
-function parserForArrayFormat(options) {
-	let result;
-
-	switch (options.arrayFormat) {
-		case 'index':
-			return (key, value, accumulator) => {
-				result = /\[(\d*)\]$/.exec(key);
-
-				key = key.replace(/\[\d*\]$/, '');
-
-				if (!result) {
-					accumulator[key] = value;
-					return;
-				}
-
-				if (accumulator[key] === undefined) {
-					accumulator[key] = {};
-				}
-
-				accumulator[key][result[1]] = value;
-			};
-
-		case 'bracket':
-			return (key, value, accumulator) => {
-				result = /(\[\])$/.exec(key);
-				key = key.replace(/\[\]$/, '');
-
-				if (!result) {
-					accumulator[key] = value;
-					return;
-				}
-
-				if (accumulator[key] === undefined) {
-					accumulator[key] = [value];
-					return;
-				}
-
-				accumulator[key] = [].concat(accumulator[key], value);
-			};
-
-		case 'comma':
-			return (key, value, accumulator) => {
-				const isArray = typeof value === 'string' && value.split('').indexOf(',') > -1;
-				const newValue = isArray ? value.split(',') : value;
-				accumulator[key] = newValue;
-			};
-
-		default:
-			return (key, value, accumulator) => {
-				if (accumulator[key] === undefined) {
-					accumulator[key] = value;
-					return;
-				}
-
-				accumulator[key] = [].concat(accumulator[key], value);
-			};
-	}
-}
-
-function encode(value, options) {
-	if (options.encode) {
-		return options.strict ? strictUriEncode(value) : encodeURIComponent(value);
-	}
-
-	return value;
-}
-
-function decode(value, options) {
-	if (options.decode) {
-		return decodeComponent(value);
-	}
-
-	return value;
-}
-
-function keysSorter(input) {
-	if (Array.isArray(input)) {
-		return input.sort();
-	}
-
-	if (typeof input === 'object') {
-		return keysSorter(Object.keys(input))
-			.sort((a, b) => Number(a) - Number(b))
-			.map(key => input[key]);
-	}
-
-	return input;
-}
-
-function removeHash(input) {
-	const hashStart = input.indexOf('#');
-	if (hashStart !== -1) {
-		input = input.slice(0, hashStart);
-	}
-
-	return input;
-}
-
-function extract(input) {
-	input = removeHash(input);
-	const queryStart = input.indexOf('?');
-	if (queryStart === -1) {
-		return '';
-	}
-
-	return input.slice(queryStart + 1);
-}
-
-function parse(input, options) {
-	options = Object.assign({
-		decode: true,
-		sort: true,
-		arrayFormat: 'none',
-		parseNumbers: false,
-		parseBooleans: false
-	}, options);
-
-	const formatter = parserForArrayFormat(options);
-
-	// Create an object with no prototype
-	const ret = Object.create(null);
-
-	if (typeof input !== 'string') {
-		return ret;
-	}
-
-	input = input.trim().replace(/^[?#&]/, '');
-
-	if (!input) {
-		return ret;
-	}
-
-	for (const param of input.split('&')) {
-		let [key, value] = splitOnFirst(param.replace(/\+/g, ' '), '=');
-
-		// Missing `=` should be `null`:
-		// http://w3.org/TR/2012/WD-url-20120524/#collect-url-parameters
-		value = value === undefined ? null : decode(value, options);
-
-		if (options.parseNumbers && !Number.isNaN(Number(value))) {
-			value = Number(value);
-		} else if (options.parseBooleans && value !== null && (value.toLowerCase() === 'true' || value.toLowerCase() === 'false')) {
-			value = value.toLowerCase() === 'true';
-		}
-
-		formatter(decode(key, options), value, ret);
-	}
-
-	if (options.sort === false) {
-		return ret;
-	}
-
-	return (options.sort === true ? Object.keys(ret).sort() : Object.keys(ret).sort(options.sort)).reduce((result, key) => {
-		const value = ret[key];
-		if (Boolean(value) && typeof value === 'object' && !Array.isArray(value)) {
-			// Sort object keys, not values
-			result[key] = keysSorter(value);
-		} else {
-			result[key] = value;
-		}
-
-		return result;
-	}, Object.create(null));
-}
-
-exports.extract = extract;
-exports.parse = parse;
-
-exports.stringify = (object, options) => {
-	if (!object) {
-		return '';
-	}
-
-	options = Object.assign({
-		encode: true,
-		strict: true,
-		arrayFormat: 'none'
-	}, options);
-
-	const formatter = encoderForArrayFormat(options);
-	const keys = Object.keys(object);
-
-	if (options.sort !== false) {
-		keys.sort(options.sort);
-	}
-
-	return keys.map(key => {
-		const value = object[key];
-
-		if (value === undefined) {
-			return '';
-		}
-
-		if (value === null) {
-			return encode(key, options);
-		}
-
-		if (Array.isArray(value)) {
-			return value
-				.reduce(formatter(key), [])
-				.join('&');
-		}
-
-		return encode(key, options) + '=' + encode(value, options);
-	}).filter(x => x.length > 0).join('&');
-};
-
-exports.parseUrl = (input, options) => {
-	return {
-		url: removeHash(input).split('?')[0] || '',
-		query: parse(extract(input), options)
-	};
-};
-
-},{"decode-uri-component":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/decode-uri-component/index.js","split-on-first":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/split-on-first/index.js","strict-uri-encode":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/strict-uri-encode/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-chrome-file/index.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","end-of-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/end-of-stream/index.js","fs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js","once":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/once/once.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-chrome-file/index.js":[function(require,module,exports){
 (function (Buffer){
 const ras = require('random-access-storage')
 
@@ -43107,31 +42735,7 @@ function powerOfTwo (x) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","memory-pager":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/memory-pager/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/split-on-first/index.js":[function(require,module,exports){
-'use strict';
-
-module.exports = (string, separator) => {
-	if (!(typeof string === 'string' && typeof separator === 'string')) {
-		throw new TypeError('Expected the arguments to be of type `string`');
-	}
-
-	if (separator === '') {
-		return [string];
-	}
-
-	const separatorIndex = string.indexOf(separator);
-
-	if (separatorIndex === -1) {
-		return [string];
-	}
-
-	return [
-		string.slice(0, separatorIndex),
-		string.slice(separatorIndex + separator.length)
-	];
-};
-
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-browserify/index.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","memory-pager":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/memory-pager/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-browserify/index.js":[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -43368,10 +42972,6 @@ function getStateLength (state) {
 
   return state.length
 }
-
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/strict-uri-encode/index.js":[function(require,module,exports){
-'use strict';
-module.exports = str => encodeURIComponent(str).replace(/[!'()*]/g, x => `%${x.charCodeAt(0).toString(16).toUpperCase()}`);
 
 },{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/string_decoder/lib/string_decoder.js":[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
@@ -45388,7 +44988,7 @@ function start(contracts) {
       ${themeSwitch()}
       ${search(contracts, collectionContainer, ops)}
       ${collectionContainer}
-      ${paginationButtons(ops)}
+      ${paginationButtons(collectionContainer, ops)}
     </div>
   `
   document.body.appendChild(element)
@@ -45439,7 +45039,6 @@ function getContractsArr (x, addresses, done) {
     if (contractsArr) {
       counter = counter + contractsArr.length
       for (var i=0; i<contractsArr.length; i++) {
-        console.log(`contractsArr.length: ${contractsArr.length}`)
         getSourceCode(x, i, addresses, contractsArr, done)
       }
     }
@@ -45569,8 +45168,6 @@ css = csjs`
 `
 
 },{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","makeCard":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCard.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/pagination.js":[function(require,module,exports){
-const queryString = require('query-string')
-const parsed = queryString.parse(location.search)
 
 module.exports = pagination
 
@@ -45578,7 +45175,8 @@ function pagination (contracts) {
   let contractCount = contracts.length
   let cardsCount = 8 // cards displayed per page
 
-  let currentPage = parsed.page ? parseInt(parsed.page) : 1
+  let currentPage = parseInt(window.location.href.split('/?page=')[1]) || 1
+  //let currentPage = parsed.page ? parseInt(parsed.page) : 1
   let previousPage = currentPage == 1 ? null : currentPage - 1
   // let firstPage = 1
   let lastPage = contracts.length <= cardsCount ?
@@ -45605,34 +45203,66 @@ function pagination (contracts) {
     previousPage,
     currentPage,
     lastPage,
-    nextPage
+    nextPage,
+    datas
   }
 
 }
 
-},{"query-string":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/query-string/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
-let currentUrl = 'window.location.href'
+const makeCollectionArea = require('makeCollectionArea')
 let css
 
 module.exports = paginationButtons
 
-function paginationButtons ({nextPage, previousPage, currentPage, lastPage}) {
+function paginationButtons (collectionContainer, ops ) {
   let el = bel`
     <div class=${css.pagination}>
-      <div class="${css.previous} ${css.button}" onclick=${()=>goToPageUrl(previousPage)}>Previous</div>
-      <div class="${css.next} ${css.button}" onclick=${()=>goToPageUrl(nextPage)}>Next</div>
+      <div class="${css.previous} ${css.button}"
+        onclick=${()=>goToPrevious(ops, collectionContainer)}>Previous
+      </div>
+      <div class="${css.next} ${css.button}"
+        onclick=${()=>goToNext(ops, collectionContainer)}>Next
+      </div>
     </div>`
   return el
 }
 
 
+
 // ===== helper functions =====
 
+function getCurrentPage () {
+  return parseInt(window.location.href.split('/?page=')[1]) || 1
+}
+
+function goToNext (ops, collectionContainer) {
+  let currentPage = getCurrentPage()
+  let newPage = currentPage + 1
+  if (currentPage != ops.lastPage) goToPageUrl(newPage)
+  makeNewCollection(ops, collectionContainer)
+}
+
+function goToPrevious (ops, collectionContainer) {
+  let currentPage = getCurrentPage()
+  let newPage = currentPage - 1
+  if (currentPage != 1) goToPageUrl(newPage)
+  makeNewCollection(ops, collectionContainer)
+}
+
+function makeNewCollection (ops, collectionContainer) {
+  const old = collectionContainer.children[0]
+  const newCollection = makeCollectionArea(ops.datas[newPage - 1])
+  collectionContainer.replaceChild(newCollection, old)
+}
+
 function goToPageUrl(page) {
-  const newUrl = `${window.location.origin}${window.location.pathname}?page=${page}`
-  if (currentUrl != newUrl && page != null) location.assign(newUrl)
+  const url = getCurrentPage() != 1 ?
+   `${window.location.href.split('/?page=')[0]}/?page=${page}`
+   : `/?page=${page}`
+  history.pushState(null, null, url);
 }
 
 
@@ -45662,7 +45292,7 @@ css = csjs`
   .next {}
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/search.js":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/search.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 const pagination = require('pagination')

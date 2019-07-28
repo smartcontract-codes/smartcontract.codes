@@ -60,7 +60,7 @@ function start(contracts) {
       ${themeSwitch()}
       ${search(contracts, collectionContainer, ops)}
       ${collectionContainer}
-      ${paginationButtons(ops)}
+      ${paginationButtons(collectionContainer, ops)}
     </div>
   `
   document.body.appendChild(element)
