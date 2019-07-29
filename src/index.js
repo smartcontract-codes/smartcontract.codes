@@ -168,4 +168,9 @@ css = csjs`
   .cubeDark {
     background-color: #1D1D26; 
   }
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
 `
