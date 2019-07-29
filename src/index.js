@@ -1,8 +1,6 @@
 const bel = require('bel')
 const csjs = require('csjs-inject')
 let css
-const queryString = require('query-string')
-const parsed = queryString.parse(location.search)
 const header = require('header')
 const search = require('search')
 const pagination = require('pagination')
@@ -37,6 +35,7 @@ function themeSwitch () {
 }
 
 require('contracts')(start)
+
 // ===== Action =====
 
 function clickAction() {
@@ -53,7 +52,6 @@ function closeAction() {
 // "http://192.168.0.163:9966"
 
 function start(contracts) {
-
   let ops = pagination(contracts)
 
   const collectionContainer = bel`<div>${
@@ -92,7 +90,7 @@ css = csjs`
   }
   .wrapper {
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
       "header"
       "content";
     grid-template-rows: 120px 1fr;
@@ -166,6 +164,6 @@ css = csjs`
     background-color: #fff;
   }
   .cubeDark {
-    background-color: #1D1D26; 
+    background-color: #1D1D26;
   }
 `
