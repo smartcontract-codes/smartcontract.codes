@@ -45581,7 +45581,7 @@ module.exports = paginationButtons
 
 function paginationButtons (collectionContainer, ops ) {
   let firstPage = bel`<span
-    onclick=${(e)=>selectPage(e, ops, collectionContainer, pages, 1)}
+    onclick=${(e)=>selectPage(e, ops, collectionContainer, 1)}
     class=${css.active}> 1 </span>`
   activeEl = firstPage
   let pages = bel`<ul class=${css.pages}><li>${firstPage}</li></ul>`
@@ -45621,7 +45621,7 @@ function addPages (ops, container, pages) {
 function append (ops, container, pages, page) {
   if (page != '...') {
     pages.appendChild(bel`<li><span
-      onclick=${(e)=>selectPage(e, ops, container, pages, page)}
+      onclick=${(e)=>selectPage(e, ops, container, page)}
       class=${css.nonactive}>${page}
       </span></li>`)
   } else {
@@ -45629,7 +45629,7 @@ function append (ops, container, pages, page) {
   }
 }
 
-function selectPage (e, ops, container, pages, page) {
+function selectPage (e, ops, container, page) {
   removeActiveEl(activeEl)
   activateNewEl(e.target)
   goToUrl(ops, container, page)
@@ -45685,9 +45685,10 @@ function makeNewCollection (ops, collectionContainer, newPage) {
 }
 
 function goToUrl(ops, collectionContainer, newPage) {
-  const url = getCurrentPage() != 1 ?
-   `${window.location.origin}${window.location.pathname}`.split('/?page=')[0] + `?page=${newPage}`
-   : `/?page=${newPage}`
+  const base = getCurrentPage() != 1 ?  // defined in getCurrentPage
+   `${window.location.origin}${window.location.pathname}`.split('/?page=')[0]
+   : `${window.location.origin}${window.location.pathname}`.split(' ')[0]
+  let url = base + `?page=${newPage}`
   history.pushState(null, null, url);
   makeNewCollection(ops, collectionContainer, newPage)
 }
