@@ -45041,6 +45041,7 @@ css = csjs`
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    outline: none;
   }
 
   .themeSwitch {
@@ -45094,6 +45095,11 @@ css = csjs`
   .cubeDark {
     background-color: #1D1D26;
   }
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
 `
 
 },{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","header":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/header.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/pagination.js","paginationButtons":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js","search":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/search.js","themes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/themes.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js":[function(require,module,exports){
@@ -45147,6 +45153,8 @@ function getSourceCode (x, i, addresses, contractsArr, done) {
 },{"dat-sdk":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-sdk/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/header.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
+const icon = require('icon')
+const svg = require('./svg.json')
 let css
 module.exports = header
 
@@ -45158,9 +45166,9 @@ function header () {
             <h2>PlayProject</h2>
         </div>
         <nav class="${css.nav}">
-            <button class="${css.buttonDefault} ${css.createNewProject}">
-                <span class="icon-new">
-                  <object data="./images/icons/icon-new.svg" type="image/svg+xml"></object>
+            <button class="button ${css.newContarct}">
+                <span class=${css.icon_new}>
+                  ${icon('new', svg.new)}
                 </span>
             </button>
             <a href="#">
@@ -45217,21 +45225,23 @@ css = csjs`
     overflow: hidden;
     margin-left: 15px;
   }
-  .createNewProject {
+  .newContarct {
     width: 45px;
     height: 45px;
+    background: none;
+    transition: all ease-in-out .3s
   }
-  .createNewProject span {
+  .newContarct:hover {
+    background-color: var(--button-default-hover);
+  }
+  .newContarct span {
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  .buttonDefault {
-    background-color: var(--button-primary);
-    transition: background ease-in-out .3s
-  }
-  .buttonDefault:hover {
-    background-color: var(--button-primary-hover);
+  .icon_new svg g {
+    fill: var(--icon-new-fill);
+    transition: all .3s ease-in-out;
   }
 
   @media (max-width: 639px) {
@@ -45243,10 +45253,26 @@ css = csjs`
     }
   }
 `
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCard.js":[function(require,module,exports){
+},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/icon.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/icon.js":[function(require,module,exports){
+const bel = require('bel')
+
+module.exports = icon
+
+function icon(name, svg) {
+    return bel`
+        <svg viewBox="0 0 54 54">
+            <g class=${name}>
+                ${svg.map(d => {
+                    return bel`<path d="${d}" />`
+                })}
+            </g>
+        </svg>`
+}
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCard.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
-
+const icon = require('icon')
+const svg = require('./svg.json')
 let css
 
 module.exports = makeCard
@@ -45266,18 +45292,18 @@ function makeCard (address) {
           <span class=${css.cardTime}>A year ago</span>
         </div>
         <aside class=${css.cardVisitInfo}>
-              <span>
-                <i class="icon-view"><object data="./images/icons/icon-view.svg" type="image/svg+xml"></object></i>
-                1,068,298
-              </span>
-              <span>
-                <i class="icon-share"><object data="./images/icons/icon-share.svg" type="image/svg+xml"></object></i>
-                6,321
-              </span>
-              <span>
-                <i class="icon-favorite"><object data="./images/icons/icon-favorite.svg" type="image/svg+xml"></object></i>
-                15,023
-              </span>
+          <span>
+            <i class="icon">${icon('view', svg.view)}</i>
+            1,068,298
+          </span>
+          <span>
+            <i class="icon">${icon('view', svg.share)}</i>
+            6,321
+          </span>
+          <span>
+            <i class="icon">${icon('view', svg.favorite)}</i>
+            15,023
+          </span>
         </aside>
       </div>
     </div>`
@@ -45407,11 +45433,16 @@ css = csjs`
   }
   .cardVisitInfo i {
     display: inline-block;
-    width: 12px;
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
     margin-right: 2px;
   }
   .collectionCard:hover .cardVisitInfo {
     opacity: 1;
+  }
+  .cardVisitInfo svg g {
+    fill: var(--card-visit-icons-fill);
   }
   pre {
     width: 88%;
@@ -45425,7 +45456,7 @@ css = csjs`
 
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js":[function(require,module,exports){
+},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/icon.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 const contracts = require('contracts')
@@ -45541,30 +45572,42 @@ function pagination (contracts) {
 const bel = require('bel')
 const csjs = require('csjs-inject')
 const makeCollectionArea = require('makeCollectionArea')
+const icon = require('icon')
+const svg = require('./svg.json')
 let css
 let activeEl
 
 module.exports = paginationButtons
 
 function paginationButtons (collectionContainer, ops ) {
+  let firstPage = bel`<span
+    onclick=${(e)=>selectPage(e, ops, collectionContainer, pages, 1)}
+    class=${css.active}> 1 </span>`
+  activeEl = firstPage
+  let pages = bel`<ul class=${css.pages}><li>${firstPage}</li></ul>`
   let el = bel`
     <div class=${css.pagination}>
-      <button class="${css.button} ${css.round} ${css.previous}" onclick=${()=>goToPrevious(ops, collectionContainer)}>Previous</button>
-      ${addPages(ops, collectionContainer)}
-      <button class="${css.button} ${css.default} ${css.round} ${css.next} " onclick=${()=>goToNext(ops, collectionContainer)}>Next</button>
+      <button class="${css.button} ${css.default} ${css.round} ${css.previous}"
+        onclick=${()=>goToPrevious(ops, collectionContainer, pages)}>
+        <span class=${css.icon_arrow_right}>
+          ${icon('arrow-left', svg.arrowLeft)}
+        </span> Previous
+      </button>
+      ${addPages(ops, collectionContainer, pages)}
+      <button class="${css.button} ${css.default} ${css.round} ${css.next}"
+        onclick=${()=>goToNext(ops, collectionContainer, pages)}>
+        Next <span
+          class=${css.icon_arrow_right}>${icon('arrow-right', svg.arrowRight)}
+        </span>
+      </button>
     </div>`
   return el
 }
 
 // ===== helper functions =====
 
-function addPages (ops, container) {
+function addPages (ops, container, pages) {
   pageCount = ops.pageCount
-  let firstPage = bel`<span
-    onclick=${(e)=>selectPage(e, ops, container, pages, 1)}
-    class=${css.active}> 1 </span>`
-  activeEl = firstPage
-  let pages = bel`<ul class=${css.pages}><li>${firstPage}</li></ul>`
   if (pageCount < 6) {
     for (var i=1; i<pageCount; i++) { append(ops, container, pages, i + 1) }
     pages.style.setProperty('--grid-template', `auto / repeat(${pageCount}, 45px)`)
@@ -45587,30 +45630,52 @@ function append (ops, container, pages, page) {
 }
 
 function selectPage (e, ops, container, pages, page) {
+  removeActiveEl(activeEl)
+  activateNewEl(e.target)
+  goToUrl(ops, container, page)
+}
+
+function removeActiveEl (activeEl) {
   if (activeEl) {
     activeEl.classList.remove(css.active)
     activeEl.classList.add(css.nonactive)
   }
-  e.target.classList.remove(css.nonactive)
-  e.target.classList.add(css.active)
-  activeEl = e.target
-  goToUrl(ops, container, page)
+}
+
+function activateNewEl (el) {
+  el.classList.remove(css.nonactive)
+  el.classList.add(css.active)
+  activeEl = el
 }
 
 function getCurrentPage () {
   return parseInt(window.location.href.split('/?page=')[1]) || 1
 }
 
-function goToNext (ops, collectionContainer) {
+function goToNext (ops, collectionContainer, pages) {
   let currentPage = getCurrentPage()
   let newPage = currentPage + 1
-  if (currentPage != ops.lastPage) goToUrl(ops, collectionContainer, newPage)
+  if (currentPage != ops.lastPage) {
+    removeActiveEl(activeEl)
+    pages.querySelectorAll('li').forEach((li) => {
+      let page = li.children[0]
+      if (parseInt(page.innerText) === newPage) activateNewEl(page)
+    })
+    goToUrl(ops, collectionContainer, newPage)
+  }
 }
 
-function goToPrevious (ops, collectionContainer) {
+function goToPrevious (ops, collectionContainer, pages) {
   let currentPage = getCurrentPage()
   let newPage = currentPage - 1
-  if (currentPage != 1) goToUrl(ops, collectionContainer, newPage)
+  if (currentPage != 1) {
+    removeActiveEl(activeEl)
+    pages.querySelectorAll('li').forEach((li) => {
+      let page = li.children[0]
+      if (parseInt(page.innerText) === newPage) activateNewEl(page)
+    })
+    goToUrl(ops, collectionContainer, newPage)
+  }
 }
 
 function makeNewCollection (ops, collectionContainer, newPage) {
@@ -45638,28 +45703,38 @@ css = csjs`
   .button {
     width: 123px;
     height: 44px;
-    border: var(--button-border);
-    background-color: var(--button-white);
-    color: var(--button-default-text);
     font-size: 18px;
-    line-height: 44px;
+    vertical-align: middle;
+  }
+  .default {
+    border: var(--button-border);
+    color: var(--button-default-text);
+    background-color: var(--button-default);
     transition: all .3s ease-in-out;
   }
-  .button:hover {
+  .default:hover {
     background-color: var(--button-default-hover);
     color:  var(--button-default-text-hover);
     cursor: pointer;
   }
+  .button span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: text-top;
+  }
+  .icon_arrow_left svg g, .icon_arrow_right svg g {
+    fill: var(--pagination-button-icon-fill);
+    transition: all .3s ease-in-out;
+  }
   .previous {
     border: var(--button-border);
+    background: transparent;
   }
   .next {
   }
   .round {
     border-radius: 22px;
-  }
-  .default {
-    background-color: var(--button-default);
   }
   .pages {
     margin: 0 10px;
@@ -45707,12 +45782,14 @@ css = csjs`
   }
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/search.js":[function(require,module,exports){
+},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/icon.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/search.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 let css
 const pagination = require('pagination')
 const makeCollectionArea = require('makeCollectionArea')
+const icon = require('icon')
+const svg = require('./svg.json')
 
 module.exports = search
 
@@ -45720,7 +45797,7 @@ function search (contracts,collectionContainer, ops) {
   return bel`
     <div class=${css.searchBar}>
       <button class=${css.submit}>
-        <object data="./images/icons/icon-search.svg" type="image/svg+xml"></object>
+        <span class=${css.icon_search}>${icon('search', svg.search)}</span>
       </button>
       <input type="text" value="Search contract" onchange=${(e)=>showMatches(e, contracts, collectionContainer)}">
     </div>
@@ -45774,13 +45851,23 @@ css = csjs`
     height: 40px;
     cursor: pointer;
   }
-  .submit object {
-    width: 30px;
-    height: 30px;
+  .icon_search g {
+    fill: var(--search-icon-fill);
+    transition: all .3s ease-in-out;
   }
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/pagination.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/themes.js":[function(require,module,exports){
+},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/icon.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/pagination.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json":[function(require,module,exports){
+module.exports={
+    "new": ["M46.39,27H29.49V10.05a1.25,1.25,0,0,0-2.5,0V27H10.11a1.25,1.25,0,0,0,0,2.5H27v17a1.25,1.25,0,0,0,2.5,0v-17h16.9a1.25,1.25,0,0,0,0-2.5Z"],
+    "arrowLeft": ["M37.25,47.5a1.21,1.21,0,0,1-.88-.37l-18-18a1.24,1.24,0,0,1,0-1.76l18-18a1.24,1.24,0,0,1,1.76,1.76L21,28.25,38.13,45.37a1.24,1.24,0,0,1,0,1.76A1.21,1.21,0,0,1,37.25,47.5Z"],
+    "arrowRight": ["M19.25,47.5a1.21,1.21,0,0,1-.88-.37,1.24,1.24,0,0,1,0-1.76L35.48,28.25,18.37,11.13a1.24,1.24,0,0,1,1.76-1.76l18,18a1.24,1.24,0,0,1,0,1.76l-18,18A1.21,1.21,0,0,1,19.25,47.5Z"],
+    "view": ["M28.25,15.18c-13,0-19.94,10.62-19.94,12.69,0,1.8,6,13.18,19.94,13.18S48.19,29.67,48.19,27.87C48.19,25.73,41.5,15.18,28.25,15.18Zm0,23.37c-11.43,0-16.76-8.83-17.4-10.64a19.63,19.63,0,0,1,17.4-10.23c11.53,0,17,8.84,17.43,10.2C45.27,29.34,40.2,38.55,28.25,38.55Z", "M28.25,20.57a7.55,7.55,0,1,0,7.55,7.55A7.56,7.56,0,0,0,28.25,20.57Zm0,12.59a5,5,0,1,1,5-5A5.05,5.05,0,0,1,28.25,33.16Z"],
+    "share": ["M11,41.16a1.87,1.87,0,0,1-1.1-.35,1.89,1.89,0,0,1-.66-2.26c.14-.35,3.49-8.64,8.53-13.69a24.23,24.23,0,0,1,5.92-4.28l-3.35-4.65a1.9,1.9,0,0,1,1.92-3L46,17.89a1.9,1.9,0,0,1,1.41,1.26h0A1.89,1.89,0,0,1,47,21L30.88,39.06a1.94,1.94,0,0,1-2.09.51,1.9,1.9,0,0,1-1.23-1.75l-.07-5.41a38,38,0,0,0-4.92,1.44c-4.33,1.67-10.26,6.79-10.32,6.84A1.89,1.89,0,0,1,11,41.16Zm.56-1.68ZM23.28,15.72l3.31,4.61a1.27,1.27,0,0,1,.2,1.05,1.3,1.3,0,0,1-.7.82,22.33,22.33,0,0,0-6.54,4.43,40.54,40.54,0,0,0-7,10.56,41,41,0,0,1,9.09-5.67,43,43,0,0,1,6.81-1.87,1.27,1.27,0,0,1,1,.25,1.32,1.32,0,0,1,.46,1L30,36.24,44.43,20.13Zm22.17,4.62Z"],
+    "favorite": ["M28.25,46.9a1.23,1.23,0,0,1-.75-.25A84.63,84.63,0,0,1,16.4,36.41c-7.11-8-9.15-14.45-6-19.19,1.74-2.66,3.93-4.07,6.51-4.19,4.76-.23,9.42,4.14,11.39,6.27,2-2.13,6.58-6.51,11.39-6.27,2.59.12,4.77,1.53,6.51,4.19h0c3.1,4.74,1.06,11.2-6,19.19A84.63,84.63,0,0,1,29,46.65,1.23,1.23,0,0,1,28.25,46.9Zm-11-31.38H17c-1.77.08-3.25,1.08-4.54,3-4.72,7.24,9.17,20.33,15.81,25.5,6.64-5.17,20.53-18.26,15.81-25.5h0c-1.29-2-2.77-3-4.53-3-4.89-.25-10.25,6.38-10.3,6.45a1.25,1.25,0,0,1-1,.47h0a1.25,1.25,0,0,1-1-.47C27.22,21.92,22,15.52,17.23,15.52Z"],
+    "search": ["M46.13,44.29,35,33.25A15.46,15.46,0,1,0,33.25,35l11.12,11a1.23,1.23,0,0,0,1.76,0A1.25,1.25,0,0,0,46.13,44.29Zm-35.78-21A12.93,12.93,0,1,1,23.28,36.2,12.94,12.94,0,0,1,10.35,23.28Z"]
+}
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/themes.js":[function(require,module,exports){
 module.exports = themes
 
 const bluePurple = '#6700ff'
@@ -45820,11 +45907,13 @@ function themes (themeName) {
     '--card-cover-userInfo': grey33,
     '--card-time': grey8D,
     '--card-hover-time': grey8D,
+    '--card-visit-icons-fill': dark1d,
     '--search-input': `1px solid var(--search-input-border)`,
     '--search-input-border': 'rgba(255,255,255, 0)',
     '--search-input-background': white,
     '--search-input-color': grey8D,
     '--search-input-text': '2rem',
+    '--search-icon-fill': dark1d,
     '--text-large': '2rem',
     '--text-normal': '1.6rem',
     '--text-small': '1.4rem',
@@ -45833,7 +45922,9 @@ function themes (themeName) {
     '--pages-border': '0px solid rgba(0,0,0,0)',
     '--pages-text': grey8D,
     '--pages-hover-background': white,
-    '--grid-template': ''
+    '--grid-template': '',
+    '--icon-new-fill': dark1d,
+    '--pagination-button-icon-fill': dark1d,
   }
 
   const darkTheme = {
@@ -45858,16 +45949,20 @@ function themes (themeName) {
     '--card-cover-userInfo': white,
     '--card-time': greyBB,
     '--card-hover-time': white,
+    '--card-visit-icons-fill': white,
     '--search-input': `1px solid var(--search-input-border)`,
     '--search-input-border': bluePurple,
     '--search-input-background': 'none',
     '--search-input-color': lightGreen,
     '--search-input-text': '20px',
+    '--search-icon-fill': lightGreen,
     '--pages-current-background': transparent,
     '--pages-border': '1px solid #6700ff',
     '--pages-text': peach,
     '--pages-hover-background': bluePurple,
-    '--grid-template': ''
+    '--grid-template': '',
+    '--icon-new-fill': white,
+    '--pagination-button-icon-fill': peach,
   }
 
   const themes = {

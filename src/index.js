@@ -113,6 +113,7 @@ css = csjs`
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    outline: none;
   }
 
   .themeSwitch {
@@ -166,4 +167,9 @@ css = csjs`
   .cubeDark {
     background-color: #1D1D26;
   }
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
 `
