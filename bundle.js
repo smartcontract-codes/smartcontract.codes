@@ -45408,6 +45408,7 @@ css = csjs`
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    outline: none;
   }
 
   .themeSwitch {
@@ -46045,7 +46046,7 @@ css = csjs`
   }
   .previous {
     border: var(--button-border);
-    background-color: var(--button-previous-background)
+    background: transparent;
   }
   .next {
   }
@@ -46240,7 +46241,6 @@ function themes (themeName) {
     '--pages-hover-background': white,
     '--icon-new-fill': dark1d,
     '--pagination-button-icon-fill': dark1d,
-    '--button-previous-background':  transparent,
   }
   const darkTheme = {
     '--body-color': white,
@@ -46277,7 +46277,6 @@ function themes (themeName) {
     '--pages-hover-background': bluePurple,
     '--icon-new-fill': white,
     '--pagination-button-icon-fill': peach,
-    '--button-previous-background':  peach,
   }
   const themes = {
     lightTheme,
