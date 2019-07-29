@@ -115,6 +115,7 @@ css = csjs`
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    outline: none;
   }
 
   .themeSwitch {
