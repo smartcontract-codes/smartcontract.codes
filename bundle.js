@@ -45167,7 +45167,7 @@ module.exports = header
 function header () {
   return bel`
     <header class="${css.header}">
-        <div class="${css.logo}">
+        <div class="${css.logo}" onclick=${() => reload()}>
             <img src="./images/logo.svg" alt="PlayProject">
             <h2>PlayProject</h2>
         </div>
@@ -45186,6 +45186,13 @@ function header () {
 }
 
 
+
+
+// ===== helpers =====
+
+function reload () {
+  location.href = `${window.location.origin}${window.location.pathname}`
+}
 
 // ===== css =====
 
@@ -45212,6 +45219,9 @@ css = csjs`
   .logo h2 {
     display: inline;
     vertical-align: middle;
+  }
+  .logo:hover {
+    cursor: pointer;
   }
   .nav {
     grid-area: nav;
@@ -45259,6 +45269,7 @@ css = csjs`
     }
   }
 `
+
 },{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/icon.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/icon.js":[function(require,module,exports){
 const bel = require('bel')
 
