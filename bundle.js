@@ -45817,7 +45817,7 @@ function search (ops) {
 
 function showMatches (e, ops) {
   let contracts = ops.contracts
-  const noResult = bel`<div>No matches found</div>`
+  const noResult = bel`<div class=${css.noResult}>No matches found</div>`
   let val = e.target.value
   let matchingContracts = getMatches(contracts, val)
 
@@ -45825,7 +45825,8 @@ function showMatches (e, ops) {
   newOps = pagination(matchingContracts)
   newOps.contracts = matchingContracts
   newOps.paginationButtons = ops.paginationButtons
-  const oldContainer = document.querySelector("[class^='collectionArea']")
+  const oldContainer = document.querySelector("[class^='collectionArea']") ||
+    document.querySelector("[class^='noResult']")
   let container = oldContainer.parentNode
   let newContainer = matchingContracts.length > 0 ?
     makeCollectionArea(newOps)
@@ -45833,7 +45834,6 @@ function showMatches (e, ops) {
   container.replaceChild(newContainer, oldContainer)
 
   // new navigation (paginationButtons) based on number of matching search results
-  debugger
   let navigation = ops.paginationButtons
   const oldNavigation = navigation.children[0]
   navigation.replaceChild(paginationButtons(container, newOps), oldNavigation)
@@ -45854,6 +45854,7 @@ function getMatches (contracts, val) {
 // ===== css =====
 
 css = csjs`
+  .noResult {}
   .searchBar {
     position: relative;
     padding-bottom: 50px;
