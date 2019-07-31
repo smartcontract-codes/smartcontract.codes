@@ -52,19 +52,25 @@ function closeAction() {
 // "http://192.168.0.163:9966"
 
 function start(contracts) {
-  let ops = pagination(contracts)
 
-  const collectionContainer = bel`<div>${
-    makeCollectionArea(ops.currentData)
-  }</div>`
+  let ops = pagination(contracts)
+  ops.contracts = contracts
+
+  const collectionContainer =
+    bel`<div>${makeCollectionArea(ops)}</div>`
+
+  const navigation =
+    bel`<div>${paginationButtons(collectionContainer, ops)}</div>`
+  ops.paginationButtons = navigation
+
   let element = bel`
     <div class=${css.wrapper}>
       ${header()}
       <div class=${css.content}>
         ${themeSwitch()}
-        ${search(contracts, collectionContainer, ops)}
+        ${search(ops)}
         ${collectionContainer}
-        ${paginationButtons(collectionContainer, ops)}
+        ${ops.paginationButtons}
       </div>
     </div>
   `

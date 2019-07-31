@@ -44980,19 +44980,25 @@ function closeAction() {
 // "http://192.168.0.163:9966"
 
 function start(contracts) {
-  let ops = pagination(contracts)
 
-  const collectionContainer = bel`<div>${
-    makeCollectionArea(ops.currentData)
-  }</div>`
+  let ops = pagination(contracts)
+  ops.contracts = contracts
+
+  const collectionContainer =
+    bel`<div>${makeCollectionArea(ops)}</div>`
+
+  const navigation =
+    bel`<div>${paginationButtons(collectionContainer, ops)}</div>`
+  ops.paginationButtons = navigation
+
   let element = bel`
     <div class=${css.wrapper}>
       ${header()}
       <div class=${css.content}>
         ${themeSwitch()}
-        ${search(contracts, collectionContainer, ops)}
+        ${search(ops)}
         ${collectionContainer}
-        ${paginationButtons(collectionContainer, ops)}
+        ${ops.paginationButtons}
       </div>
     </div>
   `
@@ -45465,7 +45471,9 @@ let css
 
 module.exports = makeCollectionArea
 
-function makeCollectionArea(currentData) {
+function makeCollectionArea(ops) {
+  const currentPage = parseInt(window.location.href.split('/?page=')[1]) || 1
+  const currentData = ops.datas[currentPage - 1] || ops.datas[0]
   return bel`
     <div class=${css.collectionArea}>
       ${currentData.map(
@@ -45508,7 +45516,7 @@ css = csjs`
       grid-template-columns: repeat(4, 1fr);
     }
   }
-  
+
   @media (min-width: 1920px) {
     .collectionArea {
       grid-auto-rows: 300px;
@@ -45533,16 +45541,10 @@ function pagination (contracts) {
   let contractCount = contracts.length
   let cardsCount = 8 // cards displayed per page
 
-  let currentPage = parseInt(window.location.href.split('/?page=')[1]) || 1
-  //let currentPage = parsed.page ? parseInt(parsed.page) : 1
-  let previousPage = currentPage == 1 ? null : currentPage - 1
   // let firstPage = 1
   let lastPage = contracts.length <= cardsCount ?
     null
     : Math.ceil(contractCount / cardsCount)
-  let nextPage = lastPage != null && currentPage < lastPage ?
-    currentPage + 1
-    : null
 
   let pageCount = Math.ceil(contracts.length / cardsCount)
   let datas = contracts.reduce((containers, el, i) => {
@@ -45552,17 +45554,11 @@ function pagination (contracts) {
     return containers
   }, [...Array(pageCount)].map(_ => []))
 
-  let currentData = datas[currentPage - 1]
-
   return {
     pageCount,
-    currentData,
     contractCount,
     cardsCount,
-    previousPage,
-    currentPage,
     lastPage,
-    nextPage,
     datas
   }
 
@@ -45680,12 +45676,12 @@ function goToPrevious (ops, collectionContainer, pages) {
 
 function makeNewCollection (ops, collectionContainer, newPage) {
   const old = collectionContainer.children[0]
-  const newCollection = makeCollectionArea(ops.datas[newPage - 1])
+  const newCollection = makeCollectionArea(ops)
   collectionContainer.replaceChild(newCollection, old)
 }
 
 function goToUrl(ops, collectionContainer, newPage) {
-  const base = getCurrentPage() != 1 ?  // defined in getCurrentPage
+  const base = getCurrentPage() != 1 ?
    `${window.location.origin}${window.location.pathname}`.split('/?page=')[0]
    : `${window.location.origin}${window.location.pathname}`.split(' ')[0]
   let url = base + `?page=${newPage}`
@@ -45788,30 +45784,51 @@ const bel = require('bel')
 const csjs = require('csjs-inject')
 let css
 const pagination = require('pagination')
+const paginationButtons = require('paginationButtons')
 const makeCollectionArea = require('makeCollectionArea')
 const icon = require('icon')
 const svg = require('./svg.json')
 
 module.exports = search
 
-function search (contracts,collectionContainer, ops) {
+function search (ops) {
   return bel`
-    <div class=${css.searchBar}>
+    <div contenteditable="true" class=${css.searchBar}>
+      <input type="text" value="Search contract"
+        onchange=${(e)=>showMatches(e, ops)}"
+        onclick="${(e)=>e.target.select()}">
       <button class=${css.submit}>
         <span class=${css.icon_search}>${icon('search', svg.search)}</span>
       </button>
-      <input type="text" value="Search contract" onchange=${(e)=>showMatches(e, contracts, collectionContainer)}">
     </div>
   `
 }
 
-function showMatches (e, contracts, collectionContainer) {
-  //location.assign(window.location.href)
+function showMatches (e, ops) {
+  let contracts = ops.contracts
+  const noResult = bel`<div>No matches found</div>`
   let val = e.target.value
   let matchingContracts = getMatches(contracts, val)
-  let ops = pagination(matchingContracts)
-  const old = collectionContainer.children[0]
-  collectionContainer.replaceChild(makeCollectionArea(ops.currentData), old)
+
+  // new Collection Area based on search results
+  newOps = pagination(matchingContracts)
+  newOps.contracts = matchingContracts
+  newOps.paginationButtons = ops.paginationButtons
+  const oldContainer = document.querySelector("[class^='collectionArea']")
+  let container = oldContainer.parentNode
+  let newContainer = matchingContracts.length > 0 ?
+    makeCollectionArea(newOps)
+    : noResult
+  container.replaceChild(newContainer, oldContainer)
+
+  // new navigation (paginationButtons) based on number of matching search results
+  debugger
+  let navigation = ops.paginationButtons
+  const oldNavigation = navigation.children[0]
+  navigation.replaceChild(paginationButtons(container, newOps), oldNavigation)
+
+  let url = `${window.location.origin}${window.location.pathname}?page=1`
+  history.pushState(null, null, url)
 }
 
 function getMatches (contracts, val) {
@@ -45836,12 +45853,14 @@ css = csjs`
     border: var(--search-input);
     border-radius: 6px;
     background: var(--search-input-background);
-    text-transform: uppercase;
     font-size: var(--search-input-text);
     padding: 4px 50px 4px 15px;
     color: var(--search-input-color);
     outline: none;
-    font-family: 'Nunito', sans-serif;
+  }
+  ::placeholder {
+    text-transform: uppercase;
+    color: var(--search-input-color);
   }
   .submit {
     position: absolute;
@@ -45858,7 +45877,7 @@ css = csjs`
   }
 `
 
-},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/icon.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/pagination.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json":[function(require,module,exports){
+},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/icon.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/pagination.js","paginationButtons":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json":[function(require,module,exports){
 module.exports={
     "new": ["M46.39,27H29.49V10.05a1.25,1.25,0,0,0-2.5,0V27H10.11a1.25,1.25,0,0,0,0,2.5H27v17a1.25,1.25,0,0,0,2.5,0v-17h16.9a1.25,1.25,0,0,0,0-2.5Z"],
     "arrowLeft": ["M37.25,47.5a1.21,1.21,0,0,1-.88-.37l-18-18a1.24,1.24,0,0,1,0-1.76l18-18a1.24,1.24,0,0,1,1.76,1.76L21,28.25,38.13,45.37a1.24,1.24,0,0,1,0,1.76A1.21,1.21,0,0,1,37.25,47.5Z"],
