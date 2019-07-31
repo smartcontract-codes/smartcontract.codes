@@ -45129,7 +45129,7 @@ function header () {
   return bel`
     <header class="${css.header}">
         <div class="${css.logo}" onclick=${() => reload()}>
-            <img src="./images/logo.svg" alt="PlayProject">
+            <img src="./assets/images/logo.svg" alt="PlayProject">
             <h2>PlayProject</h2>
         </div>
         <nav class="${css.nav}">
@@ -45139,7 +45139,7 @@ function header () {
                 </span>
             </button>
             <a href="#">
-                <span class="${css.avatar}"><img src="./images/user-avatar.jpg" alt="User Avatar"></span>
+                <span class="${css.avatar}"><img src="./assets/images/user-avatar.jpg" alt="User Avatar"></span>
             </a>
         </nav>
     </header>
