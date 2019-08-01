@@ -51,10 +51,12 @@ function closeAction() {
 // window.location.origin
 // "http://192.168.0.163:9966"
 
-function start(contracts) {
+function start(contracts, titles, hashes) {
 
   let ops = pagination(contracts)
   ops.contracts = contracts
+  ops.titles = titles
+  ops.hashes = hashes
 
   const collectionContainer =
     bel`<div>${makeCollectionArea(ops)}</div>`

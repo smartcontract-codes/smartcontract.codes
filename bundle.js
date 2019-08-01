@@ -44979,10 +44979,12 @@ function closeAction() {
 // window.location.origin
 // "http://192.168.0.163:9966"
 
-function start(contracts) {
+function start(contracts, titles, hashes) {
 
   let ops = pagination(contracts)
   ops.contracts = contracts
+  ops.titles = titles
+  ops.hashes = hashes
 
   const collectionContainer =
     bel`<div>${makeCollectionArea(ops)}</div>`
@@ -45117,6 +45119,8 @@ const url = 'dat://c610858d82e4c9bc9585bb26fedb260c080ed24c6a05bcf3da9ad73a6917a
 const archive = Hyperdrive(url)
 
 let contracts = []
+let titles = []
+let hashes = []
 let counter = 0
 
 module.exports = getContracts
@@ -45137,22 +45141,24 @@ function getContracts (done) {
 // loop over address/src/contractsArr
 function getContractsArr (x, addresses, done) {
   archive.readdir(`${addresses[x]}/src/`, (err, contractsArr) => {
+    if (addresses[x]) hashes.push(addresses[x])
     if (err) console.log(err)
     if (contractsArr) {
       counter = counter + contractsArr.length
       for (var i=0; i<contractsArr.length; i++) {
-        getSourceCode(x, i, addresses, contractsArr, done)
+        getSourceCode(x, i, addresses, contractsArr, hashes, done)
       }
     }
   })
 }
 
 // get source code and oush it to `contracts` array
-function getSourceCode (x, i, addresses, contractsArr, done) {
+function getSourceCode (x, i, addresses, contractsArr, hashes, done) {
   archive.readFile(`${addresses[x]}/src/${contractsArr[i]}`, 'utf8', (err, contract) => {
     if (err) console.log(err)
     if (contract) contracts.push(contract)
-    if (counter === contracts.length) done(contracts)
+    if (contractsArr[i]) titles.push(contractsArr[i])
+    if (counter === contracts.length) done(contracts, titles, hashes)
   })
 }
 
@@ -45165,6 +45171,7 @@ let css
 module.exports = header
 
 function header () {
+  let editorurl = 'https://ethereum-play.github.io/editor-solidity/'
   return bel`
     <header class="${css.header}">
         <div class="${css.logo}" onclick=${() => reload()}>
@@ -45173,7 +45180,8 @@ function header () {
         </div>
         <nav class="${css.nav}">
             <button class="button ${css.newContarct}">
-                <span class=${css.icon_new}>
+                <span class=${css.icon_new}
+                  onclick=${() => window.open(editorurl)}>
                   ${icon('new', svg.new)}
                 </span>
             </button>
@@ -45291,21 +45299,26 @@ const csjs = require('csjs-inject')
 const icon = require('icon')
 const svg = require('./svg.json')
 let css
+var editor_url = 'https://ethereum-play.github.io/editor-solidity/'
+var counter = 1
+var _code = void 0
 
 module.exports = makeCard
 
-function makeCard (address) {
+function makeCard (contract, i, ops) {
+  let title = ops.titles[i]
+  let hash = ops.hashes[i].substring(0,15)
   let card = bel`
-    <div class=${css.collectionCard} onclick=${() => openInEditor(address)}>
-      <pre class=${css.code}>${address}</pre>
+    <div class=${css.collectionCard} onclick=${() => openInEditor(contract)}>
+      <pre class=${css.code}>${contract}</pre>
 
       <div class=${css.cardCover}>
         <div class=${css.avatar}>
           <img src="https://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=200&r=pg&d=mp">
         </div>
         <div class=${css.coverInfo}>
-          <h5 class=${css.coverTitle}>WithdrawDAO contract</h5>
-          <p class=${css.cardUserInfo}>0xAA5c4244F05c</p>
+          <h5 class=${css.coverTitle}>${title}</h5>
+          <p class=${css.cardUserInfo}>${hash}</p>
           <span class=${css.cardTime}>A year ago</span>
         </div>
         <aside class=${css.cardVisitInfo}>
@@ -45329,11 +45342,42 @@ function makeCard (address) {
 
 // ===== helpers =====
 
-function openInEditor (code) {
-  code = code.replace(/\n. |\r/g, "")
-  //let url = `https://ethcode.dev/contracts?c={"file":"try","contents":${code}}`
-  let url = `https://ethcode.dev/contracts?c={"file":"try","contents":"pragma solidity >=0.5.0 <0.6.0;\nimport \"./mortal.sol\";\n\ncontract Greeter is Mortal {\n    /* Define variable greeting of the type string */\n    string greeting;\n\n    /* This runs when the contract is executed */\n    constructor(string memory _greeting) public {\n        greeting = _greeting;\n    }\n\n    /* Main function */\n    function greet() public view returns (string memory) {\n        return greeting;\n    }\n}"}`
-  window.open(url)
+window.addEventListener('message', event => {
+  if (event.source === window.editor) {
+    const [id, from, path, ref, type, body] = event.data
+    if (!(type === 'ready' && _code)) return console.error('unexpected message', {id, from, path, ref, type, body})
+    if (!window.editoraddress) window.editoraddress = from
+    window.editor.postMessage([
+      counter++,            // id (= message id)
+      `/collection-page`,   // from
+      window.editoraddress, // path
+      0,                    // ref (=initiate new communucation)
+      'open',               // type
+      {                     // body
+        name: 'contract.sol',
+        data: _code
+    }], '*')
+    _code = void 0
+  }
+})
+
+openInEditor = function openInEditor (code) {
+  if (!window.editor || window.editor.closed) {
+    window.editor = window.open(editor_url, 'code-editor')
+    _code = code
+  } else {
+    if (!window.editoraddress) return console.error('unexpected state')
+    window.editor.postMessage([
+      counter++,            // id (= message id)
+      `/collection-page`,   // from
+      window.editoraddress, // path
+      0,                    // ref (=initiate new communucation)
+      'open',               // type
+      {                     // body
+        name: 'contract.sol',
+        data: code
+    }], '*')
+  }
 }
 
 // ===== css =====
@@ -45496,7 +45540,7 @@ function makeCollectionArea(ops) {
   return bel`
     <div class=${css.collectionArea}>
       ${currentData.map(
-        address => makeCard(address)
+        (contract, i) => makeCard(contract, i, ops)
       )}
     </div>
   `
@@ -45835,6 +45879,8 @@ function showMatches (ops, searchArea) {
   // new Collection Area based on search results
   newOps = pagination(matchingContracts)
   newOps.contracts = matchingContracts
+  newOps.titles = ops.titles
+  newOps.hashes = ops.hashes
   newOps.paginationButtons = ops.paginationButtons
   const oldContainer = document.querySelector("[class^='collectionArea']") ||
     document.querySelector("[class^='noResult']")
@@ -45872,7 +45918,12 @@ function getMatches (contracts, val) {
 // ===== css =====
 
 css = csjs`
-  .noResult {}
+  .noResult {
+    font-size: var(--text-large);
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 200;
+  }
   .searchBar {
     margin: 0 auto 50px auto;
     width: 650px;
@@ -45888,6 +45939,7 @@ css = csjs`
     cursor: pointer;
     line-height: 36px;
     border-radius: 30px;
+    transition: all .3s ease-in-out;
   }
   .textarea {
     width: calc(100% - 65px);
