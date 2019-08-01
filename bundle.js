@@ -45168,7 +45168,7 @@ function header () {
   return bel`
     <header class="${css.header}">
         <div class="${css.logo}" onclick=${() => reload()}>
-            <img src="./images/logo.svg" alt="PlayProject">
+            <img src="./assets/images/logo.svg" alt="PlayProject">
             <h2>PlayProject</h2>
         </div>
         <nav class="${css.nav}">
@@ -45178,7 +45178,7 @@ function header () {
                 </span>
             </button>
             <a href="#">
-                <span class="${css.avatar}"><img src="./images/user-avatar.jpg" alt="User Avatar"></span>
+                <span class="${css.avatar}"><img src="./assets/images/user-avatar.jpg" alt="User Avatar"></span>
             </a>
         </nav>
     </header>
@@ -45803,22 +45803,25 @@ const svg = require('./svg.json')
 module.exports = search
 
 function search (ops) {
+  const searchArea = bel`
+    <div contenteditable="true" class=${css.textarea}"></div>`
   return bel`
-    <div contenteditable="true" class=${css.searchBar}>
-      <input type="text" value="Search contract"
-        onchange=${(e)=>showMatches(e, ops)}"
-        onclick="${(e)=>e.target.select()}">
-      <button class=${css.submit}>
-        <span class=${css.icon_search}>${icon('search', svg.search)}</span>
+    <div class=${css.searchBar}>
+      ${searchArea}
+      <button class=${css.submit} onclick=${()=>showMatches(ops, searchArea)}>
+        search contracts
       </button>
     </div>
   `
 }
 
-function showMatches (e, ops) {
+
+// ===== helpers =====
+
+function showMatches (ops, searchArea) {
   let contracts = ops.contracts
   const noResult = bel`<div class=${css.noResult}>No matches found</div>`
-  let val = e.target.value
+  let val = getSearchInput(searchArea)
   let matchingContracts = getMatches(contracts, val)
 
   // new Collection Area based on search results
@@ -45842,10 +45845,17 @@ function showMatches (e, ops) {
   history.pushState(null, null, url)
 }
 
+function getSearchInput (searchArea) {
+  let searchInput = searchArea.innerText.trim()
+  searchInput = searchInput.replace(/\n. |\r/g, "")
+  return searchInput
+}
+
 function getMatches (contracts, val) {
   let match = []
   for(var i=0; i<contracts.length; i++) {
-    if (contracts[i].includes(val)) match.push(contracts[i])
+    let contract = contracts[i].replace(/\n. |\r/g, "")
+    if (contract.includes(val)) match.push(contract)
   }
   return match
 }
@@ -45856,36 +45866,33 @@ function getMatches (contracts, val) {
 css = csjs`
   .noResult {}
   .searchBar {
-    position: relative;
-    padding-bottom: 50px;
-  }
-  input[type="text"] {
-    height: 40px;
-    width: calc(100% - 65px);
-    border: var(--search-input);
-    border-radius: 6px;
-    background: var(--search-input-background);
-    font-size: var(--search-input-text);
-    padding: 4px 50px 4px 15px;
-    color: var(--search-input-color);
-    outline: none;
-  }
-  ::placeholder {
-    text-transform: uppercase;
-    color: var(--search-input-color);
+    margin: 0 auto 50px auto;
+    width: 650px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto 36px;
+    justify-items: center;
   }
   .submit {
-    position: absolute;
-    right: 5px;
-    top: 5px;
-    background: transparent;
-    width: 40px;
-    height: 40px;
+    font-size: var(--text-normal);
+    background: white;
+    width: 250px;
     cursor: pointer;
+    line-height: 36px;
+    border-radius: 30px;
   }
-  .icon_search g {
-    fill: var(--search-icon-fill);
-    transition: all .3s ease-in-out;
+  .textarea {
+    width: calc(100% - 65px);
+    border-radius: 4px;
+    border: var(--search-input);
+    background: var(--search-input-background);
+    font-size: var(--search-input-text);
+    font-family: 'Inconsolata', monospace;
+    padding: 15px;
+    color: var(--body-color);
+    word-break: break-all;
+    margin-bottom: 10px;
+    outline: none;
   }
 `
 
@@ -45944,7 +45951,7 @@ function themes (themeName) {
     '--search-input-border': 'rgba(255,255,255, 0)',
     '--search-input-background': white,
     '--search-input-color': grey8D,
-    '--search-input-text': '2rem',
+    '--search-input-text': '1.4rem',
     '--search-icon-fill': dark1d,
     '--text-large': '2rem',
     '--text-normal': '1.6rem',
@@ -45986,8 +45993,12 @@ function themes (themeName) {
     '--search-input-border': bluePurple,
     '--search-input-background': 'none',
     '--search-input-color': lightGreen,
-    '--search-input-text': '20px',
+    '--search-input-text': '1.4rem',
     '--search-icon-fill': lightGreen,
+    '--text-large': '2rem',
+    '--text-normal': '1.6rem',
+    '--text-small': '1.4rem',
+    '--text-xsmall': '1.2rem',
     '--pages-current-background': transparent,
     '--pages-border': '1px solid #6700ff',
     '--pages-text': peach,
