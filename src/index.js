@@ -7,7 +7,6 @@ const pagination = require('pagination')
 const paginationButtons = require('paginationButtons')
 const makeCollectionArea = require('makeCollectionArea')
 
-
 // ===== theme =====
 
 const themes = require('themes')
@@ -62,6 +61,8 @@ function start(contracts) {
   const navigation =
     bel`<div>${paginationButtons(collectionContainer, ops)}</div>`
   ops.paginationButtons = navigation
+
+ 
 
   let element = bel`
     <div class=${css.wrapper}>
