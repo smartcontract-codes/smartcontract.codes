@@ -68126,10 +68126,12 @@ module.exports = makeCard
 
 function makeCard (address) {
   let code = hljs.highlightAuto(address).value.toString()
-  const doc = new DOMParser().parseFromString(code, "text/xml")
+  let html = document.createElement('div')
+  html.innerHTML = code
+  console.dir(code)
   let card = bel`
     <div class=${css.collectionCard} onclick=${() => openInEditor(address)}>
-      <pre class=${css.code}><code class="solidity">${code}</code></pre>
+      <pre class=${css.code}><code class=${css.solidity}>${html}</code></pre>
       <div class=${css.cardCover}>
         <div class=${css.avatar}>
           <img src="https://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=200&r=pg&d=mp">
@@ -68188,22 +68190,8 @@ css = csjs`
     cursor: pointer;
     border: var(--card-hover-border);
     box-shadow: var(--card-hover-shadow);
-    z-index: 3;
-  }
-  .code {
-    height: inherit;
-  }
-  .collectionCard:before {
-    display: block;
-    content: '';
-    width: 100%;
-    height: 100%;
     background: var(--card-code-overlay);
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    transition: all .3s ease-in-out;
+    z-index: 3;
   }
   .collectionCard:hover:before {
     opacity: 1;
@@ -68299,16 +68287,22 @@ css = csjs`
   .cardVisitInfo svg g {
     fill: var(--card-visit-icons-fill);
   }
-  pre {
-    width: 88%;
+  .code {
+    width: 92%;
+    height: 100%;
     margin: 0;
     padding: 15px;
-    font-family: 'Inconsolata', monospace;
-    font-size: 1.4rem;
-    line-height: 22px;
     overflow: hidden;
   }
-
+  .collectionCard:hover .code {
+    height: calc(100% - 115px);
+    overflow: auto;
+  }
+  .solidity div > * {
+    font-family: 'Inconsolata', monospace;
+    font-size: 1.2rem;
+    line-height: 24px;
+  }
 `
 
 },{"./svg.json":"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/svg.json","bel":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/bel/browser.js","csjs-inject":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/csjs-inject/index.js","highlight.js":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/highlight.js/lib/index.js","highlightjs-solidity":"/Users/fannieyeh/prj/play/web/collection-page/node_modules/highlightjs-solidity/solidity.js","icon":"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/icon.js"}],"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/makeCollectionArea.js":[function(require,module,exports){
@@ -68556,6 +68550,7 @@ css = csjs`
     border: var(--button-border);
     color: var(--button-default-text);
     background-color: var(--button-default);
+    box-shadow: var(--button-box-shadow);
     transition: all .3s ease-in-out;
   }
   .default:hover {
@@ -68721,6 +68716,11 @@ css = csjs`
     cursor: pointer;
     line-height: 36px;
     border-radius: 30px;
+    transition: all .3s ease-in-out;
+  }
+  .submit:hover {
+    color: white;
+    background-color: #6700ff;
   }
   .textarea {
     width: calc(100% - 65px);
@@ -68773,6 +68773,7 @@ function themes (themeName) {
     '--button-default-text': dark1d,
     '--button-default-text-hover': dark1d,
     '--button-border': '0px solid var(--button-white)',
+    '--button-box-shadow': 'none',
     '--editor-preview': white,
     '--card-cover': greyEB,
     '--card-hover-cover': lightGreen,
@@ -68815,6 +68816,7 @@ function themes (themeName) {
     '--button-default-text': peach,
     '--button-default-text-hover': peach,
     '--button-border': '1px solid #6700ff',
+    '--button-box-shadow': '0 1px 8px rgba(255,41,117, .3)',
     '--editor-preview': dark1d,
     '--card-cover': grey31,
     '--card-hover-cover': bluePurple,
