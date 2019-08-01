@@ -45296,7 +45296,7 @@ module.exports = makeCard
 
 function makeCard (address) {
   let card = bel`
-    <div class=${css.collectionCard}>
+    <div class=${css.collectionCard} onclick=${() => openInEditor(address)}>
       <pre class=${css.code}>${address}</pre>
 
       <div class=${css.cardCover}>
@@ -45327,6 +45327,13 @@ function makeCard (address) {
   return card
 }
 
+// ===== helpers =====
+
+function openInEditor (code) {
+  code = code.replace(/\n. |\r/g, "")
+  let url = `https://ethcode.dev/contracts?c={"file":"try","contents": "${code}"}`
+  window.open(url)
+}
 
 // ===== css =====
 
