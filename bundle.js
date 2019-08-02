@@ -44977,12 +44977,12 @@ css = csjs`
   }
   body {
     height: 100%;
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--main-font);
+    font-size: var(--text-normal);
     margin: 0;
     padding: 0;
     color: var(--body-color);
     background-color: var(--body-background);
-    font-size: 1.6rem;
     overflow-x: hidden;
   }
   .wrapper {
@@ -44992,7 +44992,7 @@ css = csjs`
       "content";
     grid-template-rows: 120px 1fr;
     grid-template-columns: 100%;
-    padding: 0 38px;
+    padding: var(--wrapper-padding);
   }
   .content {
     grid-area: content;
@@ -45017,29 +45017,28 @@ css = csjs`
   .themeSwitch {
     grid-area: themeSwitch;
     justify-self: end;
-    color: var(--primary);
     padding-bottom: 15px;
   }
   h1, h2, h3, h4, h5, h6, p {
     margin: 0;
   }
   h1 {
-    font-size: 6rem;
+    font-size: var(--h1);
   }
   h2 {
-    font-size: 5rem;
+    font-size: var(--h2);
   }
   h3 {
-    font-size: 4rem;
+    font-size: var(--h3);
   }
   h4 {
-    font-size: 3rem;
+    font-size: var(--h4);
   }
   h5 {
-    font-size: 2rem;
+    font-size: var(--h5);
   }
   h6 {
-    font-size: 1.6rem;
+    font-size: var(--h6);
   }
   img {
     width: 100%;
@@ -45136,8 +45135,7 @@ function header () {
   return bel`
     <header class="${css.header}">
         <div class="${css.logo}" onclick=${() => reload()}>
-            <img src="./assets/images/logo.png" alt="PlayProject">
-            <h3>PlayProject</h3>
+            <img src="./assets/images/logo1.png" alt="smartcontract.codes">
         </div>
         <nav class="${css.nav}">
             <button class="button ${css.newContarct}">
@@ -45184,10 +45182,6 @@ css = csjs`
     margin-right: 17px;
     width: 100px;
   }
-  .logo h3 {
-    display: inline;
-    vertical-align: middle;
-  }
   .logo:hover {
     cursor: pointer;
   }
@@ -45229,9 +45223,6 @@ css = csjs`
   }
 
   @media (max-width: 639px) {
-    .logo h3 {
-      font-size: 3rem;
-    }
     .logo img {
       width: 80px;
     }
@@ -45258,20 +45249,12 @@ const bel = require('bel')
 const csjs = require('csjs-inject')
 const icon = require('icon')
 const svg = require('./svg.json')
-// const hljs = require('highlight.js')
-// const hljsDefineSolidity = require('highlightjs-solidity')
-// hljsDefineSolidity(hljs)
-// hljs.initHighlighting()
 
 let css
 
 module.exports = makeCard
 
 function makeCard (address) {
-  // let code = hljs.highlightAuto(address).value.toString()
-  // let html = document.createElement('code')
-  // html.className = css.solidity
-  // html.innerHTML = code
   let card = bel`
     <div class=${css.collectionCard} onclick=${() => openInEditor(address)}>
       <pre class=${css.code}><code class="solidity">${address}</code></pre>
@@ -45317,7 +45300,7 @@ css = csjs`
   .collectionCard {
     width: 100%;
     height: 100%;
-    border-radius: 6px;
+    border-radius: var(--collectionCard-border-radius);
     overflow: hidden;
     position: relative;
     background-color: var(--editor-preview);
@@ -45432,86 +45415,16 @@ css = csjs`
     fill: var(--card-visit-icons-fill);
   }
   .code {
-    width: calc(100% - 30px);
-    height: calc(100% - 30px);
+    width: var(--card-code-width);
+    height: var(--card-code-height);
     margin: 0;
-    padding: 15px;
+    padding: var(--card-code-padding);
     word-break: break-all;
     word-wrap: break-word;
     white-space: pre-wrap;
-    font-family: 'Inconsolata', monospace;
-    font-size: 1.3rem;
-    line-height: 24px;
-  }
-  .solidity, .solidity > * {
-    font-family: 'Inconsolata', monospace;
-    font-size: 1.2rem;
-    line-height: 24px;
-  }
-  .solidity > .hljs{
-    display:block;
-    overflow-x:auto;
-    padding:0.5em;
-    background:#F0F0F0;
-  }
-  .solidity  .hljs, .hljs-subst{
-    color:#444
-  } 
-  .solidity > .hljs-comment{
-    color:#888888;
-  }
-  .solidity .hljs-keyword, 
-  .solidity .hljs-attribute, 
-  .solidity .hljs-selector-tag, 
-  .solidity .hljs-meta-keyword, 
-  .solidity .hljs-doctag, 
-  .solidity .hljs-name {
-    font-weight:bold;
-  }
-  .solidity .hljs-type,
-  .solidity .hljs-string,
-  .solidity .hljs-number,
-  .solidity .hljs-selector-id,
-  .solidity .hljs-selector-class,
-  .solidity .hljs-quote,
-  .solidity .hljs-template-tag,
-  .solidity .hljs-deletion {
-    color:#880000;
-  }
-  .solidity .hljs-title,
-  .solidity .hljs-section {
-    color:#880000;
-    font-weight:bold;
-  }
-  .solidity .hljs-regexp,
-  .solidity .hljs-symbol,
-  .solidity .hljs-variable,
-  .solidity .hljs-template-variable,
-  .solidity .hljs-link,
-  .solidity .hljs-selector-attr,
-  .solidity .hljs-selector-pseudo {
-    color:#BC6060;
-  }
-  .solidity .hljs-literal{
-    color:#78A960;
-  }
-  .solidity .hljs-built_in,
-  .solidity .hljs-bullet,
-  .solidity .hljs-code,
-  .solidity .hljs-addition {
-    color:#397300;
-  }
-  .solidity .hljs-meta{
-    color:#1f7199;
-  }
-  .solidity .hljs-meta-string {
-    color:#4d99bf;
-  }
-  .solidity .hljs-emphasis {
-    font-style:italic;
-  }
-  .solidity .hljs-strong{
-    font-weight:bold;
+    font-family: var(--code-font);
+    font-size: var(--card-code-text);
+    line-height: var(--card-code-text-line-height);
   }
   @media (max-width: 768px) {
     .collectionCard:hover {
@@ -45549,7 +45462,7 @@ function makeCollectionArea(ops) {
 css = csjs`
   .collectionArea {
     display: grid;
-    grid-gap: 30px;
+    grid-gap: var(--collectionArea-grid-gap);
     margin-bottom: 60px;
   }
 
@@ -45646,14 +45559,14 @@ function paginationButtons (collectionContainer, ops ) {
   let pages = bel`<ul class=${css.pages}><li>${firstPage}</li></ul>`
   let el = bel`
     <div class=${css.pagination}>
-      <button class="${css.button} ${css.default} ${css.round} ${css.previous}"
+      <button class="${css.button} ${css.default} ${css.previous}"
         onclick=${()=>goToPrevious(ops, collectionContainer, pages)}>
         <span class=${css.icon_arrow_right}>
           ${icon('arrow-left', svg.arrowLeft)}
         </span> Previous
       </button>
       ${addPages(ops, collectionContainer, pages)}
-      <button class="${css.button} ${css.default} ${css.round} ${css.next}"
+      <button class="${css.button} ${css.default} ${css.next}"
         onclick=${()=>goToNext(ops, collectionContainer, pages)}>
         Next <span
           class=${css.icon_arrow_right}>${icon('arrow-right', svg.arrowRight)}
@@ -45761,16 +45674,16 @@ css = csjs`
     padding-bottom: 60px;
   }
   .button {
-    width: 123px;
-    height: 44px;
-    font-size: 18px;
+    font-size: var(--button-default-font-size);
     vertical-align: middle;
   }
   .default {
+    padding: var(--button-default-padding);
     border: var(--button-border);
     color: var(--button-default-text);
     background-color: var(--button-default);
     box-shadow: var(--button-box-shadow);
+    border-radius: var(--button-default-radius);
     transition: all .3s ease-in-out;
   }
   .default:hover {
@@ -45790,12 +45703,11 @@ css = csjs`
   }
   .previous {
     border: var(--button-border);
+    padding-right: var(--button-padding-right);
     background: transparent;
   }
   .next {
-  }
-  .round {
-    border-radius: 22px;
+    padding-left: var(--button-padding-left);
   }
   .pages {
     margin: 0 10px;
@@ -45807,10 +45719,9 @@ css = csjs`
   }
   .pages li {
     font-size: var(--text-small);
-    color: #8d8d8d;
   }
   .nonactive {
-    border-radius: 4px;
+    border-radius: var(--pages-text-border-radius);
     padding: 4px 8px;
     border: var(--pages-border);
     color: var(--pages-text);
@@ -45820,9 +45731,10 @@ css = csjs`
     cursor: pointer;
   }
   .active {
-    border-radius: 4px;
+    border-radius: var(--pages-text-border-radius);
     padding: 4px 8px;
     background: var(--pages-current-background);
+    color: var(--pages-text-active);
   }
 
   @media (max-width: 560px) {
@@ -45934,7 +45846,7 @@ css = csjs`
     background: var(--search-button-background);
     width: 250px;
     cursor: pointer;
-    border-radius: 30px;
+    border-radius: var(--search-button-border-radius);
     transition: all .3s ease-in-out;
   }
   .submit:hover {
@@ -45947,7 +45859,7 @@ css = csjs`
     border: var(--search-input);
     background: var(--search-input-background);
     font-size: var(--search-input-text);
-    font-family: 'Inconsolata', monospace;
+    font-family: var(--code-font);
     padding: 15px;
     color: var(--body-color);
     word-break: break-all;
@@ -45981,6 +45893,7 @@ module.exports={
 },{}],"/Users/fannieyeh/prj/play/web/collection-page/src/node_modules/themes.js":[function(require,module,exports){
 module.exports = themes
 
+// define colors
 const bluePurple = '#6700ff'
 const lightGreen = '#09FFC3'
 const lightGreenHover = '#A1FFE8'
@@ -45995,14 +45908,32 @@ const dark1d = '#1d1d26'
 const peach = 'rgba(255, 41,117, 100)'
 const transparent = 'rgba(0,0,0,0)'
 
+// define font
+const fontNunito = `'Nunito', sans-serif`
+const fontInconsolata = `'Inconsolata', monospace`
+
 function themes (themeName) {
   const lightTheme = {
+    '--main-font': fontNunito,
+    '--code-font': fontInconsolata,
+    '--h1': '6rem',
+    '--h2': '5rem',
+    '--h3': '4rem',
+    '--h4': '3rem',
+    '--h5': '2rem',
+    '--h6': '1.6rem',
     '--body-color': grey33,
     '--body-background': greyEB,
+    '--wrapper-padding': '0 30px',
     '--button-default': lightGreen,
     '--button-default-hover': white,
+    '--button-default-font-size': '1.8rem',
     '--button-default-text': dark1d,
     '--button-default-text-hover': dark1d,
+    '--button-default-radius': '22px',
+    '--button-default-padding': '10px 30px',
+    '--button-padding-right': '30px',
+    '--button-padding-left': '30px',
     '--button-border': '0px solid var(--button-white)',
     '--button-box-shadow': 'none',
     '--editor-preview': white,
@@ -46014,6 +45945,11 @@ function themes (themeName) {
     '--card-code-overlay': 'linear-gradient(0deg, rgba(0,0,0, .1) 0%, rgba(0,0,0, .28) 100%)',
     '--card-shadow': '0px 6px 8px rgba(144, 144, 144, .3)',
     '--card-hover-shadow': '0px 6px 8px rgba(144, 144, 144, .3)',
+    '--card-code-text': '1.3rem',
+    '--card-code-text-line-height': '20px',
+    '--card-code-width': 'calc(100% - 40px)',
+    '--card-code-height': 'calc(100% - 30px)',
+    '--card-code-padding': '15px 20px',
     '--card-cover-title': grey31,
     '--card-hover-cover-title': grey31,
     '--card-cover-userInfo': grey33,
@@ -46036,19 +45972,39 @@ function themes (themeName) {
     '--pages-current-background': white,
     '--pages-border': '0px solid rgba(0,0,0,0)',
     '--pages-text': grey8D,
+    '--pages-text-active': dark1d,
+    '--pages-text-border-radius': '4px',
     '--pages-hover-background': white,
     '--grid-template': '',
     '--icon-new-fill': dark1d,
     '--pagination-button-icon-fill': dark1d,
+    '--collectionArea-grid-gap': '30px',
+    '--collectionCard-border-radius': '6px',
+    '--pages-li-color': grey8D,
+    '--search-button-border-radius': '30px',
   }
 
   const darkTheme = {
+    '--main-font': fontNunito,
+    '--code-font': fontInconsolata,
+    '--h1': '6rem',
+    '--h2': '5rem',
+    '--h3': '4rem',
+    '--h4': '3rem',
+    '--h5': '2rem',
+    '--h6': '1.6rem',
     '--body-color': white,
     '--body-background': dark18,
+    '--wrapper-padding': '0 30px',
     '--button-default': transparent,
     '--button-default-hover': bluePurple,
+    '--button-default-font-size': '1.8rem',
     '--button-default-text': peach,
     '--button-default-text-hover': peach,
+    '--button-default-radius': '22px',
+    '--button-default-padding': '10px 30px',
+    '--button-padding-right': '30px',
+    '--button-padding-left': '30px',
     '--button-border': '1px solid #6700ff',
     '--button-box-shadow': '0 1px 8px rgba(255,41,117, .3)',
     '--editor-preview': dark1d,
@@ -46060,6 +46016,11 @@ function themes (themeName) {
     '--card-code-overlay': 'linear-gradient(0deg, rgba(103,0,255, .1) 0%, rgba(103,0,255, .28) 100%)',
     '--card-shadow': '0px 2px 30px rgba(103, 0, 255, 0)',
     '--card-hover-shadow': '0px 2px 30px rgba(103, 0, 255, .6)',
+    '--card-code-text': '1.3rem',
+    '--card-code-text-line-height': '20px',
+    '--card-code-width': 'calc(100% - 40px)',
+    '--card-code-height': 'calc(100% - 30px)',
+    '--card-code-padding': '15px 20px',
     '--card-cover-title': lightGreen,
     '--card-hover-cover-title': white,
     '--card-cover-userInfo': white,
@@ -46082,10 +46043,15 @@ function themes (themeName) {
     '--pages-current-background': transparent,
     '--pages-border': '1px solid #6700ff',
     '--pages-text': peach,
+    '--pages-text-active': white,
+    '--pages-text-border-radius': '4px',
     '--pages-hover-background': bluePurple,
     '--grid-template': '',
     '--icon-new-fill': white,
     '--pagination-button-icon-fill': peach,
+    '--collectionArea-grid-gap': '30px',
+    '--collectionCard-border-radius': '6px',
+    '--search-button-border-radius': '30px',
   }
 
   const themes = {

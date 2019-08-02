@@ -88,12 +88,12 @@ css = csjs`
   }
   body {
     height: 100%;
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--main-font);
+    font-size: var(--text-normal);
     margin: 0;
     padding: 0;
     color: var(--body-color);
     background-color: var(--body-background);
-    font-size: 1.6rem;
     overflow-x: hidden;
   }
   .wrapper {
@@ -103,7 +103,7 @@ css = csjs`
       "content";
     grid-template-rows: 120px 1fr;
     grid-template-columns: 100%;
-    padding: 0 38px;
+    padding: var(--wrapper-padding);
   }
   .content {
     grid-area: content;
@@ -128,29 +128,28 @@ css = csjs`
   .themeSwitch {
     grid-area: themeSwitch;
     justify-self: end;
-    color: var(--primary);
     padding-bottom: 15px;
   }
   h1, h2, h3, h4, h5, h6, p {
     margin: 0;
   }
   h1 {
-    font-size: 6rem;
+    font-size: var(--h1);
   }
   h2 {
-    font-size: 5rem;
+    font-size: var(--h2);
   }
   h3 {
-    font-size: 4rem;
+    font-size: var(--h3);
   }
   h4 {
-    font-size: 3rem;
+    font-size: var(--h4);
   }
   h5 {
-    font-size: 2rem;
+    font-size: var(--h5);
   }
   h6 {
-    font-size: 1.6rem;
+    font-size: var(--h6);
   }
   img {
     width: 100%;

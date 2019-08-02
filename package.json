@@ -22,7 +22,6 @@
     "csjs-inject": "^1.0.1",
     "dat-sdk": "^0.1.0",
     "express": "^4.17.1",
-    "highlight.js": "^9.15.9",
-    "highlightjs-solidity": "^1.0.6"
+    "highlight.js": "^9.15.9"
   }
 }
