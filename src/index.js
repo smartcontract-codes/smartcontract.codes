@@ -84,7 +84,7 @@ css = csjs`
   @import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
   @import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
   html {
-    font-size: 65%;
+    font-size: 62.5%;
   }
   body {
     height: 100%;
@@ -93,7 +93,8 @@ css = csjs`
     padding: 0;
     color: var(--body-color);
     background-color: var(--body-background);
-    font-size: 100%;
+    font-size: 1.6rem;
+    overflow-x: hidden;
   }
   .wrapper {
     display: grid;
@@ -101,6 +102,7 @@ css = csjs`
       "header"
       "content";
     grid-template-rows: 120px 1fr;
+    grid-template-columns: 100%;
     padding: 0 38px;
   }
   .content {
@@ -178,5 +180,9 @@ css = csjs`
     width: 100%;
     height: 100%;
   }
-
+  @media (max-width: 420px) {
+    .wrapper {
+      padding: 0 20px;
+    }
+  }
 `
