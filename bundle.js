@@ -44935,7 +44935,6 @@ const pagination = require('pagination')
 const paginationButtons = require('paginationButtons')
 const makeCollectionArea = require('makeCollectionArea')
 
-
 // ===== theme =====
 
 const themes = require('themes')
@@ -44993,6 +44992,8 @@ function start(contracts, titles, hashes) {
     bel`<div>${paginationButtons(collectionContainer, ops)}</div>`
   ops.paginationButtons = navigation
 
+ 
+
   let element = bel`
     <div class=${css.wrapper}>
       ${header()}
@@ -45013,16 +45014,17 @@ css = csjs`
   @import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
   @import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
   html {
-    font-size: 65%;
+    font-size: 62.5%;
   }
   body {
     height: 100%;
-    font-family: 'Nunito', sans-serif;
+    font-family: var(--main-font);
+    font-size: var(--text-normal);
     margin: 0;
     padding: 0;
     color: var(--body-color);
     background-color: var(--body-background);
-    font-size: 100%;
+    overflow-x: hidden;
   }
   .wrapper {
     display: grid;
@@ -45030,7 +45032,8 @@ css = csjs`
       "header"
       "content";
     grid-template-rows: 120px 1fr;
-    padding: 0 38px;
+    grid-template-columns: 100%;
+    padding: var(--wrapper-padding);
   }
   .content {
     grid-area: content;
@@ -45055,29 +45058,28 @@ css = csjs`
   .themeSwitch {
     grid-area: themeSwitch;
     justify-self: end;
-    color: var(--primary);
     padding-bottom: 15px;
   }
   h1, h2, h3, h4, h5, h6, p {
     margin: 0;
   }
   h1 {
-    font-size: 6rem;
+    font-size: var(--h1);
   }
   h2 {
-    font-size: 5rem;
+    font-size: var(--h2);
   }
   h3 {
-    font-size: 4rem;
+    font-size: var(--h3);
   }
   h4 {
-    font-size: 3rem;
+    font-size: var(--h4);
   }
   h5 {
-    font-size: 2rem;
+    font-size: var(--h5);
   }
   h6 {
-    font-size: 1.6rem;
+    font-size: var(--h6);
   }
   img {
     width: 100%;
@@ -45107,7 +45109,11 @@ css = csjs`
     width: 100%;
     height: 100%;
   }
-
+  @media (max-width: 420px) {
+    .wrapper {
+      padding: 0 20px;
+    }
+  }
 `
 
 },{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","header":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/header.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/pagination.js","paginationButtons":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js","search":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/search.js","themes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/themes.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js":[function(require,module,exports){
@@ -45175,8 +45181,7 @@ function header () {
   return bel`
     <header class="${css.header}">
         <div class="${css.logo}" onclick=${() => reload()}>
-            <img src="./assets/images/logo.svg" alt="PlayProject">
-            <h2>PlayProject</h2>
+            <img src="./assets/images/logo-1.png" alt="smartcontract.codes">
         </div>
         <nav class="${css.nav}">
             <button class="button ${css.newContarct}">
@@ -45222,11 +45227,7 @@ css = csjs`
   .logo img {
     vertical-align: middle;
     margin-right: 17px;
-    width: 43px;
-  }
-  .logo h2 {
-    display: inline;
-    vertical-align: middle;
+    width: 100px;
   }
   .logo:hover {
     cursor: pointer;
@@ -45269,11 +45270,8 @@ css = csjs`
   }
 
   @media (max-width: 639px) {
-    .logo h2 {
-      font-size: 3rem;
-    }
     .logo img {
-      width: 35px;
+      width: 80px;
     }
   }
 `
@@ -45298,6 +45296,7 @@ const bel = require('bel')
 const csjs = require('csjs-inject')
 const icon = require('icon')
 const svg = require('./svg.json')
+
 let css
 var editor_url = 'https://ethereum-play.github.io/editor-solidity/'
 var counter = 1
@@ -45386,7 +45385,7 @@ css = csjs`
   .collectionCard {
     width: 100%;
     height: 100%;
-    border-radius: 6px;
+    border-radius: var(--collectionCard-border-radius);
     overflow: hidden;
     position: relative;
     background-color: var(--editor-preview);
@@ -45395,29 +45394,15 @@ css = csjs`
     box-shadow: var(--card-shadow);
   }
   .collectionCard:hover {
-    margin-left: -25px;
+    margin-left: -20px;
     margin-top: -15px;
     width: calc(100% * 1.1);
     height: calc(100% * 1.1);
     cursor: pointer;
     border: var(--card-hover-border);
     box-shadow: var(--card-hover-shadow);
-    z-index: 3;
-  }
-  .code {
-    height: inherit;
-  }
-  .collectionCard:before {
-    display: block;
-    content: '';
-    width: 100%;
-    height: 100%;
     background: var(--card-code-overlay);
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    transition: all .3s ease-in-out;
+    z-index: 3;
   }
   .collectionCard:hover:before {
     opacity: 1;
@@ -45498,6 +45483,7 @@ css = csjs`
     grid-template-columns: repeat(3, 1fr);
     justify-items: center;
     align-items: start;
+    font-size: var(--text-xsmall);
     transition: all .8s ease-in-out;
   }
   .cardVisitInfo i {
@@ -45513,16 +45499,28 @@ css = csjs`
   .cardVisitInfo svg g {
     fill: var(--card-visit-icons-fill);
   }
-  pre {
-    width: 88%;
+  .code {
+    width: var(--card-code-width);
+    height: var(--card-code-height);
     margin: 0;
-    padding: 15px;
-    font-family: 'Inconsolata', monospace;
-    font-size: 1.4rem;
-    line-height: 22px;
-    overflow: hidden;
+    padding: var(--card-code-padding);
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    font-family: var(--code-font);
+    font-size: var(--card-code-text);
+    line-height: var(--card-code-text-line-height);
   }
-
+  @media (max-width: 768px) {
+    .collectionCard:hover {
+      margin-left: -35px;
+    }
+  }
+  @media (max-width: 420px) {
+    .collectionCard:hover {
+      margin-left: -15px;
+    }
+  }
 `
 
 },{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/icon.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js":[function(require,module,exports){
@@ -45549,11 +45547,11 @@ function makeCollectionArea(ops) {
 css = csjs`
   .collectionArea {
     display: grid;
-    grid-gap: 30px;
+    grid-gap: var(--collectionArea-grid-gap);
     margin-bottom: 60px;
   }
 
-  @media (min-width: 480px) {
+  @media (max-width: 767px) {
     .collectionArea {
       grid-auto-rows: 250px;
     }
@@ -45566,7 +45564,7 @@ css = csjs`
     }
   }
 
-  @media (min-width: 960px) {
+  @media (min-width: 1024px) {
     .collectionArea {
       grid-auto-rows: 250px;
       grid-template-columns: repeat(3, 1fr);
@@ -45646,14 +45644,14 @@ function paginationButtons (collectionContainer, ops ) {
   let pages = bel`<ul class=${css.pages}><li>${firstPage}</li></ul>`
   let el = bel`
     <div class=${css.pagination}>
-      <button class="${css.button} ${css.default} ${css.round} ${css.previous}"
+      <button class="${css.button} ${css.default} ${css.previous}"
         onclick=${()=>goToPrevious(ops, collectionContainer, pages)}>
         <span class=${css.icon_arrow_right}>
           ${icon('arrow-left', svg.arrowLeft)}
         </span> Previous
       </button>
       ${addPages(ops, collectionContainer, pages)}
-      <button class="${css.button} ${css.default} ${css.round} ${css.next}"
+      <button class="${css.button} ${css.default} ${css.next}"
         onclick=${()=>goToNext(ops, collectionContainer, pages)}>
         Next <span
           class=${css.icon_arrow_right}>${icon('arrow-right', svg.arrowRight)}
@@ -45761,15 +45759,16 @@ css = csjs`
     padding-bottom: 60px;
   }
   .button {
-    width: 123px;
-    height: 44px;
-    font-size: 18px;
+    font-size: var(--button-default-font-size);
     vertical-align: middle;
   }
   .default {
+    padding: var(--button-default-padding);
     border: var(--button-border);
     color: var(--button-default-text);
     background-color: var(--button-default);
+    box-shadow: var(--button-box-shadow);
+    border-radius: var(--button-default-radius);
     transition: all .3s ease-in-out;
   }
   .default:hover {
@@ -45789,12 +45788,11 @@ css = csjs`
   }
   .previous {
     border: var(--button-border);
+    padding-right: var(--button-padding-right);
     background: transparent;
   }
   .next {
-  }
-  .round {
-    border-radius: 22px;
+    padding-left: var(--button-padding-left);
   }
   .pages {
     margin: 0 10px;
@@ -45805,11 +45803,10 @@ css = csjs`
     align-items: center;
   }
   .pages li {
-    font-size: var(--text-normal);
-    color: #8d8d8d8;
+    font-size: var(--text-small);
   }
   .nonactive {
-    border-radius: 4px;
+    border-radius: var(--pages-text-border-radius);
     padding: 4px 8px;
     border: var(--pages-border);
     color: var(--pages-text);
@@ -45819,9 +45816,10 @@ css = csjs`
     cursor: pointer;
   }
   .active {
-    border-radius: 4px;
+    border-radius: var(--pages-text-border-radius);
     padding: 4px 8px;
     background: var(--pages-current-background);
+    color: var(--pages-text-active);
   }
 
   @media (max-width: 560px) {
@@ -45849,8 +45847,6 @@ let css
 const pagination = require('pagination')
 const paginationButtons = require('paginationButtons')
 const makeCollectionArea = require('makeCollectionArea')
-const icon = require('icon')
-const svg = require('./svg.json')
 
 module.exports = search
 
@@ -45934,12 +45930,15 @@ css = csjs`
   }
   .submit {
     font-size: var(--text-normal);
-    background: white;
+    background: var(--search-button-background);
     width: 250px;
     cursor: pointer;
-    line-height: 36px;
-    border-radius: 30px;
+    border-radius: var(--search-button-border-radius);
     transition: all .3s ease-in-out;
+  }
+  .submit:hover {
+    color: var(--search-button-color);
+    background-color: var(--search-button-hover-background);
   }
   .textarea {
     width: calc(100% - 65px);
@@ -45947,16 +45946,28 @@ css = csjs`
     border: var(--search-input);
     background: var(--search-input-background);
     font-size: var(--search-input-text);
-    font-family: 'Inconsolata', monospace;
+    font-family: var(--code-font);
     padding: 15px;
     color: var(--body-color);
     word-break: break-all;
     margin-bottom: 10px;
     outline: none;
+    min-height: 15px;
+    max-width: 600px;
+  }
+  @media (max-width: 960px) {
+    .searchBar {
+      width: 60%;
+    }
+  }
+  @media (max-width: 640px) {
+    .searchBar {
+      width: 100%;
+    }
   }
 `
 
-},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/icon.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/pagination.js","paginationButtons":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/pagination.js","paginationButtons":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json":[function(require,module,exports){
 module.exports={
     "new": ["M46.39,27H29.49V10.05a1.25,1.25,0,0,0-2.5,0V27H10.11a1.25,1.25,0,0,0,0,2.5H27v17a1.25,1.25,0,0,0,2.5,0v-17h16.9a1.25,1.25,0,0,0,0-2.5Z"],
     "arrowLeft": ["M37.25,47.5a1.21,1.21,0,0,1-.88-.37l-18-18a1.24,1.24,0,0,1,0-1.76l18-18a1.24,1.24,0,0,1,1.76,1.76L21,28.25,38.13,45.37a1.24,1.24,0,0,1,0,1.76A1.21,1.21,0,0,1,37.25,47.5Z"],
@@ -45969,6 +45980,7 @@ module.exports={
 },{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/themes.js":[function(require,module,exports){
 module.exports = themes
 
+// define colors
 const bluePurple = '#6700ff'
 const lightGreen = '#09FFC3'
 const lightGreenHover = '#A1FFE8'
@@ -45983,15 +45995,34 @@ const dark1d = '#1d1d26'
 const peach = 'rgba(255, 41,117, 100)'
 const transparent = 'rgba(0,0,0,0)'
 
+// define font
+const fontNunito = `'Nunito', sans-serif`
+const fontInconsolata = `'Inconsolata', monospace`
+
 function themes (themeName) {
   const lightTheme = {
+    '--main-font': fontNunito,
+    '--code-font': fontInconsolata,
+    '--h1': '6rem',
+    '--h2': '5rem',
+    '--h3': '4rem',
+    '--h4': '3rem',
+    '--h5': '2rem',
+    '--h6': '1.6rem',
     '--body-color': grey33,
     '--body-background': greyEB,
+    '--wrapper-padding': '0 30px',
     '--button-default': lightGreen,
     '--button-default-hover': white,
+    '--button-default-font-size': '1.8rem',
     '--button-default-text': dark1d,
     '--button-default-text-hover': dark1d,
+    '--button-default-radius': '22px',
+    '--button-default-padding': '10px 30px',
+    '--button-padding-right': '30px',
+    '--button-padding-left': '30px',
     '--button-border': '0px solid var(--button-white)',
+    '--button-box-shadow': 'none',
     '--editor-preview': white,
     '--card-cover': greyEB,
     '--card-hover-cover': lightGreen,
@@ -46001,6 +46032,11 @@ function themes (themeName) {
     '--card-code-overlay': 'linear-gradient(0deg, rgba(0,0,0, .1) 0%, rgba(0,0,0, .28) 100%)',
     '--card-shadow': '0px 6px 8px rgba(144, 144, 144, .3)',
     '--card-hover-shadow': '0px 6px 8px rgba(144, 144, 144, .3)',
+    '--card-code-text': '1.3rem',
+    '--card-code-text-line-height': '20px',
+    '--card-code-width': 'calc(100% - 40px)',
+    '--card-code-height': 'calc(100% - 30px)',
+    '--card-code-padding': '15px 20px',
     '--card-cover-title': grey31,
     '--card-hover-cover-title': grey31,
     '--card-cover-userInfo': grey33,
@@ -46013,6 +46049,9 @@ function themes (themeName) {
     '--search-input-color': grey8D,
     '--search-input-text': '1.4rem',
     '--search-icon-fill': dark1d,
+    '--search-button-color': dark1d,
+    '--search-button-background': white,
+    '--search-button-hover-background': lightGreen,
     '--text-large': '2rem',
     '--text-normal': '1.6rem',
     '--text-small': '1.4rem',
@@ -46020,20 +46059,41 @@ function themes (themeName) {
     '--pages-current-background': white,
     '--pages-border': '0px solid rgba(0,0,0,0)',
     '--pages-text': grey8D,
+    '--pages-text-active': dark1d,
+    '--pages-text-border-radius': '4px',
     '--pages-hover-background': white,
     '--grid-template': '',
     '--icon-new-fill': dark1d,
     '--pagination-button-icon-fill': dark1d,
+    '--collectionArea-grid-gap': '30px',
+    '--collectionCard-border-radius': '6px',
+    '--pages-li-color': grey8D,
+    '--search-button-border-radius': '30px',
   }
 
   const darkTheme = {
+    '--main-font': fontNunito,
+    '--code-font': fontInconsolata,
+    '--h1': '6rem',
+    '--h2': '5rem',
+    '--h3': '4rem',
+    '--h4': '3rem',
+    '--h5': '2rem',
+    '--h6': '1.6rem',
     '--body-color': white,
     '--body-background': dark18,
+    '--wrapper-padding': '0 30px',
     '--button-default': transparent,
     '--button-default-hover': bluePurple,
+    '--button-default-font-size': '1.8rem',
     '--button-default-text': peach,
     '--button-default-text-hover': peach,
+    '--button-default-radius': '22px',
+    '--button-default-padding': '10px 30px',
+    '--button-padding-right': '30px',
+    '--button-padding-left': '30px',
     '--button-border': '1px solid #6700ff',
+    '--button-box-shadow': '0 1px 8px rgba(255,41,117, .3)',
     '--editor-preview': dark1d,
     '--card-cover': grey31,
     '--card-hover-cover': bluePurple,
@@ -46043,6 +46103,11 @@ function themes (themeName) {
     '--card-code-overlay': 'linear-gradient(0deg, rgba(103,0,255, .1) 0%, rgba(103,0,255, .28) 100%)',
     '--card-shadow': '0px 2px 30px rgba(103, 0, 255, 0)',
     '--card-hover-shadow': '0px 2px 30px rgba(103, 0, 255, .6)',
+    '--card-code-text': '1.3rem',
+    '--card-code-text-line-height': '20px',
+    '--card-code-width': 'calc(100% - 40px)',
+    '--card-code-height': 'calc(100% - 30px)',
+    '--card-code-padding': '15px 20px',
     '--card-cover-title': lightGreen,
     '--card-hover-cover-title': white,
     '--card-cover-userInfo': white,
@@ -46055,6 +46120,9 @@ function themes (themeName) {
     '--search-input-color': lightGreen,
     '--search-input-text': '1.4rem',
     '--search-icon-fill': lightGreen,
+    '--search-button-color': white,
+    '--search-button-background': white,
+    '--search-button-hover-background': bluePurple,
     '--text-large': '2rem',
     '--text-normal': '1.6rem',
     '--text-small': '1.4rem',
@@ -46062,10 +46130,15 @@ function themes (themeName) {
     '--pages-current-background': transparent,
     '--pages-border': '1px solid #6700ff',
     '--pages-text': peach,
+    '--pages-text-active': white,
+    '--pages-text-border-radius': '4px',
     '--pages-hover-background': bluePurple,
     '--grid-template': '',
     '--icon-new-fill': white,
     '--pagination-button-icon-fill': peach,
+    '--collectionArea-grid-gap': '30px',
+    '--collectionCard-border-radius': '6px',
+    '--search-button-border-radius': '30px',
   }
 
   const themes = {
