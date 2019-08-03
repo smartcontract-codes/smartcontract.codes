@@ -1,4 +1,4 @@
-(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/@geut/discovery-swarm-webrtc/index.js":[function(require,module,exports){
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/@geut/discovery-swarm-webrtc/index.js":[function(require,module,exports){
 (function (process){
 const assert = require('assert')
 const EventEmitter = require('events')
@@ -111,7 +111,7 @@ class DiscoverySwarmWebrtc extends EventEmitter {
 module.exports = (...args) => new DiscoverySwarmWebrtc(...args)
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/assert.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","pump":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pump/index.js","sub-signalhub":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sub-signalhub/index.js","webrtc-swarm":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/webrtc-swarm/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/index.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/assert/assert.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","pump":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pump/index.js","sub-signalhub":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sub-signalhub/index.js","webrtc-swarm":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/webrtc-swarm/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/index.js":[function(require,module,exports){
 (function (Buffer){
 var from = require('from2')
 var mutexify = require('mutexify')
@@ -824,7 +824,7 @@ function getCache (opts) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./messages":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/messages.js","array-lru":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/array-lru/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","codecs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/codecs/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","from2":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/from2/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","mutexify":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/mutexify/index.js","process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/process-nextick-args/index.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/messages.js":[function(require,module,exports){
+},{"./messages":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/messages.js","array-lru":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/array-lru/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","codecs":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/codecs/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","from2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/from2/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","mutexify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/mutexify/index.js","process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/process-nextick-args/index.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/messages.js":[function(require,module,exports){
 (function (Buffer){
 // This file is auto generated by the protocol-buffers cli tool
 
@@ -940,7 +940,7 @@ function defined (val) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","protocol-buffers-encodings":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/codecs/index.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","protocol-buffers-encodings":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/protocol-buffers-encodings/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/codecs/index.js":[function(require,module,exports){
 (function (Buffer){
 module.exports = codecs
 
@@ -1015,7 +1015,7 @@ function createString (type) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/process-nextick-args/index.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/process-nextick-args/index.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -1062,7 +1062,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/decode.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/decode.js":[function(require,module,exports){
 module.exports = read
 
 var MSB = 0x80
@@ -1093,7 +1093,7 @@ function read(buf, offset) {
   return res
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/encode.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/encode.js":[function(require,module,exports){
 module.exports = encode
 
 var MSB = 0x80
@@ -1121,14 +1121,14 @@ function encode(num, out, offset) {
   return out
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/index.js":[function(require,module,exports){
 module.exports = {
     encode: require('./encode.js')
   , decode: require('./decode.js')
   , encodingLength: require('./length.js')
 }
 
-},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/length.js":[function(require,module,exports){
+},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/length.js":[function(require,module,exports){
 
 var N1 = Math.pow(2,  7)
 var N2 = Math.pow(2, 14)
@@ -1155,7 +1155,7 @@ module.exports = function (value) {
   )
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/array-lru/crc16.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/array-lru/crc16.js":[function(require,module,exports){
 // crc16 impl, optimized for numeric inputs
 
 var TABLE = [
@@ -1208,7 +1208,7 @@ function crc16 (n) {
   return crc
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/array-lru/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/array-lru/index.js":[function(require,module,exports){
 var hash = require('./crc16')
 
 module.exports = LRU
@@ -1323,7 +1323,7 @@ function maskedHash (mask) {
   }
 }
 
-},{"./crc16":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/array-lru/crc16.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1.js":[function(require,module,exports){
+},{"./crc16":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/array-lru/crc16.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1.js":[function(require,module,exports){
 var asn1 = exports;
 
 asn1.bignum = require('bn.js');
@@ -1334,7 +1334,7 @@ asn1.constants = require('./asn1/constants');
 asn1.decoders = require('./asn1/decoders');
 asn1.encoders = require('./asn1/encoders');
 
-},{"./asn1/api":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/api.js","./asn1/base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/index.js","./asn1/constants":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/constants/index.js","./asn1/decoders":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/decoders/index.js","./asn1/encoders":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/encoders/index.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/api.js":[function(require,module,exports){
+},{"./asn1/api":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/api.js","./asn1/base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/base/index.js","./asn1/constants":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/constants/index.js","./asn1/decoders":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/decoders/index.js","./asn1/encoders":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/encoders/index.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/api.js":[function(require,module,exports){
 var asn1 = require('../asn1');
 var inherits = require('inherits');
 
@@ -1397,7 +1397,7 @@ Entity.prototype.encode = function encode(data, enc, /* internal */ reporter) {
   return this._getEncoder(enc).encode(data, reporter);
 };
 
-},{"../asn1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","vm":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/vm-browserify/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/buffer.js":[function(require,module,exports){
+},{"../asn1":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","vm":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/vm-browserify/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/base/buffer.js":[function(require,module,exports){
 var inherits = require('inherits');
 var Reporter = require('../base').Reporter;
 var Buffer = require('buffer').Buffer;
@@ -1515,7 +1515,7 @@ EncoderBuffer.prototype.join = function join(out, offset) {
   return out;
 };
 
-},{"../base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/index.js":[function(require,module,exports){
+},{"../base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/base/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/base/index.js":[function(require,module,exports){
 var base = exports;
 
 base.Reporter = require('./reporter').Reporter;
@@ -1523,7 +1523,7 @@ base.DecoderBuffer = require('./buffer').DecoderBuffer;
 base.EncoderBuffer = require('./buffer').EncoderBuffer;
 base.Node = require('./node');
 
-},{"./buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/buffer.js","./node":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/node.js","./reporter":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/reporter.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/node.js":[function(require,module,exports){
+},{"./buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/base/buffer.js","./node":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/base/node.js","./reporter":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/base/reporter.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/base/node.js":[function(require,module,exports){
 var Reporter = require('../base').Reporter;
 var EncoderBuffer = require('../base').EncoderBuffer;
 var DecoderBuffer = require('../base').DecoderBuffer;
@@ -2159,7 +2159,7 @@ Node.prototype._isPrintstr = function isPrintstr(str) {
   return /^[A-Za-z0-9 '\(\)\+,\-\.\/:=\?]*$/.test(str);
 };
 
-},{"../base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/index.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/base/reporter.js":[function(require,module,exports){
+},{"../base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/base/index.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/base/reporter.js":[function(require,module,exports){
 var inherits = require('inherits');
 
 function Reporter(options) {
@@ -2282,7 +2282,7 @@ ReporterError.prototype.rethrow = function rethrow(msg) {
   return this;
 };
 
-},{"inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/constants/der.js":[function(require,module,exports){
+},{"inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/constants/der.js":[function(require,module,exports){
 var constants = require('../constants');
 
 exports.tagClass = {
@@ -2326,7 +2326,7 @@ exports.tag = {
 };
 exports.tagByName = constants._reverse(exports.tag);
 
-},{"../constants":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/constants/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/constants/index.js":[function(require,module,exports){
+},{"../constants":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/constants/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/constants/index.js":[function(require,module,exports){
 var constants = exports;
 
 // Helper
@@ -2347,7 +2347,7 @@ constants._reverse = function reverse(map) {
 
 constants.der = require('./der');
 
-},{"./der":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/constants/der.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/decoders/der.js":[function(require,module,exports){
+},{"./der":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/constants/der.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/decoders/der.js":[function(require,module,exports){
 var inherits = require('inherits');
 
 var asn1 = require('../../asn1');
@@ -2673,13 +2673,13 @@ function derDecodeLen(buf, primitive, fail) {
   return len;
 }
 
-},{"../../asn1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/decoders/index.js":[function(require,module,exports){
+},{"../../asn1":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/decoders/index.js":[function(require,module,exports){
 var decoders = exports;
 
 decoders.der = require('./der');
 decoders.pem = require('./pem');
 
-},{"./der":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/decoders/der.js","./pem":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/decoders/pem.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/decoders/pem.js":[function(require,module,exports){
+},{"./der":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/decoders/der.js","./pem":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/decoders/pem.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/decoders/pem.js":[function(require,module,exports){
 var inherits = require('inherits');
 var Buffer = require('buffer').Buffer;
 
@@ -2730,7 +2730,7 @@ PEMDecoder.prototype.decode = function decode(data, options) {
   return DERDecoder.prototype.decode.call(this, input, options);
 };
 
-},{"./der":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/decoders/der.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/encoders/der.js":[function(require,module,exports){
+},{"./der":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/decoders/der.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/encoders/der.js":[function(require,module,exports){
 var inherits = require('inherits');
 var Buffer = require('buffer').Buffer;
 
@@ -3027,13 +3027,13 @@ function encodeTag(tag, primitive, cls, reporter) {
   return res;
 }
 
-},{"../../asn1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/encoders/index.js":[function(require,module,exports){
+},{"../../asn1":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/encoders/index.js":[function(require,module,exports){
 var encoders = exports;
 
 encoders.der = require('./der');
 encoders.pem = require('./pem');
 
-},{"./der":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/encoders/der.js","./pem":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/encoders/pem.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/encoders/pem.js":[function(require,module,exports){
+},{"./der":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/encoders/der.js","./pem":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/encoders/pem.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/encoders/pem.js":[function(require,module,exports){
 var inherits = require('inherits');
 
 var DEREncoder = require('./der');
@@ -3056,7 +3056,7 @@ PEMEncoder.prototype.encode = function encode(data, options) {
   return out.join('\n');
 };
 
-},{"./der":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1/encoders/der.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/assert.js":[function(require,module,exports){
+},{"./der":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1/encoders/der.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/assert/assert.js":[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -3566,7 +3566,7 @@ var objectKeys = Object.keys || function (obj) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"object-assign":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/object-assign/index.js","util/":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/util/util.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
+},{"object-assign":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/object-assign/index.js","util/":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/assert/node_modules/util/util.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/assert/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -3591,14 +3591,14 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/util/support/isBufferBrowser.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/assert/node_modules/util/support/isBufferBrowser.js":[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/util/util.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/assert/node_modules/util/util.js":[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -4188,7 +4188,7 @@ function hasOwnProperty(obj, prop) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./support/isBuffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/util/support/isBufferBrowser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/atomic-batcher/index.js":[function(require,module,exports){
+},{"./support/isBuffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/assert/node_modules/util/support/isBufferBrowser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/assert/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/atomic-batcher/index.js":[function(require,module,exports){
 module.exports = batcher
 
 function batcher (run) {
@@ -4250,7 +4250,7 @@ function callAll (list, err) {
   for (var i = 0; i < list.length; i++) list[i](err)
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/base64-js/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/base64-js/index.js":[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -4403,7 +4403,7 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/appendChild.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/appendChild.js":[function(require,module,exports){
 var trailingNewlineRegex = /\n[\s]+$/
 var leadingNewlineRegex = /^\n[\s]+/
 var trailingSpaceRegex = /[\s]+$/
@@ -4536,7 +4536,7 @@ module.exports = function appendChild (el, childs) {
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js":[function(require,module,exports){
 var hyperx = require('hyperx')
 var appendChild = require('./appendChild')
 
@@ -4637,7 +4637,7 @@ module.exports = hyperx(belCreateElement, {comments: true})
 module.exports.default = module.exports
 module.exports.createElement = belCreateElement
 
-},{"./appendChild":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/appendChild.js","hyperx":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperx/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bitfield-rle/index.js":[function(require,module,exports){
+},{"./appendChild":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/appendChild.js","hyperx":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperx/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bitfield-rle/index.js":[function(require,module,exports){
 var varint = require('varint')
 var alloc = require('buffer-alloc-unsafe')
 
@@ -4804,7 +4804,7 @@ function align (n) {
   }
 }
 
-},{"buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc-unsafe/index.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/blake2b-wasm/blake2b.js":[function(require,module,exports){
+},{"buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-alloc-unsafe/index.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/blake2b-wasm/blake2b.js":[function(require,module,exports){
 
 module.exports = loadWebAssembly
 
@@ -4867,7 +4867,7 @@ function charCodeAt (c) {
   return c.charCodeAt(0)
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/blake2b-wasm/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/blake2b-wasm/index.js":[function(require,module,exports){
 var assert = require('nanoassert')
 var wasm = require('./blake2b')()
 
@@ -4997,7 +4997,7 @@ function toHex (n) {
   return n.toString(16)
 }
 
-},{"./blake2b":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/blake2b-wasm/blake2b.js","nanoassert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/nanoassert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/blake2b/index.js":[function(require,module,exports){
+},{"./blake2b":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/blake2b-wasm/blake2b.js","nanoassert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/nanoassert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/blake2b/index.js":[function(require,module,exports){
 var assert = require('nanoassert')
 var b2wasm = require('blake2b-wasm')
 
@@ -5312,7 +5312,7 @@ b2wasm.ready(function (err) {
   }
 })
 
-},{"blake2b-wasm":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/blake2b-wasm/index.js","nanoassert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/nanoassert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js":[function(require,module,exports){
+},{"blake2b-wasm":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/blake2b-wasm/index.js","nanoassert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/nanoassert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js":[function(require,module,exports){
 (function (module, exports) {
   'use strict';
 
@@ -8741,7 +8741,7 @@ b2wasm.ready(function (err) {
   };
 })(typeof module === 'undefined' || module, this);
 
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/brorand/index.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browser-resolve/empty.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/brorand/index.js":[function(require,module,exports){
 var r;
 
 module.exports = function rand(len) {
@@ -8808,9 +8808,9 @@ if (typeof self === 'object') {
   }
 }
 
-},{"crypto":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js":[function(require,module,exports){
+},{"crypto":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browser-resolve/empty.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browser-resolve/empty.js":[function(require,module,exports){
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/aes.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/aes.js":[function(require,module,exports){
 // based on the aes implimentation in triple sec
 // https://github.com/keybase/triplesec
 // which is in turn based on the one from crypto-js
@@ -9040,7 +9040,7 @@ AES.prototype.scrub = function () {
 
 module.exports.AES = AES
 
-},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/authCipher.js":[function(require,module,exports){
+},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/authCipher.js":[function(require,module,exports){
 var aes = require('./aes')
 var Buffer = require('safe-buffer').Buffer
 var Transform = require('cipher-base')
@@ -9159,7 +9159,7 @@ StreamCipher.prototype.setAAD = function setAAD (buf) {
 
 module.exports = StreamCipher
 
-},{"./aes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/aes.js","./ghash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/ghash.js","./incr32":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/incr32.js","buffer-xor":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-xor/index.js","cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/browser.js":[function(require,module,exports){
+},{"./aes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/aes.js","./ghash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/ghash.js","./incr32":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/incr32.js","buffer-xor":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-xor/index.js","cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/cipher-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/browser.js":[function(require,module,exports){
 var ciphers = require('./encrypter')
 var deciphers = require('./decrypter')
 var modes = require('./modes/list.json')
@@ -9174,7 +9174,7 @@ exports.createDecipher = exports.Decipher = deciphers.createDecipher
 exports.createDecipheriv = exports.Decipheriv = deciphers.createDecipheriv
 exports.listCiphers = exports.getCiphers = getCiphers
 
-},{"./decrypter":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/decrypter.js","./encrypter":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/encrypter.js","./modes/list.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/list.json"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/decrypter.js":[function(require,module,exports){
+},{"./decrypter":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/decrypter.js","./encrypter":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/encrypter.js","./modes/list.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/list.json"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/decrypter.js":[function(require,module,exports){
 var AuthCipher = require('./authCipher')
 var Buffer = require('safe-buffer').Buffer
 var MODES = require('./modes')
@@ -9300,7 +9300,7 @@ function createDecipher (suite, password) {
 exports.createDecipher = createDecipher
 exports.createDecipheriv = createDecipheriv
 
-},{"./aes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/aes.js","./authCipher":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/authCipher.js","./modes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/index.js","./streamCipher":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/streamCipher.js","cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js","evp_bytestokey":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/evp_bytestokey/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/encrypter.js":[function(require,module,exports){
+},{"./aes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/aes.js","./authCipher":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/authCipher.js","./modes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/index.js","./streamCipher":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/streamCipher.js","cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/cipher-base/index.js","evp_bytestokey":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/evp_bytestokey/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/encrypter.js":[function(require,module,exports){
 var MODES = require('./modes')
 var AuthCipher = require('./authCipher')
 var Buffer = require('safe-buffer').Buffer
@@ -9416,7 +9416,7 @@ function createCipher (suite, password) {
 exports.createCipheriv = createCipheriv
 exports.createCipher = createCipher
 
-},{"./aes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/aes.js","./authCipher":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/authCipher.js","./modes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/index.js","./streamCipher":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/streamCipher.js","cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js","evp_bytestokey":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/evp_bytestokey/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/ghash.js":[function(require,module,exports){
+},{"./aes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/aes.js","./authCipher":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/authCipher.js","./modes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/index.js","./streamCipher":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/streamCipher.js","cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/cipher-base/index.js","evp_bytestokey":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/evp_bytestokey/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/ghash.js":[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 var ZEROES = Buffer.alloc(16, 0)
 
@@ -9507,7 +9507,7 @@ GHASH.prototype.final = function (abl, bl) {
 
 module.exports = GHASH
 
-},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/incr32.js":[function(require,module,exports){
+},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/incr32.js":[function(require,module,exports){
 function incr32 (iv) {
   var len = iv.length
   var item
@@ -9524,7 +9524,7 @@ function incr32 (iv) {
 }
 module.exports = incr32
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/cbc.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/cbc.js":[function(require,module,exports){
 var xor = require('buffer-xor')
 
 exports.encrypt = function (self, block) {
@@ -9543,7 +9543,7 @@ exports.decrypt = function (self, block) {
   return xor(out, pad)
 }
 
-},{"buffer-xor":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-xor/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/cfb.js":[function(require,module,exports){
+},{"buffer-xor":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-xor/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/cfb.js":[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 var xor = require('buffer-xor')
 
@@ -9578,7 +9578,7 @@ exports.encrypt = function (self, data, decrypt) {
   return out
 }
 
-},{"buffer-xor":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-xor/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/cfb1.js":[function(require,module,exports){
+},{"buffer-xor":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-xor/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/cfb1.js":[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 
 function encryptByte (self, byteParam, decrypt) {
@@ -9622,7 +9622,7 @@ exports.encrypt = function (self, chunk, decrypt) {
   return out
 }
 
-},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/cfb8.js":[function(require,module,exports){
+},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/cfb8.js":[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 
 function encryptByte (self, byteParam, decrypt) {
@@ -9649,7 +9649,7 @@ exports.encrypt = function (self, chunk, decrypt) {
   return out
 }
 
-},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/ctr.js":[function(require,module,exports){
+},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/ctr.js":[function(require,module,exports){
 var xor = require('buffer-xor')
 var Buffer = require('safe-buffer').Buffer
 var incr32 = require('../incr32')
@@ -9681,7 +9681,7 @@ exports.encrypt = function (self, chunk) {
   return xor(chunk, pad)
 }
 
-},{"../incr32":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/incr32.js","buffer-xor":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-xor/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/ecb.js":[function(require,module,exports){
+},{"../incr32":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/incr32.js","buffer-xor":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-xor/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/ecb.js":[function(require,module,exports){
 exports.encrypt = function (self, block) {
   return self._cipher.encryptBlock(block)
 }
@@ -9690,7 +9690,7 @@ exports.decrypt = function (self, block) {
   return self._cipher.decryptBlock(block)
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/index.js":[function(require,module,exports){
 var modeModules = {
   ECB: require('./ecb'),
   CBC: require('./cbc'),
@@ -9710,7 +9710,7 @@ for (var key in modes) {
 
 module.exports = modes
 
-},{"./cbc":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/cbc.js","./cfb":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/cfb.js","./cfb1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/cfb1.js","./cfb8":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/cfb8.js","./ctr":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/ctr.js","./ecb":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/ecb.js","./list.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/list.json","./ofb":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/ofb.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/list.json":[function(require,module,exports){
+},{"./cbc":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/cbc.js","./cfb":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/cfb.js","./cfb1":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/cfb1.js","./cfb8":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/cfb8.js","./ctr":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/ctr.js","./ecb":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/ecb.js","./list.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/list.json","./ofb":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/ofb.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/list.json":[function(require,module,exports){
 module.exports={
   "aes-128-ecb": {
     "cipher": "AES",
@@ -9903,7 +9903,7 @@ module.exports={
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/ofb.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/ofb.js":[function(require,module,exports){
 (function (Buffer){
 var xor = require('buffer-xor')
 
@@ -9923,7 +9923,7 @@ exports.encrypt = function (self, chunk) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","buffer-xor":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-xor/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/streamCipher.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","buffer-xor":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-xor/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/streamCipher.js":[function(require,module,exports){
 var aes = require('./aes')
 var Buffer = require('safe-buffer').Buffer
 var Transform = require('cipher-base')
@@ -9952,7 +9952,7 @@ StreamCipher.prototype._final = function () {
 
 module.exports = StreamCipher
 
-},{"./aes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/aes.js","cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-cipher/browser.js":[function(require,module,exports){
+},{"./aes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/aes.js","cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/cipher-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-cipher/browser.js":[function(require,module,exports){
 var DES = require('browserify-des')
 var aes = require('browserify-aes/browser')
 var aesModes = require('browserify-aes/modes')
@@ -10021,7 +10021,7 @@ exports.createDecipher = exports.Decipher = createDecipher
 exports.createDecipheriv = exports.Decipheriv = createDecipheriv
 exports.listCiphers = exports.getCiphers = getCiphers
 
-},{"browserify-aes/browser":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/browser.js","browserify-aes/modes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/modes/index.js","browserify-des":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-des/index.js","browserify-des/modes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-des/modes.js","evp_bytestokey":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/evp_bytestokey/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-des/index.js":[function(require,module,exports){
+},{"browserify-aes/browser":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/browser.js","browserify-aes/modes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/modes/index.js","browserify-des":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-des/index.js","browserify-des/modes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-des/modes.js","evp_bytestokey":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/evp_bytestokey/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-des/index.js":[function(require,module,exports){
 var CipherBase = require('cipher-base')
 var des = require('des.js')
 var inherits = require('inherits')
@@ -10073,7 +10073,7 @@ DES.prototype._final = function () {
   return Buffer.from(this._des.final())
 }
 
-},{"cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js","des.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-des/modes.js":[function(require,module,exports){
+},{"cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/cipher-base/index.js","des.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/des.js/lib/des.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-des/modes.js":[function(require,module,exports){
 exports['des-ecb'] = {
   key: 8,
   iv: 0
@@ -10099,7 +10099,7 @@ exports['des-ede'] = {
   iv: 0
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-rsa/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-rsa/index.js":[function(require,module,exports){
 (function (Buffer){
 var bn = require('bn.js');
 var randomBytes = require('randombytes');
@@ -10143,10 +10143,10 @@ function getr(priv) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/algos.js":[function(require,module,exports){
+},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/randombytes/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/algos.js":[function(require,module,exports){
 module.exports = require('./browser/algorithms.json')
 
-},{"./browser/algorithms.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/algorithms.json"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/algorithms.json":[function(require,module,exports){
+},{"./browser/algorithms.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/browser/algorithms.json"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/browser/algorithms.json":[function(require,module,exports){
 module.exports={
   "sha224WithRSAEncryption": {
     "sign": "rsa",
@@ -10300,7 +10300,7 @@ module.exports={
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/curves.json":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/browser/curves.json":[function(require,module,exports){
 module.exports={
   "1.3.132.0.10": "secp256k1",
   "1.3.132.0.33": "p224",
@@ -10310,7 +10310,7 @@ module.exports={
   "1.3.132.0.35": "p521"
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/browser/index.js":[function(require,module,exports){
 (function (Buffer){
 var createHash = require('create-hash')
 var stream = require('stream')
@@ -10405,7 +10405,7 @@ module.exports = {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./algorithms.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/algorithms.json","./sign":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/sign.js","./verify":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/verify.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","create-hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/browser.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-browserify/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/sign.js":[function(require,module,exports){
+},{"./algorithms.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/browser/algorithms.json","./sign":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/browser/sign.js","./verify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/browser/verify.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","create-hash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/create-hash/browser.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-browserify/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/browser/sign.js":[function(require,module,exports){
 (function (Buffer){
 // much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
 var createHmac = require('create-hmac')
@@ -10554,7 +10554,7 @@ module.exports.getKey = getKey
 module.exports.makeKey = makeKey
 
 }).call(this,require("buffer").Buffer)
-},{"./curves.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/curves.json","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","browserify-rsa":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-rsa/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","create-hmac":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hmac/browser.js","elliptic":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic.js","parse-asn1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/verify.js":[function(require,module,exports){
+},{"./curves.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/browser/curves.json","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","browserify-rsa":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-rsa/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","create-hmac":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/create-hmac/browser.js","elliptic":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic.js","parse-asn1":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/browser/verify.js":[function(require,module,exports){
 (function (Buffer){
 // much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
 var BN = require('bn.js')
@@ -10641,7 +10641,7 @@ function checkValue (b, q) {
 module.exports = verify
 
 }).call(this,require("buffer").Buffer)
-},{"./curves.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/curves.json","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","elliptic":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic.js","parse-asn1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc-unsafe/index.js":[function(require,module,exports){
+},{"./curves.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/browser/curves.json","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","elliptic":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic.js","parse-asn1":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-alloc-unsafe/index.js":[function(require,module,exports){
 (function (Buffer){
 function allocUnsafe (size) {
   if (typeof size !== 'number') {
@@ -10662,7 +10662,7 @@ function allocUnsafe (size) {
 module.exports = allocUnsafe
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc/index.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-alloc/index.js":[function(require,module,exports){
 (function (Buffer){
 var bufferFill = require('buffer-fill')
 var allocUnsafe = require('buffer-alloc-unsafe')
@@ -10698,7 +10698,7 @@ module.exports = function alloc (size, fill, encoding) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc-unsafe/index.js","buffer-fill":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-fill/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-fill/index.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-alloc-unsafe/index.js","buffer-fill":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-fill/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-fill/index.js":[function(require,module,exports){
 (function (Buffer){
 /* Node.js 6.4.0 and up has full support */
 var hasFullSupport = (function () {
@@ -10815,7 +10815,7 @@ function fill (buffer, val, start, end, encoding) {
 module.exports = fill
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-from/index.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-from/index.js":[function(require,module,exports){
 (function (Buffer){
 var toString = Object.prototype.toString
 
@@ -10888,7 +10888,7 @@ function bufferFrom (value, encodingOrOffset, length) {
 module.exports = bufferFrom
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-xor/index.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-xor/index.js":[function(require,module,exports){
 (function (Buffer){
 module.exports = function xor (a, b) {
   var length = Math.min(a.length, b.length)
@@ -10902,7 +10902,7 @@ module.exports = function xor (a, b) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js":[function(require,module,exports){
 (function (Buffer){
 /*!
  * The buffer module from node.js, for the browser.
@@ -12683,7 +12683,7 @@ function numberIsNaN (obj) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"base64-js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/base64-js/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","ieee754":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ieee754/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bulk-write-stream/index.js":[function(require,module,exports){
+},{"base64-js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/base64-js/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","ieee754":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/ieee754/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bulk-write-stream/index.js":[function(require,module,exports){
 var stream = require('readable-stream')
 var inherits = require('inherits')
 var bufferFrom = require('buffer-from')
@@ -12756,7 +12756,7 @@ Bulk.prototype._flusher = function (cb) {
 
 module.exports = Bulk
 
-},{"buffer-from":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-from/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js":[function(require,module,exports){
+},{"buffer-from":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-from/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/cipher-base/index.js":[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 var Transform = require('stream').Transform
 var StringDecoder = require('string_decoder').StringDecoder
@@ -12857,7 +12857,7 @@ CipherBase.prototype._toString = function (value, enc, fin) {
 
 module.exports = CipherBase
 
-},{"inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js","stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-browserify/index.js","string_decoder":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/string_decoder/lib/string_decoder.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/codecs/index.js":[function(require,module,exports){
+},{"inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js","stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-browserify/index.js","string_decoder":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/string_decoder/lib/string_decoder.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/codecs/index.js":[function(require,module,exports){
 (function (Buffer){
 module.exports = codecs
 
@@ -12928,7 +12928,7 @@ function createString (type) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/core-util-is/lib/util.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/core-util-is/lib/util.js":[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -13039,7 +13039,7 @@ function objectToString(o) {
 }
 
 }).call(this,{"isBuffer":require("../../insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../../insert-module-globals/node_modules/is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/insert-module-globals/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/count-trailing-zeros/ctz.js":[function(require,module,exports){
+},{"../../insert-module-globals/node_modules/is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/insert-module-globals/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/count-trailing-zeros/ctz.js":[function(require,module,exports){
 module.exports = function(v) {
   var c = 32
   v &= -v
@@ -13052,7 +13052,7 @@ module.exports = function(v) {
   return c
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-ecdh/browser.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/create-ecdh/browser.js":[function(require,module,exports){
 (function (Buffer){
 var elliptic = require('elliptic')
 var BN = require('bn.js')
@@ -13180,7 +13180,7 @@ function formatReturnValue (bn, enc, len) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","elliptic":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/browser.js":[function(require,module,exports){
+},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","elliptic":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/create-hash/browser.js":[function(require,module,exports){
 'use strict'
 var inherits = require('inherits')
 var MD5 = require('md5.js')
@@ -13212,14 +13212,14 @@ module.exports = function createHash (alg) {
   return new Hash(sha(alg))
 }
 
-},{"cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","md5.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/md5.js/index.js","ripemd160":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ripemd160/index.js","sha.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/md5.js":[function(require,module,exports){
+},{"cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/cipher-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","md5.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/md5.js/index.js","ripemd160":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/ripemd160/index.js","sha.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/create-hash/md5.js":[function(require,module,exports){
 var MD5 = require('md5.js')
 
 module.exports = function (buffer) {
   return new MD5().update(buffer).digest()
 }
 
-},{"md5.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/md5.js/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hmac/browser.js":[function(require,module,exports){
+},{"md5.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/md5.js/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/create-hmac/browser.js":[function(require,module,exports){
 'use strict'
 var inherits = require('inherits')
 var Legacy = require('./legacy')
@@ -13283,7 +13283,7 @@ module.exports = function createHmac (alg, key) {
   return new Hmac(alg, key)
 }
 
-},{"./legacy":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hmac/legacy.js","cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js","create-hash/md5":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/md5.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","ripemd160":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ripemd160/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js","sha.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hmac/legacy.js":[function(require,module,exports){
+},{"./legacy":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/create-hmac/legacy.js","cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/cipher-base/index.js","create-hash/md5":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/create-hash/md5.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","ripemd160":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/ripemd160/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js","sha.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/create-hmac/legacy.js":[function(require,module,exports){
 'use strict'
 var inherits = require('inherits')
 var Buffer = require('safe-buffer').Buffer
@@ -13331,7 +13331,7 @@ Hmac.prototype._final = function () {
 }
 module.exports = Hmac
 
-},{"cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cipher-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/crypto-browserify/index.js":[function(require,module,exports){
+},{"cipher-base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/cipher-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/crypto-browserify/index.js":[function(require,module,exports){
 'use strict'
 
 exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = require('randombytes')
@@ -13430,7 +13430,7 @@ exports.constants = {
   'POINT_CONVERSION_HYBRID': 6
 }
 
-},{"browserify-cipher":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-cipher/browser.js","browserify-sign":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/browser/index.js","browserify-sign/algos":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-sign/algos.js","create-ecdh":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-ecdh/browser.js","create-hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/browser.js","create-hmac":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hmac/browser.js","diffie-hellman":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/browser.js","pbkdf2":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/browser.js","public-encrypt":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/browser.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js","randomfill":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randomfill/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/csjs.js":[function(require,module,exports){
+},{"browserify-cipher":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-cipher/browser.js","browserify-sign":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/browser/index.js","browserify-sign/algos":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/algos.js","create-ecdh":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/create-ecdh/browser.js","create-hash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/create-hash/browser.js","create-hmac":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/create-hmac/browser.js","diffie-hellman":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/diffie-hellman/browser.js","pbkdf2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pbkdf2/browser.js","public-encrypt":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/public-encrypt/browser.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/randombytes/browser.js","randomfill":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/randomfill/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/csjs.js":[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -13449,12 +13449,12 @@ function csjsInserter() {
 module.exports = csjsInserter;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"csjs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/index.js","insert-css":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/insert-css/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/get-css.js":[function(require,module,exports){
+},{"csjs":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/index.js","insert-css":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/insert-css/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/get-css.js":[function(require,module,exports){
 'use strict';
 
 module.exports = require('csjs/get-css');
 
-},{"csjs/get-css":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/get-css.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js":[function(require,module,exports){
+},{"csjs/get-css":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/get-css.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js":[function(require,module,exports){
 'use strict';
 
 var csjs = require('./csjs');
@@ -13463,17 +13463,17 @@ module.exports = csjs;
 module.exports.csjs = csjs;
 module.exports.getCss = require('./get-css');
 
-},{"./csjs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/csjs.js","./get-css":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/get-css.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/csjs.js":[function(require,module,exports){
+},{"./csjs":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/csjs.js","./get-css":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/get-css.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/csjs.js":[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/csjs');
 
-},{"./lib/csjs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/csjs.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/get-css.js":[function(require,module,exports){
+},{"./lib/csjs":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/csjs.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/get-css.js":[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/get-css');
 
-},{"./lib/get-css":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/get-css.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/index.js":[function(require,module,exports){
+},{"./lib/get-css":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/get-css.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/index.js":[function(require,module,exports){
 'use strict';
 
 var csjs = require('./csjs');
@@ -13483,7 +13483,7 @@ module.exports.csjs = csjs;
 module.exports.noScope = csjs({ noscope: true });
 module.exports.getCss = require('./get-css');
 
-},{"./csjs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/csjs.js","./get-css":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/get-css.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/base62-encode.js":[function(require,module,exports){
+},{"./csjs":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/csjs.js","./get-css":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/get-css.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/base62-encode.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -13505,7 +13505,7 @@ module.exports = function encode(integer) {
   return str;
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/build-exports.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/build-exports.js":[function(require,module,exports){
 'use strict';
 
 var makeComposition = require('./composition').makeComposition;
@@ -13549,7 +13549,7 @@ function getClassChain(obj) {
   return acc;
 }
 
-},{"./composition":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/composition.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/composition.js":[function(require,module,exports){
+},{"./composition":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/composition.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/composition.js":[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -13629,7 +13629,7 @@ function ignoreComposition(values) {
  */
 function Composition() {}
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/csjs.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/csjs.js":[function(require,module,exports){
 'use strict';
 
 var extractExtends = require('./css-extract-extends');
@@ -13707,7 +13707,7 @@ function without(obj, unwanted) {
   }, {});
 }
 
-},{"./build-exports":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/build-exports.js","./composition":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/composition.js","./css-extract-extends":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/css-extract-extends.js","./css-key":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/css-key.js","./extract-exports":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/extract-exports.js","./scopeify":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/scopeify.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/css-extract-extends.js":[function(require,module,exports){
+},{"./build-exports":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/build-exports.js","./composition":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/composition.js","./css-extract-extends":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/css-extract-extends.js","./css-key":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/css-key.js","./extract-exports":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/extract-exports.js","./scopeify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/scopeify.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/css-extract-extends.js":[function(require,module,exports){
 'use strict';
 
 var makeComposition = require('./composition').makeComposition;
@@ -13760,7 +13760,7 @@ function getClassName(str) {
   return trimmed[0] === '.' ? trimmed.substr(1) : trimmed;
 }
 
-},{"./composition":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/composition.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/css-key.js":[function(require,module,exports){
+},{"./composition":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/composition.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/css-key.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -13770,7 +13770,7 @@ function getClassName(str) {
 
 module.exports = ' css ';
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/extract-exports.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/extract-exports.js":[function(require,module,exports){
 'use strict';
 
 var regex = require('./regex');
@@ -13797,7 +13797,7 @@ function getExport(css, regex) {
   return prop;
 }
 
-},{"./regex":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/regex.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/get-css.js":[function(require,module,exports){
+},{"./regex":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/regex.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/get-css.js":[function(require,module,exports){
 'use strict';
 
 var cssKey = require('./css-key');
@@ -13806,7 +13806,7 @@ module.exports = function getCss(csjs) {
   return csjs[cssKey];
 };
 
-},{"./css-key":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/css-key.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/hash-string.js":[function(require,module,exports){
+},{"./css-key":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/css-key.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/hash-string.js":[function(require,module,exports){
 'use strict';
 
 /**
@@ -13824,7 +13824,7 @@ module.exports = function hashStr(str) {
   return hash >>> 0;
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/regex.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/regex.js":[function(require,module,exports){
 'use strict';
 
 var findClasses = /(\.)(?!\d)([^\s\.,{\[>+~#:)]*)(?![^{]*})/.source;
@@ -13840,7 +13840,7 @@ module.exports = {
   ignoreComments: ignoreComments,
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/replace-animations.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/replace-animations.js":[function(require,module,exports){
 var ignoreComments = require('./regex').ignoreComments;
 
 module.exports = replaceAnimations;
@@ -13871,7 +13871,7 @@ function replaceAnimations(result) {
   return result;
 }
 
-},{"./regex":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/regex.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/scoped-name.js":[function(require,module,exports){
+},{"./regex":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/regex.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/scoped-name.js":[function(require,module,exports){
 'use strict';
 
 var encode = require('./base62-encode');
@@ -13885,7 +13885,7 @@ module.exports = function fileScoper(fileSrc) {
   }
 };
 
-},{"./base62-encode":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/base62-encode.js","./hash-string":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/hash-string.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/scopeify.js":[function(require,module,exports){
+},{"./base62-encode":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/base62-encode.js","./hash-string":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/hash-string.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/scopeify.js":[function(require,module,exports){
 'use strict';
 
 var fileScoper = require('./scoped-name');
@@ -13926,7 +13926,7 @@ function scopify(css, ignores) {
   return replaceAnimations(result);
 }
 
-},{"./regex":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/regex.js","./replace-animations":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/replace-animations.js","./scoped-name":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs/lib/scoped-name.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cuid/dist/browser-cuid.js":[function(require,module,exports){
+},{"./regex":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/regex.js","./replace-animations":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/replace-animations.js","./scoped-name":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs/lib/scoped-name.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/cuid/dist/browser-cuid.js":[function(require,module,exports){
 /**
  * cuid.js
  * Collision-resistant UID generator for browsers and node.
@@ -14038,7 +14038,7 @@ function scopify(css, ignores) {
 
 }(this.applitude || this));
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-encoding/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-encoding/index.js":[function(require,module,exports){
 'use strict'
 
 var Buffer = require('safe-buffer').Buffer
@@ -14063,7 +14063,7 @@ function decode (str) {
 exports.encode = exports.toStr = encode
 exports.decode = exports.toBuf = decode
 
-},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-sdk/dns-web.js":[function(require,module,exports){
+},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-sdk/dns-web.js":[function(require,module,exports){
 
 // TODO: Persist to local storage
 
@@ -14125,7 +14125,7 @@ module.exports = ({
 
 function noop () {}
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-sdk/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-sdk/index.js":[function(require,module,exports){
 const discovery = require('hyperdiscovery')
 const datStorage = require('universal-dat-storage')
 const DatEncoding = require('dat-encoding')
@@ -14259,7 +14259,7 @@ function SDK ({ storageOpts, swarmOpts, driveOpts, coreOpts, dnsOpts } = {}) {
   }
 }
 
-},{"dat-dns":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-sdk/dns-web.js","dat-encoding":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-encoding/index.js","hypercore":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/index.js","hypercore-crypto":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-crypto/index.js","hyperdiscovery":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdiscovery/index.js","hyperdrive":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdrive/index.js","universal-dat-storage":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/universal-dat-storage/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-swarm-defaults/index.js":[function(require,module,exports){
+},{"dat-dns":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-sdk/dns-web.js","dat-encoding":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-encoding/index.js","hypercore":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/index.js","hypercore-crypto":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-crypto/index.js","hyperdiscovery":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdiscovery/index.js","hyperdrive":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/index.js","universal-dat-storage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/universal-dat-storage/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-swarm-defaults/index.js":[function(require,module,exports){
 var DAT_DOMAIN = 'dat.local'
 var DEFAULT_DISCOVERY = [
   'discovery1.datprotocol.com',
@@ -14281,7 +14281,7 @@ module.exports = function (opts) {
   return Object.assign({}, DEFAULT_OPTS, opts) // opts takes priority
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/debug/src/browser.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/debug/src/browser.js":[function(require,module,exports){
 (function (process){
 /**
  * This is the web browser implementation of `debug()`.
@@ -14470,7 +14470,7 @@ function localstorage() {
 }
 
 }).call(this,require('_process'))
-},{"./debug":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/debug/src/debug.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/debug/src/debug.js":[function(require,module,exports){
+},{"./debug":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/debug/src/debug.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/debug/src/debug.js":[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -14674,7 +14674,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ms/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des.js":[function(require,module,exports){
+},{"ms":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/ms/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/des.js/lib/des.js":[function(require,module,exports){
 'use strict';
 
 exports.utils = require('./des/utils');
@@ -14683,7 +14683,7 @@ exports.DES = require('./des/des');
 exports.CBC = require('./des/cbc');
 exports.EDE = require('./des/ede');
 
-},{"./des/cbc":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/cbc.js","./des/cipher":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/cipher.js","./des/des":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/des.js","./des/ede":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/ede.js","./des/utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/cbc.js":[function(require,module,exports){
+},{"./des/cbc":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/des.js/lib/des/cbc.js","./des/cipher":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/des.js/lib/des/cipher.js","./des/des":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/des.js/lib/des/des.js","./des/ede":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/des.js/lib/des/ede.js","./des/utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/des.js/lib/des/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/des.js/lib/des/cbc.js":[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -14750,7 +14750,7 @@ proto._update = function _update(inp, inOff, out, outOff) {
   }
 };
 
-},{"inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/cipher.js":[function(require,module,exports){
+},{"inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/des.js/lib/des/cipher.js":[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -14893,7 +14893,7 @@ Cipher.prototype._finalDecrypt = function _finalDecrypt() {
   return this._unpad(out);
 };
 
-},{"minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/des.js":[function(require,module,exports){
+},{"minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/des.js/lib/des/des.js":[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -15038,7 +15038,7 @@ DES.prototype._decrypt = function _decrypt(state, lStart, rStart, out, off) {
   utils.rip(l, r, out, off);
 };
 
-},{"../des":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/ede.js":[function(require,module,exports){
+},{"../des":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/des.js/lib/des.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/des.js/lib/des/ede.js":[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -15095,7 +15095,7 @@ EDE.prototype._update = function _update(inp, inOff, out, outOff) {
 EDE.prototype._pad = DES.prototype._pad;
 EDE.prototype._unpad = DES.prototype._unpad;
 
-},{"../des":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/des.js/lib/des/utils.js":[function(require,module,exports){
+},{"../des":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/des.js/lib/des.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/des.js/lib/des/utils.js":[function(require,module,exports){
 'use strict';
 
 exports.readUInt32BE = function readUInt32BE(bytes, off) {
@@ -15353,7 +15353,7 @@ exports.padSplit = function padSplit(num, size, group) {
   return out.join(' ');
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/browser.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/diffie-hellman/browser.js":[function(require,module,exports){
 (function (Buffer){
 var generatePrime = require('./lib/generatePrime')
 var primes = require('./lib/primes.json')
@@ -15399,7 +15399,7 @@ exports.DiffieHellmanGroup = exports.createDiffieHellmanGroup = exports.getDiffi
 exports.createDiffieHellman = exports.DiffieHellman = createDiffieHellman
 
 }).call(this,require("buffer").Buffer)
-},{"./lib/dh":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/lib/dh.js","./lib/generatePrime":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/lib/generatePrime.js","./lib/primes.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/lib/primes.json","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/lib/dh.js":[function(require,module,exports){
+},{"./lib/dh":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/diffie-hellman/lib/dh.js","./lib/generatePrime":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/diffie-hellman/lib/generatePrime.js","./lib/primes.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/diffie-hellman/lib/primes.json","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/diffie-hellman/lib/dh.js":[function(require,module,exports){
 (function (Buffer){
 var BN = require('bn.js');
 var MillerRabin = require('miller-rabin');
@@ -15567,7 +15567,7 @@ function formatReturnValue(bn, enc) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./generatePrime":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/lib/generatePrime.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","miller-rabin":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/miller-rabin/lib/mr.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/lib/generatePrime.js":[function(require,module,exports){
+},{"./generatePrime":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/diffie-hellman/lib/generatePrime.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","miller-rabin":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/miller-rabin/lib/mr.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/randombytes/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/diffie-hellman/lib/generatePrime.js":[function(require,module,exports){
 var randomBytes = require('randombytes');
 module.exports = findPrime;
 findPrime.simpleSieve = simpleSieve;
@@ -15674,7 +15674,7 @@ function findPrime(bits, gen) {
 
 }
 
-},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","miller-rabin":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/miller-rabin/lib/mr.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/diffie-hellman/lib/primes.json":[function(require,module,exports){
+},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","miller-rabin":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/miller-rabin/lib/mr.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/randombytes/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/diffie-hellman/lib/primes.json":[function(require,module,exports){
 module.exports={
     "modp1": {
         "gen": "02",
@@ -15709,7 +15709,7 @@ module.exports={
         "prime": "ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552bb9ed529077096966d670c354e4abc9804f1746c08ca18217c32905e462e36ce3be39e772c180e86039b2783a2ec07a28fb5c55df06f4c52c9de2bcbf6955817183995497cea956ae515d2261898fa051015728e5a8aaac42dad33170d04507a33a85521abdf1cba64ecfb850458dbef0a8aea71575d060c7db3970f85a6e1e4c7abf5ae8cdb0933d71e8c94e04a25619dcee3d2261ad2ee6bf12ffa06d98a0864d87602733ec86a64521f2b18177b200cbbe117577a615d6c770988c0bad946e208e24fa074e5ab3143db5bfce0fd108e4b82d120a92108011a723c12a787e6d788719a10bdba5b2699c327186af4e23c1a946834b6150bda2583e9ca2ad44ce8dbbbc2db04de8ef92e8efc141fbecaa6287c59474e6bc05d99b2964fa090c3a2233ba186515be7ed1f612970cee2d7afb81bdd762170481cd0069127d5b05aa993b4ea988d8fddc186ffb7dc90a6c08f4df435c93402849236c3fab4d27c7026c1d4dcb2602646dec9751e763dba37bdf8ff9406ad9e530ee5db382f413001aeb06a53ed9027d831179727b0865a8918da3edbebcf9b14ed44ce6cbaced4bb1bdb7f1447e6cc254b332051512bd7af426fb8f401378cd2bf5983ca01c64b92ecf032ea15d1721d03f482d7ce6e74fef6d55e702f46980c82b5a84031900b1c9e59e7c97fbec7e8f323a97a7e36cc88be0f1d45b7ff585ac54bd407b22b4154aacc8f6d7ebf48e1d814cc5ed20f8037e0a79715eef29be32806a1d58bb7c5da76f550aa3d8a1fbff0eb19ccb1a313d55cda56c9ec2ef29632387fe8d76e3c0468043e8f663f4860ee12bf2d5b0b7474d6e694f91e6dbe115974a3926f12fee5e438777cb6a932df8cd8bec4d073b931ba3bc832b68d9dd300741fa7bf8afc47ed2576f6936ba424663aab639c5ae4f5683423b4742bf1c978238f16cbe39d652de3fdb8befc848ad922222e04a4037c0713eb57a81a23f0c73473fc646cea306b4bcbc8862f8385ddfa9d4b7fa2c087e879683303ed5bdd3a062b3cf5b3a278a66d2a13f83f44f82ddf310ee074ab6a364597e899a0255dc164f31cc50846851df9ab48195ded7ea1b1d510bd7ee74d73faf36bc31ecfa268359046f4eb879f924009438b481c6cd7889a002ed5ee382bc9190da6fc026e479558e4475677e9aa9e3050e2765694dfc81f56e880b96e7160c980dd98edd3dfffffffffffffffff"
     }
 }
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-stream/client.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-stream/client.js":[function(require,module,exports){
 (function (Buffer){
 var EventEmitter = require('events')
 
@@ -15832,7 +15832,7 @@ module.exports = class DiscoverySwarmClient extends EventEmitter {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-stream/index.js","./proxystream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-stream/proxystream.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-stream/index.js":[function(require,module,exports){
+},{"./":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-stream/index.js","./proxystream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-stream/proxystream.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-stream/index.js":[function(require,module,exports){
 var Duplex = require('readable-stream').Duplex
 var lps = require('length-prefixed-stream')
 var messages = require('./messages')
@@ -15914,7 +15914,7 @@ module.exports = class DiscoverySwarmStream extends Duplex {
   _read () {}
 }
 
-},{"./messages":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-stream/messages.js","length-prefixed-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/index.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-stream/messages.js":[function(require,module,exports){
+},{"./messages":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-stream/messages.js","length-prefixed-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/length-prefixed-stream/index.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-stream/messages.js":[function(require,module,exports){
 (function (Buffer){
 // This file is auto generated by the protocol-buffers cli tool
 
@@ -16040,7 +16040,7 @@ function defined (val) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","protocol-buffers-encodings":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-stream/proxystream.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","protocol-buffers-encodings":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/protocol-buffers-encodings/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-stream/proxystream.js":[function(require,module,exports){
 var Duplex = require('readable-stream').Duplex
 
 module.exports = class ProxyStream extends Duplex {
@@ -16090,7 +16090,7 @@ module.exports = class ProxyStream extends Duplex {
   }
 }
 
-},{"readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-web/index.js":[function(require,module,exports){
+},{"readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-web/index.js":[function(require,module,exports){
 /* global self */
 const signalhubws = require('signalhubws')
 const webrtcSwarm = require('@geut/discovery-swarm-webrtc')
@@ -16311,7 +16311,7 @@ function setSecure (url) {
   }
 }
 
-},{"@geut/discovery-swarm-webrtc":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/@geut/discovery-swarm-webrtc/index.js","discovery-swarm-stream/client":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-stream/client.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js","signalhubws":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signalhubws/index.js","websocket-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/websocket-stream/stream.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/duplexify/index.js":[function(require,module,exports){
+},{"@geut/discovery-swarm-webrtc":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/@geut/discovery-swarm-webrtc/index.js","discovery-swarm-stream/client":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-stream/client.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/randombytes/browser.js","signalhubws":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signalhubws/index.js","websocket-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/websocket-stream/stream.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/duplexify/index.js":[function(require,module,exports){
 (function (process,Buffer){
 var stream = require('readable-stream')
 var eos = require('end-of-stream')
@@ -16549,7 +16549,7 @@ Duplexify.prototype.end = function(data, enc, cb) {
 module.exports = Duplexify
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","end-of-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/end-of-stream/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js","stream-shift":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-shift/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","end-of-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/end-of-stream/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js","stream-shift":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-shift/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic.js":[function(require,module,exports){
 'use strict';
 
 var elliptic = exports;
@@ -16564,7 +16564,7 @@ elliptic.curves = require('./elliptic/curves');
 elliptic.ec = require('./elliptic/ec');
 elliptic.eddsa = require('./elliptic/eddsa');
 
-},{"../package.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/package.json","./elliptic/curve":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/index.js","./elliptic/curves":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curves.js","./elliptic/ec":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/ec/index.js","./elliptic/eddsa":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/eddsa/index.js","./elliptic/utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","brorand":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/brorand/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/base.js":[function(require,module,exports){
+},{"../package.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/package.json","./elliptic/curve":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curve/index.js","./elliptic/curves":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curves.js","./elliptic/ec":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/ec/index.js","./elliptic/eddsa":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/eddsa/index.js","./elliptic/utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/utils.js","brorand":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/brorand/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curve/base.js":[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -16940,7 +16940,7 @@ BasePoint.prototype.dblp = function dblp(k) {
   return r;
 };
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/edwards.js":[function(require,module,exports){
+},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/utils.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curve/edwards.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -17374,7 +17374,7 @@ Point.prototype.eqXToP = function eqXToP(x) {
 Point.prototype.toP = Point.prototype.normalize;
 Point.prototype.mixedAdd = Point.prototype.add;
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","./base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/base.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/index.js":[function(require,module,exports){
+},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/utils.js","./base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curve/base.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curve/index.js":[function(require,module,exports){
 'use strict';
 
 var curve = exports;
@@ -17384,7 +17384,7 @@ curve.short = require('./short');
 curve.mont = require('./mont');
 curve.edwards = require('./edwards');
 
-},{"./base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/base.js","./edwards":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/edwards.js","./mont":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/mont.js","./short":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/short.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/mont.js":[function(require,module,exports){
+},{"./base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curve/base.js","./edwards":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curve/edwards.js","./mont":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curve/mont.js","./short":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curve/short.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curve/mont.js":[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -17564,7 +17564,7 @@ Point.prototype.getX = function getX() {
   return this.x.fromRed();
 };
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","./base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/base.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/short.js":[function(require,module,exports){
+},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/utils.js","./base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curve/base.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curve/short.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -18502,7 +18502,7 @@ JPoint.prototype.isInfinity = function isInfinity() {
   return this.z.cmpn(0) === 0;
 };
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","./base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/base.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curves.js":[function(require,module,exports){
+},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/utils.js","./base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curve/base.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curves.js":[function(require,module,exports){
 'use strict';
 
 var curves = exports;
@@ -18710,7 +18710,7 @@ defineCurve('secp256k1', {
   ]
 });
 
-},{"./curve":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curve/index.js","./precomputed/secp256k1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/precomputed/secp256k1.js","./utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","hash.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/ec/index.js":[function(require,module,exports){
+},{"./curve":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curve/index.js","./precomputed/secp256k1":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/precomputed/secp256k1.js","./utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/utils.js","hash.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/ec/index.js":[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -18953,7 +18953,7 @@ EC.prototype.getKeyRecoveryParam = function(e, signature, Q, enc) {
   throw new Error('Unable to find valid recovery factor');
 };
 
-},{"../curves":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curves.js","../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","./key":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/ec/key.js","./signature":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/ec/signature.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","brorand":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/brorand/index.js","hmac-drbg":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hmac-drbg/lib/hmac-drbg.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/ec/key.js":[function(require,module,exports){
+},{"../curves":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curves.js","../utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/utils.js","./key":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/ec/key.js","./signature":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/ec/signature.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","brorand":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/brorand/index.js","hmac-drbg":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hmac-drbg/lib/hmac-drbg.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/ec/key.js":[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -19073,7 +19073,7 @@ KeyPair.prototype.inspect = function inspect() {
          ' pub: ' + (this.pub && this.pub.inspect()) + ' >';
 };
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/ec/signature.js":[function(require,module,exports){
+},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/utils.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/ec/signature.js":[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -19209,7 +19209,7 @@ Signature.prototype.toDER = function toDER(enc) {
   return utils.encode(res, enc);
 };
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/eddsa/index.js":[function(require,module,exports){
+},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/utils.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/eddsa/index.js":[function(require,module,exports){
 'use strict';
 
 var hash = require('hash.js');
@@ -19329,7 +19329,7 @@ EDDSA.prototype.isPoint = function isPoint(val) {
   return val instanceof this.pointClass;
 };
 
-},{"../curves":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/curves.js","../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","./key":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/eddsa/key.js","./signature":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/eddsa/signature.js","hash.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/eddsa/key.js":[function(require,module,exports){
+},{"../curves":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/curves.js","../utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/utils.js","./key":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/eddsa/key.js","./signature":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/eddsa/signature.js","hash.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/eddsa/key.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -19426,7 +19426,7 @@ KeyPair.prototype.getPublic = function getPublic(enc) {
 
 module.exports = KeyPair;
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/eddsa/signature.js":[function(require,module,exports){
+},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/eddsa/signature.js":[function(require,module,exports){
 'use strict';
 
 var BN = require('bn.js');
@@ -19493,7 +19493,7 @@ Signature.prototype.toHex = function toHex() {
 
 module.exports = Signature;
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/precomputed/secp256k1.js":[function(require,module,exports){
+},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/utils.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/precomputed/secp256k1.js":[function(require,module,exports){
 module.exports = {
   doubles: {
     step: 4,
@@ -20275,7 +20275,7 @@ module.exports = {
   }
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/lib/elliptic/utils.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic/utils.js":[function(require,module,exports){
 'use strict';
 
 var utils = exports;
@@ -20397,7 +20397,7 @@ function intFromLE(bytes) {
 utils.intFromLE = intFromLE;
 
 
-},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js","minimalistic-crypto-utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-crypto-utils/lib/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/elliptic/package.json":[function(require,module,exports){
+},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-assert/index.js","minimalistic-crypto-utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-crypto-utils/lib/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/package.json":[function(require,module,exports){
 module.exports={
   "_args": [
     [
@@ -20490,7 +20490,7 @@ module.exports={
   "version": "6.5.0"
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/end-of-stream/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/end-of-stream/index.js":[function(require,module,exports){
 var once = require('once');
 
 var noop = function() {};
@@ -20579,7 +20579,7 @@ var eos = function(stream, opts, callback) {
 
 module.exports = eos;
 
-},{"once":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/once/once.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js":[function(require,module,exports){
+},{"once":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/once/once.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js":[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -21104,7 +21104,7 @@ function functionBindPolyfill(context) {
   };
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/evp_bytestokey/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/evp_bytestokey/index.js":[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 var MD5 = require('md5.js')
 
@@ -21151,7 +21151,7 @@ function EVP_BytesToKey (password, salt, keyBits, ivLen) {
 
 module.exports = EVP_BytesToKey
 
-},{"md5.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/md5.js/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/fast-bitfield/index.js":[function(require,module,exports){
+},{"md5.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/md5.js/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/fast-bitfield/index.js":[function(require,module,exports){
 'use strict'
 
 const ctz = require('count-trailing-zeros')
@@ -21598,7 +21598,7 @@ function factor (n, out) {
   out[3] = ((n - (out[2] = (n & 32767))) / 32768) & 32767
 }
 
-},{"count-trailing-zeros":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/count-trailing-zeros/ctz.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/flat-tree/index.js":[function(require,module,exports){
+},{"count-trailing-zeros":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/count-trailing-zeros/ctz.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/flat-tree/index.js":[function(require,module,exports){
 exports.fullRoots = function (index, result) {
   if (index & 1) throw new Error('You can only look up roots for depth(0) blocks')
   if (!result) result = []
@@ -21805,7 +21805,7 @@ Iterator.prototype.rightChild = function () {
   return this.index
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/from2/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/from2/index.js":[function(require,module,exports){
 (function (process){
 var Readable = require('readable-stream').Readable
 var inherits = require('inherits')
@@ -21912,7 +21912,7 @@ function defaults(opts) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/get-browser-rtc/index.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/get-browser-rtc/index.js":[function(require,module,exports){
 // originally pulled out of simple-peer
 
 module.exports = function getBrowserRTC () {
@@ -21929,7 +21929,7 @@ module.exports = function getBrowserRTC () {
   return wrtc
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash-base/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash-base/index.js":[function(require,module,exports){
 'use strict'
 var Buffer = require('safe-buffer').Buffer
 var Transform = require('stream').Transform
@@ -22026,7 +22026,7 @@ HashBase.prototype._digest = function () {
 
 module.exports = HashBase
 
-},{"inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js","stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-browserify/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash.js":[function(require,module,exports){
+},{"inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js","stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-browserify/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash.js":[function(require,module,exports){
 var hash = exports;
 
 hash.utils = require('./hash/utils');
@@ -22043,7 +22043,7 @@ hash.sha384 = hash.sha.sha384;
 hash.sha512 = hash.sha.sha512;
 hash.ripemd160 = hash.ripemd.ripemd160;
 
-},{"./hash/common":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/common.js","./hash/hmac":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/hmac.js","./hash/ripemd":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/ripemd.js","./hash/sha":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha.js","./hash/utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/common.js":[function(require,module,exports){
+},{"./hash/common":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/common.js","./hash/hmac":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/hmac.js","./hash/ripemd":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/ripemd.js","./hash/sha":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha.js","./hash/utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/common.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -22137,7 +22137,7 @@ BlockHash.prototype._pad = function pad() {
   return res;
 };
 
-},{"./utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/hmac.js":[function(require,module,exports){
+},{"./utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/utils.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/hmac.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -22186,7 +22186,7 @@ Hmac.prototype.digest = function digest(enc) {
   return this.outer.digest(enc);
 };
 
-},{"./utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/ripemd.js":[function(require,module,exports){
+},{"./utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/utils.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/ripemd.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('./utils');
@@ -22334,7 +22334,7 @@ var sh = [
   8, 5, 12, 9, 12, 5, 14, 6, 8, 13, 6, 5, 15, 13, 11, 11
 ];
 
-},{"./common":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/common.js","./utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha.js":[function(require,module,exports){
+},{"./common":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/common.js","./utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha.js":[function(require,module,exports){
 'use strict';
 
 exports.sha1 = require('./sha/1');
@@ -22343,7 +22343,7 @@ exports.sha256 = require('./sha/256');
 exports.sha384 = require('./sha/384');
 exports.sha512 = require('./sha/512');
 
-},{"./sha/1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/1.js","./sha/224":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/224.js","./sha/256":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/256.js","./sha/384":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/384.js","./sha/512":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/512.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/1.js":[function(require,module,exports){
+},{"./sha/1":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha/1.js","./sha/224":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha/224.js","./sha/256":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha/256.js","./sha/384":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha/384.js","./sha/512":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha/512.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha/1.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -22419,7 +22419,7 @@ SHA1.prototype._digest = function digest(enc) {
     return utils.split32(this.h, 'big');
 };
 
-},{"../common":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/common.js","../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js","./common":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/common.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/224.js":[function(require,module,exports){
+},{"../common":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/common.js","../utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/utils.js","./common":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha/common.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha/224.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -22451,7 +22451,7 @@ SHA224.prototype._digest = function digest(enc) {
 };
 
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js","./256":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/256.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/256.js":[function(require,module,exports){
+},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/utils.js","./256":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha/256.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha/256.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -22558,7 +22558,7 @@ SHA256.prototype._digest = function digest(enc) {
     return utils.split32(this.h, 'big');
 };
 
-},{"../common":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/common.js","../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js","./common":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/common.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/384.js":[function(require,module,exports){
+},{"../common":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/common.js","../utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/utils.js","./common":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha/common.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha/384.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -22595,7 +22595,7 @@ SHA384.prototype._digest = function digest(enc) {
     return utils.split32(this.h.slice(0, 12), 'big');
 };
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js","./512":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/512.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/512.js":[function(require,module,exports){
+},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/utils.js","./512":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha/512.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha/512.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -22927,7 +22927,7 @@ function g1_512_lo(xh, xl) {
   return r;
 }
 
-},{"../common":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/common.js","../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/sha/common.js":[function(require,module,exports){
+},{"../common":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/common.js","../utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/utils.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/sha/common.js":[function(require,module,exports){
 'use strict';
 
 var utils = require('../utils');
@@ -22978,7 +22978,7 @@ function g1_256(x) {
 }
 exports.g1_256 = g1_256;
 
-},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash/utils.js":[function(require,module,exports){
+},{"../utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash/utils.js":[function(require,module,exports){
 'use strict';
 
 var assert = require('minimalistic-assert');
@@ -23258,7 +23258,7 @@ function shr64_lo(ah, al, num) {
 }
 exports.shr64_lo = shr64_lo;
 
-},{"inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hmac-drbg/lib/hmac-drbg.js":[function(require,module,exports){
+},{"inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-assert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hmac-drbg/lib/hmac-drbg.js":[function(require,module,exports){
 'use strict';
 
 var hash = require('hash.js');
@@ -23373,7 +23373,7 @@ HmacDRBG.prototype.generate = function generate(len, enc, add, addEnc) {
   return utils.encode(res, enc);
 };
 
-},{"hash.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash.js/lib/hash.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js","minimalistic-crypto-utils":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-crypto-utils/lib/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-crypto/index.js":[function(require,module,exports){
+},{"hash.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash.js/lib/hash.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-assert/index.js","minimalistic-crypto-utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-crypto-utils/lib/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-crypto/index.js":[function(require,module,exports){
 var sodium = require('sodium-universal')
 var uint64be = require('uint64be')
 var bufferFrom = require('buffer-from')
@@ -23473,7 +23473,7 @@ function blake2b (buffers) {
   return digest
 }
 
-},{"buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc-unsafe/index.js","buffer-from":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-from/index.js","sodium-universal":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-universal/browser.js","uint64be":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/uint64be/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/feed.js":[function(require,module,exports){
+},{"buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-alloc-unsafe/index.js","buffer-from":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-from/index.js","sodium-universal":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-universal/browser.js","uint64be":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/uint64be/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/feed.js":[function(require,module,exports){
 (function (process){
 var events = require('events')
 var inherits = require('inherits')
@@ -23714,7 +23714,7 @@ function decode (enc, data, start, end) {
 }
 
 }).call(this,require('_process'))
-},{"./messages":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/messages.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc-unsafe/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/index.js":[function(require,module,exports){
+},{"./messages":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/messages.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-alloc-unsafe/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/index.js":[function(require,module,exports){
 (function (process){
 var stream = require('readable-stream')
 var inherits = require('inherits')
@@ -24231,7 +24231,7 @@ function randomBytes (n) {
 }
 
 }).call(this,require('_process'))
-},{"./feed":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/feed.js","./messages":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/messages.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc-unsafe/index.js","buffer-from":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-from/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js","sodium-universal":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-universal/browser.js","sorted-indexof":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sorted-indexof/index.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/messages.js":[function(require,module,exports){
+},{"./feed":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/feed.js","./messages":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/messages.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-alloc-unsafe/index.js","buffer-from":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-from/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js","sodium-universal":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-universal/browser.js","sorted-indexof":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sorted-indexof/index.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/messages.js":[function(require,module,exports){
 (function (Buffer){
 // This file is auto generated by the protocol-buffers cli tool
 
@@ -25316,15 +25316,15 @@ function defined (val) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","protocol-buffers-encodings":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/decode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/decode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/encode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/index.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
-},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/node_modules/varint/length.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/index.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","protocol-buffers-encodings":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/protocol-buffers-encodings/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/node_modules/varint/decode.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/decode.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/node_modules/varint/encode.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/node_modules/varint/index.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
+},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/node_modules/varint/length.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/index.js":[function(require,module,exports){
 (function (process,Buffer){
 var low = require('last-one-wins')
 var remove = require('unordered-array-remove')
@@ -26883,7 +26883,7 @@ function createError (code, errno, msg) {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./lib/bitfield":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/bitfield.js","./lib/replicate":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/replicate.js","./lib/safe-buffer-equals":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/safe-buffer-equals.js","./lib/storage":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/storage.js","./lib/tree-index":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/tree-index.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","atomic-batcher":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/atomic-batcher/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","bulk-write-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bulk-write-stream/index.js","codecs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/codecs/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","fd-lock":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js","flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/flat-tree/index.js","from2":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/from2/index.js","hypercore-crypto":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-crypto/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","inspect-custom-symbol":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inspect-custom-symbol/browser.js","last-one-wins":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/last-one-wins/index.js","merkle-tree-stream/generator":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/merkle-tree-stream/generator.js","pretty-hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pretty-hash/index.js","random-access-file":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-file/browser.js","sparse-bitfield":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sparse-bitfield/index.js","thunky":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/thunky/index.js","unordered-array-remove":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unordered-array-remove/index.js","unordered-set":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unordered-set/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/bitfield.js":[function(require,module,exports){
+},{"./lib/bitfield":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/bitfield.js","./lib/replicate":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/replicate.js","./lib/safe-buffer-equals":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/safe-buffer-equals.js","./lib/storage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/storage.js","./lib/tree-index":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/tree-index.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","atomic-batcher":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/atomic-batcher/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","bulk-write-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bulk-write-stream/index.js","codecs":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/codecs/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","fd-lock":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browser-resolve/empty.js","flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/flat-tree/index.js","from2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/from2/index.js","hypercore-crypto":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-crypto/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","inspect-custom-symbol":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inspect-custom-symbol/browser.js","last-one-wins":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/last-one-wins/index.js","merkle-tree-stream/generator":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/merkle-tree-stream/generator.js","pretty-hash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pretty-hash/index.js","random-access-file":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-file/browser.js","sparse-bitfield":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sparse-bitfield/index.js","thunky":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/thunky/index.js","unordered-array-remove":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unordered-array-remove/index.js","unordered-set":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unordered-set/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/bitfield.js":[function(require,module,exports){
 (function (Buffer){
 var flat = require('flat-tree')
 var rle = require('bitfield-rle')
@@ -27212,7 +27212,7 @@ function getIndexValue (n) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"bitfield-rle":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bitfield-rle/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/flat-tree/index.js","memory-pager":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/memory-pager/index.js","sparse-bitfield":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sparse-bitfield/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/replicate.js":[function(require,module,exports){
+},{"bitfield-rle":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bitfield-rle/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/flat-tree/index.js","memory-pager":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/memory-pager/index.js","sparse-bitfield":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sparse-bitfield/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/replicate.js":[function(require,module,exports){
 var protocol = require('hypercore-protocol')
 var bitfield = require('fast-bitfield')
 var set = require('unordered-set')
@@ -27831,7 +27831,7 @@ function nextRandom (ite, start, end) {
   return i === -1 || i >= end ? ite.seek(start).next(true) : i
 }
 
-},{"./safe-buffer-equals":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/safe-buffer-equals.js","./tree-index":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/tree-index.js","bitfield-rle":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bitfield-rle/index.js","fast-bitfield":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/fast-bitfield/index.js","hypercore-protocol":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/index.js","unordered-set":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unordered-set/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/safe-buffer-equals.js":[function(require,module,exports){
+},{"./safe-buffer-equals":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/safe-buffer-equals.js","./tree-index":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/tree-index.js","bitfield-rle":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bitfield-rle/index.js","fast-bitfield":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/fast-bitfield/index.js","hypercore-protocol":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/index.js","unordered-set":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unordered-set/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/safe-buffer-equals.js":[function(require,module,exports){
 (function (Buffer){
 // buffer-equals, but handle 'null' buffer parameters.
 module.exports = function safeBufferEquals (a, b) {
@@ -27841,7 +27841,7 @@ module.exports = function safeBufferEquals (a, b) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/storage.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/storage.js":[function(require,module,exports){
 (function (Buffer){
 var uint64be = require('uint64be')
 var flat = require('flat-tree')
@@ -28220,7 +28220,7 @@ function readAll (st, offset, pageSize, cb) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"array-lru":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/array-lru/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/flat-tree/index.js","uint64be":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/uint64be/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/lib/tree-index.js":[function(require,module,exports){
+},{"array-lru":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/array-lru/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/flat-tree/index.js","uint64be":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/uint64be/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/tree-index.js":[function(require,module,exports){
 var flat = require('flat-tree')
 var bitfield = require('sparse-bitfield')
 
@@ -28388,7 +28388,7 @@ function addFullRoots (verifiedBy, nodes, root, remoteTree) {
   }
 }
 
-},{"flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/flat-tree/index.js","sparse-bitfield":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sparse-bitfield/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdiscovery/index.js":[function(require,module,exports){
+},{"flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/flat-tree/index.js","sparse-bitfield":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sparse-bitfield/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdiscovery/index.js":[function(require,module,exports){
 const crypto = require('crypto')
 const EventEmitter = require('events')
 
@@ -28638,7 +28638,7 @@ function defaultTrue (x) {
   return x === undefined ? true : x
 }
 
-},{"crypto":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/crypto-browserify/index.js","dat-encoding":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-encoding/index.js","dat-swarm-defaults":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-swarm-defaults/index.js","debug":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdiscovery/node_modules/debug/src/browser.js","discovery-swarm":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/discovery-swarm-web/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","hypercore-protocol":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore-protocol/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdiscovery/node_modules/debug/src/browser.js":[function(require,module,exports){
+},{"crypto":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/crypto-browserify/index.js","dat-encoding":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-encoding/index.js","dat-swarm-defaults":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-swarm-defaults/index.js","debug":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdiscovery/node_modules/debug/src/browser.js","discovery-swarm":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-web/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","hypercore-protocol":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdiscovery/node_modules/debug/src/browser.js":[function(require,module,exports){
 (function (process){
 /* eslint-env browser */
 
@@ -28906,7 +28906,7 @@ formatters.j = function (v) {
 };
 
 }).call(this,require('_process'))
-},{"./common":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdiscovery/node_modules/debug/src/common.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdiscovery/node_modules/debug/src/common.js":[function(require,module,exports){
+},{"./common":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdiscovery/node_modules/debug/src/common.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdiscovery/node_modules/debug/src/common.js":[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
@@ -29174,7 +29174,7 @@ function setup(env) {
 
 module.exports = setup;
 
-},{"ms":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdiscovery/node_modules/ms/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdiscovery/node_modules/ms/index.js":[function(require,module,exports){
+},{"ms":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdiscovery/node_modules/ms/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdiscovery/node_modules/ms/index.js":[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -29338,7 +29338,7 @@ function plural(ms, msAbs, n, name) {
   return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdrive/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/index.js":[function(require,module,exports){
 (function (process,Buffer){
 var hypercore = require('hypercore')
 var mutexify = require('mutexify')
@@ -30320,7 +30320,7 @@ function contentKeyPair (secretKey) {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./lib/cursor":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdrive/lib/cursor.js","./lib/messages":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdrive/lib/messages.js","./lib/stat":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdrive/lib/stat.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","append-tree":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","duplexify":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/duplexify/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","from2":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/from2/index.js","hypercore":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hypercore/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","mutexify":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/mutexify/index.js","path":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/path-browserify/index.js","random-access-file":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-file/browser.js","sodium-universal":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-universal/browser.js","stream-collector":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-collector/index.js","stream-each":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-each/index.js","thunky":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/thunky/index.js","uint64be":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/uint64be/index.js","unixify":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unixify/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdrive/lib/cursor.js":[function(require,module,exports){
+},{"./lib/cursor":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/lib/cursor.js","./lib/messages":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/lib/messages.js","./lib/stat":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/lib/stat.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","append-tree":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","duplexify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/duplexify/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","from2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/from2/index.js","hypercore":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","mutexify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/mutexify/index.js","path":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/path-browserify/index.js","random-access-file":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-file/browser.js","sodium-universal":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-universal/browser.js","stream-collector":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-collector/index.js","stream-each":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-each/index.js","thunky":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/thunky/index.js","uint64be":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/uint64be/index.js","unixify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unixify/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/lib/cursor.js":[function(require,module,exports){
 var thunky = require('thunky')
 
 module.exports = Cursor
@@ -30464,7 +30464,7 @@ Cursor.prototype._seekAndNext = function (cb) {
 
 function noop () {}
 
-},{"thunky":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/thunky/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdrive/lib/messages.js":[function(require,module,exports){
+},{"thunky":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/thunky/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/lib/messages.js":[function(require,module,exports){
 (function (Buffer){
 // This file is auto generated by the protocol-buffers cli tool
 
@@ -30746,7 +30746,7 @@ function defined (val) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","protocol-buffers-encodings":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperdrive/lib/stat.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","protocol-buffers-encodings":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/protocol-buffers-encodings/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/lib/stat.js":[function(require,module,exports){
 // http://man7.org/linux/man-pages/man2/stat.2.html
 
 module.exports = Stat
@@ -30796,7 +30796,7 @@ function check (mask) {
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperscript-attribute-to-property/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperscript-attribute-to-property/index.js":[function(require,module,exports){
 module.exports = attributeToProperty
 
 var transform = {
@@ -30817,7 +30817,7 @@ function attributeToProperty (h) {
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperx/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperx/index.js":[function(require,module,exports){
 var attrToProp = require('hyperscript-attribute-to-property')
 
 var VAR = 0, TEXT = 1, OPEN = 2, CLOSE = 3, ATTR = 4
@@ -31114,7 +31114,7 @@ var closeRE = RegExp('^(' + [
 ].join('|') + ')(?:[\.#][a-zA-Z0-9\u007F-\uFFFF_:-]+)*$')
 function selfClosing (tag) { return closeRE.test(tag) }
 
-},{"hyperscript-attribute-to-property":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hyperscript-attribute-to-property/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ieee754/index.js":[function(require,module,exports){
+},{"hyperscript-attribute-to-property":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperscript-attribute-to-property/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/ieee754/index.js":[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = (nBytes * 8) - mLen - 1
@@ -31200,7 +31200,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -31229,7 +31229,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/insert-css/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/insert-css/index.js":[function(require,module,exports){
 var inserted = {};
 
 module.exports = function (css, options) {
@@ -31253,7 +31253,7 @@ module.exports = function (css, options) {
     }
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/insert-module-globals/node_modules/is-buffer/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/insert-module-globals/node_modules/is-buffer/index.js":[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -31276,10 +31276,10 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inspect-custom-symbol/browser.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inspect-custom-symbol/browser.js":[function(require,module,exports){
 module.exports = Symbol.for('util.inspect.custom')
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/is-options/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/is-options/index.js":[function(require,module,exports){
 (function (Buffer){
 module.exports = isOptions
 
@@ -31288,14 +31288,14 @@ function isOptions (opts) {
 }
 
 }).call(this,{"isBuffer":require("../insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../insert-module-globals/node_modules/is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/insert-module-globals/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/isarray/index.js":[function(require,module,exports){
+},{"../insert-module-globals/node_modules/is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/insert-module-globals/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/isarray/index.js":[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/last-one-wins/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/last-one-wins/index.js":[function(require,module,exports){
 module.exports = function (work) {
   var pending = null
   var callback = null
@@ -31341,7 +31341,7 @@ module.exports = function (work) {
 
 function noop (_) {}
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/decode.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/length-prefixed-stream/decode.js":[function(require,module,exports){
 var varint = require('varint')
 var stream = require('readable-stream')
 var util = require('util')
@@ -31440,7 +31440,7 @@ Decoder.prototype.destroy = function (err) {
 
 module.exports = Decoder
 
-},{"buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc-unsafe/index.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js","util":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/util.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/encode.js":[function(require,module,exports){
+},{"buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-alloc-unsafe/index.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js","util":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/util/util.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/length-prefixed-stream/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/length-prefixed-stream/encode.js":[function(require,module,exports){
 var varint = require('varint')
 var stream = require('readable-stream')
 var util = require('util')
@@ -31483,19 +31483,19 @@ Encoder.prototype.destroy = function (err) {
 
 module.exports = Encoder
 
-},{"buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc-unsafe/index.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js","util":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/util.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/index.js":[function(require,module,exports){
+},{"buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-alloc-unsafe/index.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js","util":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/util/util.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/length-prefixed-stream/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/length-prefixed-stream/index.js":[function(require,module,exports){
 exports.encode = require('./encode')
 exports.decode = require('./decode')
 
-},{"./decode":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/decode.js","./encode":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/encode.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/decode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/decode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/encode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/index.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
-},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/length-prefixed-stream/node_modules/varint/length.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/md5.js/index.js":[function(require,module,exports){
+},{"./decode":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/length-prefixed-stream/decode.js","./encode":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/length-prefixed-stream/encode.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/length-prefixed-stream/node_modules/varint/decode.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/decode.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/length-prefixed-stream/node_modules/varint/encode.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/length-prefixed-stream/node_modules/varint/index.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
+},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/length-prefixed-stream/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/length-prefixed-stream/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/length-prefixed-stream/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/length-prefixed-stream/node_modules/varint/length.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/md5.js/index.js":[function(require,module,exports){
 'use strict'
 var inherits = require('inherits')
 var HashBase = require('hash-base')
@@ -31643,7 +31643,7 @@ function fnI (a, b, c, d, m, k, s) {
 
 module.exports = MD5
 
-},{"hash-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/memory-pager/index.js":[function(require,module,exports){
+},{"hash-base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/memory-pager/index.js":[function(require,module,exports){
 (function (Buffer){
 module.exports = Pager
 
@@ -31807,7 +31807,7 @@ function factor (n, out) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/merkle-tree-stream/generator.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/merkle-tree-stream/generator.js":[function(require,module,exports){
 (function (Buffer){
 // a more low level interface to the merkle tree stream.
 // useful for certain applications the require non-streamy access to the algos.
@@ -31872,7 +31872,7 @@ MerkleGenerator.prototype.next = function (data, nodes) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/flat-tree/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/miller-rabin/lib/mr.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/flat-tree/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/miller-rabin/lib/mr.js":[function(require,module,exports){
 var bn = require('bn.js');
 var brorand = require('brorand');
 
@@ -31989,7 +31989,7 @@ MillerRabin.prototype.getDivisor = function getDivisor(n, k) {
   return false;
 };
 
-},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","brorand":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/brorand/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-assert/index.js":[function(require,module,exports){
+},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","brorand":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/brorand/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-assert/index.js":[function(require,module,exports){
 module.exports = assert;
 
 function assert(val, msg) {
@@ -32002,7 +32002,7 @@ assert.equal = function assertEqual(l, r, msg) {
     throw new Error(msg || ('Assertion failed: ' + l + ' != ' + r));
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/minimalistic-crypto-utils/lib/utils.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-crypto-utils/lib/utils.js":[function(require,module,exports){
 'use strict';
 
 var utils = exports;
@@ -32062,7 +32062,7 @@ utils.encode = function encode(arr, enc) {
     return arr;
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ms/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/ms/index.js":[function(require,module,exports){
 /**
  * Helpers.
  */
@@ -32216,7 +32216,7 @@ function plural(ms, n, name) {
   return Math.ceil(ms / n) + ' ' + name + 's';
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/mutexify/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/mutexify/index.js":[function(require,module,exports){
 (function (process){
 var mutexify = function() {
   var queue = []
@@ -32249,7 +32249,7 @@ var mutexify = function() {
 module.exports = mutexify
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/nanoassert/index.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/nanoassert/index.js":[function(require,module,exports){
 assert.notEqual = notEqual
 assert.notOk = notOk
 assert.equal = equal
@@ -32273,7 +32273,7 @@ function assert (t, m) {
   if (!t) throw new Error(m || 'AssertionError')
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/next-tick/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/next-tick/index.js":[function(require,module,exports){
 (function (process,setImmediate){
 'use strict';
 
@@ -32348,7 +32348,7 @@ module.exports = (function () {
 }());
 
 }).call(this,require('_process'),require("timers").setImmediate)
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","timers":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/timers-browserify/main.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/object-assign/index.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","timers":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/timers-browserify/main.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/object-assign/index.js":[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -32440,7 +32440,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/once/once.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/once/once.js":[function(require,module,exports){
 var wrappy = require('wrappy')
 module.exports = wrappy(once)
 module.exports.strict = wrappy(onceStrict)
@@ -32484,7 +32484,7 @@ function onceStrict (fn) {
   return f
 }
 
-},{"wrappy":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/wrappy/wrappy.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/aesid.json":[function(require,module,exports){
+},{"wrappy":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/wrappy/wrappy.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/aesid.json":[function(require,module,exports){
 module.exports={"2.16.840.1.101.3.4.1.1": "aes-128-ecb",
 "2.16.840.1.101.3.4.1.2": "aes-128-cbc",
 "2.16.840.1.101.3.4.1.3": "aes-128-ofb",
@@ -32498,7 +32498,7 @@ module.exports={"2.16.840.1.101.3.4.1.1": "aes-128-ecb",
 "2.16.840.1.101.3.4.1.43": "aes-256-ofb",
 "2.16.840.1.101.3.4.1.44": "aes-256-cfb"
 }
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/asn1.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/asn1.js":[function(require,module,exports){
 // from https://github.com/indutny/self-signed/blob/gh-pages/lib/asn1.js
 // Fedor, you are amazing.
 'use strict'
@@ -32622,7 +32622,7 @@ exports.signature = asn1.define('signature', function () {
   )
 })
 
-},{"./certificate":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/certificate.js","asn1.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/certificate.js":[function(require,module,exports){
+},{"./certificate":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/certificate.js","asn1.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/certificate.js":[function(require,module,exports){
 // from https://github.com/Rantanen/node-dtls/blob/25a7dc861bda38cfeac93a723500eea4f0ac2e86/Certificate.js
 // thanks to @Rantanen
 
@@ -32713,7 +32713,7 @@ var X509Certificate = asn.define('X509Certificate', function () {
 
 module.exports = X509Certificate
 
-},{"asn1.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/asn1.js/lib/asn1.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/fixProc.js":[function(require,module,exports){
+},{"asn1.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/asn1.js/lib/asn1.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/fixProc.js":[function(require,module,exports){
 // adapted from https://github.com/apatil/pemstrip
 var findProc = /Proc-Type: 4,ENCRYPTED[\n\r]+DEK-Info: AES-((?:128)|(?:192)|(?:256))-CBC,([0-9A-H]+)[\n\r]+([0-9A-z\n\r\+\/\=]+)[\n\r]+/m
 var startRegex = /^-----BEGIN ((?:.*? KEY)|CERTIFICATE)-----/m
@@ -32746,7 +32746,7 @@ module.exports = function (okey, password) {
   }
 }
 
-},{"browserify-aes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/browser.js","evp_bytestokey":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/evp_bytestokey/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/index.js":[function(require,module,exports){
+},{"browserify-aes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/browser.js","evp_bytestokey":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/evp_bytestokey/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/index.js":[function(require,module,exports){
 var asn1 = require('./asn1')
 var aesid = require('./aesid.json')
 var fixProc = require('./fixProc')
@@ -32855,7 +32855,7 @@ function decrypt (data, password) {
   return Buffer.concat(out)
 }
 
-},{"./aesid.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/aesid.json","./asn1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/asn1.js","./fixProc":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/fixProc.js","browserify-aes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-aes/browser.js","pbkdf2":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/path-browserify/index.js":[function(require,module,exports){
+},{"./aesid.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/aesid.json","./asn1":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/asn1.js","./fixProc":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/fixProc.js","browserify-aes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-aes/browser.js","pbkdf2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pbkdf2/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/path-browserify/index.js":[function(require,module,exports){
 (function (process){
 // .dirname, .basename, and .extname methods are extracted from Node.js v8.11.1,
 // backported and transplited with Babel, with backwards-compat fixes
@@ -33161,11 +33161,11 @@ var substr = 'ab'.substr(-1) === 'b'
 ;
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/browser.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pbkdf2/browser.js":[function(require,module,exports){
 exports.pbkdf2 = require('./lib/async')
 exports.pbkdf2Sync = require('./lib/sync')
 
-},{"./lib/async":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/async.js","./lib/sync":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/sync-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/async.js":[function(require,module,exports){
+},{"./lib/async":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pbkdf2/lib/async.js","./lib/sync":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pbkdf2/lib/sync-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pbkdf2/lib/async.js":[function(require,module,exports){
 (function (process,global){
 var checkParameters = require('./precondition')
 var defaultEncoding = require('./default-encoding')
@@ -33269,7 +33269,7 @@ module.exports = function (password, salt, iterations, keylen, digest, callback)
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./default-encoding":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/default-encoding.js","./precondition":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/precondition.js","./sync":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/sync-browser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/default-encoding.js":[function(require,module,exports){
+},{"./default-encoding":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pbkdf2/lib/default-encoding.js","./precondition":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pbkdf2/lib/precondition.js","./sync":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pbkdf2/lib/sync-browser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pbkdf2/lib/default-encoding.js":[function(require,module,exports){
 (function (process){
 var defaultEncoding
 /* istanbul ignore next */
@@ -33283,7 +33283,7 @@ if (process.browser) {
 module.exports = defaultEncoding
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/precondition.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pbkdf2/lib/precondition.js":[function(require,module,exports){
 (function (Buffer){
 var MAX_ALLOC = Math.pow(2, 30) - 1 // default in iojs
 
@@ -33315,7 +33315,7 @@ module.exports = function (password, salt, iterations, keylen) {
 }
 
 }).call(this,{"isBuffer":require("../../insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../../insert-module-globals/node_modules/is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/insert-module-globals/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/sync-browser.js":[function(require,module,exports){
+},{"../../insert-module-globals/node_modules/is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/insert-module-globals/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pbkdf2/lib/sync-browser.js":[function(require,module,exports){
 var md5 = require('create-hash/md5')
 var RIPEMD160 = require('ripemd160')
 var sha = require('sha.js')
@@ -33421,7 +33421,7 @@ function pbkdf2 (password, salt, iterations, keylen, digest) {
 
 module.exports = pbkdf2
 
-},{"./default-encoding":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/default-encoding.js","./precondition":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pbkdf2/lib/precondition.js","create-hash/md5":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/md5.js","ripemd160":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ripemd160/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js","sha.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pretty-hash/index.js":[function(require,module,exports){
+},{"./default-encoding":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pbkdf2/lib/default-encoding.js","./precondition":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pbkdf2/lib/precondition.js","create-hash/md5":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/create-hash/md5.js","ripemd160":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/ripemd160/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js","sha.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pretty-hash/index.js":[function(require,module,exports){
 (function (Buffer){
 
 module.exports = function prettyHash (buf) {
@@ -33432,7 +33432,7 @@ module.exports = function prettyHash (buf) {
   return buf
 }
 }).call(this,{"isBuffer":require("../insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../insert-module-globals/node_modules/is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/insert-module-globals/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process-nextick-args/index.js":[function(require,module,exports){
+},{"../insert-module-globals/node_modules/is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/insert-module-globals/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process-nextick-args/index.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -33481,7 +33481,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js":[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -33667,7 +33667,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/protocol-buffers-encodings/index.js":[function(require,module,exports){
 (function (Buffer){
 var varint = require('varint')
 var svarint = require('signed-varint')
@@ -33957,15 +33957,15 @@ function bufferLength (val) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","signed-varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/index.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/decode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/decode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/encode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/index.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
-},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/protocol-buffers-encodings/node_modules/varint/length.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/browser.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","signed-varint":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signed-varint/index.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/protocol-buffers-encodings/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/protocol-buffers-encodings/node_modules/varint/decode.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/decode.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/protocol-buffers-encodings/node_modules/varint/encode.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/protocol-buffers-encodings/node_modules/varint/index.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
+},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/protocol-buffers-encodings/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/protocol-buffers-encodings/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/protocol-buffers-encodings/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/protocol-buffers-encodings/node_modules/varint/length.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/public-encrypt/browser.js":[function(require,module,exports){
 exports.publicEncrypt = require('./publicEncrypt')
 exports.privateDecrypt = require('./privateDecrypt')
 
@@ -33977,7 +33977,7 @@ exports.publicDecrypt = function publicDecrypt (key, buf) {
   return exports.privateDecrypt(key, buf, true)
 }
 
-},{"./privateDecrypt":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/privateDecrypt.js","./publicEncrypt":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/publicEncrypt.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/mgf.js":[function(require,module,exports){
+},{"./privateDecrypt":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/public-encrypt/privateDecrypt.js","./publicEncrypt":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/public-encrypt/publicEncrypt.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/public-encrypt/mgf.js":[function(require,module,exports){
 var createHash = require('create-hash')
 var Buffer = require('safe-buffer').Buffer
 
@@ -33998,7 +33998,7 @@ function i2ops (c) {
   return out
 }
 
-},{"create-hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/privateDecrypt.js":[function(require,module,exports){
+},{"create-hash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/create-hash/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/public-encrypt/privateDecrypt.js":[function(require,module,exports){
 var parseKeys = require('parse-asn1')
 var mgf = require('./mgf')
 var xor = require('./xor')
@@ -34105,7 +34105,7 @@ function compare (a, b) {
   return dif
 }
 
-},{"./mgf":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/mgf.js","./withPublic":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/withPublic.js","./xor":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/xor.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","browserify-rsa":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-rsa/index.js","create-hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/browser.js","parse-asn1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/publicEncrypt.js":[function(require,module,exports){
+},{"./mgf":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/public-encrypt/mgf.js","./withPublic":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/public-encrypt/withPublic.js","./xor":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/public-encrypt/xor.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","browserify-rsa":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-rsa/index.js","create-hash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/create-hash/browser.js","parse-asn1":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/public-encrypt/publicEncrypt.js":[function(require,module,exports){
 var parseKeys = require('parse-asn1')
 var randomBytes = require('randombytes')
 var createHash = require('create-hash')
@@ -34195,7 +34195,7 @@ function nonZero (len) {
   return out
 }
 
-},{"./mgf":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/mgf.js","./withPublic":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/withPublic.js","./xor":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/xor.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","browserify-rsa":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browserify-rsa/index.js","create-hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/create-hash/browser.js","parse-asn1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/parse-asn1/index.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/withPublic.js":[function(require,module,exports){
+},{"./mgf":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/public-encrypt/mgf.js","./withPublic":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/public-encrypt/withPublic.js","./xor":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/public-encrypt/xor.js","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","browserify-rsa":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-rsa/index.js","create-hash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/create-hash/browser.js","parse-asn1":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/index.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/randombytes/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/public-encrypt/withPublic.js":[function(require,module,exports){
 var BN = require('bn.js')
 var Buffer = require('safe-buffer').Buffer
 
@@ -34209,7 +34209,7 @@ function withPublic (paddedMsg, key) {
 
 module.exports = withPublic
 
-},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bn.js/lib/bn.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/public-encrypt/xor.js":[function(require,module,exports){
+},{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/public-encrypt/xor.js":[function(require,module,exports){
 module.exports = function xor (a, b) {
   var len = a.length
   var i = -1
@@ -34219,7 +34219,7 @@ module.exports = function xor (a, b) {
   return a
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/pump/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pump/index.js":[function(require,module,exports){
 (function (process){
 var once = require('once')
 var eos = require('end-of-stream')
@@ -34305,7 +34305,7 @@ var pump = function () {
 module.exports = pump
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","end-of-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/end-of-stream/index.js","fs":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js","once":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/once/once.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-chrome-file/index.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","end-of-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/end-of-stream/index.js","fs":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browser-resolve/empty.js","once":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/once/once.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-chrome-file/index.js":[function(require,module,exports){
 (function (Buffer){
 const ras = require('random-access-storage')
 
@@ -34568,12 +34568,12 @@ ReadRequest.prototype.run = function (req) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","random-access-storage":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-storage/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-file/browser.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","random-access-storage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-storage/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-file/browser.js":[function(require,module,exports){
 module.exports = function () {
   throw new Error('random-access-file is not supported in the browser')
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb-mutable-file/lib/IndexedDB.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-idb-mutable-file/lib/IndexedDB.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34581,7 +34581,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 const indexedDB = exports.indexedDB = window.indexedDB;
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb-mutable-file/lib/random-access-idb-mutable-file.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-idb-mutable-file/lib/random-access-idb-mutable-file.js":[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34861,7 +34861,7 @@ const RequestType = {
 exports.default = RandomAccessProvider;
 module.exports = exports["default"];
 
-},{"./IndexedDB":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb-mutable-file/lib/IndexedDB.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","random-access-storage":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb-mutable-file/node_modules/random-access-storage/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb-mutable-file/node_modules/random-access-storage/index.js":[function(require,module,exports){
+},{"./IndexedDB":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-idb-mutable-file/lib/IndexedDB.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","random-access-storage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-idb-mutable-file/node_modules/random-access-storage/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-idb-mutable-file/node_modules/random-access-storage/index.js":[function(require,module,exports){
 (function (process){
 var events = require('events')
 var inherits = require('inherits')
@@ -35115,7 +35115,7 @@ function nextTickCallback (req, err, val) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb/index.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-idb/index.js":[function(require,module,exports){
 (function (Buffer){
 var RandomAccess = require('random-access-storage')
 var inherits = require('inherits')
@@ -35297,7 +35297,7 @@ function backify (r, cb) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./lib/blocks.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb/lib/blocks.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","buffer-alloc":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc/index.js","buffer-from":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb/node_modules/buffer-from/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","next-tick":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/next-tick/index.js","once":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/once/once.js","random-access-storage":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-storage/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb/lib/blocks.js":[function(require,module,exports){
+},{"./lib/blocks.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-idb/lib/blocks.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","buffer-alloc":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-alloc/index.js","buffer-from":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-idb/node_modules/buffer-from/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","next-tick":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/next-tick/index.js","once":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/once/once.js","random-access-storage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-storage/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-idb/lib/blocks.js":[function(require,module,exports){
 module.exports = function (size, start, end) {
   var result = []
   for (var n = Math.floor(start/size)*size; n < end; n += size) {
@@ -35310,9 +35310,9 @@ module.exports = function (size, start, end) {
   return result
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb/node_modules/buffer-from/index.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-from/index.js"][0].apply(exports,arguments)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-memory/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-idb/node_modules/buffer-from/index.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-from/index.js"][0].apply(exports,arguments)
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-memory/index.js":[function(require,module,exports){
 (function (process,Buffer){
 const RandomAccess = require('random-access-storage')
 const isOptions = require('is-options')
@@ -35452,7 +35452,7 @@ function callbackNT (req, err, data) {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","is-options":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/is-options/index.js","random-access-storage":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-storage/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-storage/index.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","is-options":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/is-options/index.js","random-access-storage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-storage/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-storage/index.js":[function(require,module,exports){
 (function (process){
 var events = require('events')
 var inherits = require('inherits')
@@ -35717,7 +35717,7 @@ function nextTickCallback (req, err, val) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-web/index.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-web/index.js":[function(require,module,exports){
 /* global self */
 const global = (typeof window !== 'undefined') ? window : self
 
@@ -35753,7 +35753,7 @@ if (requestFileSystem) {
 
 module.exports = storage
 
-},{"./mutable-file-wrapper.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-web/mutable-file-wrapper.js","random-access-chrome-file":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-chrome-file/index.js","random-access-idb":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb/index.js","random-access-memory":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-memory/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-web/mutable-file-wrapper.js":[function(require,module,exports){
+},{"./mutable-file-wrapper.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-web/mutable-file-wrapper.js","random-access-chrome-file":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-chrome-file/index.js","random-access-idb":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-idb/index.js","random-access-memory":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-memory/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-web/mutable-file-wrapper.js":[function(require,module,exports){
 
 module.exports = function mutableStorage (options) {
   const randomAccess = require('random-access-storage')
@@ -35824,7 +35824,7 @@ module.exports = function mutableStorage (options) {
   }
 }
 
-},{"random-access-idb-mutable-file":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-idb-mutable-file/lib/random-access-idb-mutable-file.js","random-access-storage":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-storage/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js":[function(require,module,exports){
+},{"random-access-idb-mutable-file":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-idb-mutable-file/lib/random-access-idb-mutable-file.js","random-access-storage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-storage/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/randombytes/browser.js":[function(require,module,exports){
 (function (process,global){
 'use strict'
 
@@ -35878,7 +35878,7 @@ function randomBytes (size, cb) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randomfill/browser.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/randomfill/browser.js":[function(require,module,exports){
 (function (process,global){
 'use strict'
 
@@ -35990,10 +35990,10 @@ function randomFillSync (buf, offset, size) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/duplex-browser.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/randombytes/browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/duplex-browser.js":[function(require,module,exports){
 module.exports = require('./lib/_stream_duplex.js');
 
-},{"./lib/_stream_duplex.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_duplex.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_duplex.js":[function(require,module,exports){
+},{"./lib/_stream_duplex.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_duplex.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_duplex.js":[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -36125,7 +36125,7 @@ Duplex.prototype._destroy = function (err, cb) {
 
   pna.nextTick(cb, err);
 };
-},{"./_stream_readable":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_readable.js","./_stream_writable":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_writable.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/core-util-is/lib/util.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process-nextick-args/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_passthrough.js":[function(require,module,exports){
+},{"./_stream_readable":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_readable.js","./_stream_writable":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_writable.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/core-util-is/lib/util.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process-nextick-args/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_passthrough.js":[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -36173,7 +36173,7 @@ function PassThrough(options) {
 PassThrough.prototype._transform = function (chunk, encoding, cb) {
   cb(null, chunk);
 };
-},{"./_stream_transform":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_transform.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/core-util-is/lib/util.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_readable.js":[function(require,module,exports){
+},{"./_stream_transform":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_transform.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/core-util-is/lib/util.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_readable.js":[function(require,module,exports){
 (function (process,global){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -37195,7 +37195,7 @@ function indexOf(xs, x) {
   return -1;
 }
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./_stream_duplex":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_duplex.js","./internal/streams/BufferList":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/internal/streams/BufferList.js","./internal/streams/destroy":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/internal/streams/destroy.js","./internal/streams/stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/internal/streams/stream-browser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/core-util-is/lib/util.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","isarray":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/isarray/index.js","process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process-nextick-args/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js","string_decoder/":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/string_decoder/lib/string_decoder.js","util":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_transform.js":[function(require,module,exports){
+},{"./_stream_duplex":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_duplex.js","./internal/streams/BufferList":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/internal/streams/BufferList.js","./internal/streams/destroy":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/internal/streams/destroy.js","./internal/streams/stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/internal/streams/stream-browser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/core-util-is/lib/util.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","isarray":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/isarray/index.js","process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process-nextick-args/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js","string_decoder/":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/string_decoder/lib/string_decoder.js","util":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browser-resolve/empty.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_transform.js":[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -37410,7 +37410,7 @@ function done(stream, er, data) {
 
   return stream.push(null);
 }
-},{"./_stream_duplex":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_duplex.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/core-util-is/lib/util.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_writable.js":[function(require,module,exports){
+},{"./_stream_duplex":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_duplex.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/core-util-is/lib/util.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_writable.js":[function(require,module,exports){
 (function (process,global,setImmediate){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -38100,7 +38100,7 @@ Writable.prototype._destroy = function (err, cb) {
   cb(err);
 };
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("timers").setImmediate)
-},{"./_stream_duplex":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_duplex.js","./internal/streams/destroy":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/internal/streams/destroy.js","./internal/streams/stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/internal/streams/stream-browser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/core-util-is/lib/util.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process-nextick-args/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js","timers":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/timers-browserify/main.js","util-deprecate":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util-deprecate/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/internal/streams/BufferList.js":[function(require,module,exports){
+},{"./_stream_duplex":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_duplex.js","./internal/streams/destroy":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/internal/streams/destroy.js","./internal/streams/stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/internal/streams/stream-browser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/core-util-is/lib/util.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process-nextick-args/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js","timers":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/timers-browserify/main.js","util-deprecate":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/util-deprecate/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/internal/streams/BufferList.js":[function(require,module,exports){
 'use strict';
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38180,7 +38180,7 @@ if (util && util.inspect && util.inspect.custom) {
     return this.constructor.name + ' ' + obj;
   };
 }
-},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js","util":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/internal/streams/destroy.js":[function(require,module,exports){
+},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js","util":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browser-resolve/empty.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/internal/streams/destroy.js":[function(require,module,exports){
 'use strict';
 
 /*<replacement>*/
@@ -38255,13 +38255,13 @@ module.exports = {
   destroy: destroy,
   undestroy: undestroy
 };
-},{"process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process-nextick-args/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/internal/streams/stream-browser.js":[function(require,module,exports){
+},{"process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process-nextick-args/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/internal/streams/stream-browser.js":[function(require,module,exports){
 module.exports = require('events').EventEmitter;
 
-},{"events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/passthrough.js":[function(require,module,exports){
+},{"events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/passthrough.js":[function(require,module,exports){
 module.exports = require('./readable').PassThrough
 
-},{"./readable":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js":[function(require,module,exports){
+},{"./readable":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js":[function(require,module,exports){
 exports = module.exports = require('./lib/_stream_readable.js');
 exports.Stream = exports;
 exports.Readable = exports;
@@ -38270,13 +38270,13 @@ exports.Duplex = require('./lib/_stream_duplex.js');
 exports.Transform = require('./lib/_stream_transform.js');
 exports.PassThrough = require('./lib/_stream_passthrough.js');
 
-},{"./lib/_stream_duplex.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_duplex.js","./lib/_stream_passthrough.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_passthrough.js","./lib/_stream_readable.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_readable.js","./lib/_stream_transform.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_transform.js","./lib/_stream_writable.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_writable.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/transform.js":[function(require,module,exports){
+},{"./lib/_stream_duplex.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_duplex.js","./lib/_stream_passthrough.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_passthrough.js","./lib/_stream_readable.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_readable.js","./lib/_stream_transform.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_transform.js","./lib/_stream_writable.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_writable.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/transform.js":[function(require,module,exports){
 module.exports = require('./readable').Transform
 
-},{"./readable":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/writable-browser.js":[function(require,module,exports){
+},{"./readable":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/writable-browser.js":[function(require,module,exports){
 module.exports = require('./lib/_stream_writable.js');
 
-},{"./lib/_stream_writable.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/lib/_stream_writable.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/remove-trailing-separator/index.js":[function(require,module,exports){
+},{"./lib/_stream_writable.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_writable.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/remove-trailing-separator/index.js":[function(require,module,exports){
 (function (process){
 var isWin = process.platform === 'win32';
 
@@ -38297,7 +38297,7 @@ function isSeparator(str, i) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/ripemd160/index.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/ripemd160/index.js":[function(require,module,exports){
 'use strict'
 var Buffer = require('buffer').Buffer
 var inherits = require('inherits')
@@ -38462,7 +38462,7 @@ function fn5 (a, b, c, d, e, m, k, s) {
 
 module.exports = RIPEMD160
 
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","hash-base":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/hash-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","hash-base":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hash-base/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js":[function(require,module,exports){
 /* eslint-disable node/no-deprecated-api */
 var buffer = require('buffer')
 var Buffer = buffer.Buffer
@@ -38526,7 +38526,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
   return buffer.SlowBuffer(size)
 }
 
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/hash.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/hash.js":[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 
 // prototype class for hash functions
@@ -38609,7 +38609,7 @@ Hash.prototype._update = function () {
 
 module.exports = Hash
 
-},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/index.js":[function(require,module,exports){
+},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/index.js":[function(require,module,exports){
 var exports = module.exports = function SHA (algorithm) {
   algorithm = algorithm.toLowerCase()
 
@@ -38626,7 +38626,7 @@ exports.sha256 = require('./sha256')
 exports.sha384 = require('./sha384')
 exports.sha512 = require('./sha512')
 
-},{"./sha":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha.js","./sha1":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha1.js","./sha224":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha224.js","./sha256":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha256.js","./sha384":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha384.js","./sha512":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha512.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha.js":[function(require,module,exports){
+},{"./sha":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/sha.js","./sha1":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/sha1.js","./sha224":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/sha224.js","./sha256":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/sha256.js","./sha384":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/sha384.js","./sha512":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/sha512.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/sha.js":[function(require,module,exports){
 /*
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-0, as defined
  * in FIPS PUB 180-1
@@ -38722,7 +38722,7 @@ Sha.prototype._hash = function () {
 
 module.exports = Sha
 
-},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/hash.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha1.js":[function(require,module,exports){
+},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/hash.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/sha1.js":[function(require,module,exports){
 /*
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-1, as defined
  * in FIPS PUB 180-1
@@ -38823,7 +38823,7 @@ Sha1.prototype._hash = function () {
 
 module.exports = Sha1
 
-},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/hash.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha224.js":[function(require,module,exports){
+},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/hash.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/sha224.js":[function(require,module,exports){
 /**
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-256, as defined
  * in FIPS 180-2
@@ -38878,7 +38878,7 @@ Sha224.prototype._hash = function () {
 
 module.exports = Sha224
 
-},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/hash.js","./sha256":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha256.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha256.js":[function(require,module,exports){
+},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/hash.js","./sha256":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/sha256.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/sha256.js":[function(require,module,exports){
 /**
  * A JavaScript implementation of the Secure Hash Algorithm, SHA-256, as defined
  * in FIPS 180-2
@@ -39015,7 +39015,7 @@ Sha256.prototype._hash = function () {
 
 module.exports = Sha256
 
-},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/hash.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha384.js":[function(require,module,exports){
+},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/hash.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/sha384.js":[function(require,module,exports){
 var inherits = require('inherits')
 var SHA512 = require('./sha512')
 var Hash = require('./hash')
@@ -39074,7 +39074,7 @@ Sha384.prototype._hash = function () {
 
 module.exports = Sha384
 
-},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/hash.js","./sha512":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha512.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/sha512.js":[function(require,module,exports){
+},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/hash.js","./sha512":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/sha512.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/sha512.js":[function(require,module,exports){
 var inherits = require('inherits')
 var Hash = require('./hash')
 var Buffer = require('safe-buffer').Buffer
@@ -39336,7 +39336,7 @@ Sha512.prototype._hash = function () {
 
 module.exports = Sha512
 
-},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sha.js/hash.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signalhubws/index.js":[function(require,module,exports){
+},{"./hash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sha.js/hash.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signalhubws/index.js":[function(require,module,exports){
 (function (process){
 const events = require('events')
 const through2 = require('through2')
@@ -39522,7 +39522,7 @@ module.exports = function (app, urls, WebSocketClass = WebSocket) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","through2":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signalhubws/node_modules/through2/through2.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signalhubws/node_modules/through2/through2.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","through2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signalhubws/node_modules/through2/through2.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signalhubws/node_modules/through2/through2.js":[function(require,module,exports){
 (function (process){
 var Transform = require('readable-stream').Transform
   , inherits  = require('util').inherits
@@ -39621,7 +39621,7 @@ module.exports.obj = through2(function (options, transform, flush) {
 })
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js","util":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/util.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/index.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js","util":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/util/util.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signed-varint/index.js":[function(require,module,exports){
 var varint = require('varint')
 exports.encode = function encode (v, b, o) {
   v = v >= 0 ? v*2 : v*-2 - 1
@@ -39639,15 +39639,15 @@ exports.encodingLength = function (v) {
   return varint.encodingLength(v >= 0 ? v*2 : v*-2 - 1)
 }
 
-},{"varint":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/node_modules/varint/decode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/decode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/node_modules/varint/encode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/node_modules/varint/index.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
-},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/signed-varint/node_modules/varint/length.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/simple-peer/index.js":[function(require,module,exports){
+},{"varint":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signed-varint/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signed-varint/node_modules/varint/decode.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/decode.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signed-varint/node_modules/varint/encode.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signed-varint/node_modules/varint/index.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
+},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signed-varint/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signed-varint/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signed-varint/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signed-varint/node_modules/varint/length.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/simple-peer/index.js":[function(require,module,exports){
 (function (Buffer){
 module.exports = Peer
 
@@ -40401,7 +40401,7 @@ Peer.prototype._transformConstraints = function (constraints) {
 function noop () {}
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","debug":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/debug/src/browser.js","get-browser-rtc":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/get-browser-rtc/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/randombytes/browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/siphash24/fallback.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","debug":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/debug/src/browser.js","get-browser-rtc":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/get-browser-rtc/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/randombytes/browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/siphash24/fallback.js":[function(require,module,exports){
 module.exports = fallback
 
 function _add (a, b) {
@@ -40523,7 +40523,7 @@ function fallback (out, m, key) { // modified from https://github.com/jedisct1/s
   out[7] = (h.h >> 24) & 0xff
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/siphash24/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/siphash24/index.js":[function(require,module,exports){
 var wasm = require('./siphash24')
 var fallback = require('./fallback')
 var assert = require('nanoassert')
@@ -40564,7 +40564,7 @@ function siphash24 (data, key, out, noAssert) {
   return out
 }
 
-},{"./fallback":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/siphash24/fallback.js","./siphash24":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/siphash24/siphash24.js","nanoassert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/nanoassert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/siphash24/siphash24.js":[function(require,module,exports){
+},{"./fallback":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/siphash24/fallback.js","./siphash24":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/siphash24/siphash24.js","nanoassert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/nanoassert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/siphash24/siphash24.js":[function(require,module,exports){
 
 module.exports = loadWebAssembly
 
@@ -40627,7 +40627,7 @@ function charCodeAt (c) {
   return c.charCodeAt(0)
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/crypto_generichash.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-javascript/crypto_generichash.js":[function(require,module,exports){
 var blake2b = require('blake2b')
 
 module.exports.crypto_generichash_PRIMITIVE = 'blake2b'
@@ -40663,7 +40663,7 @@ blake2b.ready(function (err) {
   module.exports.crypto_generichash_WASM_LOADED = blake2b.WASM_LOADED
 })
 
-},{"blake2b":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/blake2b/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/crypto_kdf.js":[function(require,module,exports){
+},{"blake2b":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/blake2b/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-javascript/crypto_kdf.js":[function(require,module,exports){
 var assert = require('nanoassert')
 var randombytes_buf = require('./randombytes').randombytes_buf
 var blake2b = require('blake2b')
@@ -40704,7 +40704,7 @@ module.exports.crypto_kdf_keygen = function crypto_kdf_keygen (out) {
   randombytes_buf(out.subarray(0, module.exports.crypto_kdf_KEYBYTES))
 }
 
-},{"./randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/randombytes.js","blake2b":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/blake2b/index.js","nanoassert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/nanoassert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/crypto_shorthash.js":[function(require,module,exports){
+},{"./randombytes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-javascript/randombytes.js","blake2b":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/blake2b/index.js","nanoassert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/nanoassert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-javascript/crypto_shorthash.js":[function(require,module,exports){
 var siphash = require('siphash24')
 
 exports.crypto_shorthash_PRIMITIVE = 'siphash24'
@@ -40718,7 +40718,7 @@ function shorthash (out, data, key, noAssert) {
   siphash(data, key, out, noAssert)
 }
 
-},{"siphash24":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/siphash24/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/crypto_stream.js":[function(require,module,exports){
+},{"siphash24":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/siphash24/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-javascript/crypto_stream.js":[function(require,module,exports){
 var xsalsa20 = require('xsalsa20')
 
 exports.crypto_stream_KEYBYTES = 32
@@ -40753,7 +40753,7 @@ XOR.prototype.final = function () {
   this._instance = null
 }
 
-},{"xsalsa20":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/xsalsa20/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/index.js":[function(require,module,exports){
+},{"xsalsa20":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/xsalsa20/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-javascript/index.js":[function(require,module,exports){
 'use strict';
 
 // Based on https://github.com/dchest/tweetnacl-js/blob/6dcbcaf5f5cbfd313f2dcfe763db35c828c8ff5b/nacl-fast.js.
@@ -42558,7 +42558,7 @@ function forward (submodule) {
   })
 }
 
-},{"./crypto_generichash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/crypto_generichash.js","./crypto_kdf":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/crypto_kdf.js","./crypto_shorthash":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/crypto_shorthash.js","./crypto_stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/crypto_stream.js","./randombytes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/randombytes.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/randombytes.js":[function(require,module,exports){
+},{"./crypto_generichash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-javascript/crypto_generichash.js","./crypto_kdf":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-javascript/crypto_kdf.js","./crypto_shorthash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-javascript/crypto_shorthash.js","./crypto_stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-javascript/crypto_stream.js","./randombytes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-javascript/randombytes.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-javascript/randombytes.js":[function(require,module,exports){
 (function (global){
 var assert = require('nanoassert')
 var randombytes = (function () {
@@ -42602,10 +42602,10 @@ module.exports.randombytes_buf = function (out) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"crypto":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/browser-resolve/empty.js","nanoassert":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/nanoassert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-universal/browser.js":[function(require,module,exports){
+},{"crypto":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browser-resolve/empty.js","nanoassert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/nanoassert/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-universal/browser.js":[function(require,module,exports){
 module.exports = require('sodium-javascript')
 
-},{"sodium-javascript":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sodium-javascript/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sorted-indexof/index.js":[function(require,module,exports){
+},{"sodium-javascript":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-javascript/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sorted-indexof/index.js":[function(require,module,exports){
 module.exports = indexOf
 
 function indexOf (left, right) {
@@ -42636,7 +42636,7 @@ function indexOf (left, right) {
   return result
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sparse-bitfield/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sparse-bitfield/index.js":[function(require,module,exports){
 (function (Buffer){
 var pager = require('memory-pager')
 
@@ -42735,7 +42735,7 @@ function powerOfTwo (x) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer/index.js","memory-pager":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/memory-pager/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-browserify/index.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","memory-pager":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/memory-pager/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-browserify/index.js":[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -42864,7 +42864,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","readable-stream/duplex.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/duplex-browser.js","readable-stream/passthrough.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/passthrough.js","readable-stream/readable.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js","readable-stream/transform.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/transform.js","readable-stream/writable.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/writable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-collector/index.js":[function(require,module,exports){
+},{"events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","readable-stream/duplex.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/duplex-browser.js","readable-stream/passthrough.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/passthrough.js","readable-stream/readable.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js","readable-stream/transform.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/transform.js","readable-stream/writable.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/writable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-collector/index.js":[function(require,module,exports){
 var once = require('once')
 
 module.exports = function(stream, cb) {
@@ -42890,7 +42890,7 @@ module.exports = function(stream, cb) {
 
   return stream
 }
-},{"once":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/once/once.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-each/index.js":[function(require,module,exports){
+},{"once":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/once/once.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-each/index.js":[function(require,module,exports){
 var eos = require('end-of-stream')
 var shift = require('stream-shift')
 
@@ -42951,7 +42951,7 @@ function each (stream, fn, cb) {
   }
 }
 
-},{"end-of-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/end-of-stream/index.js","stream-shift":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-shift/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/stream-shift/index.js":[function(require,module,exports){
+},{"end-of-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/end-of-stream/index.js","stream-shift":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-shift/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-shift/index.js":[function(require,module,exports){
 module.exports = shift
 
 function shift (stream) {
@@ -42973,7 +42973,7 @@ function getStateLength (state) {
   return state.length
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/string_decoder/lib/string_decoder.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/string_decoder/lib/string_decoder.js":[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -43270,7 +43270,7 @@ function simpleWrite(buf) {
 function simpleEnd(buf) {
   return buf && buf.length ? this.write(buf) : '';
 }
-},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/sub-signalhub/index.js":[function(require,module,exports){
+},{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sub-signalhub/index.js":[function(require,module,exports){
 module.exports = function (instance, prefix) {
   return new SubSignalhub(instance, prefix)
 }
@@ -43295,7 +43295,7 @@ class SubSignalhub {
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/through2/through2.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/through2/through2.js":[function(require,module,exports){
 (function (process){
 var Transform = require('readable-stream').Transform
   , inherits  = require('util').inherits
@@ -43395,7 +43395,7 @@ module.exports.obj = through2(function (options, transform, flush) {
 })
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js","util":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/util.js","xtend":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/xtend/immutable.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/thunky/index.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js","util":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/util/util.js","xtend":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/xtend/immutable.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/thunky/index.js":[function(require,module,exports){
 (function (process){
 'use strict'
 
@@ -43454,7 +43454,7 @@ function nextTickArgs (fn, a, b) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/timers-browserify/main.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/timers-browserify/main.js":[function(require,module,exports){
 (function (setImmediate,clearImmediate){
 var nextTick = require('process/browser.js').nextTick;
 var apply = Function.prototype.apply;
@@ -43533,7 +43533,7 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
   delete immediateIds[id];
 };
 }).call(this,require("timers").setImmediate,require("timers").clearImmediate)
-},{"process/browser.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","timers":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/timers-browserify/main.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/uint64be/index.js":[function(require,module,exports){
+},{"process/browser.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","timers":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/timers-browserify/main.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/uint64be/index.js":[function(require,module,exports){
 var bufferAlloc = require('buffer-alloc')
 
 var UINT_32_MAX = Math.pow(2, 32)
@@ -43566,7 +43566,7 @@ exports.decode = function (buf, offset) {
 exports.encode.bytes = 8
 exports.decode.bytes = 8
 
-},{"buffer-alloc":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/buffer-alloc/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/universal-dat-storage/browser.js":[function(require,module,exports){
+},{"buffer-alloc":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-alloc/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/universal-dat-storage/browser.js":[function(require,module,exports){
 const DatEncoding = require('dat-encoding')
 const path = require('path')
 const RAW = require('random-access-web')
@@ -43626,7 +43626,7 @@ module.exports = (options) => new DatStorage(options)
 
 module.exports.DatStorage = DatStorage
 
-},{"dat-encoding":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-encoding/index.js","path":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/path-browserify/index.js","random-access-web":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/random-access-web/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unixify/index.js":[function(require,module,exports){
+},{"dat-encoding":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-encoding/index.js","path":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/path-browserify/index.js","random-access-web":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-web/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unixify/index.js":[function(require,module,exports){
 /*!
  * unixify <https://github.com/jonschlinkert/unixify>
  *
@@ -43643,7 +43643,7 @@ module.exports = function unixify(filepath, stripTrailing) {
   return filepath.replace(/^([a-zA-Z]+:|\.\/)/, '');
 };
 
-},{"normalize-path":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unixify/node_modules/normalize-path/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unixify/node_modules/normalize-path/index.js":[function(require,module,exports){
+},{"normalize-path":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unixify/node_modules/normalize-path/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unixify/node_modules/normalize-path/index.js":[function(require,module,exports){
 /*!
  * normalize-path <https://github.com/jonschlinkert/normalize-path>
  *
@@ -43664,7 +43664,7 @@ module.exports = function normalizePath(str, stripTrailing) {
   return str;
 };
 
-},{"remove-trailing-separator":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/remove-trailing-separator/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unordered-array-remove/index.js":[function(require,module,exports){
+},{"remove-trailing-separator":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/remove-trailing-separator/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unordered-array-remove/index.js":[function(require,module,exports){
 module.exports = remove
 
 function remove (arr, i) {
@@ -43678,7 +43678,7 @@ function remove (arr, i) {
   return last
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/unordered-set/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unordered-set/index.js":[function(require,module,exports){
 exports.add = add
 exports.has = has
 exports.remove = remove
@@ -43716,7 +43716,7 @@ function swap (list, a, b) {
   list[b._index] = b
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util-deprecate/browser.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/util-deprecate/browser.js":[function(require,module,exports){
 (function (global){
 
 /**
@@ -43787,13 +43787,13 @@ function config (name) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/inherits/inherits_browser.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/support/isBufferBrowser.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/util/support/isBufferBrowser.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/util.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/assert/node_modules/util/util.js"][0].apply(exports,arguments)
-},{"./support/isBuffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/support/isBufferBrowser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/util/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/varint/decode.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/util/node_modules/inherits/inherits_browser.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/assert/node_modules/inherits/inherits_browser.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/util/support/isBufferBrowser.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/assert/node_modules/util/support/isBufferBrowser.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/util/util.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/assert/node_modules/util/util.js"][0].apply(exports,arguments)
+},{"./support/isBuffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/util/support/isBufferBrowser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/util/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/varint/decode.js":[function(require,module,exports){
 module.exports = read
 
 var MSB = 0x80
@@ -43825,13 +43825,13 @@ function read(buf, offset) {
   return res
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/varint/encode.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/varint/index.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
-},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/varint/length.js":[function(require,module,exports){
-arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/vm-browserify/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/varint/encode.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/encode.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/varint/index.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/index.js"][0].apply(exports,arguments)
+},{"./decode.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/varint/decode.js","./encode.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/varint/encode.js","./length.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/varint/length.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/varint/length.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/length.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/vm-browserify/index.js":[function(require,module,exports){
 var indexOf = function (xs, item) {
     if (xs.indexOf) return xs.indexOf(item);
     else for (var i = 0; i < xs.length; i++) {
@@ -43982,7 +43982,7 @@ exports.createContext = Script.createContext = function (context) {
     return copy;
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/webrtc-swarm/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/webrtc-swarm/index.js":[function(require,module,exports){
 (function (process){
 var SimplePeer = require('simple-peer')
 var inherits = require('inherits')
@@ -44168,7 +44168,7 @@ function connect (swarm, hub) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","cuid":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/cuid/dist/browser-cuid.js","debug":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/debug/src/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/inherits/inherits_browser.js","once":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/once/once.js","simple-peer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/simple-peer/index.js","through2":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/through2/through2.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/websocket-stream/stream.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","cuid":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/cuid/dist/browser-cuid.js","debug":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/debug/src/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","once":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/once/once.js","simple-peer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/simple-peer/index.js","through2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/through2/through2.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/websocket-stream/stream.js":[function(require,module,exports){
 (function (process,global){
 'use strict'
 
@@ -44344,7 +44344,7 @@ function WebSocketStream(target, protocols, options) {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/process/browser.js","duplexify":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/duplexify/index.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/readable-stream/readable-browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/safe-buffer/index.js","ws":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/websocket-stream/ws-fallback.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/websocket-stream/ws-fallback.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","duplexify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/duplexify/index.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js","ws":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/websocket-stream/ws-fallback.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/websocket-stream/ws-fallback.js":[function(require,module,exports){
 
 var ws = null
 
@@ -44358,7 +44358,7 @@ if (typeof WebSocket !== 'undefined') {
 
 module.exports = ws
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/wrappy/wrappy.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/wrappy/wrappy.js":[function(require,module,exports){
 // Returns a wrapper function that returns a wrapped callback
 // The wrapper function should do some stuff, and return a
 // presumably different callback function.
@@ -44393,7 +44393,7 @@ function wrappy (fn, cb) {
   }
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/xsalsa20/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/xsalsa20/index.js":[function(require,module,exports){
 var xsalsa20 = require('./xsalsa20')()
 
 var SIGMA = new Uint8Array([101, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, 101, 32, 107])
@@ -44841,7 +44841,7 @@ function core_hsalsa20(o,p,k,c) {
   o[31] = x9 >>> 24 & 0xff
 }
 
-},{"./xsalsa20":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/xsalsa20/xsalsa20.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/xsalsa20/xsalsa20.js":[function(require,module,exports){
+},{"./xsalsa20":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/xsalsa20/xsalsa20.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/xsalsa20/xsalsa20.js":[function(require,module,exports){
 
 module.exports = loadWebAssembly
 
@@ -44904,7 +44904,7 @@ function charCodeAt (c) {
   return c.charCodeAt(0)
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/xtend/immutable.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/xtend/immutable.js":[function(require,module,exports){
 module.exports = extend
 
 var hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -44925,7 +44925,7 @@ function extend() {
     return target
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/index.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 let css
@@ -45116,7 +45116,7 @@ css = csjs`
   }
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","header":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/header.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/pagination.js","paginationButtons":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js","search":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/search.js","themes":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/themes.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","header":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js","paginationButtons":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/paginationButtons.js","search":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/search.js","themes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/themes.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/contracts.js":[function(require,module,exports){
 const SDK = require('dat-sdk')
 const { Hypercore, Hyperdrive, resolveName, deleteStorage, destroy } = SDK()
 const moloch = require('./moloch-demo.sol')
@@ -45175,7 +45175,7 @@ function getSourceCode (x, i, addresses, contractsArr, hashes, done) {
   })
 }
 
-},{"./moloch-demo.sol":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/moloch-demo.sol","dat-sdk":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/dat-sdk/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/header.js":[function(require,module,exports){
+},{"./moloch-demo.sol":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/moloch-demo.sol","dat-sdk":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-sdk/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 const icon = require('icon')
@@ -45283,7 +45283,7 @@ css = csjs`
   }
 `
 
-},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/icon.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/icon.js":[function(require,module,exports){
+},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/icon.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/icon.js":[function(require,module,exports){
 const bel = require('bel')
 
 module.exports = icon
@@ -45298,7 +45298,7 @@ function icon(name, svg) {
             </g>
         </svg>`
 }
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCard.js":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCard.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 const icon = require('icon')
@@ -45530,7 +45530,7 @@ css = csjs`
   }
 `
 
-},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/icon.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js":[function(require,module,exports){
+},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/icon.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 const contracts = require('contracts')
@@ -45602,7 +45602,7 @@ css = csjs`
 
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","makeCard":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCard.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/moloch-demo.sol":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","makeCard":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCard.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/moloch-demo.sol":[function(require,module,exports){
 module.exports = `
 pragma solidity 0.5.3;
 
@@ -46020,7 +46020,7 @@ contract Moloch {
 }
 `
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/pagination.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js":[function(require,module,exports){
 module.exports = pagination
 
 function pagination (contracts) {
@@ -46050,7 +46050,7 @@ function pagination (contracts) {
 
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/paginationButtons.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 const makeCollectionArea = require('makeCollectionArea')
@@ -46265,7 +46265,7 @@ css = csjs`
   }
 `
 
-},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/icon.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/search.js":[function(require,module,exports){
+},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/icon.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/search.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 let css
@@ -46277,7 +46277,11 @@ module.exports = search
 
 function search (ops) {
   const searchArea = bel`
-    <div contenteditable="true" class=${css.textarea}"></div>`
+    <div contenteditable="true" class=${css.textarea}"
+      onclick=${(e) => select(e)}
+      onkeyup=${(e) => triggerSubmit(e, ops, searchArea)}
+      onkeypress=${(e) => preventDefault(e)}>
+    </div>`
   return bel`
     <div class=${css.searchBar}>
       ${searchArea}
@@ -46326,15 +46330,39 @@ function getSearchInput (searchArea) {
   return searchInput
 }
 
+function select (el) {
+  var range = document.createRange();
+  range.selectNodeContents(el.target);
+  var sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+}
+
+function preventDefault (e) {
+  var keyCode = e.keyCode;
+  if (keyCode === 13 && !e.shiftKey) {
+    e.preventDefault()
+  }
+}
+
+function triggerSubmit (e, ops, searchArea) {
+  var keyCode = e.keyCode;
+  if (keyCode === 13 && !e.shiftKey) {
+    showMatches(ops, searchArea)
+  }
+  if (keyCode === 27) searchArea.innerText = ''
+}
+
 function getMatches (contracts, val) {
   let match = []
+  let formattedContracts = [...contracts]
   for(var i=0; i<contracts.length; i++) {
-    let contract = contracts[i].replace(/\n. |\r/g, "")
-    if (contract.includes(val)) match.push(contract)
+    let temp = formattedContracts[i].replace(/\n. |\r/g, "")
+    let contract = contracts[i]
+    if (temp.includes(val)) match.push(contract)
   }
   return match
 }
-
 
 // ===== css =====
 
@@ -46392,7 +46420,7 @@ css = csjs`
   }
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/node_modules/csjs-inject/index.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/pagination.js","paginationButtons":"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/paginationButtons.js"}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/svg.json":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js","paginationButtons":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/paginationButtons.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json":[function(require,module,exports){
 module.exports={
     "new": ["M46.39,27H29.49V10.05a1.25,1.25,0,0,0-2.5,0V27H10.11a1.25,1.25,0,0,0,0,2.5H27v17a1.25,1.25,0,0,0,2.5,0v-17h16.9a1.25,1.25,0,0,0,0-2.5Z"],
     "arrowLeft": ["M37.25,47.5a1.21,1.21,0,0,1-.88-.37l-18-18a1.24,1.24,0,0,1,0-1.76l18-18a1.24,1.24,0,0,1,1.76,1.76L21,28.25,38.13,45.37a1.24,1.24,0,0,1,0,1.76A1.21,1.21,0,0,1,37.25,47.5Z"],
@@ -46402,7 +46430,7 @@ module.exports={
     "favorite": ["M28.25,46.9a1.23,1.23,0,0,1-.75-.25A84.63,84.63,0,0,1,16.4,36.41c-7.11-8-9.15-14.45-6-19.19,1.74-2.66,3.93-4.07,6.51-4.19,4.76-.23,9.42,4.14,11.39,6.27,2-2.13,6.58-6.51,11.39-6.27,2.59.12,4.77,1.53,6.51,4.19h0c3.1,4.74,1.06,11.2-6,19.19A84.63,84.63,0,0,1,29,46.65,1.23,1.23,0,0,1,28.25,46.9Zm-11-31.38H17c-1.77.08-3.25,1.08-4.54,3-4.72,7.24,9.17,20.33,15.81,25.5,6.64-5.17,20.53-18.26,15.81-25.5h0c-1.29-2-2.77-3-4.53-3-4.89-.25-10.25,6.38-10.3,6.45a1.25,1.25,0,0,1-1,.47h0a1.25,1.25,0,0,1-1-.47C27.22,21.92,22,15.52,17.23,15.52Z"],
     "search": ["M46.13,44.29,35,33.25A15.46,15.46,0,1,0,33.25,35l11.12,11a1.23,1.23,0,0,0,1.76,0A1.25,1.25,0,0,0,46.13,44.29Zm-35.78-21A12.93,12.93,0,1,1,23.28,36.2,12.94,12.94,0,0,1,10.35,23.28Z"]
 }
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/node_modules/themes.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/themes.js":[function(require,module,exports){
 module.exports = themes
 
 // define colors
@@ -46573,4 +46601,4 @@ function themes (themeName) {
   return themes[themeName] || themes['lightTheme']
 }
 
-},{}]},{},["/home/ninabreznik/Documents/code/ethereum/play/collection-page/src/index.js"]);
+},{}]},{},["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/index.js"]);
