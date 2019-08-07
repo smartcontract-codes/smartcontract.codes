@@ -1,4 +1,684 @@
-(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/@geut/discovery-swarm-webrtc/index.js":[function(require,module,exports){
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/demo/demo.js":[function(require,module,exports){
+const contractsDB = require('contracts-db')
+const smartcontractcodes = require('../')
+
+const daturl = 'dat://c610858d82e4c9bc9585bb26fedb260c080ed24c6a05bcf3da9ad73a6917ac82/'
+const db = contractsDB(daturl)
+
+const element = smartcontractcodes({
+  contracts: db,
+  themes: require('./themes.js')
+})
+
+document.body.appendChild(element)
+
+},{"../":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/app.js","./themes.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/demo/themes.js","contracts-db":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/demo/node_modules/contracts-db/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/demo/node_modules/contracts-db/index.js":[function(require,module,exports){
+const SDK = require('dat-sdk')
+const { Hypercore, Hyperdrive, resolveName, deleteStorage, destroy } = SDK()
+
+module.exports = contractsDB
+
+function contractsDB (daturl) {
+  const contracts = []
+  let waitingQuery = null
+  let ready = false
+
+  // ADD MOLOCH DAO - for the demo @TODO remove after the demo
+  const moloch = require('./moloch-demo.sol')
+  contracts.push({
+    source: moloch,
+    title: 'Moloch.sol',
+    hash: '0x1234567345678903456'
+  })
+
+  var counter = 0
+  const archive = Hyperdrive(daturl)
+  return { getAll, get }
+
+  function get (query, done) {
+    if (!ready) {
+      waitingQuery = [query, done]
+      return
+    }
+    const match = { sources: [], titles: [], hashes: [] }
+    const formattedSources = [...sources]
+    for (var i = 0; i < sources.length; i++) {
+      const temp = formattedSources[i].replace(/\n. |\r/g, "")
+      if (temp.includes(query)) {
+        match.sources.push(sources[i])
+        match.titles.push(titles[i])
+        match.hashes.push(hashes[i])
+      }
+    }
+    done(match)
+  }
+  // retrieve all sources
+  function getAll (done) {
+    archive.ready(() => {
+      archive.readdir('.', (err, addresses) => {
+        if (err) return done(err)
+        if (addresses) {
+          for (var i=0; i<addresses.length; i++) {
+            getContractsArr(i, addresses, done)
+          }
+        }
+      })
+    })
+  }
+  // loop over address/src/sourcesArr
+  function getContractsArr (x, addresses, done) {
+    archive.readdir(`${addresses[x]}/src/`, (err, sourcesArr) => {
+      if (err) return done(err)
+      if (sourcesArr) {
+        counter = counter + sourcesArr.length
+        for (var i=0; i<sourcesArr.length; i++) {
+          getSourceCode(x, i, addresses, sourcesArr, addresses[x], done)
+        }
+      }
+    })
+  }
+  // get source code and oush it to `sources` array
+  function getSourceCode (x, i, addresses, sourcesArr, hash, done) {
+    archive.readFile(`${addresses[x]}/src/${sourcesArr[i]}`, 'utf8', (err, contract) => {
+      if (err) return done(err) // console.log(err)
+      contracts.push({ source: contract, title: sourcesArr[i], hash: hash })
+      if (counter === contracts.length) {
+        ready = true
+        if (waitingQuery) get(waitingQuery[0], waitingQuery[1])
+        done(null, contracts)
+      }
+    })
+  }
+}
+
+},{"./moloch-demo.sol":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/demo/node_modules/contracts-db/moloch-demo.sol","dat-sdk":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-sdk/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/demo/node_modules/contracts-db/moloch-demo.sol":[function(require,module,exports){
+module.exports = `
+pragma solidity 0.5.3;
+
+import "https://gist.githubusercontent.com/ninabreznik/a66bdae5fa18c7618b445b24fe97cce0/raw/116f38fbed9e1471b1be093302a40e5baa394c04/Moloch-SafeMath";
+import "https://gist.githubusercontent.com/ninabreznik/765408b436e6d354da74a1a4c32d4aff/raw/303879cb3be8d3c77f08a1fe546d1d02655b37d8/Moloch-ERC20%2520interface";
+import "https://gist.githubusercontent.com/ninabreznik/31e429a08177b96add9a89206bb51a23/raw/d9e06d321ac1dc44c7a846acf8580b00f7225280/Moloch-GuildBank";
+
+contract Moloch {
+    using SafeMath for uint256;
+
+    /***************
+    GLOBAL CONSTANTS
+    ***************/
+    uint256 public periodDuration; // default = 17280 = 4.8 hours in seconds (5 periods per day)
+    uint256 public votingPeriodLength; // default = 35 periods (7 days)
+    uint256 public gracePeriodLength; // default = 35 periods (7 days)
+    uint256 public abortWindow; // default = 5 periods (1 day)
+    uint256 public proposalDeposit; // default = 10 ETH (~$1,000 worth of ETH at contract deployment)
+    uint256 public dilutionBound; // default = 3 - maximum multiplier a YES voter will be obligated to pay in case of mass ragequit
+    uint256 public processingReward; // default = 0.1 - amount of ETH to give to whoever processes a proposal
+    uint256 public summoningTime; // needed to determine the current period
+
+    IERC20 public approvedToken; // approved token contract reference; default = wETH
+    GuildBank public guildBank; // guild bank contract reference
+
+    // HARD-CODED LIMITS
+    // These numbers are quite arbitrary; they are small enough to avoid overflows when doing calculations
+    // with periods or shares, yet big enough to not limit reasonable use cases.
+    uint256 constant MAX_VOTING_PERIOD_LENGTH = 10**18; // maximum length of voting period
+    uint256 constant MAX_GRACE_PERIOD_LENGTH = 10**18; // maximum length of grace period
+    uint256 constant MAX_DILUTION_BOUND = 10**18; // maximum dilution bound
+    uint256 constant MAX_NUMBER_OF_SHARES = 10**18; // maximum number of shares that can be minted
+
+    /***************
+    EVENTS
+    ***************/
+    event SubmitProposal(uint256 proposalIndex, address indexed delegateKey, address indexed memberAddress, address indexed applicant, uint256 tokenTribute, uint256 sharesRequested);
+    event SubmitVote(uint256 indexed proposalIndex, address indexed delegateKey, address indexed memberAddress, uint8 uintVote);
+    event ProcessProposal(uint256 indexed proposalIndex, address indexed applicant, address indexed memberAddress, uint256 tokenTribute, uint256 sharesRequested, bool didPass);
+    event Ragequit(address indexed memberAddress, uint256 sharesToBurn);
+    event Abort(uint256 indexed proposalIndex, address applicantAddress);
+    event UpdateDelegateKey(address indexed memberAddress, address newDelegateKey);
+    event SummonComplete(address indexed summoner, uint256 shares);
+
+    /******************
+    INTERNAL ACCOUNTING
+    ******************/
+    uint256 public totalShares = 0; // total shares across all members
+    uint256 public totalSharesRequested = 0; // total shares that have been requested in unprocessed proposals
+
+    enum Vote {
+        Null, // default value, counted as abstention
+        Yes,
+        No
+    }
+
+    struct Member {
+        address delegateKey; // the key responsible for submitting proposals and voting - defaults to member address unless updated
+        uint256 shares; // the # of shares assigned to this member
+        bool exists; // always true once a member has been created
+        uint256 highestIndexYesVote; // highest proposal index # on which the member voted YES
+    }
+
+    struct Proposal {
+        address proposer; // the member who submitted the proposal
+        address applicant; // the applicant who wishes to become a member - this key will be used for withdrawals
+        uint256 sharesRequested; // the # of shares the applicant is requesting
+        uint256 startingPeriod; // the period in which voting can start for this proposal
+        uint256 yesVotes; // the total number of YES votes for this proposal
+        uint256 noVotes; // the total number of NO votes for this proposal
+        bool processed; // true only if the proposal has been processed
+        bool didPass; // true only if the proposal passed
+        bool aborted; // true only if applicant calls "abort" fn before end of voting period
+        uint256 tokenTribute; // amount of tokens offered as tribute
+        string details; // proposal details - could be IPFS hash, plaintext, or JSON
+        uint256 maxTotalSharesAtYesVote; // the maximum # of total shares encountered at a yes vote on this proposal
+        mapping (address => Vote) votesByMember; // the votes on this proposal by each member
+    }
+
+    mapping (address => Member) public members;
+    mapping (address => address) public memberAddressByDelegateKey;
+    Proposal[] public proposalQueue;
+
+    /********
+    MODIFIERS
+    ********/
+    modifier onlyMember {
+        require(members[msg.sender].shares > 0, "Moloch::onlyMember - not a member");
+        _;
+    }
+
+    modifier onlyDelegate {
+        require(members[memberAddressByDelegateKey[msg.sender]].shares > 0, "Moloch::onlyDelegate - not a delegate");
+        _;
+    }
+
+    /********
+    FUNCTIONS
+    ********/
+    constructor(
+        address summoner,
+        address _approvedToken,
+        uint256 _periodDuration,
+        uint256 _votingPeriodLength,
+        uint256 _gracePeriodLength,
+        uint256 _abortWindow,
+        uint256 _proposalDeposit,
+        uint256 _dilutionBound,
+        uint256 _processingReward
+    ) public {
+        require(summoner != address(0), "Moloch::constructor - summoner cannot be 0");
+        require(_approvedToken != address(0), "Moloch::constructor - _approvedToken cannot be 0");
+        require(_periodDuration > 0, "Moloch::constructor - _periodDuration cannot be 0");
+        require(_votingPeriodLength > 0, "Moloch::constructor - _votingPeriodLength cannot be 0");
+        require(_votingPeriodLength <= MAX_VOTING_PERIOD_LENGTH, "Moloch::constructor - _votingPeriodLength exceeds limit");
+        require(_gracePeriodLength <= MAX_GRACE_PERIOD_LENGTH, "Moloch::constructor - _gracePeriodLength exceeds limit");
+        require(_abortWindow > 0, "Moloch::constructor - _abortWindow cannot be 0");
+        require(_abortWindow <= _votingPeriodLength, "Moloch::constructor - _abortWindow must be smaller than or equal to _votingPeriodLength");
+        require(_dilutionBound > 0, "Moloch::constructor - _dilutionBound cannot be 0");
+        require(_dilutionBound <= MAX_DILUTION_BOUND, "Moloch::constructor - _dilutionBound exceeds limit");
+        require(_proposalDeposit >= _processingReward, "Moloch::constructor - _proposalDeposit cannot be smaller than _processingReward");
+
+        approvedToken = IERC20(_approvedToken);
+
+        guildBank = new GuildBank(_approvedToken);
+
+        periodDuration = _periodDuration;
+        votingPeriodLength = _votingPeriodLength;
+        gracePeriodLength = _gracePeriodLength;
+        abortWindow = _abortWindow;
+        proposalDeposit = _proposalDeposit;
+        dilutionBound = _dilutionBound;
+        processingReward = _processingReward;
+
+        summoningTime = now;
+
+        members[summoner] = Member(summoner, 1, true, 0);
+        memberAddressByDelegateKey[summoner] = summoner;
+        totalShares = 1;
+
+        emit SummonComplete(summoner, 1);
+    }
+
+    /*****************
+    PROPOSAL FUNCTIONS
+    *****************/
+
+    function submitProposal(
+        address applicant,
+        uint256 tokenTribute,
+        uint256 sharesRequested,
+        string memory details
+    )
+        public
+        onlyDelegate
+    {
+        require(applicant != address(0), "Moloch::submitProposal - applicant cannot be 0");
+
+        // Make sure we won't run into overflows when doing calculations with shares.
+        // Note that totalShares + totalSharesRequested + sharesRequested is an upper bound
+        // on the number of shares that can exist until this proposal has been processed.
+        require(totalShares.add(totalSharesRequested).add(sharesRequested) <= MAX_NUMBER_OF_SHARES, "Moloch::submitProposal - too many shares requested");
+
+        totalSharesRequested = totalSharesRequested.add(sharesRequested);
+
+        address memberAddress = memberAddressByDelegateKey[msg.sender];
+
+        // collect proposal deposit from proposer and store it in the Moloch until the proposal is processed
+        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "Moloch::submitProposal - proposal deposit token transfer failed");
+
+        // collect tribute from applicant and store it in the Moloch until the proposal is processed
+        require(approvedToken.transferFrom(applicant, address(this), tokenTribute), "Moloch::submitProposal - tribute token transfer failed");
+
+        // compute startingPeriod for proposal
+        uint256 startingPeriod = max(
+            getCurrentPeriod(),
+            proposalQueue.length == 0 ? 0 : proposalQueue[proposalQueue.length.sub(1)].startingPeriod
+        ).add(1);
+
+        // create proposal ...
+        Proposal memory proposal = Proposal({
+            proposer: memberAddress,
+            applicant: applicant,
+            sharesRequested: sharesRequested,
+            startingPeriod: startingPeriod,
+            yesVotes: 0,
+            noVotes: 0,
+            processed: false,
+            didPass: false,
+            aborted: false,
+            tokenTribute: tokenTribute,
+            details: details,
+            maxTotalSharesAtYesVote: 0
+        });
+
+        // ... and append it to the queue
+        proposalQueue.push(proposal);
+
+        uint256 proposalIndex = proposalQueue.length.sub(1);
+        emit SubmitProposal(proposalIndex, msg.sender, memberAddress, applicant, tokenTribute, sharesRequested);
+    }
+
+    function submitVote(uint256 proposalIndex, uint8 uintVote) public onlyDelegate {
+        address memberAddress = memberAddressByDelegateKey[msg.sender];
+        Member storage member = members[memberAddress];
+
+        require(proposalIndex < proposalQueue.length, "Moloch::submitVote - proposal does not exist");
+        Proposal storage proposal = proposalQueue[proposalIndex];
+
+        require(uintVote < 3, "Moloch::submitVote - uintVote must be less than 3");
+        Vote vote = Vote(uintVote);
+
+        require(getCurrentPeriod() >= proposal.startingPeriod, "Moloch::submitVote - voting period has not started");
+        require(!hasVotingPeriodExpired(proposal.startingPeriod), "Moloch::submitVote - proposal voting period has expired");
+        require(proposal.votesByMember[memberAddress] == Vote.Null, "Moloch::submitVote - member has already voted on this proposal");
+        require(vote == Vote.Yes || vote == Vote.No, "Moloch::submitVote - vote must be either Yes or No");
+        require(!proposal.aborted, "Moloch::submitVote - proposal has been aborted");
+
+        // store vote
+        proposal.votesByMember[memberAddress] = vote;
+
+        // count vote
+        if (vote == Vote.Yes) {
+            proposal.yesVotes = proposal.yesVotes.add(member.shares);
+
+            // set highest index (latest) yes vote - must be processed for member to ragequit
+            if (proposalIndex > member.highestIndexYesVote) {
+                member.highestIndexYesVote = proposalIndex;
+            }
+
+            // set maximum of total shares encountered at a yes vote - used to bound dilution for yes voters
+            if (totalShares > proposal.maxTotalSharesAtYesVote) {
+                proposal.maxTotalSharesAtYesVote = totalShares;
+            }
+
+        } else if (vote == Vote.No) {
+            proposal.noVotes = proposal.noVotes.add(member.shares);
+        }
+
+        emit SubmitVote(proposalIndex, msg.sender, memberAddress, uintVote);
+    }
+
+    function processProposal(uint256 proposalIndex) public {
+        require(proposalIndex < proposalQueue.length, "Moloch::processProposal - proposal does not exist");
+        Proposal storage proposal = proposalQueue[proposalIndex];
+
+        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Moloch::processProposal - proposal is not ready to be processed");
+        require(proposal.processed == false, "Moloch::processProposal - proposal has already been processed");
+        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "Moloch::processProposal - previous proposal must be processed");
+
+        proposal.processed = true;
+        totalSharesRequested = totalSharesRequested.sub(proposal.sharesRequested);
+
+        bool didPass = proposal.yesVotes > proposal.noVotes;
+
+        // Make the proposal fail if the dilutionBound is exceeded
+        if (totalShares.mul(dilutionBound) < proposal.maxTotalSharesAtYesVote) {
+            didPass = false;
+        }
+
+        // PROPOSAL PASSED
+        if (didPass && !proposal.aborted) {
+
+            proposal.didPass = true;
+
+            // if the applicant is already a member, add to their existing shares
+            if (members[proposal.applicant].exists) {
+                members[proposal.applicant].shares = members[proposal.applicant].shares.add(proposal.sharesRequested);
+
+            // the applicant is a new member, create a new record for them
+            } else {
+                // if the applicant address is already taken by a member's delegateKey, reset it to their member address
+                if (members[memberAddressByDelegateKey[proposal.applicant]].exists) {
+                    address memberToOverride = memberAddressByDelegateKey[proposal.applicant];
+                    memberAddressByDelegateKey[memberToOverride] = memberToOverride;
+                    members[memberToOverride].delegateKey = memberToOverride;
+                }
+
+                // use applicant address as delegateKey by default
+                members[proposal.applicant] = Member(proposal.applicant, proposal.sharesRequested, true, 0);
+                memberAddressByDelegateKey[proposal.applicant] = proposal.applicant;
+            }
+
+            // mint new shares
+            totalShares = totalShares.add(proposal.sharesRequested);
+
+            // transfer tokens to guild bank
+            require(
+                approvedToken.transfer(address(guildBank), proposal.tokenTribute),
+                "Moloch::processProposal - token transfer to guild bank failed"
+            );
+
+        // PROPOSAL FAILED OR ABORTED
+        } else {
+            // return all tokens to the applicant
+            require(
+                approvedToken.transfer(proposal.applicant, proposal.tokenTribute),
+                "Moloch::processProposal - failing vote token transfer failed"
+            );
+        }
+
+        // send msg.sender the processingReward
+        require(
+            approvedToken.transfer(msg.sender, processingReward),
+            "Moloch::processProposal - failed to send processing reward to msg.sender"
+        );
+
+        // return deposit to proposer (subtract processing reward)
+        require(
+            approvedToken.transfer(proposal.proposer, proposalDeposit.sub(processingReward)),
+            "Moloch::processProposal - failed to return proposal deposit to proposer"
+        );
+
+        emit ProcessProposal(
+            proposalIndex,
+            proposal.applicant,
+            proposal.proposer,
+            proposal.tokenTribute,
+            proposal.sharesRequested,
+            didPass
+        );
+    }
+
+    function ragequit(uint256 sharesToBurn) public onlyMember {
+        uint256 initialTotalShares = totalShares;
+
+        Member storage member = members[msg.sender];
+
+        require(member.shares >= sharesToBurn, "Moloch::ragequit - insufficient shares");
+
+        require(canRagequit(member.highestIndexYesVote), "Moloch::ragequit - cant ragequit until highest index proposal member voted YES on is processed");
+
+        // burn shares
+        member.shares = member.shares.sub(sharesToBurn);
+        totalShares = totalShares.sub(sharesToBurn);
+
+        // instruct guildBank to transfer fair share of tokens to the ragequitter
+        require(
+            guildBank.withdraw(msg.sender, sharesToBurn, initialTotalShares),
+            "Moloch::ragequit - withdrawal of tokens from guildBank failed"
+        );
+
+        emit Ragequit(msg.sender, sharesToBurn);
+    }
+
+    function abort(uint256 proposalIndex) public {
+        require(proposalIndex < proposalQueue.length, "Moloch::abort - proposal does not exist");
+        Proposal storage proposal = proposalQueue[proposalIndex];
+
+        require(msg.sender == proposal.applicant, "Moloch::abort - msg.sender must be applicant");
+        require(getCurrentPeriod() < proposal.startingPeriod.add(abortWindow), "Moloch::abort - abort window must not have passed");
+        require(!proposal.aborted, "Moloch::abort - proposal must not have already been aborted");
+
+        uint256 tokensToAbort = proposal.tokenTribute;
+        proposal.tokenTribute = 0;
+        proposal.aborted = true;
+
+        // return all tokens to the applicant
+        require(
+            approvedToken.transfer(proposal.applicant, tokensToAbort),
+            "Moloch::processProposal - failed to return tribute to applicant"
+        );
+
+        emit Abort(proposalIndex, msg.sender);
+    }
+
+    function updateDelegateKey(address newDelegateKey) public onlyMember {
+        require(newDelegateKey != address(0), "Moloch::updateDelegateKey - newDelegateKey cannot be 0");
+
+        // skip checks if member is setting the delegate key to their member address
+        if (newDelegateKey != msg.sender) {
+            require(!members[newDelegateKey].exists, "Moloch::updateDelegateKey - cant overwrite existing members");
+            require(!members[memberAddressByDelegateKey[newDelegateKey]].exists, "Moloch::updateDelegateKey - cant overwrite existing delegate keys");
+        }
+
+        Member storage member = members[msg.sender];
+        memberAddressByDelegateKey[member.delegateKey] = address(0);
+        memberAddressByDelegateKey[newDelegateKey] = msg.sender;
+        member.delegateKey = newDelegateKey;
+
+        emit UpdateDelegateKey(msg.sender, newDelegateKey);
+    }
+
+    /***************
+    GETTER FUNCTIONS
+    ***************/
+
+    function max(uint256 x, uint256 y) internal pure returns (uint256) {
+        return x >= y ? x : y;
+    }
+
+    function getCurrentPeriod() public view returns (uint256) {
+        return now.sub(summoningTime).div(periodDuration);
+    }
+
+    function getProposalQueueLength() public view returns (uint256) {
+        return proposalQueue.length;
+    }
+
+    // can only ragequit if the latest proposal you voted YES on has been processed
+    function canRagequit(uint256 highestIndexYesVote) public view returns (bool) {
+        require(highestIndexYesVote < proposalQueue.length, "Moloch::canRagequit - proposal does not exist");
+        return proposalQueue[highestIndexYesVote].processed;
+    }
+
+    function hasVotingPeriodExpired(uint256 startingPeriod) public view returns (bool) {
+        return getCurrentPeriod() >= startingPeriod.add(votingPeriodLength);
+    }
+
+    function getMemberProposalVote(address memberAddress, uint256 proposalIndex) public view returns (Vote) {
+        require(members[memberAddress].exists, "Moloch::getMemberProposalVote - member doesn't exist");
+        require(proposalIndex < proposalQueue.length, "Moloch::getMemberProposalVote - proposal doesn't exist");
+        return proposalQueue[proposalIndex].votesByMember[memberAddress];
+    }
+}
+`
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/demo/themes.js":[function(require,module,exports){
+module.exports = select
+
+function select (theme = 'darkTheme') {
+  return themes[theme]
+}
+
+// define colors
+const bluePurple = '#6700ff'
+const lightGreen = '#09FFC3'
+const lightGreenHover = '#A1FFE8'
+const greyEB = '#EBEBEB'
+const grey8D = '#8D8D8D'
+const grey31 = '#313136'
+const grey33 = '#333333'
+const greyBB = '#BBBBBB'
+const white = '#ffffff'
+const dark18 = '#181920'
+const dark1d = '#1d1d26'
+const peach = 'rgba(255, 41,117, 100)'
+const transparent = 'rgba(0,0,0,0)'
+
+// define font
+const fontNunito = `'Nunito', sans-serif`
+const fontInconsolata = `'Inconsolata', monospace`
+
+const lightTheme = {
+  '--main-font': fontNunito,
+  '--code-font': fontInconsolata,
+  '--h1': '6rem',
+  '--h2': '5rem',
+  '--h3': '4rem',
+  '--h4': '3rem',
+  '--h5': '2rem',
+  '--h6': '1.6rem',
+  '--body-color': grey33,
+  '--body-background': greyEB,
+  '--wrapper-padding': '0 30px',
+  '--button-default': lightGreen,
+  '--button-default-hover': white,
+  '--button-default-font-size': '1.8rem',
+  '--button-default-text': dark1d,
+  '--button-default-text-hover': dark1d,
+  '--button-default-radius': '22px',
+  '--button-default-padding': '10px 30px',
+  '--button-padding-right': '30px',
+  '--button-padding-left': '30px',
+  '--button-border': '0px solid var(--button-white)',
+  '--button-box-shadow': 'none',
+  '--editor-preview': white,
+  '--card-cover': greyEB,
+  '--card-hover-cover': lightGreen,
+  '--card-cover-border': transparent,
+  '--card-border': transparent,
+  '--card-hover-border': '0px solid var(--card-border)',
+  '--card-code-overlay': 'linear-gradient(0deg, rgba(0,0,0, .1) 0%, rgba(0,0,0, .28) 100%)',
+  '--card-shadow': '0px 6px 8px rgba(144, 144, 144, .3)',
+  '--card-hover-shadow': '0px 6px 8px rgba(144, 144, 144, .3)',
+  '--card-code-text': '1.3rem',
+  '--card-code-text-line-height': '20px',
+  '--card-code-width': 'calc(100% - 40px)',
+  '--card-code-height': 'calc(100% - 30px)',
+  '--card-code-padding': '15px 20px',
+  '--card-cover-title': grey31,
+  '--card-hover-cover-title': grey31,
+  '--card-cover-userInfo': grey33,
+  '--card-time': grey8D,
+  '--card-hover-time': grey8D,
+  '--card-visit-icons-fill': dark1d,
+  '--search-input': `1px solid var(--search-input-border)`,
+  '--search-input-border': 'rgba(255,255,255, 0)',
+  '--search-input-background': white,
+  '--search-input-color': grey8D,
+  '--search-input-text': '1.4rem',
+  '--search-icon-fill': dark1d,
+  '--search-button-color': dark1d,
+  '--search-button-background': white,
+  '--search-button-hover-background': lightGreen,
+  '--text-large': '2rem',
+  '--text-normal': '1.6rem',
+  '--text-small': '1.4rem',
+  '--text-xsmall': '1.2rem',
+  '--pages-current-background': white,
+  '--pages-border': '0px solid rgba(0,0,0,0)',
+  '--pages-text': grey8D,
+  '--pages-text-active': dark1d,
+  '--pages-text-border-radius': '4px',
+  '--pages-hover-background': white,
+  '--grid-template': '',
+  '--icon-new-fill': dark1d,
+  '--pagination-button-icon-fill': dark1d,
+  '--collectionArea-grid-gap': '30px',
+  '--collectionCard-border-radius': '6px',
+  '--pages-li-color': grey8D,
+  '--search-button-border-radius': '30px',
+}
+
+const darkTheme = {
+  '--main-font': fontNunito,
+  '--code-font': fontInconsolata,
+  '--h1': '6rem',
+  '--h2': '5rem',
+  '--h3': '4rem',
+  '--h4': '3rem',
+  '--h5': '2rem',
+  '--h6': '1.6rem',
+  '--body-color': white,
+  '--body-background': dark18,
+  '--wrapper-padding': '0 30px',
+  '--button-default': transparent,
+  '--button-default-hover': bluePurple,
+  '--button-default-font-size': '1.8rem',
+  '--button-default-text': peach,
+  '--button-default-text-hover': peach,
+  '--button-default-radius': '22px',
+  '--button-default-padding': '10px 30px',
+  '--button-padding-right': '30px',
+  '--button-padding-left': '30px',
+  '--button-border': '1px solid #6700ff',
+  '--button-box-shadow': '0 1px 8px rgba(255,41,117, .3)',
+  '--editor-preview': dark1d,
+  '--card-cover': grey31,
+  '--card-hover-cover': bluePurple,
+  '--card-cover-border': transparent,
+  '--card-border': bluePurple,
+  '--card-hover-border': '1px solid var(--card-border)',
+  '--card-code-overlay': 'linear-gradient(0deg, rgba(103,0,255, .1) 0%, rgba(103,0,255, .28) 100%)',
+  '--card-shadow': '0px 2px 30px rgba(103, 0, 255, 0)',
+  '--card-hover-shadow': '0px 2px 30px rgba(103, 0, 255, .6)',
+  '--card-code-text': '1.3rem',
+  '--card-code-text-line-height': '20px',
+  '--card-code-width': 'calc(100% - 40px)',
+  '--card-code-height': 'calc(100% - 30px)',
+  '--card-code-padding': '15px 20px',
+  '--card-cover-title': lightGreen,
+  '--card-hover-cover-title': white,
+  '--card-cover-userInfo': white,
+  '--card-time': greyBB,
+  '--card-hover-time': white,
+  '--card-visit-icons-fill': white,
+  '--search-input': `1px solid var(--search-input-border)`,
+  '--search-input-border': bluePurple,
+  '--search-input-background': 'none',
+  '--search-input-color': lightGreen,
+  '--search-input-text': '1.4rem',
+  '--search-icon-fill': lightGreen,
+  '--search-button-color': white,
+  '--search-button-background': white,
+  '--search-button-hover-background': bluePurple,
+  '--text-large': '2rem',
+  '--text-normal': '1.6rem',
+  '--text-small': '1.4rem',
+  '--text-xsmall': '1.2rem',
+  '--pages-current-background': transparent,
+  '--pages-border': '1px solid #6700ff',
+  '--pages-text': peach,
+  '--pages-text-active': white,
+  '--pages-text-border-radius': '4px',
+  '--pages-hover-background': bluePurple,
+  '--grid-template': '',
+  '--icon-new-fill': white,
+  '--pagination-button-icon-fill': peach,
+  '--collectionArea-grid-gap': '30px',
+  '--collectionCard-border-radius': '6px',
+  '--search-button-border-radius': '30px',
+}
+const themes = { lightTheme, darkTheme }
+select.names = Object.keys(themes)
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/@geut/discovery-swarm-webrtc/index.js":[function(require,module,exports){
 (function (process){
 const assert = require('assert')
 const EventEmitter = require('events')
@@ -111,7 +791,7 @@ class DiscoverySwarmWebrtc extends EventEmitter {
 module.exports = (...args) => new DiscoverySwarmWebrtc(...args)
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/assert/assert.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","pump":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pump/index.js","sub-signalhub":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sub-signalhub/index.js","webrtc-swarm":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/webrtc-swarm/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/index.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/assert/assert.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js","pump":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pump/index.js","sub-signalhub":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sub-signalhub/index.js","webrtc-swarm":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/webrtc-swarm/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/index.js":[function(require,module,exports){
 (function (Buffer){
 var from = require('from2')
 var mutexify = require('mutexify')
@@ -824,7 +1504,7 @@ function getCache (opts) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./messages":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/messages.js","array-lru":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/array-lru/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","codecs":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/codecs/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","from2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/from2/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","mutexify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/mutexify/index.js","process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/process-nextick-args/index.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/messages.js":[function(require,module,exports){
+},{"./messages":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/messages.js","array-lru":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/array-lru/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","codecs":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/codecs/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js","from2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/from2/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","mutexify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/mutexify/index.js","process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/process-nextick-args/index.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/messages.js":[function(require,module,exports){
 (function (Buffer){
 // This file is auto generated by the protocol-buffers cli tool
 
@@ -10641,7 +11321,532 @@ function checkValue (b, q) {
 module.exports = verify
 
 }).call(this,require("buffer").Buffer)
-},{"./curves.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/browser/curves.json","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","elliptic":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic.js","parse-asn1":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-alloc-unsafe/index.js":[function(require,module,exports){
+},{"./curves.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/browser/curves.json","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","elliptic":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic.js","parse-asn1":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js":[function(require,module,exports){
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+var objectCreate = Object.create || objectCreatePolyfill
+var objectKeys = Object.keys || objectKeysPolyfill
+var bind = Function.prototype.bind || functionBindPolyfill
+
+function EventEmitter() {
+  if (!this._events || !Object.prototype.hasOwnProperty.call(this, '_events')) {
+    this._events = objectCreate(null);
+    this._eventsCount = 0;
+  }
+
+  this._maxListeners = this._maxListeners || undefined;
+}
+module.exports = EventEmitter;
+
+// Backwards-compat with node 0.10.x
+EventEmitter.EventEmitter = EventEmitter;
+
+EventEmitter.prototype._events = undefined;
+EventEmitter.prototype._maxListeners = undefined;
+
+// By default EventEmitters will print a warning if more than 10 listeners are
+// added to it. This is a useful default which helps finding memory leaks.
+var defaultMaxListeners = 10;
+
+var hasDefineProperty;
+try {
+  var o = {};
+  if (Object.defineProperty) Object.defineProperty(o, 'x', { value: 0 });
+  hasDefineProperty = o.x === 0;
+} catch (err) { hasDefineProperty = false }
+if (hasDefineProperty) {
+  Object.defineProperty(EventEmitter, 'defaultMaxListeners', {
+    enumerable: true,
+    get: function() {
+      return defaultMaxListeners;
+    },
+    set: function(arg) {
+      // check whether the input is a positive number (whose value is zero or
+      // greater and not a NaN).
+      if (typeof arg !== 'number' || arg < 0 || arg !== arg)
+        throw new TypeError('"defaultMaxListeners" must be a positive number');
+      defaultMaxListeners = arg;
+    }
+  });
+} else {
+  EventEmitter.defaultMaxListeners = defaultMaxListeners;
+}
+
+// Obviously not all Emitters should be limited to 10. This function allows
+// that to be increased. Set to zero for unlimited.
+EventEmitter.prototype.setMaxListeners = function setMaxListeners(n) {
+  if (typeof n !== 'number' || n < 0 || isNaN(n))
+    throw new TypeError('"n" argument must be a positive number');
+  this._maxListeners = n;
+  return this;
+};
+
+function $getMaxListeners(that) {
+  if (that._maxListeners === undefined)
+    return EventEmitter.defaultMaxListeners;
+  return that._maxListeners;
+}
+
+EventEmitter.prototype.getMaxListeners = function getMaxListeners() {
+  return $getMaxListeners(this);
+};
+
+// These standalone emit* functions are used to optimize calling of event
+// handlers for fast cases because emit() itself often has a variable number of
+// arguments and can be deoptimized because of that. These functions always have
+// the same number of arguments and thus do not get deoptimized, so the code
+// inside them can execute faster.
+function emitNone(handler, isFn, self) {
+  if (isFn)
+    handler.call(self);
+  else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+    for (var i = 0; i < len; ++i)
+      listeners[i].call(self);
+  }
+}
+function emitOne(handler, isFn, self, arg1) {
+  if (isFn)
+    handler.call(self, arg1);
+  else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+    for (var i = 0; i < len; ++i)
+      listeners[i].call(self, arg1);
+  }
+}
+function emitTwo(handler, isFn, self, arg1, arg2) {
+  if (isFn)
+    handler.call(self, arg1, arg2);
+  else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+    for (var i = 0; i < len; ++i)
+      listeners[i].call(self, arg1, arg2);
+  }
+}
+function emitThree(handler, isFn, self, arg1, arg2, arg3) {
+  if (isFn)
+    handler.call(self, arg1, arg2, arg3);
+  else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+    for (var i = 0; i < len; ++i)
+      listeners[i].call(self, arg1, arg2, arg3);
+  }
+}
+
+function emitMany(handler, isFn, self, args) {
+  if (isFn)
+    handler.apply(self, args);
+  else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+    for (var i = 0; i < len; ++i)
+      listeners[i].apply(self, args);
+  }
+}
+
+EventEmitter.prototype.emit = function emit(type) {
+  var er, handler, len, args, i, events;
+  var doError = (type === 'error');
+
+  events = this._events;
+  if (events)
+    doError = (doError && events.error == null);
+  else if (!doError)
+    return false;
+
+  // If there is no 'error' event listener then throw.
+  if (doError) {
+    if (arguments.length > 1)
+      er = arguments[1];
+    if (er instanceof Error) {
+      throw er; // Unhandled 'error' event
+    } else {
+      // At least give some kind of context to the user
+      var err = new Error('Unhandled "error" event. (' + er + ')');
+      err.context = er;
+      throw err;
+    }
+    return false;
+  }
+
+  handler = events[type];
+
+  if (!handler)
+    return false;
+
+  var isFn = typeof handler === 'function';
+  len = arguments.length;
+  switch (len) {
+      // fast cases
+    case 1:
+      emitNone(handler, isFn, this);
+      break;
+    case 2:
+      emitOne(handler, isFn, this, arguments[1]);
+      break;
+    case 3:
+      emitTwo(handler, isFn, this, arguments[1], arguments[2]);
+      break;
+    case 4:
+      emitThree(handler, isFn, this, arguments[1], arguments[2], arguments[3]);
+      break;
+      // slower
+    default:
+      args = new Array(len - 1);
+      for (i = 1; i < len; i++)
+        args[i - 1] = arguments[i];
+      emitMany(handler, isFn, this, args);
+  }
+
+  return true;
+};
+
+function _addListener(target, type, listener, prepend) {
+  var m;
+  var events;
+  var existing;
+
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
+
+  events = target._events;
+  if (!events) {
+    events = target._events = objectCreate(null);
+    target._eventsCount = 0;
+  } else {
+    // To avoid recursion in the case that type === "newListener"! Before
+    // adding it to the listeners, first emit "newListener".
+    if (events.newListener) {
+      target.emit('newListener', type,
+          listener.listener ? listener.listener : listener);
+
+      // Re-assign `events` because a newListener handler could have caused the
+      // this._events to be assigned to a new object
+      events = target._events;
+    }
+    existing = events[type];
+  }
+
+  if (!existing) {
+    // Optimize the case of one listener. Don't need the extra array object.
+    existing = events[type] = listener;
+    ++target._eventsCount;
+  } else {
+    if (typeof existing === 'function') {
+      // Adding the second element, need to change to array.
+      existing = events[type] =
+          prepend ? [listener, existing] : [existing, listener];
+    } else {
+      // If we've already got an array, just append.
+      if (prepend) {
+        existing.unshift(listener);
+      } else {
+        existing.push(listener);
+      }
+    }
+
+    // Check for listener leak
+    if (!existing.warned) {
+      m = $getMaxListeners(target);
+      if (m && m > 0 && existing.length > m) {
+        existing.warned = true;
+        var w = new Error('Possible EventEmitter memory leak detected. ' +
+            existing.length + ' "' + String(type) + '" listeners ' +
+            'added. Use emitter.setMaxListeners() to ' +
+            'increase limit.');
+        w.name = 'MaxListenersExceededWarning';
+        w.emitter = target;
+        w.type = type;
+        w.count = existing.length;
+        if (typeof console === 'object' && console.warn) {
+          console.warn('%s: %s', w.name, w.message);
+        }
+      }
+    }
+  }
+
+  return target;
+}
+
+EventEmitter.prototype.addListener = function addListener(type, listener) {
+  return _addListener(this, type, listener, false);
+};
+
+EventEmitter.prototype.on = EventEmitter.prototype.addListener;
+
+EventEmitter.prototype.prependListener =
+    function prependListener(type, listener) {
+      return _addListener(this, type, listener, true);
+    };
+
+function onceWrapper() {
+  if (!this.fired) {
+    this.target.removeListener(this.type, this.wrapFn);
+    this.fired = true;
+    switch (arguments.length) {
+      case 0:
+        return this.listener.call(this.target);
+      case 1:
+        return this.listener.call(this.target, arguments[0]);
+      case 2:
+        return this.listener.call(this.target, arguments[0], arguments[1]);
+      case 3:
+        return this.listener.call(this.target, arguments[0], arguments[1],
+            arguments[2]);
+      default:
+        var args = new Array(arguments.length);
+        for (var i = 0; i < args.length; ++i)
+          args[i] = arguments[i];
+        this.listener.apply(this.target, args);
+    }
+  }
+}
+
+function _onceWrap(target, type, listener) {
+  var state = { fired: false, wrapFn: undefined, target: target, type: type, listener: listener };
+  var wrapped = bind.call(onceWrapper, state);
+  wrapped.listener = listener;
+  state.wrapFn = wrapped;
+  return wrapped;
+}
+
+EventEmitter.prototype.once = function once(type, listener) {
+  if (typeof listener !== 'function')
+    throw new TypeError('"listener" argument must be a function');
+  this.on(type, _onceWrap(this, type, listener));
+  return this;
+};
+
+EventEmitter.prototype.prependOnceListener =
+    function prependOnceListener(type, listener) {
+      if (typeof listener !== 'function')
+        throw new TypeError('"listener" argument must be a function');
+      this.prependListener(type, _onceWrap(this, type, listener));
+      return this;
+    };
+
+// Emits a 'removeListener' event if and only if the listener was removed.
+EventEmitter.prototype.removeListener =
+    function removeListener(type, listener) {
+      var list, events, position, i, originalListener;
+
+      if (typeof listener !== 'function')
+        throw new TypeError('"listener" argument must be a function');
+
+      events = this._events;
+      if (!events)
+        return this;
+
+      list = events[type];
+      if (!list)
+        return this;
+
+      if (list === listener || list.listener === listener) {
+        if (--this._eventsCount === 0)
+          this._events = objectCreate(null);
+        else {
+          delete events[type];
+          if (events.removeListener)
+            this.emit('removeListener', type, list.listener || listener);
+        }
+      } else if (typeof list !== 'function') {
+        position = -1;
+
+        for (i = list.length - 1; i >= 0; i--) {
+          if (list[i] === listener || list[i].listener === listener) {
+            originalListener = list[i].listener;
+            position = i;
+            break;
+          }
+        }
+
+        if (position < 0)
+          return this;
+
+        if (position === 0)
+          list.shift();
+        else
+          spliceOne(list, position);
+
+        if (list.length === 1)
+          events[type] = list[0];
+
+        if (events.removeListener)
+          this.emit('removeListener', type, originalListener || listener);
+      }
+
+      return this;
+    };
+
+EventEmitter.prototype.removeAllListeners =
+    function removeAllListeners(type) {
+      var listeners, events, i;
+
+      events = this._events;
+      if (!events)
+        return this;
+
+      // not listening for removeListener, no need to emit
+      if (!events.removeListener) {
+        if (arguments.length === 0) {
+          this._events = objectCreate(null);
+          this._eventsCount = 0;
+        } else if (events[type]) {
+          if (--this._eventsCount === 0)
+            this._events = objectCreate(null);
+          else
+            delete events[type];
+        }
+        return this;
+      }
+
+      // emit removeListener for all listeners on all events
+      if (arguments.length === 0) {
+        var keys = objectKeys(events);
+        var key;
+        for (i = 0; i < keys.length; ++i) {
+          key = keys[i];
+          if (key === 'removeListener') continue;
+          this.removeAllListeners(key);
+        }
+        this.removeAllListeners('removeListener');
+        this._events = objectCreate(null);
+        this._eventsCount = 0;
+        return this;
+      }
+
+      listeners = events[type];
+
+      if (typeof listeners === 'function') {
+        this.removeListener(type, listeners);
+      } else if (listeners) {
+        // LIFO order
+        for (i = listeners.length - 1; i >= 0; i--) {
+          this.removeListener(type, listeners[i]);
+        }
+      }
+
+      return this;
+    };
+
+function _listeners(target, type, unwrap) {
+  var events = target._events;
+
+  if (!events)
+    return [];
+
+  var evlistener = events[type];
+  if (!evlistener)
+    return [];
+
+  if (typeof evlistener === 'function')
+    return unwrap ? [evlistener.listener || evlistener] : [evlistener];
+
+  return unwrap ? unwrapListeners(evlistener) : arrayClone(evlistener, evlistener.length);
+}
+
+EventEmitter.prototype.listeners = function listeners(type) {
+  return _listeners(this, type, true);
+};
+
+EventEmitter.prototype.rawListeners = function rawListeners(type) {
+  return _listeners(this, type, false);
+};
+
+EventEmitter.listenerCount = function(emitter, type) {
+  if (typeof emitter.listenerCount === 'function') {
+    return emitter.listenerCount(type);
+  } else {
+    return listenerCount.call(emitter, type);
+  }
+};
+
+EventEmitter.prototype.listenerCount = listenerCount;
+function listenerCount(type) {
+  var events = this._events;
+
+  if (events) {
+    var evlistener = events[type];
+
+    if (typeof evlistener === 'function') {
+      return 1;
+    } else if (evlistener) {
+      return evlistener.length;
+    }
+  }
+
+  return 0;
+}
+
+EventEmitter.prototype.eventNames = function eventNames() {
+  return this._eventsCount > 0 ? Reflect.ownKeys(this._events) : [];
+};
+
+// About 1.5x faster than the two-arg version of Array#splice().
+function spliceOne(list, index) {
+  for (var i = index, k = i + 1, n = list.length; k < n; i += 1, k += 1)
+    list[i] = list[k];
+  list.pop();
+}
+
+function arrayClone(arr, n) {
+  var copy = new Array(n);
+  for (var i = 0; i < n; ++i)
+    copy[i] = arr[i];
+  return copy;
+}
+
+function unwrapListeners(arr) {
+  var ret = new Array(arr.length);
+  for (var i = 0; i < ret.length; ++i) {
+    ret[i] = arr[i].listener || arr[i];
+  }
+  return ret;
+}
+
+function objectCreatePolyfill(proto) {
+  var F = function() {};
+  F.prototype = proto;
+  return new F;
+}
+function objectKeysPolyfill(obj) {
+  var keys = [];
+  for (var k in obj) if (Object.prototype.hasOwnProperty.call(obj, k)) {
+    keys.push(k);
+  }
+  return k;
+}
+function functionBindPolyfill(context) {
+  var fn = this;
+  return function () {
+    return fn.apply(context, arguments);
+  };
+}
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-alloc-unsafe/index.js":[function(require,module,exports){
 (function (Buffer){
 function allocUnsafe (size) {
   if (typeof size !== 'number') {
@@ -13038,8 +14243,8 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 
-}).call(this,{"isBuffer":require("../../insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../../insert-module-globals/node_modules/is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/insert-module-globals/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/count-trailing-zeros/ctz.js":[function(require,module,exports){
+}).call(this,{"isBuffer":require("../../is-buffer/index.js")})
+},{"../../is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/count-trailing-zeros/ctz.js":[function(require,module,exports){
 module.exports = function(v) {
   var c = 32
   v &= -v
@@ -14283,34 +15488,100 @@ module.exports = function (opts) {
 
 },{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/debug/src/browser.js":[function(require,module,exports){
 (function (process){
+/* eslint-env browser */
+
 /**
  * This is the web browser implementation of `debug()`.
- *
- * Expose `debug()` as the module.
  */
 
-exports = module.exports = require('./debug');
 exports.log = log;
 exports.formatArgs = formatArgs;
 exports.save = save;
 exports.load = load;
 exports.useColors = useColors;
-exports.storage = 'undefined' != typeof chrome
-               && 'undefined' != typeof chrome.storage
-                  ? chrome.storage.local
-                  : localstorage();
+exports.storage = localstorage();
 
 /**
  * Colors.
  */
 
 exports.colors = [
-  'lightseagreen',
-  'forestgreen',
-  'goldenrod',
-  'dodgerblue',
-  'darkorchid',
-  'crimson'
+	'#0000CC',
+	'#0000FF',
+	'#0033CC',
+	'#0033FF',
+	'#0066CC',
+	'#0066FF',
+	'#0099CC',
+	'#0099FF',
+	'#00CC00',
+	'#00CC33',
+	'#00CC66',
+	'#00CC99',
+	'#00CCCC',
+	'#00CCFF',
+	'#3300CC',
+	'#3300FF',
+	'#3333CC',
+	'#3333FF',
+	'#3366CC',
+	'#3366FF',
+	'#3399CC',
+	'#3399FF',
+	'#33CC00',
+	'#33CC33',
+	'#33CC66',
+	'#33CC99',
+	'#33CCCC',
+	'#33CCFF',
+	'#6600CC',
+	'#6600FF',
+	'#6633CC',
+	'#6633FF',
+	'#66CC00',
+	'#66CC33',
+	'#9900CC',
+	'#9900FF',
+	'#9933CC',
+	'#9933FF',
+	'#99CC00',
+	'#99CC33',
+	'#CC0000',
+	'#CC0033',
+	'#CC0066',
+	'#CC0099',
+	'#CC00CC',
+	'#CC00FF',
+	'#CC3300',
+	'#CC3333',
+	'#CC3366',
+	'#CC3399',
+	'#CC33CC',
+	'#CC33FF',
+	'#CC6600',
+	'#CC6633',
+	'#CC9900',
+	'#CC9933',
+	'#CCCC00',
+	'#CCCC33',
+	'#FF0000',
+	'#FF0033',
+	'#FF0066',
+	'#FF0099',
+	'#FF00CC',
+	'#FF00FF',
+	'#FF3300',
+	'#FF3333',
+	'#FF3366',
+	'#FF3399',
+	'#FF33CC',
+	'#FF33FF',
+	'#FF6600',
+	'#FF6633',
+	'#FF9900',
+	'#FF9933',
+	'#FFCC00',
+	'#FFCC33'
 ];
 
 /**
@@ -14321,38 +15592,31 @@ exports.colors = [
  * TODO: add a `localStorage` variable to explicitly enable/disable colors
  */
 
+// eslint-disable-next-line complexity
 function useColors() {
-  // NB: In an Electron preload script, document will be defined but not fully
-  // initialized. Since we know we're in Chrome, we'll just detect this case
-  // explicitly
-  if (typeof window !== 'undefined' && window.process && window.process.type === 'renderer') {
-    return true;
-  }
+	// NB: In an Electron preload script, document will be defined but not fully
+	// initialized. Since we know we're in Chrome, we'll just detect this case
+	// explicitly
+	if (typeof window !== 'undefined' && window.process && (window.process.type === 'renderer' || window.process.__nwjs)) {
+		return true;
+	}
 
-  // is webkit? http://stackoverflow.com/a/16459606/376773
-  // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
-  return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
-    // is firebug? http://stackoverflow.com/a/398120/376773
-    (typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
-    // is firefox >= v31?
-    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
-    // double check webkit in userAgent just in case we are in a worker
-    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+	// Internet Explorer and Edge do not support colors.
+	if (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
+		return false;
+	}
+
+	// Is webkit? http://stackoverflow.com/a/16459606/376773
+	// document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+	return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
+		// Is firebug? http://stackoverflow.com/a/398120/376773
+		(typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
+		// Is firefox >= v31?
+		// https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
+		// Double check webkit in userAgent just in case we are in a worker
+		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
 }
-
-/**
- * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
- */
-
-exports.formatters.j = function(v) {
-  try {
-    return JSON.stringify(v);
-  } catch (err) {
-    return '[UnexpectedJSONParseError]: ' + err.message;
-  }
-};
-
 
 /**
  * Colorize log arguments if enabled.
@@ -14361,36 +15625,38 @@ exports.formatters.j = function(v) {
  */
 
 function formatArgs(args) {
-  var useColors = this.useColors;
+	args[0] = (this.useColors ? '%c' : '') +
+		this.namespace +
+		(this.useColors ? ' %c' : ' ') +
+		args[0] +
+		(this.useColors ? '%c ' : ' ') +
+		'+' + module.exports.humanize(this.diff);
 
-  args[0] = (useColors ? '%c' : '')
-    + this.namespace
-    + (useColors ? ' %c' : ' ')
-    + args[0]
-    + (useColors ? '%c ' : ' ')
-    + '+' + exports.humanize(this.diff);
+	if (!this.useColors) {
+		return;
+	}
 
-  if (!useColors) return;
+	const c = 'color: ' + this.color;
+	args.splice(1, 0, c, 'color: inherit');
 
-  var c = 'color: ' + this.color;
-  args.splice(1, 0, c, 'color: inherit')
+	// The final "%c" is somewhat tricky, because there could be other
+	// arguments passed either before or after the %c, so we need to
+	// figure out the correct index to insert the CSS into
+	let index = 0;
+	let lastC = 0;
+	args[0].replace(/%[a-zA-Z%]/g, match => {
+		if (match === '%%') {
+			return;
+		}
+		index++;
+		if (match === '%c') {
+			// We only are interested in the *last* %c
+			// (the user may have provided their own)
+			lastC = index;
+		}
+	});
 
-  // the final "%c" is somewhat tricky, because there could be other
-  // arguments passed either before or after the %c, so we need to
-  // figure out the correct index to insert the CSS into
-  var index = 0;
-  var lastC = 0;
-  args[0].replace(/%[a-zA-Z%]/g, function(match) {
-    if ('%%' === match) return;
-    index++;
-    if ('%c' === match) {
-      // we only are interested in the *last* %c
-      // (the user may have provided their own)
-      lastC = index;
-    }
-  });
-
-  args.splice(lastC, 0, c);
+	args.splice(lastC, 0, c);
 }
 
 /**
@@ -14399,13 +15665,12 @@ function formatArgs(args) {
  *
  * @api public
  */
-
-function log() {
-  // this hackery is required for IE8/9, where
-  // the `console.log` function doesn't have 'apply'
-  return 'object' === typeof console
-    && console.log
-    && Function.prototype.apply.call(console.log, console, arguments);
+function log(...args) {
+	// This hackery is required for IE8/9, where
+	// the `console.log` function doesn't have 'apply'
+	return typeof console === 'object' &&
+		console.log &&
+		console.log(...args);
 }
 
 /**
@@ -14414,15 +15679,17 @@ function log() {
  * @param {String} namespaces
  * @api private
  */
-
 function save(namespaces) {
-  try {
-    if (null == namespaces) {
-      exports.storage.removeItem('debug');
-    } else {
-      exports.storage.debug = namespaces;
-    }
-  } catch(e) {}
+	try {
+		if (namespaces) {
+			exports.storage.setItem('debug', namespaces);
+		} else {
+			exports.storage.removeItem('debug');
+		}
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
 }
 
 /**
@@ -14431,26 +15698,22 @@ function save(namespaces) {
  * @return {String} returns the previously persisted debug modes
  * @api private
  */
-
 function load() {
-  var r;
-  try {
-    r = exports.storage.debug;
-  } catch(e) {}
+	let r;
+	try {
+		r = exports.storage.getItem('debug');
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
 
-  // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
-  if (!r && typeof process !== 'undefined' && 'env' in process) {
-    r = process.env.DEBUG;
-  }
+	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+	if (!r && typeof process !== 'undefined' && 'env' in process) {
+		r = process.env.DEBUG;
+	}
 
-  return r;
+	return r;
 }
-
-/**
- * Enable namespaces listed in `localStorage.debug` initially.
- */
-
-exports.enable(load());
 
 /**
  * Localstorage attempts to return the localstorage.
@@ -14464,215 +15727,300 @@ exports.enable(load());
  */
 
 function localstorage() {
-  try {
-    return window.localStorage;
-  } catch (e) {}
+	try {
+		// TVMLKit (Apple TV JS Runtime) does not have a window object, just localStorage in the global context
+		// The Browser also has localStorage in the global context.
+		return localStorage;
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
 }
 
+module.exports = require('./common')(exports);
+
+const {formatters} = module.exports;
+
+/**
+ * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+ */
+
+formatters.j = function (v) {
+	try {
+		return JSON.stringify(v);
+	} catch (error) {
+		return '[UnexpectedJSONParseError]: ' + error.message;
+	}
+};
+
 }).call(this,require('_process'))
-},{"./debug":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/debug/src/debug.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/debug/src/debug.js":[function(require,module,exports){
+},{"./common":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/debug/src/common.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/debug/src/common.js":[function(require,module,exports){
 
 /**
  * This is the common logic for both the Node.js and web browser
  * implementations of `debug()`.
- *
- * Expose `debug()` as the module.
  */
 
-exports = module.exports = createDebug.debug = createDebug['default'] = createDebug;
-exports.coerce = coerce;
-exports.disable = disable;
-exports.enable = enable;
-exports.enabled = enabled;
-exports.humanize = require('ms');
+function setup(env) {
+	createDebug.debug = createDebug;
+	createDebug.default = createDebug;
+	createDebug.coerce = coerce;
+	createDebug.disable = disable;
+	createDebug.enable = enable;
+	createDebug.enabled = enabled;
+	createDebug.humanize = require('ms');
 
-/**
- * The currently active debug mode names, and names to skip.
- */
+	Object.keys(env).forEach(key => {
+		createDebug[key] = env[key];
+	});
 
-exports.names = [];
-exports.skips = [];
+	/**
+	* Active `debug` instances.
+	*/
+	createDebug.instances = [];
 
-/**
- * Map of special "%n" handling functions, for the debug "format" argument.
- *
- * Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
- */
+	/**
+	* The currently active debug mode names, and names to skip.
+	*/
 
-exports.formatters = {};
+	createDebug.names = [];
+	createDebug.skips = [];
 
-/**
- * Previous log timestamp.
- */
+	/**
+	* Map of special "%n" handling functions, for the debug "format" argument.
+	*
+	* Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
+	*/
+	createDebug.formatters = {};
 
-var prevTime;
+	/**
+	* Selects a color for a debug namespace
+	* @param {String} namespace The namespace string for the for the debug instance to be colored
+	* @return {Number|String} An ANSI color code for the given namespace
+	* @api private
+	*/
+	function selectColor(namespace) {
+		let hash = 0;
 
-/**
- * Select a color.
- * @param {String} namespace
- * @return {Number}
- * @api private
- */
+		for (let i = 0; i < namespace.length; i++) {
+			hash = ((hash << 5) - hash) + namespace.charCodeAt(i);
+			hash |= 0; // Convert to 32bit integer
+		}
 
-function selectColor(namespace) {
-  var hash = 0, i;
+		return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
+	}
+	createDebug.selectColor = selectColor;
 
-  for (i in namespace) {
-    hash  = ((hash << 5) - hash) + namespace.charCodeAt(i);
-    hash |= 0; // Convert to 32bit integer
-  }
+	/**
+	* Create a debugger with the given `namespace`.
+	*
+	* @param {String} namespace
+	* @return {Function}
+	* @api public
+	*/
+	function createDebug(namespace) {
+		let prevTime;
 
-  return exports.colors[Math.abs(hash) % exports.colors.length];
+		function debug(...args) {
+			// Disabled?
+			if (!debug.enabled) {
+				return;
+			}
+
+			const self = debug;
+
+			// Set `diff` timestamp
+			const curr = Number(new Date());
+			const ms = curr - (prevTime || curr);
+			self.diff = ms;
+			self.prev = prevTime;
+			self.curr = curr;
+			prevTime = curr;
+
+			args[0] = createDebug.coerce(args[0]);
+
+			if (typeof args[0] !== 'string') {
+				// Anything else let's inspect with %O
+				args.unshift('%O');
+			}
+
+			// Apply any `formatters` transformations
+			let index = 0;
+			args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
+				// If we encounter an escaped % then don't increase the array index
+				if (match === '%%') {
+					return match;
+				}
+				index++;
+				const formatter = createDebug.formatters[format];
+				if (typeof formatter === 'function') {
+					const val = args[index];
+					match = formatter.call(self, val);
+
+					// Now we need to remove `args[index]` since it's inlined in the `format`
+					args.splice(index, 1);
+					index--;
+				}
+				return match;
+			});
+
+			// Apply env-specific formatting (colors, etc.)
+			createDebug.formatArgs.call(self, args);
+
+			const logFn = self.log || createDebug.log;
+			logFn.apply(self, args);
+		}
+
+		debug.namespace = namespace;
+		debug.enabled = createDebug.enabled(namespace);
+		debug.useColors = createDebug.useColors();
+		debug.color = selectColor(namespace);
+		debug.destroy = destroy;
+		debug.extend = extend;
+		// Debug.formatArgs = formatArgs;
+		// debug.rawLog = rawLog;
+
+		// env-specific initialization logic for debug instances
+		if (typeof createDebug.init === 'function') {
+			createDebug.init(debug);
+		}
+
+		createDebug.instances.push(debug);
+
+		return debug;
+	}
+
+	function destroy() {
+		const index = createDebug.instances.indexOf(this);
+		if (index !== -1) {
+			createDebug.instances.splice(index, 1);
+			return true;
+		}
+		return false;
+	}
+
+	function extend(namespace, delimiter) {
+		const newDebug = createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
+		newDebug.log = this.log;
+		return newDebug;
+	}
+
+	/**
+	* Enables a debug mode by namespaces. This can include modes
+	* separated by a colon and wildcards.
+	*
+	* @param {String} namespaces
+	* @api public
+	*/
+	function enable(namespaces) {
+		createDebug.save(namespaces);
+
+		createDebug.names = [];
+		createDebug.skips = [];
+
+		let i;
+		const split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
+		const len = split.length;
+
+		for (i = 0; i < len; i++) {
+			if (!split[i]) {
+				// ignore empty strings
+				continue;
+			}
+
+			namespaces = split[i].replace(/\*/g, '.*?');
+
+			if (namespaces[0] === '-') {
+				createDebug.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
+			} else {
+				createDebug.names.push(new RegExp('^' + namespaces + '$'));
+			}
+		}
+
+		for (i = 0; i < createDebug.instances.length; i++) {
+			const instance = createDebug.instances[i];
+			instance.enabled = createDebug.enabled(instance.namespace);
+		}
+	}
+
+	/**
+	* Disable debug output.
+	*
+	* @return {String} namespaces
+	* @api public
+	*/
+	function disable() {
+		const namespaces = [
+			...createDebug.names.map(toNamespace),
+			...createDebug.skips.map(toNamespace).map(namespace => '-' + namespace)
+		].join(',');
+		createDebug.enable('');
+		return namespaces;
+	}
+
+	/**
+	* Returns true if the given mode name is enabled, false otherwise.
+	*
+	* @param {String} name
+	* @return {Boolean}
+	* @api public
+	*/
+	function enabled(name) {
+		if (name[name.length - 1] === '*') {
+			return true;
+		}
+
+		let i;
+		let len;
+
+		for (i = 0, len = createDebug.skips.length; i < len; i++) {
+			if (createDebug.skips[i].test(name)) {
+				return false;
+			}
+		}
+
+		for (i = 0, len = createDebug.names.length; i < len; i++) {
+			if (createDebug.names[i].test(name)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	* Convert regexp to namespace
+	*
+	* @param {RegExp} regxep
+	* @return {String} namespace
+	* @api private
+	*/
+	function toNamespace(regexp) {
+		return regexp.toString()
+			.substring(2, regexp.toString().length - 2)
+			.replace(/\.\*\?$/, '*');
+	}
+
+	/**
+	* Coerce `val`.
+	*
+	* @param {Mixed} val
+	* @return {Mixed}
+	* @api private
+	*/
+	function coerce(val) {
+		if (val instanceof Error) {
+			return val.stack || val.message;
+		}
+		return val;
+	}
+
+	createDebug.enable(createDebug.load());
+
+	return createDebug;
 }
 
-/**
- * Create a debugger with the given `namespace`.
- *
- * @param {String} namespace
- * @return {Function}
- * @api public
- */
-
-function createDebug(namespace) {
-
-  function debug() {
-    // disabled?
-    if (!debug.enabled) return;
-
-    var self = debug;
-
-    // set `diff` timestamp
-    var curr = +new Date();
-    var ms = curr - (prevTime || curr);
-    self.diff = ms;
-    self.prev = prevTime;
-    self.curr = curr;
-    prevTime = curr;
-
-    // turn the `arguments` into a proper Array
-    var args = new Array(arguments.length);
-    for (var i = 0; i < args.length; i++) {
-      args[i] = arguments[i];
-    }
-
-    args[0] = exports.coerce(args[0]);
-
-    if ('string' !== typeof args[0]) {
-      // anything else let's inspect with %O
-      args.unshift('%O');
-    }
-
-    // apply any `formatters` transformations
-    var index = 0;
-    args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
-      // if we encounter an escaped % then don't increase the array index
-      if (match === '%%') return match;
-      index++;
-      var formatter = exports.formatters[format];
-      if ('function' === typeof formatter) {
-        var val = args[index];
-        match = formatter.call(self, val);
-
-        // now we need to remove `args[index]` since it's inlined in the `format`
-        args.splice(index, 1);
-        index--;
-      }
-      return match;
-    });
-
-    // apply env-specific formatting (colors, etc.)
-    exports.formatArgs.call(self, args);
-
-    var logFn = debug.log || exports.log || console.log.bind(console);
-    logFn.apply(self, args);
-  }
-
-  debug.namespace = namespace;
-  debug.enabled = exports.enabled(namespace);
-  debug.useColors = exports.useColors();
-  debug.color = selectColor(namespace);
-
-  // env-specific initialization logic for debug instances
-  if ('function' === typeof exports.init) {
-    exports.init(debug);
-  }
-
-  return debug;
-}
-
-/**
- * Enables a debug mode by namespaces. This can include modes
- * separated by a colon and wildcards.
- *
- * @param {String} namespaces
- * @api public
- */
-
-function enable(namespaces) {
-  exports.save(namespaces);
-
-  exports.names = [];
-  exports.skips = [];
-
-  var split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
-  var len = split.length;
-
-  for (var i = 0; i < len; i++) {
-    if (!split[i]) continue; // ignore empty strings
-    namespaces = split[i].replace(/\*/g, '.*?');
-    if (namespaces[0] === '-') {
-      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
-    } else {
-      exports.names.push(new RegExp('^' + namespaces + '$'));
-    }
-  }
-}
-
-/**
- * Disable debug output.
- *
- * @api public
- */
-
-function disable() {
-  exports.enable('');
-}
-
-/**
- * Returns true if the given mode name is enabled, false otherwise.
- *
- * @param {String} name
- * @return {Boolean}
- * @api public
- */
-
-function enabled(name) {
-  var i, len;
-  for (i = 0, len = exports.skips.length; i < len; i++) {
-    if (exports.skips[i].test(name)) {
-      return false;
-    }
-  }
-  for (i = 0, len = exports.names.length; i < len; i++) {
-    if (exports.names[i].test(name)) {
-      return true;
-    }
-  }
-  return false;
-}
-
-/**
- * Coerce `val`.
- *
- * @param {Mixed} val
- * @return {Mixed}
- * @api private
- */
-
-function coerce(val) {
-  if (val instanceof Error) return val.stack || val.message;
-  return val;
-}
+module.exports = setup;
 
 },{"ms":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/ms/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/des.js/lib/des.js":[function(require,module,exports){
 'use strict';
@@ -15832,7 +17180,7 @@ module.exports = class DiscoverySwarmClient extends EventEmitter {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-stream/index.js","./proxystream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-stream/proxystream.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-stream/index.js":[function(require,module,exports){
+},{"./":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-stream/index.js","./proxystream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-stream/proxystream.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-stream/index.js":[function(require,module,exports){
 var Duplex = require('readable-stream').Duplex
 var lps = require('length-prefixed-stream')
 var messages = require('./messages')
@@ -16311,7 +17659,7 @@ function setSecure (url) {
   }
 }
 
-},{"@geut/discovery-swarm-webrtc":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/@geut/discovery-swarm-webrtc/index.js","discovery-swarm-stream/client":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-stream/client.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/randombytes/browser.js","signalhubws":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signalhubws/index.js","websocket-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/websocket-stream/stream.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/duplexify/index.js":[function(require,module,exports){
+},{"@geut/discovery-swarm-webrtc":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/@geut/discovery-swarm-webrtc/index.js","discovery-swarm-stream/client":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-stream/client.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/randombytes/browser.js","signalhubws":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signalhubws/index.js","websocket-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/websocket-stream/stream.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/duplexify/index.js":[function(require,module,exports){
 (function (process,Buffer){
 var stream = require('readable-stream')
 var eos = require('end-of-stream')
@@ -20399,36 +21747,30 @@ utils.intFromLE = intFromLE;
 
 },{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-assert/index.js","minimalistic-crypto-utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-crypto-utils/lib/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/package.json":[function(require,module,exports){
 module.exports={
-  "_args": [
-    [
-      "elliptic@6.5.0",
-      "/home/ninabreznik/Documents/code/ethereum/play/collection-page"
-    ]
-  ],
-  "_development": true,
-  "_from": "elliptic@6.5.0",
+  "_from": "elliptic@^6.0.0",
   "_id": "elliptic@6.5.0",
   "_inBundle": false,
   "_integrity": "sha512-eFOJTMyCYb7xtE/caJ6JJu+bhi67WCYNbkGSknu20pmM8Ke/bqOfdnZWxyoGN26JgfxTbXrsCkEw4KheCT/KGg==",
   "_location": "/elliptic",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
+    "type": "range",
     "registry": true,
-    "raw": "elliptic@6.5.0",
+    "raw": "elliptic@^6.0.0",
     "name": "elliptic",
     "escapedName": "elliptic",
-    "rawSpec": "6.5.0",
+    "rawSpec": "^6.0.0",
     "saveSpec": null,
-    "fetchSpec": "6.5.0"
+    "fetchSpec": "^6.0.0"
   },
   "_requiredBy": [
     "/browserify-sign",
     "/create-ecdh"
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.5.0.tgz",
-  "_spec": "6.5.0",
-  "_where": "/home/ninabreznik/Documents/code/ethereum/play/collection-page",
+  "_shasum": "2b8ed4c891b7de3200e14412a5b8248c7af505ca",
+  "_spec": "elliptic@^6.0.0",
+  "_where": "/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -20436,6 +21778,7 @@ module.exports={
   "bugs": {
     "url": "https://github.com/indutny/elliptic/issues"
   },
+  "bundleDependencies": false,
   "dependencies": {
     "bn.js": "^4.4.0",
     "brorand": "^1.0.1",
@@ -20445,6 +21788,7 @@ module.exports={
     "minimalistic-assert": "^1.0.0",
     "minimalistic-crypto-utils": "^1.0.0"
   },
+  "deprecated": false,
   "description": "EC cryptography",
   "devDependencies": {
     "brfs": "^1.4.3",
@@ -20579,532 +21923,7 @@ var eos = function(stream, opts, callback) {
 
 module.exports = eos;
 
-},{"once":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/once/once.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js":[function(require,module,exports){
-// Copyright Joyent, Inc. and other Node contributors.
-//
-// Permission is hereby granted, free of charge, to any person obtaining a
-// copy of this software and associated documentation files (the
-// "Software"), to deal in the Software without restriction, including
-// without limitation the rights to use, copy, modify, merge, publish,
-// distribute, sublicense, and/or sell copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the
-// following conditions:
-//
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-// USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-var objectCreate = Object.create || objectCreatePolyfill
-var objectKeys = Object.keys || objectKeysPolyfill
-var bind = Function.prototype.bind || functionBindPolyfill
-
-function EventEmitter() {
-  if (!this._events || !Object.prototype.hasOwnProperty.call(this, '_events')) {
-    this._events = objectCreate(null);
-    this._eventsCount = 0;
-  }
-
-  this._maxListeners = this._maxListeners || undefined;
-}
-module.exports = EventEmitter;
-
-// Backwards-compat with node 0.10.x
-EventEmitter.EventEmitter = EventEmitter;
-
-EventEmitter.prototype._events = undefined;
-EventEmitter.prototype._maxListeners = undefined;
-
-// By default EventEmitters will print a warning if more than 10 listeners are
-// added to it. This is a useful default which helps finding memory leaks.
-var defaultMaxListeners = 10;
-
-var hasDefineProperty;
-try {
-  var o = {};
-  if (Object.defineProperty) Object.defineProperty(o, 'x', { value: 0 });
-  hasDefineProperty = o.x === 0;
-} catch (err) { hasDefineProperty = false }
-if (hasDefineProperty) {
-  Object.defineProperty(EventEmitter, 'defaultMaxListeners', {
-    enumerable: true,
-    get: function() {
-      return defaultMaxListeners;
-    },
-    set: function(arg) {
-      // check whether the input is a positive number (whose value is zero or
-      // greater and not a NaN).
-      if (typeof arg !== 'number' || arg < 0 || arg !== arg)
-        throw new TypeError('"defaultMaxListeners" must be a positive number');
-      defaultMaxListeners = arg;
-    }
-  });
-} else {
-  EventEmitter.defaultMaxListeners = defaultMaxListeners;
-}
-
-// Obviously not all Emitters should be limited to 10. This function allows
-// that to be increased. Set to zero for unlimited.
-EventEmitter.prototype.setMaxListeners = function setMaxListeners(n) {
-  if (typeof n !== 'number' || n < 0 || isNaN(n))
-    throw new TypeError('"n" argument must be a positive number');
-  this._maxListeners = n;
-  return this;
-};
-
-function $getMaxListeners(that) {
-  if (that._maxListeners === undefined)
-    return EventEmitter.defaultMaxListeners;
-  return that._maxListeners;
-}
-
-EventEmitter.prototype.getMaxListeners = function getMaxListeners() {
-  return $getMaxListeners(this);
-};
-
-// These standalone emit* functions are used to optimize calling of event
-// handlers for fast cases because emit() itself often has a variable number of
-// arguments and can be deoptimized because of that. These functions always have
-// the same number of arguments and thus do not get deoptimized, so the code
-// inside them can execute faster.
-function emitNone(handler, isFn, self) {
-  if (isFn)
-    handler.call(self);
-  else {
-    var len = handler.length;
-    var listeners = arrayClone(handler, len);
-    for (var i = 0; i < len; ++i)
-      listeners[i].call(self);
-  }
-}
-function emitOne(handler, isFn, self, arg1) {
-  if (isFn)
-    handler.call(self, arg1);
-  else {
-    var len = handler.length;
-    var listeners = arrayClone(handler, len);
-    for (var i = 0; i < len; ++i)
-      listeners[i].call(self, arg1);
-  }
-}
-function emitTwo(handler, isFn, self, arg1, arg2) {
-  if (isFn)
-    handler.call(self, arg1, arg2);
-  else {
-    var len = handler.length;
-    var listeners = arrayClone(handler, len);
-    for (var i = 0; i < len; ++i)
-      listeners[i].call(self, arg1, arg2);
-  }
-}
-function emitThree(handler, isFn, self, arg1, arg2, arg3) {
-  if (isFn)
-    handler.call(self, arg1, arg2, arg3);
-  else {
-    var len = handler.length;
-    var listeners = arrayClone(handler, len);
-    for (var i = 0; i < len; ++i)
-      listeners[i].call(self, arg1, arg2, arg3);
-  }
-}
-
-function emitMany(handler, isFn, self, args) {
-  if (isFn)
-    handler.apply(self, args);
-  else {
-    var len = handler.length;
-    var listeners = arrayClone(handler, len);
-    for (var i = 0; i < len; ++i)
-      listeners[i].apply(self, args);
-  }
-}
-
-EventEmitter.prototype.emit = function emit(type) {
-  var er, handler, len, args, i, events;
-  var doError = (type === 'error');
-
-  events = this._events;
-  if (events)
-    doError = (doError && events.error == null);
-  else if (!doError)
-    return false;
-
-  // If there is no 'error' event listener then throw.
-  if (doError) {
-    if (arguments.length > 1)
-      er = arguments[1];
-    if (er instanceof Error) {
-      throw er; // Unhandled 'error' event
-    } else {
-      // At least give some kind of context to the user
-      var err = new Error('Unhandled "error" event. (' + er + ')');
-      err.context = er;
-      throw err;
-    }
-    return false;
-  }
-
-  handler = events[type];
-
-  if (!handler)
-    return false;
-
-  var isFn = typeof handler === 'function';
-  len = arguments.length;
-  switch (len) {
-      // fast cases
-    case 1:
-      emitNone(handler, isFn, this);
-      break;
-    case 2:
-      emitOne(handler, isFn, this, arguments[1]);
-      break;
-    case 3:
-      emitTwo(handler, isFn, this, arguments[1], arguments[2]);
-      break;
-    case 4:
-      emitThree(handler, isFn, this, arguments[1], arguments[2], arguments[3]);
-      break;
-      // slower
-    default:
-      args = new Array(len - 1);
-      for (i = 1; i < len; i++)
-        args[i - 1] = arguments[i];
-      emitMany(handler, isFn, this, args);
-  }
-
-  return true;
-};
-
-function _addListener(target, type, listener, prepend) {
-  var m;
-  var events;
-  var existing;
-
-  if (typeof listener !== 'function')
-    throw new TypeError('"listener" argument must be a function');
-
-  events = target._events;
-  if (!events) {
-    events = target._events = objectCreate(null);
-    target._eventsCount = 0;
-  } else {
-    // To avoid recursion in the case that type === "newListener"! Before
-    // adding it to the listeners, first emit "newListener".
-    if (events.newListener) {
-      target.emit('newListener', type,
-          listener.listener ? listener.listener : listener);
-
-      // Re-assign `events` because a newListener handler could have caused the
-      // this._events to be assigned to a new object
-      events = target._events;
-    }
-    existing = events[type];
-  }
-
-  if (!existing) {
-    // Optimize the case of one listener. Don't need the extra array object.
-    existing = events[type] = listener;
-    ++target._eventsCount;
-  } else {
-    if (typeof existing === 'function') {
-      // Adding the second element, need to change to array.
-      existing = events[type] =
-          prepend ? [listener, existing] : [existing, listener];
-    } else {
-      // If we've already got an array, just append.
-      if (prepend) {
-        existing.unshift(listener);
-      } else {
-        existing.push(listener);
-      }
-    }
-
-    // Check for listener leak
-    if (!existing.warned) {
-      m = $getMaxListeners(target);
-      if (m && m > 0 && existing.length > m) {
-        existing.warned = true;
-        var w = new Error('Possible EventEmitter memory leak detected. ' +
-            existing.length + ' "' + String(type) + '" listeners ' +
-            'added. Use emitter.setMaxListeners() to ' +
-            'increase limit.');
-        w.name = 'MaxListenersExceededWarning';
-        w.emitter = target;
-        w.type = type;
-        w.count = existing.length;
-        if (typeof console === 'object' && console.warn) {
-          console.warn('%s: %s', w.name, w.message);
-        }
-      }
-    }
-  }
-
-  return target;
-}
-
-EventEmitter.prototype.addListener = function addListener(type, listener) {
-  return _addListener(this, type, listener, false);
-};
-
-EventEmitter.prototype.on = EventEmitter.prototype.addListener;
-
-EventEmitter.prototype.prependListener =
-    function prependListener(type, listener) {
-      return _addListener(this, type, listener, true);
-    };
-
-function onceWrapper() {
-  if (!this.fired) {
-    this.target.removeListener(this.type, this.wrapFn);
-    this.fired = true;
-    switch (arguments.length) {
-      case 0:
-        return this.listener.call(this.target);
-      case 1:
-        return this.listener.call(this.target, arguments[0]);
-      case 2:
-        return this.listener.call(this.target, arguments[0], arguments[1]);
-      case 3:
-        return this.listener.call(this.target, arguments[0], arguments[1],
-            arguments[2]);
-      default:
-        var args = new Array(arguments.length);
-        for (var i = 0; i < args.length; ++i)
-          args[i] = arguments[i];
-        this.listener.apply(this.target, args);
-    }
-  }
-}
-
-function _onceWrap(target, type, listener) {
-  var state = { fired: false, wrapFn: undefined, target: target, type: type, listener: listener };
-  var wrapped = bind.call(onceWrapper, state);
-  wrapped.listener = listener;
-  state.wrapFn = wrapped;
-  return wrapped;
-}
-
-EventEmitter.prototype.once = function once(type, listener) {
-  if (typeof listener !== 'function')
-    throw new TypeError('"listener" argument must be a function');
-  this.on(type, _onceWrap(this, type, listener));
-  return this;
-};
-
-EventEmitter.prototype.prependOnceListener =
-    function prependOnceListener(type, listener) {
-      if (typeof listener !== 'function')
-        throw new TypeError('"listener" argument must be a function');
-      this.prependListener(type, _onceWrap(this, type, listener));
-      return this;
-    };
-
-// Emits a 'removeListener' event if and only if the listener was removed.
-EventEmitter.prototype.removeListener =
-    function removeListener(type, listener) {
-      var list, events, position, i, originalListener;
-
-      if (typeof listener !== 'function')
-        throw new TypeError('"listener" argument must be a function');
-
-      events = this._events;
-      if (!events)
-        return this;
-
-      list = events[type];
-      if (!list)
-        return this;
-
-      if (list === listener || list.listener === listener) {
-        if (--this._eventsCount === 0)
-          this._events = objectCreate(null);
-        else {
-          delete events[type];
-          if (events.removeListener)
-            this.emit('removeListener', type, list.listener || listener);
-        }
-      } else if (typeof list !== 'function') {
-        position = -1;
-
-        for (i = list.length - 1; i >= 0; i--) {
-          if (list[i] === listener || list[i].listener === listener) {
-            originalListener = list[i].listener;
-            position = i;
-            break;
-          }
-        }
-
-        if (position < 0)
-          return this;
-
-        if (position === 0)
-          list.shift();
-        else
-          spliceOne(list, position);
-
-        if (list.length === 1)
-          events[type] = list[0];
-
-        if (events.removeListener)
-          this.emit('removeListener', type, originalListener || listener);
-      }
-
-      return this;
-    };
-
-EventEmitter.prototype.removeAllListeners =
-    function removeAllListeners(type) {
-      var listeners, events, i;
-
-      events = this._events;
-      if (!events)
-        return this;
-
-      // not listening for removeListener, no need to emit
-      if (!events.removeListener) {
-        if (arguments.length === 0) {
-          this._events = objectCreate(null);
-          this._eventsCount = 0;
-        } else if (events[type]) {
-          if (--this._eventsCount === 0)
-            this._events = objectCreate(null);
-          else
-            delete events[type];
-        }
-        return this;
-      }
-
-      // emit removeListener for all listeners on all events
-      if (arguments.length === 0) {
-        var keys = objectKeys(events);
-        var key;
-        for (i = 0; i < keys.length; ++i) {
-          key = keys[i];
-          if (key === 'removeListener') continue;
-          this.removeAllListeners(key);
-        }
-        this.removeAllListeners('removeListener');
-        this._events = objectCreate(null);
-        this._eventsCount = 0;
-        return this;
-      }
-
-      listeners = events[type];
-
-      if (typeof listeners === 'function') {
-        this.removeListener(type, listeners);
-      } else if (listeners) {
-        // LIFO order
-        for (i = listeners.length - 1; i >= 0; i--) {
-          this.removeListener(type, listeners[i]);
-        }
-      }
-
-      return this;
-    };
-
-function _listeners(target, type, unwrap) {
-  var events = target._events;
-
-  if (!events)
-    return [];
-
-  var evlistener = events[type];
-  if (!evlistener)
-    return [];
-
-  if (typeof evlistener === 'function')
-    return unwrap ? [evlistener.listener || evlistener] : [evlistener];
-
-  return unwrap ? unwrapListeners(evlistener) : arrayClone(evlistener, evlistener.length);
-}
-
-EventEmitter.prototype.listeners = function listeners(type) {
-  return _listeners(this, type, true);
-};
-
-EventEmitter.prototype.rawListeners = function rawListeners(type) {
-  return _listeners(this, type, false);
-};
-
-EventEmitter.listenerCount = function(emitter, type) {
-  if (typeof emitter.listenerCount === 'function') {
-    return emitter.listenerCount(type);
-  } else {
-    return listenerCount.call(emitter, type);
-  }
-};
-
-EventEmitter.prototype.listenerCount = listenerCount;
-function listenerCount(type) {
-  var events = this._events;
-
-  if (events) {
-    var evlistener = events[type];
-
-    if (typeof evlistener === 'function') {
-      return 1;
-    } else if (evlistener) {
-      return evlistener.length;
-    }
-  }
-
-  return 0;
-}
-
-EventEmitter.prototype.eventNames = function eventNames() {
-  return this._eventsCount > 0 ? Reflect.ownKeys(this._events) : [];
-};
-
-// About 1.5x faster than the two-arg version of Array#splice().
-function spliceOne(list, index) {
-  for (var i = index, k = i + 1, n = list.length; k < n; i += 1, k += 1)
-    list[i] = list[k];
-  list.pop();
-}
-
-function arrayClone(arr, n) {
-  var copy = new Array(n);
-  for (var i = 0; i < n; ++i)
-    copy[i] = arr[i];
-  return copy;
-}
-
-function unwrapListeners(arr) {
-  var ret = new Array(arr.length);
-  for (var i = 0; i < ret.length; ++i) {
-    ret[i] = arr[i].listener || arr[i];
-  }
-  return ret;
-}
-
-function objectCreatePolyfill(proto) {
-  var F = function() {};
-  F.prototype = proto;
-  return new F;
-}
-function objectKeysPolyfill(obj) {
-  var keys = [];
-  for (var k in obj) if (Object.prototype.hasOwnProperty.call(obj, k)) {
-    keys.push(k);
-  }
-  return k;
-}
-function functionBindPolyfill(context) {
-  var fn = this;
-  return function () {
-    return fn.apply(context, arguments);
-  };
-}
-
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/evp_bytestokey/index.js":[function(require,module,exports){
+},{"once":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/once/once.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/evp_bytestokey/index.js":[function(require,module,exports){
 var Buffer = require('safe-buffer').Buffer
 var MD5 = require('md5.js')
 
@@ -23714,7 +24533,7 @@ function decode (enc, data, start, end) {
 }
 
 }).call(this,require('_process'))
-},{"./messages":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/messages.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-alloc-unsafe/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/index.js":[function(require,module,exports){
+},{"./messages":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/messages.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-alloc-unsafe/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/index.js":[function(require,module,exports){
 (function (process){
 var stream = require('readable-stream')
 var inherits = require('inherits')
@@ -26883,7 +27702,7 @@ function createError (code, errno, msg) {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./lib/bitfield":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/bitfield.js","./lib/replicate":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/replicate.js","./lib/safe-buffer-equals":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/safe-buffer-equals.js","./lib/storage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/storage.js","./lib/tree-index":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/tree-index.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","atomic-batcher":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/atomic-batcher/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","bulk-write-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bulk-write-stream/index.js","codecs":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/codecs/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","fd-lock":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browser-resolve/empty.js","flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/flat-tree/index.js","from2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/from2/index.js","hypercore-crypto":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-crypto/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","inspect-custom-symbol":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inspect-custom-symbol/browser.js","last-one-wins":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/last-one-wins/index.js","merkle-tree-stream/generator":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/merkle-tree-stream/generator.js","pretty-hash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pretty-hash/index.js","random-access-file":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-file/browser.js","sparse-bitfield":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sparse-bitfield/index.js","thunky":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/thunky/index.js","unordered-array-remove":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unordered-array-remove/index.js","unordered-set":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unordered-set/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/bitfield.js":[function(require,module,exports){
+},{"./lib/bitfield":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/bitfield.js","./lib/replicate":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/replicate.js","./lib/safe-buffer-equals":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/safe-buffer-equals.js","./lib/storage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/storage.js","./lib/tree-index":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/tree-index.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","atomic-batcher":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/atomic-batcher/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","bulk-write-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bulk-write-stream/index.js","codecs":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/codecs/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js","fd-lock":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browser-resolve/empty.js","flat-tree":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/flat-tree/index.js","from2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/from2/index.js","hypercore-crypto":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-crypto/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","inspect-custom-symbol":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inspect-custom-symbol/browser.js","last-one-wins":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/last-one-wins/index.js","merkle-tree-stream/generator":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/merkle-tree-stream/generator.js","pretty-hash":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pretty-hash/index.js","random-access-file":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-file/browser.js","sparse-bitfield":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sparse-bitfield/index.js","thunky":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/thunky/index.js","unordered-array-remove":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unordered-array-remove/index.js","unordered-set":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unordered-set/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/lib/bitfield.js":[function(require,module,exports){
 (function (Buffer){
 var flat = require('flat-tree')
 var rle = require('bitfield-rle')
@@ -28638,707 +29457,7 @@ function defaultTrue (x) {
   return x === undefined ? true : x
 }
 
-},{"crypto":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/crypto-browserify/index.js","dat-encoding":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-encoding/index.js","dat-swarm-defaults":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-swarm-defaults/index.js","debug":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdiscovery/node_modules/debug/src/browser.js","discovery-swarm":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-web/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","hypercore-protocol":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdiscovery/node_modules/debug/src/browser.js":[function(require,module,exports){
-(function (process){
-/* eslint-env browser */
-
-/**
- * This is the web browser implementation of `debug()`.
- */
-
-exports.log = log;
-exports.formatArgs = formatArgs;
-exports.save = save;
-exports.load = load;
-exports.useColors = useColors;
-exports.storage = localstorage();
-
-/**
- * Colors.
- */
-
-exports.colors = [
-	'#0000CC',
-	'#0000FF',
-	'#0033CC',
-	'#0033FF',
-	'#0066CC',
-	'#0066FF',
-	'#0099CC',
-	'#0099FF',
-	'#00CC00',
-	'#00CC33',
-	'#00CC66',
-	'#00CC99',
-	'#00CCCC',
-	'#00CCFF',
-	'#3300CC',
-	'#3300FF',
-	'#3333CC',
-	'#3333FF',
-	'#3366CC',
-	'#3366FF',
-	'#3399CC',
-	'#3399FF',
-	'#33CC00',
-	'#33CC33',
-	'#33CC66',
-	'#33CC99',
-	'#33CCCC',
-	'#33CCFF',
-	'#6600CC',
-	'#6600FF',
-	'#6633CC',
-	'#6633FF',
-	'#66CC00',
-	'#66CC33',
-	'#9900CC',
-	'#9900FF',
-	'#9933CC',
-	'#9933FF',
-	'#99CC00',
-	'#99CC33',
-	'#CC0000',
-	'#CC0033',
-	'#CC0066',
-	'#CC0099',
-	'#CC00CC',
-	'#CC00FF',
-	'#CC3300',
-	'#CC3333',
-	'#CC3366',
-	'#CC3399',
-	'#CC33CC',
-	'#CC33FF',
-	'#CC6600',
-	'#CC6633',
-	'#CC9900',
-	'#CC9933',
-	'#CCCC00',
-	'#CCCC33',
-	'#FF0000',
-	'#FF0033',
-	'#FF0066',
-	'#FF0099',
-	'#FF00CC',
-	'#FF00FF',
-	'#FF3300',
-	'#FF3333',
-	'#FF3366',
-	'#FF3399',
-	'#FF33CC',
-	'#FF33FF',
-	'#FF6600',
-	'#FF6633',
-	'#FF9900',
-	'#FF9933',
-	'#FFCC00',
-	'#FFCC33'
-];
-
-/**
- * Currently only WebKit-based Web Inspectors, Firefox >= v31,
- * and the Firebug extension (any Firefox version) are known
- * to support "%c" CSS customizations.
- *
- * TODO: add a `localStorage` variable to explicitly enable/disable colors
- */
-
-// eslint-disable-next-line complexity
-function useColors() {
-	// NB: In an Electron preload script, document will be defined but not fully
-	// initialized. Since we know we're in Chrome, we'll just detect this case
-	// explicitly
-	if (typeof window !== 'undefined' && window.process && (window.process.type === 'renderer' || window.process.__nwjs)) {
-		return true;
-	}
-
-	// Internet Explorer and Edge do not support colors.
-	if (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
-		return false;
-	}
-
-	// Is webkit? http://stackoverflow.com/a/16459606/376773
-	// document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
-	return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
-		// Is firebug? http://stackoverflow.com/a/398120/376773
-		(typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
-		// Is firefox >= v31?
-		// https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
-		// Double check webkit in userAgent just in case we are in a worker
-		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
-}
-
-/**
- * Colorize log arguments if enabled.
- *
- * @api public
- */
-
-function formatArgs(args) {
-	args[0] = (this.useColors ? '%c' : '') +
-		this.namespace +
-		(this.useColors ? ' %c' : ' ') +
-		args[0] +
-		(this.useColors ? '%c ' : ' ') +
-		'+' + module.exports.humanize(this.diff);
-
-	if (!this.useColors) {
-		return;
-	}
-
-	const c = 'color: ' + this.color;
-	args.splice(1, 0, c, 'color: inherit');
-
-	// The final "%c" is somewhat tricky, because there could be other
-	// arguments passed either before or after the %c, so we need to
-	// figure out the correct index to insert the CSS into
-	let index = 0;
-	let lastC = 0;
-	args[0].replace(/%[a-zA-Z%]/g, match => {
-		if (match === '%%') {
-			return;
-		}
-		index++;
-		if (match === '%c') {
-			// We only are interested in the *last* %c
-			// (the user may have provided their own)
-			lastC = index;
-		}
-	});
-
-	args.splice(lastC, 0, c);
-}
-
-/**
- * Invokes `console.log()` when available.
- * No-op when `console.log` is not a "function".
- *
- * @api public
- */
-function log(...args) {
-	// This hackery is required for IE8/9, where
-	// the `console.log` function doesn't have 'apply'
-	return typeof console === 'object' &&
-		console.log &&
-		console.log(...args);
-}
-
-/**
- * Save `namespaces`.
- *
- * @param {String} namespaces
- * @api private
- */
-function save(namespaces) {
-	try {
-		if (namespaces) {
-			exports.storage.setItem('debug', namespaces);
-		} else {
-			exports.storage.removeItem('debug');
-		}
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-}
-
-/**
- * Load `namespaces`.
- *
- * @return {String} returns the previously persisted debug modes
- * @api private
- */
-function load() {
-	let r;
-	try {
-		r = exports.storage.getItem('debug');
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-
-	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
-	if (!r && typeof process !== 'undefined' && 'env' in process) {
-		r = process.env.DEBUG;
-	}
-
-	return r;
-}
-
-/**
- * Localstorage attempts to return the localstorage.
- *
- * This is necessary because safari throws
- * when a user disables cookies/localstorage
- * and you attempt to access it.
- *
- * @return {LocalStorage}
- * @api private
- */
-
-function localstorage() {
-	try {
-		// TVMLKit (Apple TV JS Runtime) does not have a window object, just localStorage in the global context
-		// The Browser also has localStorage in the global context.
-		return localStorage;
-	} catch (error) {
-		// Swallow
-		// XXX (@Qix-) should we be logging these?
-	}
-}
-
-module.exports = require('./common')(exports);
-
-const {formatters} = module.exports;
-
-/**
- * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
- */
-
-formatters.j = function (v) {
-	try {
-		return JSON.stringify(v);
-	} catch (error) {
-		return '[UnexpectedJSONParseError]: ' + error.message;
-	}
-};
-
-}).call(this,require('_process'))
-},{"./common":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdiscovery/node_modules/debug/src/common.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdiscovery/node_modules/debug/src/common.js":[function(require,module,exports){
-
-/**
- * This is the common logic for both the Node.js and web browser
- * implementations of `debug()`.
- */
-
-function setup(env) {
-	createDebug.debug = createDebug;
-	createDebug.default = createDebug;
-	createDebug.coerce = coerce;
-	createDebug.disable = disable;
-	createDebug.enable = enable;
-	createDebug.enabled = enabled;
-	createDebug.humanize = require('ms');
-
-	Object.keys(env).forEach(key => {
-		createDebug[key] = env[key];
-	});
-
-	/**
-	* Active `debug` instances.
-	*/
-	createDebug.instances = [];
-
-	/**
-	* The currently active debug mode names, and names to skip.
-	*/
-
-	createDebug.names = [];
-	createDebug.skips = [];
-
-	/**
-	* Map of special "%n" handling functions, for the debug "format" argument.
-	*
-	* Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
-	*/
-	createDebug.formatters = {};
-
-	/**
-	* Selects a color for a debug namespace
-	* @param {String} namespace The namespace string for the for the debug instance to be colored
-	* @return {Number|String} An ANSI color code for the given namespace
-	* @api private
-	*/
-	function selectColor(namespace) {
-		let hash = 0;
-
-		for (let i = 0; i < namespace.length; i++) {
-			hash = ((hash << 5) - hash) + namespace.charCodeAt(i);
-			hash |= 0; // Convert to 32bit integer
-		}
-
-		return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
-	}
-	createDebug.selectColor = selectColor;
-
-	/**
-	* Create a debugger with the given `namespace`.
-	*
-	* @param {String} namespace
-	* @return {Function}
-	* @api public
-	*/
-	function createDebug(namespace) {
-		let prevTime;
-
-		function debug(...args) {
-			// Disabled?
-			if (!debug.enabled) {
-				return;
-			}
-
-			const self = debug;
-
-			// Set `diff` timestamp
-			const curr = Number(new Date());
-			const ms = curr - (prevTime || curr);
-			self.diff = ms;
-			self.prev = prevTime;
-			self.curr = curr;
-			prevTime = curr;
-
-			args[0] = createDebug.coerce(args[0]);
-
-			if (typeof args[0] !== 'string') {
-				// Anything else let's inspect with %O
-				args.unshift('%O');
-			}
-
-			// Apply any `formatters` transformations
-			let index = 0;
-			args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
-				// If we encounter an escaped % then don't increase the array index
-				if (match === '%%') {
-					return match;
-				}
-				index++;
-				const formatter = createDebug.formatters[format];
-				if (typeof formatter === 'function') {
-					const val = args[index];
-					match = formatter.call(self, val);
-
-					// Now we need to remove `args[index]` since it's inlined in the `format`
-					args.splice(index, 1);
-					index--;
-				}
-				return match;
-			});
-
-			// Apply env-specific formatting (colors, etc.)
-			createDebug.formatArgs.call(self, args);
-
-			const logFn = self.log || createDebug.log;
-			logFn.apply(self, args);
-		}
-
-		debug.namespace = namespace;
-		debug.enabled = createDebug.enabled(namespace);
-		debug.useColors = createDebug.useColors();
-		debug.color = selectColor(namespace);
-		debug.destroy = destroy;
-		debug.extend = extend;
-		// Debug.formatArgs = formatArgs;
-		// debug.rawLog = rawLog;
-
-		// env-specific initialization logic for debug instances
-		if (typeof createDebug.init === 'function') {
-			createDebug.init(debug);
-		}
-
-		createDebug.instances.push(debug);
-
-		return debug;
-	}
-
-	function destroy() {
-		const index = createDebug.instances.indexOf(this);
-		if (index !== -1) {
-			createDebug.instances.splice(index, 1);
-			return true;
-		}
-		return false;
-	}
-
-	function extend(namespace, delimiter) {
-		const newDebug = createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
-		newDebug.log = this.log;
-		return newDebug;
-	}
-
-	/**
-	* Enables a debug mode by namespaces. This can include modes
-	* separated by a colon and wildcards.
-	*
-	* @param {String} namespaces
-	* @api public
-	*/
-	function enable(namespaces) {
-		createDebug.save(namespaces);
-
-		createDebug.names = [];
-		createDebug.skips = [];
-
-		let i;
-		const split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
-		const len = split.length;
-
-		for (i = 0; i < len; i++) {
-			if (!split[i]) {
-				// ignore empty strings
-				continue;
-			}
-
-			namespaces = split[i].replace(/\*/g, '.*?');
-
-			if (namespaces[0] === '-') {
-				createDebug.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
-			} else {
-				createDebug.names.push(new RegExp('^' + namespaces + '$'));
-			}
-		}
-
-		for (i = 0; i < createDebug.instances.length; i++) {
-			const instance = createDebug.instances[i];
-			instance.enabled = createDebug.enabled(instance.namespace);
-		}
-	}
-
-	/**
-	* Disable debug output.
-	*
-	* @return {String} namespaces
-	* @api public
-	*/
-	function disable() {
-		const namespaces = [
-			...createDebug.names.map(toNamespace),
-			...createDebug.skips.map(toNamespace).map(namespace => '-' + namespace)
-		].join(',');
-		createDebug.enable('');
-		return namespaces;
-	}
-
-	/**
-	* Returns true if the given mode name is enabled, false otherwise.
-	*
-	* @param {String} name
-	* @return {Boolean}
-	* @api public
-	*/
-	function enabled(name) {
-		if (name[name.length - 1] === '*') {
-			return true;
-		}
-
-		let i;
-		let len;
-
-		for (i = 0, len = createDebug.skips.length; i < len; i++) {
-			if (createDebug.skips[i].test(name)) {
-				return false;
-			}
-		}
-
-		for (i = 0, len = createDebug.names.length; i < len; i++) {
-			if (createDebug.names[i].test(name)) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	* Convert regexp to namespace
-	*
-	* @param {RegExp} regxep
-	* @return {String} namespace
-	* @api private
-	*/
-	function toNamespace(regexp) {
-		return regexp.toString()
-			.substring(2, regexp.toString().length - 2)
-			.replace(/\.\*\?$/, '*');
-	}
-
-	/**
-	* Coerce `val`.
-	*
-	* @param {Mixed} val
-	* @return {Mixed}
-	* @api private
-	*/
-	function coerce(val) {
-		if (val instanceof Error) {
-			return val.stack || val.message;
-		}
-		return val;
-	}
-
-	createDebug.enable(createDebug.load());
-
-	return createDebug;
-}
-
-module.exports = setup;
-
-},{"ms":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdiscovery/node_modules/ms/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdiscovery/node_modules/ms/index.js":[function(require,module,exports){
-/**
- * Helpers.
- */
-
-var s = 1000;
-var m = s * 60;
-var h = m * 60;
-var d = h * 24;
-var w = d * 7;
-var y = d * 365.25;
-
-/**
- * Parse or format the given `val`.
- *
- * Options:
- *
- *  - `long` verbose formatting [false]
- *
- * @param {String|Number} val
- * @param {Object} [options]
- * @throws {Error} throw an error if val is not a non-empty string or a number
- * @return {String|Number}
- * @api public
- */
-
-module.exports = function(val, options) {
-  options = options || {};
-  var type = typeof val;
-  if (type === 'string' && val.length > 0) {
-    return parse(val);
-  } else if (type === 'number' && isFinite(val)) {
-    return options.long ? fmtLong(val) : fmtShort(val);
-  }
-  throw new Error(
-    'val is not a non-empty string or a valid number. val=' +
-      JSON.stringify(val)
-  );
-};
-
-/**
- * Parse the given `str` and return milliseconds.
- *
- * @param {String} str
- * @return {Number}
- * @api private
- */
-
-function parse(str) {
-  str = String(str);
-  if (str.length > 100) {
-    return;
-  }
-  var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
-    str
-  );
-  if (!match) {
-    return;
-  }
-  var n = parseFloat(match[1]);
-  var type = (match[2] || 'ms').toLowerCase();
-  switch (type) {
-    case 'years':
-    case 'year':
-    case 'yrs':
-    case 'yr':
-    case 'y':
-      return n * y;
-    case 'weeks':
-    case 'week':
-    case 'w':
-      return n * w;
-    case 'days':
-    case 'day':
-    case 'd':
-      return n * d;
-    case 'hours':
-    case 'hour':
-    case 'hrs':
-    case 'hr':
-    case 'h':
-      return n * h;
-    case 'minutes':
-    case 'minute':
-    case 'mins':
-    case 'min':
-    case 'm':
-      return n * m;
-    case 'seconds':
-    case 'second':
-    case 'secs':
-    case 'sec':
-    case 's':
-      return n * s;
-    case 'milliseconds':
-    case 'millisecond':
-    case 'msecs':
-    case 'msec':
-    case 'ms':
-      return n;
-    default:
-      return undefined;
-  }
-}
-
-/**
- * Short format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtShort(ms) {
-  var msAbs = Math.abs(ms);
-  if (msAbs >= d) {
-    return Math.round(ms / d) + 'd';
-  }
-  if (msAbs >= h) {
-    return Math.round(ms / h) + 'h';
-  }
-  if (msAbs >= m) {
-    return Math.round(ms / m) + 'm';
-  }
-  if (msAbs >= s) {
-    return Math.round(ms / s) + 's';
-  }
-  return ms + 'ms';
-}
-
-/**
- * Long format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtLong(ms) {
-  var msAbs = Math.abs(ms);
-  if (msAbs >= d) {
-    return plural(ms, msAbs, d, 'day');
-  }
-  if (msAbs >= h) {
-    return plural(ms, msAbs, h, 'hour');
-  }
-  if (msAbs >= m) {
-    return plural(ms, msAbs, m, 'minute');
-  }
-  if (msAbs >= s) {
-    return plural(ms, msAbs, s, 'second');
-  }
-  return ms + ' ms';
-}
-
-/**
- * Pluralization helper.
- */
-
-function plural(ms, msAbs, n, name) {
-  var isPlural = msAbs >= n * 1.5;
-  return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');
-}
-
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/index.js":[function(require,module,exports){
+},{"crypto":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/crypto-browserify/index.js","dat-encoding":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-encoding/index.js","dat-swarm-defaults":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-swarm-defaults/index.js","debug":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/debug/src/browser.js","discovery-swarm":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/discovery-swarm-web/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js","hypercore-protocol":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/index.js":[function(require,module,exports){
 (function (process,Buffer){
 var hypercore = require('hypercore')
 var mutexify = require('mutexify')
@@ -30320,7 +30439,7 @@ function contentKeyPair (secretKey) {
 }
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"./lib/cursor":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/lib/cursor.js","./lib/messages":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/lib/messages.js","./lib/stat":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/lib/stat.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","append-tree":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","duplexify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/duplexify/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","from2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/from2/index.js","hypercore":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","mutexify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/mutexify/index.js","path":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/path-browserify/index.js","random-access-file":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-file/browser.js","sodium-universal":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-universal/browser.js","stream-collector":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-collector/index.js","stream-each":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-each/index.js","thunky":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/thunky/index.js","uint64be":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/uint64be/index.js","unixify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unixify/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/lib/cursor.js":[function(require,module,exports){
+},{"./lib/cursor":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/lib/cursor.js","./lib/messages":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/lib/messages.js","./lib/stat":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/lib/stat.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","append-tree":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/append-tree/index.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","duplexify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/duplexify/index.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js","from2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/from2/index.js","hypercore":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","mutexify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/mutexify/index.js","path":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/path-browserify/index.js","random-access-file":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-file/browser.js","sodium-universal":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-universal/browser.js","stream-collector":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-collector/index.js","stream-each":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-each/index.js","thunky":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/thunky/index.js","uint64be":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/uint64be/index.js","unixify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unixify/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/lib/cursor.js":[function(require,module,exports){
 var thunky = require('thunky')
 
 module.exports = Cursor
@@ -31253,7 +31372,10 @@ module.exports = function (css, options) {
     }
 };
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/insert-module-globals/node_modules/is-buffer/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inspect-custom-symbol/browser.js":[function(require,module,exports){
+module.exports = Symbol.for('util.inspect.custom')
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/is-buffer/index.js":[function(require,module,exports){
 /*!
  * Determine if an object is a Buffer
  *
@@ -31276,9 +31398,6 @@ function isSlowBuffer (obj) {
   return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inspect-custom-symbol/browser.js":[function(require,module,exports){
-module.exports = Symbol.for('util.inspect.custom')
-
 },{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/is-options/index.js":[function(require,module,exports){
 (function (Buffer){
 module.exports = isOptions
@@ -31287,8 +31406,8 @@ function isOptions (opts) {
   return typeof opts === 'object' && opts && !Buffer.isBuffer(opts)
 }
 
-}).call(this,{"isBuffer":require("../insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../insert-module-globals/node_modules/is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/insert-module-globals/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/isarray/index.js":[function(require,module,exports){
+}).call(this,{"isBuffer":require("../is-buffer/index.js")})
+},{"../is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/isarray/index.js":[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
@@ -32071,6 +32190,7 @@ var s = 1000;
 var m = s * 60;
 var h = m * 60;
 var d = h * 24;
+var w = d * 7;
 var y = d * 365.25;
 
 /**
@@ -32092,7 +32212,7 @@ module.exports = function(val, options) {
   var type = typeof val;
   if (type === 'string' && val.length > 0) {
     return parse(val);
-  } else if (type === 'number' && isNaN(val) === false) {
+  } else if (type === 'number' && isFinite(val)) {
     return options.long ? fmtLong(val) : fmtShort(val);
   }
   throw new Error(
@@ -32114,7 +32234,7 @@ function parse(str) {
   if (str.length > 100) {
     return;
   }
-  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(
+  var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
     str
   );
   if (!match) {
@@ -32129,6 +32249,10 @@ function parse(str) {
     case 'yr':
     case 'y':
       return n * y;
+    case 'weeks':
+    case 'week':
+    case 'w':
+      return n * w;
     case 'days':
     case 'day':
     case 'd':
@@ -32171,16 +32295,17 @@ function parse(str) {
  */
 
 function fmtShort(ms) {
-  if (ms >= d) {
+  var msAbs = Math.abs(ms);
+  if (msAbs >= d) {
     return Math.round(ms / d) + 'd';
   }
-  if (ms >= h) {
+  if (msAbs >= h) {
     return Math.round(ms / h) + 'h';
   }
-  if (ms >= m) {
+  if (msAbs >= m) {
     return Math.round(ms / m) + 'm';
   }
-  if (ms >= s) {
+  if (msAbs >= s) {
     return Math.round(ms / s) + 's';
   }
   return ms + 'ms';
@@ -32195,25 +32320,29 @@ function fmtShort(ms) {
  */
 
 function fmtLong(ms) {
-  return plural(ms, d, 'day') ||
-    plural(ms, h, 'hour') ||
-    plural(ms, m, 'minute') ||
-    plural(ms, s, 'second') ||
-    ms + ' ms';
+  var msAbs = Math.abs(ms);
+  if (msAbs >= d) {
+    return plural(ms, msAbs, d, 'day');
+  }
+  if (msAbs >= h) {
+    return plural(ms, msAbs, h, 'hour');
+  }
+  if (msAbs >= m) {
+    return plural(ms, msAbs, m, 'minute');
+  }
+  if (msAbs >= s) {
+    return plural(ms, msAbs, s, 'second');
+  }
+  return ms + ' ms';
 }
 
 /**
  * Pluralization helper.
  */
 
-function plural(ms, n, name) {
-  if (ms < n) {
-    return;
-  }
-  if (ms < n * 1.5) {
-    return Math.floor(ms / n) + ' ' + name;
-  }
-  return Math.ceil(ms / n) + ' ' + name + 's';
+function plural(ms, msAbs, n, name) {
+  var isPlural = msAbs >= n * 1.5;
+  return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');
 }
 
 },{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/mutexify/index.js":[function(require,module,exports){
@@ -32348,7 +32477,28 @@ module.exports = (function () {
 }());
 
 }).call(this,require('_process'),require("timers").setImmediate)
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","timers":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/timers-browserify/main.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/object-assign/index.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","timers":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/timers-browserify/main.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/normalize-path/index.js":[function(require,module,exports){
+/*!
+ * normalize-path <https://github.com/jonschlinkert/normalize-path>
+ *
+ * Copyright (c) 2014-2017, Jon Schlinkert.
+ * Released under the MIT License.
+ */
+
+var removeTrailingSeparator = require('remove-trailing-separator');
+
+module.exports = function normalizePath(str, stripTrailing) {
+  if (typeof str !== 'string') {
+    throw new TypeError('expected a string');
+  }
+  str = str.replace(/[\\\/]+/g, '/');
+  if (stripTrailing !== false) {
+    str = removeTrailingSeparator(str);
+  }
+  return str;
+};
+
+},{"remove-trailing-separator":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/remove-trailing-separator/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/object-assign/index.js":[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -33314,8 +33464,8 @@ module.exports = function (password, salt, iterations, keylen) {
   }
 }
 
-}).call(this,{"isBuffer":require("../../insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../../insert-module-globals/node_modules/is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/insert-module-globals/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pbkdf2/lib/sync-browser.js":[function(require,module,exports){
+}).call(this,{"isBuffer":require("../../is-buffer/index.js")})
+},{"../../is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/pbkdf2/lib/sync-browser.js":[function(require,module,exports){
 var md5 = require('create-hash/md5')
 var RIPEMD160 = require('ripemd160')
 var sha = require('sha.js')
@@ -33431,8 +33581,8 @@ module.exports = function prettyHash (buf) {
   }
   return buf
 }
-}).call(this,{"isBuffer":require("../insert-module-globals/node_modules/is-buffer/index.js")})
-},{"../insert-module-globals/node_modules/is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/insert-module-globals/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process-nextick-args/index.js":[function(require,module,exports){
+}).call(this,{"isBuffer":require("../is-buffer/index.js")})
+},{"../is-buffer/index.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/is-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process-nextick-args/index.js":[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -35115,7 +35265,7 @@ function nextTickCallback (req, err, val) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-idb/index.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-idb/index.js":[function(require,module,exports){
 (function (Buffer){
 var RandomAccess = require('random-access-storage')
 var inherits = require('inherits')
@@ -35717,7 +35867,7 @@ function nextTickCallback (req, err, val) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-web/index.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-web/index.js":[function(require,module,exports){
 /* global self */
 const global = (typeof window !== 'undefined') ? window : self
 
@@ -37195,7 +37345,7 @@ function indexOf(xs, x) {
   return -1;
 }
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./_stream_duplex":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_duplex.js","./internal/streams/BufferList":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/internal/streams/BufferList.js","./internal/streams/destroy":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/internal/streams/destroy.js","./internal/streams/stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/internal/streams/stream-browser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/core-util-is/lib/util.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","isarray":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/isarray/index.js","process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process-nextick-args/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js","string_decoder/":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/string_decoder/lib/string_decoder.js","util":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browser-resolve/empty.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_transform.js":[function(require,module,exports){
+},{"./_stream_duplex":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_duplex.js","./internal/streams/BufferList":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/internal/streams/BufferList.js","./internal/streams/destroy":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/internal/streams/destroy.js","./internal/streams/stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/internal/streams/stream-browser.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","core-util-is":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/core-util-is/lib/util.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","isarray":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/isarray/index.js","process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process-nextick-args/index.js","safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js","string_decoder/":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/string_decoder/lib/string_decoder.js","util":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browser-resolve/empty.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/_stream_transform.js":[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -38258,7 +38408,7 @@ module.exports = {
 },{"process-nextick-args":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process-nextick-args/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/lib/internal/streams/stream-browser.js":[function(require,module,exports){
 module.exports = require('events').EventEmitter;
 
-},{"events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/passthrough.js":[function(require,module,exports){
+},{"events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/passthrough.js":[function(require,module,exports){
 module.exports = require('./readable').PassThrough
 
 },{"./readable":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js":[function(require,module,exports){
@@ -39522,7 +39672,7 @@ module.exports = function (app, urls, WebSocketClass = WebSocket) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","through2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signalhubws/node_modules/through2/through2.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signalhubws/node_modules/through2/through2.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","through2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signalhubws/node_modules/through2/through2.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/signalhubws/node_modules/through2/through2.js":[function(require,module,exports){
 (function (process){
 var Transform = require('readable-stream').Transform
   , inherits  = require('util').inherits
@@ -40401,7 +40551,554 @@ Peer.prototype._transformConstraints = function (constraints) {
 function noop () {}
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","debug":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/debug/src/browser.js","get-browser-rtc":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/get-browser-rtc/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/randombytes/browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/siphash24/fallback.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","debug":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/simple-peer/node_modules/debug/src/browser.js","get-browser-rtc":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/get-browser-rtc/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","randombytes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/randombytes/browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/simple-peer/node_modules/debug/src/browser.js":[function(require,module,exports){
+(function (process){
+/**
+ * This is the web browser implementation of `debug()`.
+ *
+ * Expose `debug()` as the module.
+ */
+
+exports = module.exports = require('./debug');
+exports.log = log;
+exports.formatArgs = formatArgs;
+exports.save = save;
+exports.load = load;
+exports.useColors = useColors;
+exports.storage = 'undefined' != typeof chrome
+               && 'undefined' != typeof chrome.storage
+                  ? chrome.storage.local
+                  : localstorage();
+
+/**
+ * Colors.
+ */
+
+exports.colors = [
+  'lightseagreen',
+  'forestgreen',
+  'goldenrod',
+  'dodgerblue',
+  'darkorchid',
+  'crimson'
+];
+
+/**
+ * Currently only WebKit-based Web Inspectors, Firefox >= v31,
+ * and the Firebug extension (any Firefox version) are known
+ * to support "%c" CSS customizations.
+ *
+ * TODO: add a `localStorage` variable to explicitly enable/disable colors
+ */
+
+function useColors() {
+  // NB: In an Electron preload script, document will be defined but not fully
+  // initialized. Since we know we're in Chrome, we'll just detect this case
+  // explicitly
+  if (typeof window !== 'undefined' && window.process && window.process.type === 'renderer') {
+    return true;
+  }
+
+  // is webkit? http://stackoverflow.com/a/16459606/376773
+  // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+  return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
+    // is firebug? http://stackoverflow.com/a/398120/376773
+    (typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
+    // is firefox >= v31?
+    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
+    // double check webkit in userAgent just in case we are in a worker
+    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+}
+
+/**
+ * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+ */
+
+exports.formatters.j = function(v) {
+  try {
+    return JSON.stringify(v);
+  } catch (err) {
+    return '[UnexpectedJSONParseError]: ' + err.message;
+  }
+};
+
+
+/**
+ * Colorize log arguments if enabled.
+ *
+ * @api public
+ */
+
+function formatArgs(args) {
+  var useColors = this.useColors;
+
+  args[0] = (useColors ? '%c' : '')
+    + this.namespace
+    + (useColors ? ' %c' : ' ')
+    + args[0]
+    + (useColors ? '%c ' : ' ')
+    + '+' + exports.humanize(this.diff);
+
+  if (!useColors) return;
+
+  var c = 'color: ' + this.color;
+  args.splice(1, 0, c, 'color: inherit')
+
+  // the final "%c" is somewhat tricky, because there could be other
+  // arguments passed either before or after the %c, so we need to
+  // figure out the correct index to insert the CSS into
+  var index = 0;
+  var lastC = 0;
+  args[0].replace(/%[a-zA-Z%]/g, function(match) {
+    if ('%%' === match) return;
+    index++;
+    if ('%c' === match) {
+      // we only are interested in the *last* %c
+      // (the user may have provided their own)
+      lastC = index;
+    }
+  });
+
+  args.splice(lastC, 0, c);
+}
+
+/**
+ * Invokes `console.log()` when available.
+ * No-op when `console.log` is not a "function".
+ *
+ * @api public
+ */
+
+function log() {
+  // this hackery is required for IE8/9, where
+  // the `console.log` function doesn't have 'apply'
+  return 'object' === typeof console
+    && console.log
+    && Function.prototype.apply.call(console.log, console, arguments);
+}
+
+/**
+ * Save `namespaces`.
+ *
+ * @param {String} namespaces
+ * @api private
+ */
+
+function save(namespaces) {
+  try {
+    if (null == namespaces) {
+      exports.storage.removeItem('debug');
+    } else {
+      exports.storage.debug = namespaces;
+    }
+  } catch(e) {}
+}
+
+/**
+ * Load `namespaces`.
+ *
+ * @return {String} returns the previously persisted debug modes
+ * @api private
+ */
+
+function load() {
+  var r;
+  try {
+    r = exports.storage.debug;
+  } catch(e) {}
+
+  // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+  if (!r && typeof process !== 'undefined' && 'env' in process) {
+    r = process.env.DEBUG;
+  }
+
+  return r;
+}
+
+/**
+ * Enable namespaces listed in `localStorage.debug` initially.
+ */
+
+exports.enable(load());
+
+/**
+ * Localstorage attempts to return the localstorage.
+ *
+ * This is necessary because safari throws
+ * when a user disables cookies/localstorage
+ * and you attempt to access it.
+ *
+ * @return {LocalStorage}
+ * @api private
+ */
+
+function localstorage() {
+  try {
+    return window.localStorage;
+  } catch (e) {}
+}
+
+}).call(this,require('_process'))
+},{"./debug":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/simple-peer/node_modules/debug/src/debug.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/simple-peer/node_modules/debug/src/debug.js":[function(require,module,exports){
+
+/**
+ * This is the common logic for both the Node.js and web browser
+ * implementations of `debug()`.
+ *
+ * Expose `debug()` as the module.
+ */
+
+exports = module.exports = createDebug.debug = createDebug['default'] = createDebug;
+exports.coerce = coerce;
+exports.disable = disable;
+exports.enable = enable;
+exports.enabled = enabled;
+exports.humanize = require('ms');
+
+/**
+ * The currently active debug mode names, and names to skip.
+ */
+
+exports.names = [];
+exports.skips = [];
+
+/**
+ * Map of special "%n" handling functions, for the debug "format" argument.
+ *
+ * Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
+ */
+
+exports.formatters = {};
+
+/**
+ * Previous log timestamp.
+ */
+
+var prevTime;
+
+/**
+ * Select a color.
+ * @param {String} namespace
+ * @return {Number}
+ * @api private
+ */
+
+function selectColor(namespace) {
+  var hash = 0, i;
+
+  for (i in namespace) {
+    hash  = ((hash << 5) - hash) + namespace.charCodeAt(i);
+    hash |= 0; // Convert to 32bit integer
+  }
+
+  return exports.colors[Math.abs(hash) % exports.colors.length];
+}
+
+/**
+ * Create a debugger with the given `namespace`.
+ *
+ * @param {String} namespace
+ * @return {Function}
+ * @api public
+ */
+
+function createDebug(namespace) {
+
+  function debug() {
+    // disabled?
+    if (!debug.enabled) return;
+
+    var self = debug;
+
+    // set `diff` timestamp
+    var curr = +new Date();
+    var ms = curr - (prevTime || curr);
+    self.diff = ms;
+    self.prev = prevTime;
+    self.curr = curr;
+    prevTime = curr;
+
+    // turn the `arguments` into a proper Array
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
+
+    args[0] = exports.coerce(args[0]);
+
+    if ('string' !== typeof args[0]) {
+      // anything else let's inspect with %O
+      args.unshift('%O');
+    }
+
+    // apply any `formatters` transformations
+    var index = 0;
+    args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
+      // if we encounter an escaped % then don't increase the array index
+      if (match === '%%') return match;
+      index++;
+      var formatter = exports.formatters[format];
+      if ('function' === typeof formatter) {
+        var val = args[index];
+        match = formatter.call(self, val);
+
+        // now we need to remove `args[index]` since it's inlined in the `format`
+        args.splice(index, 1);
+        index--;
+      }
+      return match;
+    });
+
+    // apply env-specific formatting (colors, etc.)
+    exports.formatArgs.call(self, args);
+
+    var logFn = debug.log || exports.log || console.log.bind(console);
+    logFn.apply(self, args);
+  }
+
+  debug.namespace = namespace;
+  debug.enabled = exports.enabled(namespace);
+  debug.useColors = exports.useColors();
+  debug.color = selectColor(namespace);
+
+  // env-specific initialization logic for debug instances
+  if ('function' === typeof exports.init) {
+    exports.init(debug);
+  }
+
+  return debug;
+}
+
+/**
+ * Enables a debug mode by namespaces. This can include modes
+ * separated by a colon and wildcards.
+ *
+ * @param {String} namespaces
+ * @api public
+ */
+
+function enable(namespaces) {
+  exports.save(namespaces);
+
+  exports.names = [];
+  exports.skips = [];
+
+  var split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
+  var len = split.length;
+
+  for (var i = 0; i < len; i++) {
+    if (!split[i]) continue; // ignore empty strings
+    namespaces = split[i].replace(/\*/g, '.*?');
+    if (namespaces[0] === '-') {
+      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
+    } else {
+      exports.names.push(new RegExp('^' + namespaces + '$'));
+    }
+  }
+}
+
+/**
+ * Disable debug output.
+ *
+ * @api public
+ */
+
+function disable() {
+  exports.enable('');
+}
+
+/**
+ * Returns true if the given mode name is enabled, false otherwise.
+ *
+ * @param {String} name
+ * @return {Boolean}
+ * @api public
+ */
+
+function enabled(name) {
+  var i, len;
+  for (i = 0, len = exports.skips.length; i < len; i++) {
+    if (exports.skips[i].test(name)) {
+      return false;
+    }
+  }
+  for (i = 0, len = exports.names.length; i < len; i++) {
+    if (exports.names[i].test(name)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * Coerce `val`.
+ *
+ * @param {Mixed} val
+ * @return {Mixed}
+ * @api private
+ */
+
+function coerce(val) {
+  if (val instanceof Error) return val.stack || val.message;
+  return val;
+}
+
+},{"ms":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/simple-peer/node_modules/ms/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/simple-peer/node_modules/ms/index.js":[function(require,module,exports){
+/**
+ * Helpers.
+ */
+
+var s = 1000;
+var m = s * 60;
+var h = m * 60;
+var d = h * 24;
+var y = d * 365.25;
+
+/**
+ * Parse or format the given `val`.
+ *
+ * Options:
+ *
+ *  - `long` verbose formatting [false]
+ *
+ * @param {String|Number} val
+ * @param {Object} [options]
+ * @throws {Error} throw an error if val is not a non-empty string or a number
+ * @return {String|Number}
+ * @api public
+ */
+
+module.exports = function(val, options) {
+  options = options || {};
+  var type = typeof val;
+  if (type === 'string' && val.length > 0) {
+    return parse(val);
+  } else if (type === 'number' && isNaN(val) === false) {
+    return options.long ? fmtLong(val) : fmtShort(val);
+  }
+  throw new Error(
+    'val is not a non-empty string or a valid number. val=' +
+      JSON.stringify(val)
+  );
+};
+
+/**
+ * Parse the given `str` and return milliseconds.
+ *
+ * @param {String} str
+ * @return {Number}
+ * @api private
+ */
+
+function parse(str) {
+  str = String(str);
+  if (str.length > 100) {
+    return;
+  }
+  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(
+    str
+  );
+  if (!match) {
+    return;
+  }
+  var n = parseFloat(match[1]);
+  var type = (match[2] || 'ms').toLowerCase();
+  switch (type) {
+    case 'years':
+    case 'year':
+    case 'yrs':
+    case 'yr':
+    case 'y':
+      return n * y;
+    case 'days':
+    case 'day':
+    case 'd':
+      return n * d;
+    case 'hours':
+    case 'hour':
+    case 'hrs':
+    case 'hr':
+    case 'h':
+      return n * h;
+    case 'minutes':
+    case 'minute':
+    case 'mins':
+    case 'min':
+    case 'm':
+      return n * m;
+    case 'seconds':
+    case 'second':
+    case 'secs':
+    case 'sec':
+    case 's':
+      return n * s;
+    case 'milliseconds':
+    case 'millisecond':
+    case 'msecs':
+    case 'msec':
+    case 'ms':
+      return n;
+    default:
+      return undefined;
+  }
+}
+
+/**
+ * Short format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtShort(ms) {
+  if (ms >= d) {
+    return Math.round(ms / d) + 'd';
+  }
+  if (ms >= h) {
+    return Math.round(ms / h) + 'h';
+  }
+  if (ms >= m) {
+    return Math.round(ms / m) + 'm';
+  }
+  if (ms >= s) {
+    return Math.round(ms / s) + 's';
+  }
+  return ms + 'ms';
+}
+
+/**
+ * Long format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtLong(ms) {
+  return plural(ms, d, 'day') ||
+    plural(ms, h, 'hour') ||
+    plural(ms, m, 'minute') ||
+    plural(ms, s, 'second') ||
+    ms + ' ms';
+}
+
+/**
+ * Pluralization helper.
+ */
+
+function plural(ms, n, name) {
+  if (ms < n) {
+    return;
+  }
+  if (ms < n * 1.5) {
+    return Math.floor(ms / n) + ' ' + name;
+  }
+  return Math.ceil(ms / n) + ' ' + name + 's';
+}
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/siphash24/fallback.js":[function(require,module,exports){
 module.exports = fallback
 
 function _add (a, b) {
@@ -42864,7 +43561,7 @@ Stream.prototype.pipe = function(dest, options) {
   return dest;
 };
 
-},{"events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","readable-stream/duplex.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/duplex-browser.js","readable-stream/passthrough.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/passthrough.js","readable-stream/readable.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js","readable-stream/transform.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/transform.js","readable-stream/writable.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/writable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-collector/index.js":[function(require,module,exports){
+},{"events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","readable-stream/duplex.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/duplex-browser.js","readable-stream/passthrough.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/passthrough.js","readable-stream/readable.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js","readable-stream/transform.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/transform.js","readable-stream/writable.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/writable-browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/stream-collector/index.js":[function(require,module,exports){
 var once = require('once')
 
 module.exports = function(stream, cb) {
@@ -43643,28 +44340,7 @@ module.exports = function unixify(filepath, stripTrailing) {
   return filepath.replace(/^([a-zA-Z]+:|\.\/)/, '');
 };
 
-},{"normalize-path":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unixify/node_modules/normalize-path/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unixify/node_modules/normalize-path/index.js":[function(require,module,exports){
-/*!
- * normalize-path <https://github.com/jonschlinkert/normalize-path>
- *
- * Copyright (c) 2014-2017, Jon Schlinkert.
- * Released under the MIT License.
- */
-
-var removeTrailingSeparator = require('remove-trailing-separator');
-
-module.exports = function normalizePath(str, stripTrailing) {
-  if (typeof str !== 'string') {
-    throw new TypeError('expected a string');
-  }
-  str = str.replace(/[\\\/]+/g, '/');
-  if (stripTrailing !== false) {
-    str = removeTrailingSeparator(str);
-  }
-  return str;
-};
-
-},{"remove-trailing-separator":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/remove-trailing-separator/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unordered-array-remove/index.js":[function(require,module,exports){
+},{"normalize-path":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/normalize-path/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/unordered-array-remove/index.js":[function(require,module,exports){
 module.exports = remove
 
 function remove (arr, i) {
@@ -44168,7 +44844,13 @@ function connect (swarm, hub) {
 }
 
 }).call(this,require('_process'))
-},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","cuid":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/cuid/dist/browser-cuid.js","debug":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/debug/src/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","once":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/once/once.js","simple-peer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/simple-peer/index.js","through2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/through2/through2.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/websocket-stream/stream.js":[function(require,module,exports){
+},{"_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","cuid":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/cuid/dist/browser-cuid.js","debug":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/webrtc-swarm/node_modules/debug/src/browser.js","events":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","once":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/once/once.js","simple-peer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/simple-peer/index.js","through2":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/through2/through2.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/webrtc-swarm/node_modules/debug/src/browser.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/simple-peer/node_modules/debug/src/browser.js"][0].apply(exports,arguments)
+},{"./debug":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/webrtc-swarm/node_modules/debug/src/debug.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/webrtc-swarm/node_modules/debug/src/debug.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/simple-peer/node_modules/debug/src/debug.js"][0].apply(exports,arguments)
+},{"ms":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/webrtc-swarm/node_modules/ms/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/webrtc-swarm/node_modules/ms/index.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/simple-peer/node_modules/ms/index.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/websocket-stream/stream.js":[function(require,module,exports){
 (function (process,global){
 'use strict'
 
@@ -44925,298 +45607,147 @@ function extend() {
     return target
 }
 
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/index.js":[function(require,module,exports){
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/app.js":[function(require,module,exports){
+const csjs = require('csjs-inject')
+const makePage = require('makePage')
+const setTheme = require('setTheme')
+
+module.exports = app
+
+function app ({ contracts, themes }) {
+  setTheme(themes())
+  const options = { db: contracts, themes: themes.names }
+  return makePage(options, action => {
+    if (action.type === 'theme') return setTheme(themes(action.body))
+  })
+}
+const css = csjs`
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+html {
+  font-size: 62.5%;
+}
+body {
+  height: 100%;
+  font-family: var(--main-font);
+  font-size: var(--text-normal);
+  margin: 0;
+  padding: 0;
+  color: var(--body-color);
+  background-color: var(--body-background);
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  color: var(--body-color);
+}
+button {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+h1 {
+  font-size: var(--h1);
+}
+h2 {
+  font-size: var(--h2);
+}
+h3 {
+  font-size: var(--h3);
+}
+h4 {
+  font-size: var(--h4);
+}
+h5 {
+  font-size: var(--h5);
+}
+h6 {
+  font-size: var(--h6);
+}
+img {
+  width: 100%;
+  height: auto;
+}
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+svg {
+  width: 100%;
+  height: 100%;
+} {
+  font-size: var(--h1);
+}
+h2 {
+  font-size: var(--h2);
+}
+h3 {
+  font-size: var(--h3);
+}
+h4 {
+  font-size: var(--h4);
+}
+h5 {
+  font-size: var(--h5);
+}
+h6 {
+  font-size: var(--h6);
+}
+img {
+  width: 100%;
+  height: auto;
+}
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+svg {
+  width: 100%;
+  height: 100%;
+}`
+
+},{"csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","makePage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makePage.js","setTheme":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/setTheme.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
-let css
-const header = require('header')
-const search = require('search')
-const pagination = require('pagination')
-const paginationButtons = require('paginationButtons')
-const makeCollectionArea = require('makeCollectionArea')
 
-// ===== theme =====
-
-const themes = require('themes')
-setTheme(themes('darkTheme'))
-
-function setThemeVar([key, value]) {
-  const element = document.documentElement;
-  element.style.setProperty(key, value);
-}
-
-function setTheme (theme) {
-  let arr = Object.entries(theme)
-  for (var i = 0; i < arr.length; i++) {
-    setThemeVar(arr[i])
-  }
-}
-
-function themeSwitch () {
-  return bel`
-  <div class=${css.themeSwitch}>
-    <span class="${css.colorplate} ${css.cubeWhite}" onclick=${()=>setTheme(themes('lightTheme'))}></span>
-    <span class="${css.colorplate} ${css.cubeDark}" onclick=${()=>setTheme(themes('darkTheme'))}></span>
-  </div>
-  `
-}
-
-require('contracts')(start)
-
-// ===== Action =====
-
-function clickAction() {
-  location.url = ''
-}
-
-function closeAction() {
-  location.url = ''
-}
-
-// window.location.href
-// "http://192.168.0.163:9966/?page=1"
-// window.location.origin
-// "http://192.168.0.163:9966"
-
-function start(contracts, titles, hashes) {
-
-  let ops = pagination(contracts)
-  ops.contracts = contracts
-  ops.titles = titles
-  ops.hashes = hashes
-
-  const collectionContainer =
-    bel`<div>${makeCollectionArea(ops)}</div>`
-
-  const navigation =
-    bel`<div>${paginationButtons(collectionContainer, ops)}</div>`
-  ops.paginationButtons = navigation
-
- 
-
-  let element = bel`
-    <div class=${css.wrapper}>
-      ${header()}
-      <div class=${css.content}>
-        ${themeSwitch()}
-        ${search(ops)}
-        ${collectionContainer}
-        ${ops.paginationButtons}
-      </div>
-    </div>
-  `
-  document.body.appendChild(element)
-}
-
-// ===== css =====
-
-css = csjs`
-  @import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
-  @import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
-  html {
-    font-size: 62.5%;
-  }
-  body {
-    height: 100%;
-    font-family: var(--main-font);
-    font-size: var(--text-normal);
-    margin: 0;
-    padding: 0;
-    color: var(--body-color);
-    background-color: var(--body-background);
-    overflow-x: hidden;
-  }
-  .wrapper {
-    display: grid;
-    grid-template-areas:
-      "header"
-      "content";
-    grid-template-rows: 120px 1fr;
-    grid-template-columns: 100%;
-    padding: var(--wrapper-padding);
-  }
-  .content {
-    grid-area: content;
-    display: grid;
-    grid-template-areas:
-      "themeSwitch"
-      "search"
-      "collection"
-      "pagination"
-  }
-  a {
-    text-decoration: none;
-    color: var(--body-color);
-  }
-  button {
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    outline: none;
-  }
-
-  .themeSwitch {
-    grid-area: themeSwitch;
-    justify-self: end;
-    padding-bottom: 15px;
-  }
-  h1, h2, h3, h4, h5, h6, p {
-    margin: 0;
-  }
-  h1 {
-    font-size: var(--h1);
-  }
-  h2 {
-    font-size: var(--h2);
-  }
-  h3 {
-    font-size: var(--h3);
-  }
-  h4 {
-    font-size: var(--h4);
-  }
-  h5 {
-    font-size: var(--h5);
-  }
-  h6 {
-    font-size: var(--h6);
-  }
-  img {
-    width: 100%;
-    height: auto;
-  }
-  ul, li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .colorplate {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-left: 5px;
-    border: 1px solid #888;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  .cubeWhite {
-    background-color: #fff;
-  }
-  .cubeDark {
-    background-color: #1D1D26;
-  }
-  svg {
-    width: 100%;
-    height: 100%;
-  }
-  @media (max-width: 420px) {
-    .wrapper {
-      padding: 0 20px;
-    }
-  }
-`
-
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","header":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js","paginationButtons":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/paginationButtons.js","search":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/search.js","themes":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/themes.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/contracts.js":[function(require,module,exports){
-const SDK = require('dat-sdk')
-const { Hypercore, Hyperdrive, resolveName, deleteStorage, destroy } = SDK()
-const moloch = require('./moloch-demo.sol')
-
-const url = 'dat://c610858d82e4c9bc9585bb26fedb260c080ed24c6a05bcf3da9ad73a6917ac82/'
-
-const archive = Hyperdrive(url)
-
-let contracts = []
-let titles = []
-let hashes = []
-
-// ADD MOLOCH DAO - for the demo @TODO remove after the demo
-contracts.push(moloch)
-titles.push('Moloch.sol')
-hashes.push('0x1234567345678903456')
-
-let counter = 0
-
-module.exports = getContracts
-
-function getContracts (done) {
-  archive.ready(() => {
-    archive.readdir('.', (err, addresses) => {
-      if (err) console.log(err)
-      if (addresses) {
-        for (var i=0; i<addresses.length; i++) {
-          getContractsArr(i, addresses, done)
-        }
-      }
-    })
-  })
-}
-
-// loop over address/src/contractsArr
-function getContractsArr (x, addresses, done) {
-  archive.readdir(`${addresses[x]}/src/`, (err, contractsArr) => {
-    if (addresses[x]) hashes.push(addresses[x])
-    if (err) console.log(err)
-    if (contractsArr) {
-      counter = counter + contractsArr.length
-      for (var i=0; i<contractsArr.length; i++) {
-        getSourceCode(x, i, addresses, contractsArr, hashes, done)
-      }
-    }
-  })
-}
-
-// get source code and oush it to `contracts` array
-function getSourceCode (x, i, addresses, contractsArr, hashes, done) {
-  archive.readFile(`${addresses[x]}/src/${contractsArr[i]}`, 'utf8', (err, contract) => {
-    if (err) console.log(err)
-    if (contract) contracts.push(contract)
-    if (contractsArr[i]) titles.push(contractsArr[i])
-    if (counter === contracts.length) done(contracts, titles, hashes)
-  })
-}
-
-},{"./moloch-demo.sol":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/moloch-demo.sol","dat-sdk":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-sdk/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js":[function(require,module,exports){
-const bel = require('bel')
-const csjs = require('csjs-inject')
 const icon = require('icon')
 const svg = require('./svg.json')
-let css
+
 module.exports = header
 
 function header () {
-  let editorurl = 'https://ethereum-play.github.io/editor-solidity/'
-  return bel`
-    <header class="${css.header}">
-        <div class="${css.logo}" onclick=${() => reload()}>
-            <img src="./assets/images/logo-1.png" alt="smartcontract.codes">
-        </div>
-        <nav class="${css.nav}">
-            <button class="button ${css.newContarct}">
-                <span class=${css.icon_new}
-                  onclick=${() => window.open(editorurl)}>
-                  ${icon('new', svg.new)}
-                </span>
-            </button>
-            <a href="#">
-                <span class="${css.avatar}"><img src="./assets/images/user-avatar.jpg" alt="User Avatar"></span>
-            </a>
-        </nav>
-    </header>
-  `
+  const editorurl = 'https://ethereum-play.github.io/editor-solidity/'
+  return bel`<header class="${css.header}">
+    <div class="${css.logo}" onclick=${home}>
+      <img src="/src/assets/images/logo-1.png" alt="smartcontract.codes">
+    </div>
+    <nav class="${css.nav}">
+      <button class="button ${css.newContarct}">
+        <span class=${css.icon_new} onclick=${openNew}>
+          ${icon('new', svg.new)}
+        </span>
+      </button>
+      <a href="#">
+        <span class="${css.avatar}">
+          <img src="/src/assets/images/user-avatar.jpg" alt="User Avatar">
+        </span>
+      </a>
+    </nav>
+  </header>`
 }
-
-
-
-
-// ===== helpers =====
-
-function reload () {
+function openNew () {
+  window.open(editorurl)
+}
+function home () {
   location.href = `${window.location.origin}${window.location.pathname}`
 }
-
-// ===== css =====
-
-css = csjs`
+const css = csjs`
   .header {
     grid-area: header;
     display: grid;
@@ -45288,35 +45819,25 @@ const bel = require('bel')
 
 module.exports = icon
 
-function icon(name, svg) {
-    return bel`
-        <svg viewBox="0 0 54 54">
-            <g class=${name}>
-                ${svg.map(d => {
-                    return bel`<path d="${d}" />`
-                })}
-            </g>
-        </svg>`
+function icon (name, svg) {
+  return bel`<svg viewBox="0 0 54 54">
+    <g class=${name}>${svg.map(d => bel`<path d="${d}" />`)}</g>
+  </svg>`
 }
+
 },{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCard.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 const icon = require('icon')
 const svg = require('./svg.json')
 
-let css
-var editor_url = 'https://ethereum-play.github.io/editor-solidity/'
-var counter = 1
-var _code = void 0
-
 module.exports = makeCard
 
-function makeCard (contract, i, ops) {
-  let title = ops.titles[i]
-  let hash = ops.hashes[i].substring(0,15)
-  let card = bel`
+function makeCard (contract) {
+  const { source, title, hash } = contract
+  const card = bel`
     <div class=${css.collectionCard} onclick=${() => openInEditor(contract)}>
-      <pre class=${css.code}>${contract}</pre>
+      <pre class=${css.code}>${source}</pre>
 
       <div class=${css.cardCover}>
         <div class=${css.avatar}>
@@ -45324,7 +45845,7 @@ function makeCard (contract, i, ops) {
         </div>
         <div class=${css.coverInfo}>
           <h5 class=${css.coverTitle}>${title}</h5>
-          <p class=${css.cardUserInfo}>${hash}</p>
+          <p class=${css.cardUserInfo}>${hash.substring(0,15)}</p>
           <span class=${css.cardTime}>A year ago</span>
         </div>
         <aside class=${css.cardVisitInfo}>
@@ -45347,6 +45868,9 @@ function makeCard (contract, i, ops) {
 }
 
 // ===== helpers =====
+var editor_url = 'https://ethereum-play.github.io/editor-solidity/'
+var counter = 1
+var _code = void 0
 
 window.addEventListener('message', event => {
   if (event.source === window.editor) {
@@ -45367,7 +45891,7 @@ window.addEventListener('message', event => {
   }
 })
 
-openInEditor = function openInEditor (code) {
+function openInEditor (code) {
   if (!window.editor || window.editor.closed) {
     window.editor = window.open(editor_url, 'code-editor')
     _code = code
@@ -45385,10 +45909,7 @@ openInEditor = function openInEditor (code) {
     }], '*')
   }
 }
-
-// ===== css =====
-
-css = csjs`
+const css = csjs`
   .collectionCard {
     width: 100%;
     height: 100%;
@@ -45533,31 +46054,28 @@ css = csjs`
 },{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/icon.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
-const contracts = require('contracts')
 const makeCard = require('makeCard')
-let css
 
 module.exports = makeCollectionArea
 
-function makeCollectionArea(ops) {
-  const currentPage = parseInt(window.location.href.split('/?page=')[1]) || 1
-  const currentData = ops.datas[currentPage - 1] || ops.datas[0]
-  return bel`
-    <div class=${css.collectionArea}>
-      ${currentData.map(
-        (contract, i) => makeCard(contract, i, ops)
-      )}
-    </div>
-  `
+function makeCollectionArea (contracts) {
+  const cards = contracts.length ?
+    contracts.map(contract => makeCard(contract))
+    : bel`<div class=${css.noResult}>No matches found</div>`
+  return bel`<div class=${css.collectionArea}>${cards}</div>`
 }
-
-css = csjs`
+const css = csjs`
   .collectionArea {
     display: grid;
     grid-gap: var(--collectionArea-grid-gap);
     margin-bottom: 60px;
   }
-
+  .noResult {
+    font-size: var(--text-large);
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 200;
+  }
   @media (max-width: 767px) {
     .collectionArea {
       grid-auto-rows: 250px;
@@ -45598,586 +46116,239 @@ css = csjs`
       grid-template-columns: repeat(6, 1fr);
     }
   }
-
-
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","contracts":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/contracts.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","makeCard":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCard.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/moloch-demo.sol":[function(require,module,exports){
-module.exports = `
-pragma solidity 0.5.3;
-
-import "https://gist.githubusercontent.com/ninabreznik/a66bdae5fa18c7618b445b24fe97cce0/raw/116f38fbed9e1471b1be093302a40e5baa394c04/Moloch-SafeMath";
-import "https://gist.githubusercontent.com/ninabreznik/765408b436e6d354da74a1a4c32d4aff/raw/303879cb3be8d3c77f08a1fe546d1d02655b37d8/Moloch-ERC20%2520interface";
-import "https://gist.githubusercontent.com/ninabreznik/31e429a08177b96add9a89206bb51a23/raw/d9e06d321ac1dc44c7a846acf8580b00f7225280/Moloch-GuildBank";
-
-contract Moloch {
-    using SafeMath for uint256;
-
-    /***************
-    GLOBAL CONSTANTS
-    ***************/
-    uint256 public periodDuration; // default = 17280 = 4.8 hours in seconds (5 periods per day)
-    uint256 public votingPeriodLength; // default = 35 periods (7 days)
-    uint256 public gracePeriodLength; // default = 35 periods (7 days)
-    uint256 public abortWindow; // default = 5 periods (1 day)
-    uint256 public proposalDeposit; // default = 10 ETH (~$1,000 worth of ETH at contract deployment)
-    uint256 public dilutionBound; // default = 3 - maximum multiplier a YES voter will be obligated to pay in case of mass ragequit
-    uint256 public processingReward; // default = 0.1 - amount of ETH to give to whoever processes a proposal
-    uint256 public summoningTime; // needed to determine the current period
-
-    IERC20 public approvedToken; // approved token contract reference; default = wETH
-    GuildBank public guildBank; // guild bank contract reference
-
-    // HARD-CODED LIMITS
-    // These numbers are quite arbitrary; they are small enough to avoid overflows when doing calculations
-    // with periods or shares, yet big enough to not limit reasonable use cases.
-    uint256 constant MAX_VOTING_PERIOD_LENGTH = 10**18; // maximum length of voting period
-    uint256 constant MAX_GRACE_PERIOD_LENGTH = 10**18; // maximum length of grace period
-    uint256 constant MAX_DILUTION_BOUND = 10**18; // maximum dilution bound
-    uint256 constant MAX_NUMBER_OF_SHARES = 10**18; // maximum number of shares that can be minted
-
-    /***************
-    EVENTS
-    ***************/
-    event SubmitProposal(uint256 proposalIndex, address indexed delegateKey, address indexed memberAddress, address indexed applicant, uint256 tokenTribute, uint256 sharesRequested);
-    event SubmitVote(uint256 indexed proposalIndex, address indexed delegateKey, address indexed memberAddress, uint8 uintVote);
-    event ProcessProposal(uint256 indexed proposalIndex, address indexed applicant, address indexed memberAddress, uint256 tokenTribute, uint256 sharesRequested, bool didPass);
-    event Ragequit(address indexed memberAddress, uint256 sharesToBurn);
-    event Abort(uint256 indexed proposalIndex, address applicantAddress);
-    event UpdateDelegateKey(address indexed memberAddress, address newDelegateKey);
-    event SummonComplete(address indexed summoner, uint256 shares);
-
-    /******************
-    INTERNAL ACCOUNTING
-    ******************/
-    uint256 public totalShares = 0; // total shares across all members
-    uint256 public totalSharesRequested = 0; // total shares that have been requested in unprocessed proposals
-
-    enum Vote {
-        Null, // default value, counted as abstention
-        Yes,
-        No
-    }
-
-    struct Member {
-        address delegateKey; // the key responsible for submitting proposals and voting - defaults to member address unless updated
-        uint256 shares; // the # of shares assigned to this member
-        bool exists; // always true once a member has been created
-        uint256 highestIndexYesVote; // highest proposal index # on which the member voted YES
-    }
-
-    struct Proposal {
-        address proposer; // the member who submitted the proposal
-        address applicant; // the applicant who wishes to become a member - this key will be used for withdrawals
-        uint256 sharesRequested; // the # of shares the applicant is requesting
-        uint256 startingPeriod; // the period in which voting can start for this proposal
-        uint256 yesVotes; // the total number of YES votes for this proposal
-        uint256 noVotes; // the total number of NO votes for this proposal
-        bool processed; // true only if the proposal has been processed
-        bool didPass; // true only if the proposal passed
-        bool aborted; // true only if applicant calls "abort" fn before end of voting period
-        uint256 tokenTribute; // amount of tokens offered as tribute
-        string details; // proposal details - could be IPFS hash, plaintext, or JSON
-        uint256 maxTotalSharesAtYesVote; // the maximum # of total shares encountered at a yes vote on this proposal
-        mapping (address => Vote) votesByMember; // the votes on this proposal by each member
-    }
-
-    mapping (address => Member) public members;
-    mapping (address => address) public memberAddressByDelegateKey;
-    Proposal[] public proposalQueue;
-
-    /********
-    MODIFIERS
-    ********/
-    modifier onlyMember {
-        require(members[msg.sender].shares > 0, "Moloch::onlyMember - not a member");
-        _;
-    }
-
-    modifier onlyDelegate {
-        require(members[memberAddressByDelegateKey[msg.sender]].shares > 0, "Moloch::onlyDelegate - not a delegate");
-        _;
-    }
-
-    /********
-    FUNCTIONS
-    ********/
-    constructor(
-        address summoner,
-        address _approvedToken,
-        uint256 _periodDuration,
-        uint256 _votingPeriodLength,
-        uint256 _gracePeriodLength,
-        uint256 _abortWindow,
-        uint256 _proposalDeposit,
-        uint256 _dilutionBound,
-        uint256 _processingReward
-    ) public {
-        require(summoner != address(0), "Moloch::constructor - summoner cannot be 0");
-        require(_approvedToken != address(0), "Moloch::constructor - _approvedToken cannot be 0");
-        require(_periodDuration > 0, "Moloch::constructor - _periodDuration cannot be 0");
-        require(_votingPeriodLength > 0, "Moloch::constructor - _votingPeriodLength cannot be 0");
-        require(_votingPeriodLength <= MAX_VOTING_PERIOD_LENGTH, "Moloch::constructor - _votingPeriodLength exceeds limit");
-        require(_gracePeriodLength <= MAX_GRACE_PERIOD_LENGTH, "Moloch::constructor - _gracePeriodLength exceeds limit");
-        require(_abortWindow > 0, "Moloch::constructor - _abortWindow cannot be 0");
-        require(_abortWindow <= _votingPeriodLength, "Moloch::constructor - _abortWindow must be smaller than or equal to _votingPeriodLength");
-        require(_dilutionBound > 0, "Moloch::constructor - _dilutionBound cannot be 0");
-        require(_dilutionBound <= MAX_DILUTION_BOUND, "Moloch::constructor - _dilutionBound exceeds limit");
-        require(_proposalDeposit >= _processingReward, "Moloch::constructor - _proposalDeposit cannot be smaller than _processingReward");
-
-        approvedToken = IERC20(_approvedToken);
-
-        guildBank = new GuildBank(_approvedToken);
-
-        periodDuration = _periodDuration;
-        votingPeriodLength = _votingPeriodLength;
-        gracePeriodLength = _gracePeriodLength;
-        abortWindow = _abortWindow;
-        proposalDeposit = _proposalDeposit;
-        dilutionBound = _dilutionBound;
-        processingReward = _processingReward;
-
-        summoningTime = now;
-
-        members[summoner] = Member(summoner, 1, true, 0);
-        memberAddressByDelegateKey[summoner] = summoner;
-        totalShares = 1;
-
-        emit SummonComplete(summoner, 1);
-    }
-
-    /*****************
-    PROPOSAL FUNCTIONS
-    *****************/
-
-    function submitProposal(
-        address applicant,
-        uint256 tokenTribute,
-        uint256 sharesRequested,
-        string memory details
-    )
-        public
-        onlyDelegate
-    {
-        require(applicant != address(0), "Moloch::submitProposal - applicant cannot be 0");
-
-        // Make sure we won't run into overflows when doing calculations with shares.
-        // Note that totalShares + totalSharesRequested + sharesRequested is an upper bound
-        // on the number of shares that can exist until this proposal has been processed.
-        require(totalShares.add(totalSharesRequested).add(sharesRequested) <= MAX_NUMBER_OF_SHARES, "Moloch::submitProposal - too many shares requested");
-
-        totalSharesRequested = totalSharesRequested.add(sharesRequested);
-
-        address memberAddress = memberAddressByDelegateKey[msg.sender];
-
-        // collect proposal deposit from proposer and store it in the Moloch until the proposal is processed
-        require(approvedToken.transferFrom(msg.sender, address(this), proposalDeposit), "Moloch::submitProposal - proposal deposit token transfer failed");
-
-        // collect tribute from applicant and store it in the Moloch until the proposal is processed
-        require(approvedToken.transferFrom(applicant, address(this), tokenTribute), "Moloch::submitProposal - tribute token transfer failed");
-
-        // compute startingPeriod for proposal
-        uint256 startingPeriod = max(
-            getCurrentPeriod(),
-            proposalQueue.length == 0 ? 0 : proposalQueue[proposalQueue.length.sub(1)].startingPeriod
-        ).add(1);
-
-        // create proposal ...
-        Proposal memory proposal = Proposal({
-            proposer: memberAddress,
-            applicant: applicant,
-            sharesRequested: sharesRequested,
-            startingPeriod: startingPeriod,
-            yesVotes: 0,
-            noVotes: 0,
-            processed: false,
-            didPass: false,
-            aborted: false,
-            tokenTribute: tokenTribute,
-            details: details,
-            maxTotalSharesAtYesVote: 0
-        });
-
-        // ... and append it to the queue
-        proposalQueue.push(proposal);
-
-        uint256 proposalIndex = proposalQueue.length.sub(1);
-        emit SubmitProposal(proposalIndex, msg.sender, memberAddress, applicant, tokenTribute, sharesRequested);
-    }
-
-    function submitVote(uint256 proposalIndex, uint8 uintVote) public onlyDelegate {
-        address memberAddress = memberAddressByDelegateKey[msg.sender];
-        Member storage member = members[memberAddress];
-
-        require(proposalIndex < proposalQueue.length, "Moloch::submitVote - proposal does not exist");
-        Proposal storage proposal = proposalQueue[proposalIndex];
-
-        require(uintVote < 3, "Moloch::submitVote - uintVote must be less than 3");
-        Vote vote = Vote(uintVote);
-
-        require(getCurrentPeriod() >= proposal.startingPeriod, "Moloch::submitVote - voting period has not started");
-        require(!hasVotingPeriodExpired(proposal.startingPeriod), "Moloch::submitVote - proposal voting period has expired");
-        require(proposal.votesByMember[memberAddress] == Vote.Null, "Moloch::submitVote - member has already voted on this proposal");
-        require(vote == Vote.Yes || vote == Vote.No, "Moloch::submitVote - vote must be either Yes or No");
-        require(!proposal.aborted, "Moloch::submitVote - proposal has been aborted");
-
-        // store vote
-        proposal.votesByMember[memberAddress] = vote;
-
-        // count vote
-        if (vote == Vote.Yes) {
-            proposal.yesVotes = proposal.yesVotes.add(member.shares);
-
-            // set highest index (latest) yes vote - must be processed for member to ragequit
-            if (proposalIndex > member.highestIndexYesVote) {
-                member.highestIndexYesVote = proposalIndex;
-            }
-
-            // set maximum of total shares encountered at a yes vote - used to bound dilution for yes voters
-            if (totalShares > proposal.maxTotalSharesAtYesVote) {
-                proposal.maxTotalSharesAtYesVote = totalShares;
-            }
-
-        } else if (vote == Vote.No) {
-            proposal.noVotes = proposal.noVotes.add(member.shares);
-        }
-
-        emit SubmitVote(proposalIndex, msg.sender, memberAddress, uintVote);
-    }
-
-    function processProposal(uint256 proposalIndex) public {
-        require(proposalIndex < proposalQueue.length, "Moloch::processProposal - proposal does not exist");
-        Proposal storage proposal = proposalQueue[proposalIndex];
-
-        require(getCurrentPeriod() >= proposal.startingPeriod.add(votingPeriodLength).add(gracePeriodLength), "Moloch::processProposal - proposal is not ready to be processed");
-        require(proposal.processed == false, "Moloch::processProposal - proposal has already been processed");
-        require(proposalIndex == 0 || proposalQueue[proposalIndex.sub(1)].processed, "Moloch::processProposal - previous proposal must be processed");
-
-        proposal.processed = true;
-        totalSharesRequested = totalSharesRequested.sub(proposal.sharesRequested);
-
-        bool didPass = proposal.yesVotes > proposal.noVotes;
-
-        // Make the proposal fail if the dilutionBound is exceeded
-        if (totalShares.mul(dilutionBound) < proposal.maxTotalSharesAtYesVote) {
-            didPass = false;
-        }
-
-        // PROPOSAL PASSED
-        if (didPass && !proposal.aborted) {
-
-            proposal.didPass = true;
-
-            // if the applicant is already a member, add to their existing shares
-            if (members[proposal.applicant].exists) {
-                members[proposal.applicant].shares = members[proposal.applicant].shares.add(proposal.sharesRequested);
-
-            // the applicant is a new member, create a new record for them
-            } else {
-                // if the applicant address is already taken by a member's delegateKey, reset it to their member address
-                if (members[memberAddressByDelegateKey[proposal.applicant]].exists) {
-                    address memberToOverride = memberAddressByDelegateKey[proposal.applicant];
-                    memberAddressByDelegateKey[memberToOverride] = memberToOverride;
-                    members[memberToOverride].delegateKey = memberToOverride;
-                }
-
-                // use applicant address as delegateKey by default
-                members[proposal.applicant] = Member(proposal.applicant, proposal.sharesRequested, true, 0);
-                memberAddressByDelegateKey[proposal.applicant] = proposal.applicant;
-            }
-
-            // mint new shares
-            totalShares = totalShares.add(proposal.sharesRequested);
-
-            // transfer tokens to guild bank
-            require(
-                approvedToken.transfer(address(guildBank), proposal.tokenTribute),
-                "Moloch::processProposal - token transfer to guild bank failed"
-            );
-
-        // PROPOSAL FAILED OR ABORTED
-        } else {
-            // return all tokens to the applicant
-            require(
-                approvedToken.transfer(proposal.applicant, proposal.tokenTribute),
-                "Moloch::processProposal - failing vote token transfer failed"
-            );
-        }
-
-        // send msg.sender the processingReward
-        require(
-            approvedToken.transfer(msg.sender, processingReward),
-            "Moloch::processProposal - failed to send processing reward to msg.sender"
-        );
-
-        // return deposit to proposer (subtract processing reward)
-        require(
-            approvedToken.transfer(proposal.proposer, proposalDeposit.sub(processingReward)),
-            "Moloch::processProposal - failed to return proposal deposit to proposer"
-        );
-
-        emit ProcessProposal(
-            proposalIndex,
-            proposal.applicant,
-            proposal.proposer,
-            proposal.tokenTribute,
-            proposal.sharesRequested,
-            didPass
-        );
-    }
-
-    function ragequit(uint256 sharesToBurn) public onlyMember {
-        uint256 initialTotalShares = totalShares;
-
-        Member storage member = members[msg.sender];
-
-        require(member.shares >= sharesToBurn, "Moloch::ragequit - insufficient shares");
-
-        require(canRagequit(member.highestIndexYesVote), "Moloch::ragequit - cant ragequit until highest index proposal member voted YES on is processed");
-
-        // burn shares
-        member.shares = member.shares.sub(sharesToBurn);
-        totalShares = totalShares.sub(sharesToBurn);
-
-        // instruct guildBank to transfer fair share of tokens to the ragequitter
-        require(
-            guildBank.withdraw(msg.sender, sharesToBurn, initialTotalShares),
-            "Moloch::ragequit - withdrawal of tokens from guildBank failed"
-        );
-
-        emit Ragequit(msg.sender, sharesToBurn);
-    }
-
-    function abort(uint256 proposalIndex) public {
-        require(proposalIndex < proposalQueue.length, "Moloch::abort - proposal does not exist");
-        Proposal storage proposal = proposalQueue[proposalIndex];
-
-        require(msg.sender == proposal.applicant, "Moloch::abort - msg.sender must be applicant");
-        require(getCurrentPeriod() < proposal.startingPeriod.add(abortWindow), "Moloch::abort - abort window must not have passed");
-        require(!proposal.aborted, "Moloch::abort - proposal must not have already been aborted");
-
-        uint256 tokensToAbort = proposal.tokenTribute;
-        proposal.tokenTribute = 0;
-        proposal.aborted = true;
-
-        // return all tokens to the applicant
-        require(
-            approvedToken.transfer(proposal.applicant, tokensToAbort),
-            "Moloch::processProposal - failed to return tribute to applicant"
-        );
-
-        emit Abort(proposalIndex, msg.sender);
-    }
-
-    function updateDelegateKey(address newDelegateKey) public onlyMember {
-        require(newDelegateKey != address(0), "Moloch::updateDelegateKey - newDelegateKey cannot be 0");
-
-        // skip checks if member is setting the delegate key to their member address
-        if (newDelegateKey != msg.sender) {
-            require(!members[newDelegateKey].exists, "Moloch::updateDelegateKey - cant overwrite existing members");
-            require(!members[memberAddressByDelegateKey[newDelegateKey]].exists, "Moloch::updateDelegateKey - cant overwrite existing delegate keys");
-        }
-
-        Member storage member = members[msg.sender];
-        memberAddressByDelegateKey[member.delegateKey] = address(0);
-        memberAddressByDelegateKey[newDelegateKey] = msg.sender;
-        member.delegateKey = newDelegateKey;
-
-        emit UpdateDelegateKey(msg.sender, newDelegateKey);
-    }
-
-    /***************
-    GETTER FUNCTIONS
-    ***************/
-
-    function max(uint256 x, uint256 y) internal pure returns (uint256) {
-        return x >= y ? x : y;
-    }
-
-    function getCurrentPeriod() public view returns (uint256) {
-        return now.sub(summoningTime).div(periodDuration);
-    }
-
-    function getProposalQueueLength() public view returns (uint256) {
-        return proposalQueue.length;
-    }
-
-    // can only ragequit if the latest proposal you voted YES on has been processed
-    function canRagequit(uint256 highestIndexYesVote) public view returns (bool) {
-        require(highestIndexYesVote < proposalQueue.length, "Moloch::canRagequit - proposal does not exist");
-        return proposalQueue[highestIndexYesVote].processed;
-    }
-
-    function hasVotingPeriodExpired(uint256 startingPeriod) public view returns (bool) {
-        return getCurrentPeriod() >= startingPeriod.add(votingPeriodLength);
-    }
-
-    function getMemberProposalVote(address memberAddress, uint256 proposalIndex) public view returns (Vote) {
-        require(members[memberAddress].exists, "Moloch::getMemberProposalVote - member doesn't exist");
-        require(proposalIndex < proposalQueue.length, "Moloch::getMemberProposalVote - proposal doesn't exist");
-        return proposalQueue[proposalIndex].votesByMember[memberAddress];
-    }
-}
-`
-
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js":[function(require,module,exports){
-module.exports = pagination
-
-function pagination (contracts) {
-  let contractCount = contracts.length
-  let cardsCount = 8 // cards displayed per page
-
-  // let firstPage = 1
-  let lastPage = contracts.length <= cardsCount ?
-    null
-    : Math.ceil(contractCount / cardsCount)
-
-  let pageCount = Math.ceil(contracts.length / cardsCount)
-  let datas = contracts.reduce((containers, el, i) => {
-    const pos = Math.floor(i / cardsCount)
-    const container = containers[pos]
-    container.push(el)
-    return containers
-  }, [...Array(pageCount)].map(_ => []))
-
-  return {
-    pageCount,
-    contractCount,
-    cardsCount,
-    lastPage,
-    datas
-  }
-
-}
-
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/paginationButtons.js":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","makeCard":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCard.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makePage.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
+
+const header = require('header')
+const search = require('search')
+const makePagination = require('pagination')
 const makeCollectionArea = require('makeCollectionArea')
+
+module.exports = makePage
+
+function makePage (data, notify) {
+  const { db, themes } = data
+  const cardsCount = 8
+  const collectionContainer = bel`<div></div>`
+  const navigation = bel`<div></div>`
+  const element = bel`<div class=${css.wrapper}>
+      ${header()}
+      <div class=${css.content}>
+        ${themeSwitch()}
+        ${search(action => {
+          if (action.type === 'search') {
+            const query = action.body
+            db.get(query, matchingContracts => showMatches(matchingContracts))
+          }
+        })}
+        ${collectionContainer}
+        ${navigation}
+      </div>
+  </div>`
+  db.getAll((err, contracts) => {
+    if (err) return console.error(err)
+    const count = contracts.length
+    const pagination = makePagination({ count, cardsCount }, listener)
+    updateCollectionArea(contracts.slice(0, cardsCount - 1))
+    navigation.appendChild(pagination)
+  })
+  return element
+  function listener (action) {
+    if (action.type === 'paginate') {
+      const page = action.body
+      const b = page * cardsCount - 1
+      const a = b - cardsCount
+      updateCollectionArea(contracts.slice(a, b))
+    }
+  }
+  function updateCollectionArea (contracts) {
+    const collectionArea = makeCollectionArea(contracts)
+    collectionContainer.innerHTML = ''
+    collectionContainer.appendChild(collectionArea)
+  }
+  function updatePagination ({ count, cardsCount }) {
+    const pagination = makePagination({ count, cardsCount }, listener)
+    navigation.innerHTML = ''
+    navigation.appendChild(pagination)
+  }
+  function showMatches (matchingContracts) {
+    updateCollectionArea(matchingContracts)
+    var count = matchingContracts.length
+    updatePagination({ count, cardsCound })
+    let url = `${window.location.origin}${window.location.pathname}?page=1`
+    history.pushState(null, null, url)
+  }
+  function clickAction() { location.url = '' }
+  function closeAction() { location.url = '' }
+  function themeSwitch () {
+    return bel`<div class=${css.themeSwitch}>
+      <span class="${css.colorplate} ${css.cubeWhite}" onclick=${() => notify({ type: 'theme', body: 'lightTheme' })}></span>
+      <span class="${css.colorplate} ${css.cubeDark}" onclick=${() => notify({ type: 'theme', body: 'darkTheme' })}></span>
+    </div>`
+  }
+}
+const css = csjs`
+  .wrapper {
+    display: grid;
+    grid-template-areas:
+      "header"
+      "content";
+    grid-template-rows: 120px 1fr;
+    grid-template-columns: 100%;
+    padding: var(--wrapper-padding);
+  }
+  .content {
+    grid-area: content;
+    display: grid;
+    grid-template-areas:
+      "themeSwitch"
+      "search"
+      "collection"
+      "pagination"
+  }
+  .themeSwitch {
+    grid-area: themeSwitch;
+    justify-self: end;
+    padding-bottom: 15px;
+  }
+  .colorplate {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    border: 1px solid #888;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .cubeWhite {
+    background-color: #fff;
+  }
+  .cubeDark {
+    background-color: #1D1D26;
+  }
+  @media (max-width: 420px) {
+    .wrapper {
+      padding: 0 20px;
+    }
+  }
+`
+
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","header":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js","search":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/search.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js":[function(require,module,exports){
+const bel = require('bel')
+const csjs = require('csjs-inject')
 const icon = require('icon')
-const svg = require('./svg.json')
-let css
-let activeEl
+const svg = require('svg')
 
-module.exports = paginationButtons
+module.exports = pagination
 
-function paginationButtons (collectionContainer, ops ) {
-  let firstPage = bel`<span
-    onclick=${(e)=>selectPage(e, ops, collectionContainer, 1)}
-    class=${css.active}> 1 </span>`
-  activeEl = firstPage
-  let pages = bel`<ul class=${css.pages}><li>${firstPage}</li></ul>`
-  let el = bel`
+function pagination ({ count, cardsCount = 8 /* cards per page */ }, notify) {
+  const lastPage = count <= cardsCount ? null : Math.ceil(count / cardsCount)
+  const pageCount = Math.ceil(count / cardsCount)
+  const firstPage = bel`<span onclick=${select} class=${css.active}>1</span>`
+  const active = firstPage
+  const pages = makePaginationButtons()
+  const el = bel`
     <div class=${css.pagination}>
-      <button class="${css.button} ${css.default} ${css.previous}"
-        onclick=${()=>goToPrevious(ops, collectionContainer, pages)}>
+      <button class="${css.button} ${css.default} ${css.previous}" onclick=${prev}>
         <span class=${css.icon_arrow_right}>
           ${icon('arrow-left', svg.arrowLeft)}
-        </span> Previous
+        </span>
+        Previous
       </button>
-      ${addPages(ops, collectionContainer, pages)}
-      <button class="${css.button} ${css.default} ${css.next}"
-        onclick=${()=>goToNext(ops, collectionContainer, pages)}>
-        Next <span
-          class=${css.icon_arrow_right}>${icon('arrow-right', svg.arrowRight)}
+      ${pages}
+      <button class="${css.button} ${css.default} ${css.next}" onclick=${next}>
+        Next
+        <span class=${css.icon_arrow_right}>
+          ${icon('arrow-right', svg.arrowRight)}
         </span>
       </button>
     </div>`
   return el
-}
-
-// ===== helper functions =====
-
-function addPages (ops, container, pages) {
-  pageCount = ops.pageCount
-  if (pageCount < 6) {
-    for (var i=1; i<pageCount; i++) { append(ops, container, pages, i + 1) }
-    pages.style.setProperty('--grid-template', `auto / repeat(${pageCount}, 45px)`)
-  } else {
-    ;[2, '...', pageCount-1, pageCount].forEach(page => append(ops, container, pages, page))
-    pages.style.setProperty('--grid-template', `auto / repeat(5, 45px)`)
+  function select (e) {
+    selectPage(e, 1)
   }
-  return pages
-}
-
-function append (ops, container, pages, page) {
-  if (page != '...') {
-    pages.appendChild(bel`<li><span
-      onclick=${(e)=>selectPage(e, ops, container, page)}
-      class=${css.nonactive}>${page}
-      </span></li>`)
-  } else {
-    pages.appendChild(bel`<li><span class=${css.nonactive}>${page}</span></li>`)
+  function prev (e) {
+    goToPrevious(pages)
   }
-}
-
-function selectPage (e, ops, container, page) {
-  removeActiveEl(activeEl)
-  activateNewEl(e.target)
-  goToUrl(ops, container, page)
-}
-
-function removeActiveEl (activeEl) {
-  if (activeEl) {
-    activeEl.classList.remove(css.active)
-    activeEl.classList.add(css.nonactive)
+  function next (e) {
+    goToNext(pages)
   }
-}
-
-function activateNewEl (el) {
-  el.classList.remove(css.nonactive)
-  el.classList.add(css.active)
-  activeEl = el
-}
-
-function getCurrentPage () {
-  return parseInt(window.location.href.split('/?page=')[1]) || 1
-}
-
-function goToNext (ops, collectionContainer, pages) {
-  let currentPage = getCurrentPage()
-  let newPage = currentPage + 1
-  if (currentPage != ops.lastPage) {
-    removeActiveEl(activeEl)
-    pages.querySelectorAll('li').forEach((li) => {
-      let page = li.children[0]
-      if (parseInt(page.innerText) === newPage) activateNewEl(page)
+  function makePaginationButtons () {
+    const pages = bel`<ul class=${css.pages}><li>${firstPage}</li></ul>`
+    const grid = `auto / repeat(${ pageCount < 6 ? pageCount + 1 : 5 }, 45px)`
+    console.log(grid)
+    pages.style.setProperty('--grid-template', grid)
+    const arr = pageCount < 6 ? [...Array(pageCount)].map((_,i) => i + 1) : [
+      2, '...', pageCount-1, pageCount
+    ]
+    arr.forEach(page => {
+      if (page != '...') {
+        pages.appendChild(bel`<li><span
+          onclick=${(e)=>selectPage(e, page)}
+          class=${css.nonactive}>${page}
+          </span></li>`)
+      } else {
+        pages.appendChild(bel`<li><span class=${css.nonactive}>${page}</span></li>`)
+      }
     })
-    goToUrl(ops, collectionContainer, newPage)
+    return pages
+  }
+  function selectPage (e, page) {
+    removeActiveEl(active)
+    activateNewEl(e.target)
+    goToUrl(page)
+  }
+  function removeActiveEl (active) {
+    if (active) {
+      active.classList.remove(css.active)
+      active.classList.add(css.nonactive)
+    }
+  }
+  function activateNewEl (el) {
+    el.classList.remove(css.nonactive)
+    el.classList.add(css.active)
+    active = el
+  }
+  function getCurrentPage () {
+    return parseInt(window.location.href.split('/?page=')[1]) || 1
+  }
+  function goToNext (ops, collectionContainer, pages) {
+    let currentPage = getCurrentPage()
+    let newPage = currentPage + 1
+    if (currentPage != ops.lastPage) {
+      removeActiveEl(active)
+      ;[...pages.children].forEach((li) => {
+        let page = li.children[0]
+        if (parseInt(page.innerText) === newPage) activateNewEl(page)
+      })
+      goToUrl(newPage)
+    }
+  }
+  function goToPrevious (ops, collectionContainer, pages) {
+    let currentPage = getCurrentPage()
+    let newPage = currentPage - 1
+    if (currentPage != 1) {
+      removeActiveEl(active)
+      ;[...pages.children].forEach((li) => {
+        let page = li.children[0]
+        if (parseInt(page.innerText) === newPage) activateNewEl(page)
+      })
+      goToUrl(newPage)
+    }
+  }
+  function goToUrl(newPage) {
+    const base = getCurrentPage() != 1 ?
+     `${window.location.origin}${window.location.pathname}`.split('/?page=')[0]
+     : `${window.location.origin}${window.location.pathname}`.split(' ')[0]
+    let url = base + `?page=${newPage}`
+    history.pushState(null, null, url)
+    notify({ type: 'paginate', body: newPage })
   }
 }
-
-function goToPrevious (ops, collectionContainer, pages) {
-  let currentPage = getCurrentPage()
-  let newPage = currentPage - 1
-  if (currentPage != 1) {
-    removeActiveEl(activeEl)
-    pages.querySelectorAll('li').forEach((li) => {
-      let page = li.children[0]
-      if (parseInt(page.innerText) === newPage) activateNewEl(page)
-    })
-    goToUrl(ops, collectionContainer, newPage)
-  }
-}
-
-function makeNewCollection (ops, collectionContainer, newPage) {
-  const old = collectionContainer.children[0]
-  const newCollection = makeCollectionArea(ops)
-  collectionContainer.replaceChild(newCollection, old)
-}
-
-function goToUrl(ops, collectionContainer, newPage) {
-  const base = getCurrentPage() != 1 ?
-   `${window.location.origin}${window.location.pathname}`.split('/?page=')[0]
-   : `${window.location.origin}${window.location.pathname}`.split(' ')[0]
-  let url = base + `?page=${newPage}`
-  history.pushState(null, null, url);
-  makeNewCollection(ops, collectionContainer, newPage)
-}
-
-
-// ===== css =====
-css = csjs`
+const css = csjs`
   .pagination {
     grid-area: pagination;
     text-align: center;
@@ -46265,114 +46436,54 @@ css = csjs`
   }
 `
 
-},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/icon.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/search.js":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/icon.js","svg":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/search.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
-let css
-const pagination = require('pagination')
-const paginationButtons = require('paginationButtons')
-const makeCollectionArea = require('makeCollectionArea')
 
 module.exports = search
 
-function search (ops) {
-  const searchArea = bel`
-    <div contenteditable="true" class=${css.textarea}"
-      onclick=${(e) => select(e)}
-      onkeyup=${(e) => triggerSubmit(e, ops, searchArea)}
-      onkeypress=${(e) => preventDefault(e)}>
-    </div>`
-  return bel`
-    <div class=${css.searchBar}>
-      ${searchArea}
-      <button class=${css.submit} onclick=${()=>showMatches(ops, searchArea)}>
-        search contracts
-      </button>
-    </div>
-  `
+function search (notify) {
+  const searchArea = bel`<div contenteditable="true" class=${css.textarea}"
+    onclick=${(e) => select(e)}
+    onkeyup=${(e) => trigger(e, notify, searchArea)}
+    onkeypress=${(e) => preventDefault(e)}>
+  </div>`
+  return bel`<div class=${css.searchBar}>
+    ${searchArea}
+    <button class=${css.submit} onclick=${()=>searchContracts(query)}>
+      search contracts
+    </button>
+  </div>`
 }
-
-
-// ===== helpers =====
-
-function showMatches (ops, searchArea) {
-  let contracts = ops.contracts
-  const noResult = bel`<div class=${css.noResult}>No matches found</div>`
-  let val = getSearchInput(searchArea)
-  let matchingContracts = getMatches(contracts, val)
-
-  // new Collection Area based on search results
-  newOps = pagination(matchingContracts)
-  newOps.contracts = matchingContracts
-  newOps.titles = ops.titles
-  newOps.hashes = ops.hashes
-  newOps.paginationButtons = ops.paginationButtons
-  const oldContainer = document.querySelector("[class^='collectionArea']") ||
-    document.querySelector("[class^='noResult']")
-  let container = oldContainer.parentNode
-  let newContainer = matchingContracts.length > 0 ?
-    makeCollectionArea(newOps)
-    : noResult
-  container.replaceChild(newContainer, oldContainer)
-
-  // new navigation (paginationButtons) based on number of matching search results
-  let navigation = ops.paginationButtons
-  const oldNavigation = navigation.children[0]
-  navigation.replaceChild(paginationButtons(container, newOps), oldNavigation)
-
-  let url = `${window.location.origin}${window.location.pathname}?page=1`
-  history.pushState(null, null, url)
-}
-
 function getSearchInput (searchArea) {
   let searchInput = searchArea.innerText.trim()
   searchInput = searchInput.replace(/\n. |\r/g, "")
   return searchInput
 }
-
 function select (el) {
-  var range = document.createRange();
-  range.selectNodeContents(el.target);
-  var sel = window.getSelection();
-  sel.removeAllRanges();
-  sel.addRange(range);
+  const range = document.createRange()
+  range.selectNodeContents(el.target)
+  const sel = window.getSelection()
+  sel.removeAllRanges()
+  sel.addRange(range)
 }
-
 function preventDefault (e) {
-  var keyCode = e.keyCode;
-  if (keyCode === 13 && !e.shiftKey) {
-    e.preventDefault()
-  }
+  const keyCode = e.keyCode
+  if (keyCode === 13 && !e.shiftKey) e.preventDefault()
 }
-
-function triggerSubmit (e, ops, searchArea) {
-  var keyCode = e.keyCode;
-  if (keyCode === 13 && !e.shiftKey) {
-    showMatches(ops, searchArea)
-  }
-  if (keyCode === 27) searchArea.innerText = ''
+function trigger (e, searchArea) {
+  const keyCode = e.keyCode
+  if (keyCode === 13 && !e.shiftKey) return searchContracts(query)
+  if (keyCode === 27) return clearSearch()
 }
-
-function getMatches (contracts, val) {
-  let match = []
-  let formattedContracts = [...contracts]
-  for(var i=0; i<contracts.length; i++) {
-    let temp = formattedContracts[i].replace(/\n. |\r/g, "")
-    let contract = contracts[i]
-    if (temp.includes(val)) match.push(contract)
-  }
-  return match
+function searchContracts (notify) {
+  const query = getSearchInput(searchArea)
+  return notify({ type: 'search', body: query })
 }
-
-// ===== css =====
-
-css = csjs`
-  .noResult {
-    font-size: var(--text-large);
-    text-align: center;
-    margin-bottom: 60px;
-    font-weight: 200;
-  }
+function clearSearch () {
+  searchArea.innerText = ''
+}
+const css = csjs`
   .searchBar {
     margin: 0 auto 50px auto;
     width: 650px;
@@ -46420,185 +46531,28 @@ css = csjs`
   }
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js","paginationButtons":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/paginationButtons.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/setTheme.js":[function(require,module,exports){
+module.exports = setTheme
+
+function setTheme (theme) {
+  const element = document.documentElement
+  let arr = Object.keys(theme)
+  for (var i = 0; i < arr.length; i++) {
+    const key = arr[i]
+    const value = theme[key]
+    element.style.setProperty(key, value)
+  }
+}
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json":[function(require,module,exports){
 module.exports={
-    "new": ["M46.39,27H29.49V10.05a1.25,1.25,0,0,0-2.5,0V27H10.11a1.25,1.25,0,0,0,0,2.5H27v17a1.25,1.25,0,0,0,2.5,0v-17h16.9a1.25,1.25,0,0,0,0-2.5Z"],
-    "arrowLeft": ["M37.25,47.5a1.21,1.21,0,0,1-.88-.37l-18-18a1.24,1.24,0,0,1,0-1.76l18-18a1.24,1.24,0,0,1,1.76,1.76L21,28.25,38.13,45.37a1.24,1.24,0,0,1,0,1.76A1.21,1.21,0,0,1,37.25,47.5Z"],
-    "arrowRight": ["M19.25,47.5a1.21,1.21,0,0,1-.88-.37,1.24,1.24,0,0,1,0-1.76L35.48,28.25,18.37,11.13a1.24,1.24,0,0,1,1.76-1.76l18,18a1.24,1.24,0,0,1,0,1.76l-18,18A1.21,1.21,0,0,1,19.25,47.5Z"],
-    "view": ["M28.25,15.18c-13,0-19.94,10.62-19.94,12.69,0,1.8,6,13.18,19.94,13.18S48.19,29.67,48.19,27.87C48.19,25.73,41.5,15.18,28.25,15.18Zm0,23.37c-11.43,0-16.76-8.83-17.4-10.64a19.63,19.63,0,0,1,17.4-10.23c11.53,0,17,8.84,17.43,10.2C45.27,29.34,40.2,38.55,28.25,38.55Z", "M28.25,20.57a7.55,7.55,0,1,0,7.55,7.55A7.56,7.56,0,0,0,28.25,20.57Zm0,12.59a5,5,0,1,1,5-5A5.05,5.05,0,0,1,28.25,33.16Z"],
-    "share": ["M11,41.16a1.87,1.87,0,0,1-1.1-.35,1.89,1.89,0,0,1-.66-2.26c.14-.35,3.49-8.64,8.53-13.69a24.23,24.23,0,0,1,5.92-4.28l-3.35-4.65a1.9,1.9,0,0,1,1.92-3L46,17.89a1.9,1.9,0,0,1,1.41,1.26h0A1.89,1.89,0,0,1,47,21L30.88,39.06a1.94,1.94,0,0,1-2.09.51,1.9,1.9,0,0,1-1.23-1.75l-.07-5.41a38,38,0,0,0-4.92,1.44c-4.33,1.67-10.26,6.79-10.32,6.84A1.89,1.89,0,0,1,11,41.16Zm.56-1.68ZM23.28,15.72l3.31,4.61a1.27,1.27,0,0,1,.2,1.05,1.3,1.3,0,0,1-.7.82,22.33,22.33,0,0,0-6.54,4.43,40.54,40.54,0,0,0-7,10.56,41,41,0,0,1,9.09-5.67,43,43,0,0,1,6.81-1.87,1.27,1.27,0,0,1,1,.25,1.32,1.32,0,0,1,.46,1L30,36.24,44.43,20.13Zm22.17,4.62Z"],
-    "favorite": ["M28.25,46.9a1.23,1.23,0,0,1-.75-.25A84.63,84.63,0,0,1,16.4,36.41c-7.11-8-9.15-14.45-6-19.19,1.74-2.66,3.93-4.07,6.51-4.19,4.76-.23,9.42,4.14,11.39,6.27,2-2.13,6.58-6.51,11.39-6.27,2.59.12,4.77,1.53,6.51,4.19h0c3.1,4.74,1.06,11.2-6,19.19A84.63,84.63,0,0,1,29,46.65,1.23,1.23,0,0,1,28.25,46.9Zm-11-31.38H17c-1.77.08-3.25,1.08-4.54,3-4.72,7.24,9.17,20.33,15.81,25.5,6.64-5.17,20.53-18.26,15.81-25.5h0c-1.29-2-2.77-3-4.53-3-4.89-.25-10.25,6.38-10.3,6.45a1.25,1.25,0,0,1-1,.47h0a1.25,1.25,0,0,1-1-.47C27.22,21.92,22,15.52,17.23,15.52Z"],
-    "search": ["M46.13,44.29,35,33.25A15.46,15.46,0,1,0,33.25,35l11.12,11a1.23,1.23,0,0,0,1.76,0A1.25,1.25,0,0,0,46.13,44.29Zm-35.78-21A12.93,12.93,0,1,1,23.28,36.2,12.94,12.94,0,0,1,10.35,23.28Z"]
-}
-},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/themes.js":[function(require,module,exports){
-module.exports = themes
-
-// define colors
-const bluePurple = '#6700ff'
-const lightGreen = '#09FFC3'
-const lightGreenHover = '#A1FFE8'
-const greyEB = '#EBEBEB'
-const grey8D = '#8D8D8D'
-const grey31 = '#313136'
-const grey33 = '#333333'
-const greyBB = '#BBBBBB'
-const white = '#ffffff'
-const dark18 = '#181920'
-const dark1d = '#1d1d26'
-const peach = 'rgba(255, 41,117, 100)'
-const transparent = 'rgba(0,0,0,0)'
-
-// define font
-const fontNunito = `'Nunito', sans-serif`
-const fontInconsolata = `'Inconsolata', monospace`
-
-function themes (themeName) {
-  const lightTheme = {
-    '--main-font': fontNunito,
-    '--code-font': fontInconsolata,
-    '--h1': '6rem',
-    '--h2': '5rem',
-    '--h3': '4rem',
-    '--h4': '3rem',
-    '--h5': '2rem',
-    '--h6': '1.6rem',
-    '--body-color': grey33,
-    '--body-background': greyEB,
-    '--wrapper-padding': '0 30px',
-    '--button-default': lightGreen,
-    '--button-default-hover': white,
-    '--button-default-font-size': '1.8rem',
-    '--button-default-text': dark1d,
-    '--button-default-text-hover': dark1d,
-    '--button-default-radius': '22px',
-    '--button-default-padding': '10px 30px',
-    '--button-padding-right': '30px',
-    '--button-padding-left': '30px',
-    '--button-border': '0px solid var(--button-white)',
-    '--button-box-shadow': 'none',
-    '--editor-preview': white,
-    '--card-cover': greyEB,
-    '--card-hover-cover': lightGreen,
-    '--card-cover-border': transparent,
-    '--card-border': transparent,
-    '--card-hover-border': '0px solid var(--card-border)',
-    '--card-code-overlay': 'linear-gradient(0deg, rgba(0,0,0, .1) 0%, rgba(0,0,0, .28) 100%)',
-    '--card-shadow': '0px 6px 8px rgba(144, 144, 144, .3)',
-    '--card-hover-shadow': '0px 6px 8px rgba(144, 144, 144, .3)',
-    '--card-code-text': '1.3rem',
-    '--card-code-text-line-height': '20px',
-    '--card-code-width': 'calc(100% - 40px)',
-    '--card-code-height': 'calc(100% - 30px)',
-    '--card-code-padding': '15px 20px',
-    '--card-cover-title': grey31,
-    '--card-hover-cover-title': grey31,
-    '--card-cover-userInfo': grey33,
-    '--card-time': grey8D,
-    '--card-hover-time': grey8D,
-    '--card-visit-icons-fill': dark1d,
-    '--search-input': `1px solid var(--search-input-border)`,
-    '--search-input-border': 'rgba(255,255,255, 0)',
-    '--search-input-background': white,
-    '--search-input-color': grey8D,
-    '--search-input-text': '1.4rem',
-    '--search-icon-fill': dark1d,
-    '--search-button-color': dark1d,
-    '--search-button-background': white,
-    '--search-button-hover-background': lightGreen,
-    '--text-large': '2rem',
-    '--text-normal': '1.6rem',
-    '--text-small': '1.4rem',
-    '--text-xsmall': '1.2rem',
-    '--pages-current-background': white,
-    '--pages-border': '0px solid rgba(0,0,0,0)',
-    '--pages-text': grey8D,
-    '--pages-text-active': dark1d,
-    '--pages-text-border-radius': '4px',
-    '--pages-hover-background': white,
-    '--grid-template': '',
-    '--icon-new-fill': dark1d,
-    '--pagination-button-icon-fill': dark1d,
-    '--collectionArea-grid-gap': '30px',
-    '--collectionCard-border-radius': '6px',
-    '--pages-li-color': grey8D,
-    '--search-button-border-radius': '30px',
-  }
-
-  const darkTheme = {
-    '--main-font': fontNunito,
-    '--code-font': fontInconsolata,
-    '--h1': '6rem',
-    '--h2': '5rem',
-    '--h3': '4rem',
-    '--h4': '3rem',
-    '--h5': '2rem',
-    '--h6': '1.6rem',
-    '--body-color': white,
-    '--body-background': dark18,
-    '--wrapper-padding': '0 30px',
-    '--button-default': transparent,
-    '--button-default-hover': bluePurple,
-    '--button-default-font-size': '1.8rem',
-    '--button-default-text': peach,
-    '--button-default-text-hover': peach,
-    '--button-default-radius': '22px',
-    '--button-default-padding': '10px 30px',
-    '--button-padding-right': '30px',
-    '--button-padding-left': '30px',
-    '--button-border': '1px solid #6700ff',
-    '--button-box-shadow': '0 1px 8px rgba(255,41,117, .3)',
-    '--editor-preview': dark1d,
-    '--card-cover': grey31,
-    '--card-hover-cover': bluePurple,
-    '--card-cover-border': transparent,
-    '--card-border': bluePurple,
-    '--card-hover-border': '1px solid var(--card-border)',
-    '--card-code-overlay': 'linear-gradient(0deg, rgba(103,0,255, .1) 0%, rgba(103,0,255, .28) 100%)',
-    '--card-shadow': '0px 2px 30px rgba(103, 0, 255, 0)',
-    '--card-hover-shadow': '0px 2px 30px rgba(103, 0, 255, .6)',
-    '--card-code-text': '1.3rem',
-    '--card-code-text-line-height': '20px',
-    '--card-code-width': 'calc(100% - 40px)',
-    '--card-code-height': 'calc(100% - 30px)',
-    '--card-code-padding': '15px 20px',
-    '--card-cover-title': lightGreen,
-    '--card-hover-cover-title': white,
-    '--card-cover-userInfo': white,
-    '--card-time': greyBB,
-    '--card-hover-time': white,
-    '--card-visit-icons-fill': white,
-    '--search-input': `1px solid var(--search-input-border)`,
-    '--search-input-border': bluePurple,
-    '--search-input-background': 'none',
-    '--search-input-color': lightGreen,
-    '--search-input-text': '1.4rem',
-    '--search-icon-fill': lightGreen,
-    '--search-button-color': white,
-    '--search-button-background': white,
-    '--search-button-hover-background': bluePurple,
-    '--text-large': '2rem',
-    '--text-normal': '1.6rem',
-    '--text-small': '1.4rem',
-    '--text-xsmall': '1.2rem',
-    '--pages-current-background': transparent,
-    '--pages-border': '1px solid #6700ff',
-    '--pages-text': peach,
-    '--pages-text-active': white,
-    '--pages-text-border-radius': '4px',
-    '--pages-hover-background': bluePurple,
-    '--grid-template': '',
-    '--icon-new-fill': white,
-    '--pagination-button-icon-fill': peach,
-    '--collectionArea-grid-gap': '30px',
-    '--collectionCard-border-radius': '6px',
-    '--search-button-border-radius': '30px',
-  }
-
-  const themes = {
-    lightTheme,
-    darkTheme
-  }
-  return themes[themeName] || themes['lightTheme']
+  "new": ["M46.39,27H29.49V10.05a1.25,1.25,0,0,0-2.5,0V27H10.11a1.25,1.25,0,0,0,0,2.5H27v17a1.25,1.25,0,0,0,2.5,0v-17h16.9a1.25,1.25,0,0,0,0-2.5Z"],
+  "arrowLeft": ["M37.25,47.5a1.21,1.21,0,0,1-.88-.37l-18-18a1.24,1.24,0,0,1,0-1.76l18-18a1.24,1.24,0,0,1,1.76,1.76L21,28.25,38.13,45.37a1.24,1.24,0,0,1,0,1.76A1.21,1.21,0,0,1,37.25,47.5Z"],
+  "arrowRight": ["M19.25,47.5a1.21,1.21,0,0,1-.88-.37,1.24,1.24,0,0,1,0-1.76L35.48,28.25,18.37,11.13a1.24,1.24,0,0,1,1.76-1.76l18,18a1.24,1.24,0,0,1,0,1.76l-18,18A1.21,1.21,0,0,1,19.25,47.5Z"],
+  "view": ["M28.25,15.18c-13,0-19.94,10.62-19.94,12.69,0,1.8,6,13.18,19.94,13.18S48.19,29.67,48.19,27.87C48.19,25.73,41.5,15.18,28.25,15.18Zm0,23.37c-11.43,0-16.76-8.83-17.4-10.64a19.63,19.63,0,0,1,17.4-10.23c11.53,0,17,8.84,17.43,10.2C45.27,29.34,40.2,38.55,28.25,38.55Z", "M28.25,20.57a7.55,7.55,0,1,0,7.55,7.55A7.56,7.56,0,0,0,28.25,20.57Zm0,12.59a5,5,0,1,1,5-5A5.05,5.05,0,0,1,28.25,33.16Z"],
+  "share": ["M11,41.16a1.87,1.87,0,0,1-1.1-.35,1.89,1.89,0,0,1-.66-2.26c.14-.35,3.49-8.64,8.53-13.69a24.23,24.23,0,0,1,5.92-4.28l-3.35-4.65a1.9,1.9,0,0,1,1.92-3L46,17.89a1.9,1.9,0,0,1,1.41,1.26h0A1.89,1.89,0,0,1,47,21L30.88,39.06a1.94,1.94,0,0,1-2.09.51,1.9,1.9,0,0,1-1.23-1.75l-.07-5.41a38,38,0,0,0-4.92,1.44c-4.33,1.67-10.26,6.79-10.32,6.84A1.89,1.89,0,0,1,11,41.16Zm.56-1.68ZM23.28,15.72l3.31,4.61a1.27,1.27,0,0,1,.2,1.05,1.3,1.3,0,0,1-.7.82,22.33,22.33,0,0,0-6.54,4.43,40.54,40.54,0,0,0-7,10.56,41,41,0,0,1,9.09-5.67,43,43,0,0,1,6.81-1.87,1.27,1.27,0,0,1,1,.25,1.32,1.32,0,0,1,.46,1L30,36.24,44.43,20.13Zm22.17,4.62Z"],
+  "favorite": ["M28.25,46.9a1.23,1.23,0,0,1-.75-.25A84.63,84.63,0,0,1,16.4,36.41c-7.11-8-9.15-14.45-6-19.19,1.74-2.66,3.93-4.07,6.51-4.19,4.76-.23,9.42,4.14,11.39,6.27,2-2.13,6.58-6.51,11.39-6.27,2.59.12,4.77,1.53,6.51,4.19h0c3.1,4.74,1.06,11.2-6,19.19A84.63,84.63,0,0,1,29,46.65,1.23,1.23,0,0,1,28.25,46.9Zm-11-31.38H17c-1.77.08-3.25,1.08-4.54,3-4.72,7.24,9.17,20.33,15.81,25.5,6.64-5.17,20.53-18.26,15.81-25.5h0c-1.29-2-2.77-3-4.53-3-4.89-.25-10.25,6.38-10.3,6.45a1.25,1.25,0,0,1-1,.47h0a1.25,1.25,0,0,1-1-.47C27.22,21.92,22,15.52,17.23,15.52Z"],
+  "search": ["M46.13,44.29,35,33.25A15.46,15.46,0,1,0,33.25,35l11.12,11a1.23,1.23,0,0,0,1.76,0A1.25,1.25,0,0,0,46.13,44.29Zm-35.78-21A12.93,12.93,0,1,1,23.28,36.2,12.94,12.94,0,0,1,10.35,23.28Z"]
 }
 
-},{}]},{},["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/index.js"]);
+},{}]},{},["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/demo/demo.js"]);

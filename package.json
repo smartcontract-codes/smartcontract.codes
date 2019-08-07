@@ -5,7 +5,7 @@
   "description": "p2p search user interface",
   "main": "src/app.js",
   "scripts": {
-    "start": "budo demo/demo.js:bundle.js --title $npm_package_name --force-default-index --open --live --ssl",
+    "start": "budo demo/demo.js:bundle.js --dir . --title $npm_package_name --force-default-index --open --live --ssl",
     "build": "browserify --full-paths demo/demo.js > bundle.js"
   },
   "keywords": [],
@@ -17,6 +17,7 @@
   "dependencies": {
     "bel": "^6.0.0",
     "csjs-inject": "^1.0.1",
-    "dat-sdk": "^0.1.0"
+    "dat-sdk": "^0.1.0",
+    "hyperdrive": "^9.15.0"
   }
 }
