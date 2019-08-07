@@ -1,8 +1,7 @@
-# Contract Codepen
+# smartcontract.codes
+p2p search interface
 
-[Demo](https://ethereum-play.github.io/collection-page/)
+[demo](https://ethereum-play.github.io/smartcontract.codes/)
 
-### feature
-
-## License
-MIT
+# use
+see [`demo/demo.js`](./demo/demo.js)

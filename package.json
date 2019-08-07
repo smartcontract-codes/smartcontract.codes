@@ -1,27 +1,22 @@
 {
-  "name": "contracts-view",
+  "private": true,
+  "name": "searchpage",
   "version": "0.0.0",
-  "description": "smart contract view",
-  "main": "index.js",
+  "description": "p2p search user interface",
+  "main": "src/app.js",
   "scripts": {
-    "start": "budo src/index.js:dist/bundle.js --dir ./src --live --open",
-    "build": "browserify --full-paths src/index.js > bundle.js",
-    "release": "rm -rf package-lock.json && npm version minor && npm publish",
-    "patch": "rm -rf package-lock.json && npm version patch && npm publish"
+    "start": "budo demo/demo.js:bundle.js --title $npm_package_name --force-default-index --open --live --ssl",
+    "build": "browserify --full-paths demo/demo.js > bundle.js"
   },
   "keywords": [],
   "author": "smartcontract.codes",
   "license": "MIT",
   "devDependencies": {
-    "browserify": "^16.2.3",
-    "budo": "^11.6.2"
+    "budo": "^11.6.3"
   },
   "dependencies": {
     "bel": "^6.0.0",
-    "codemirror": "^5.48.2",
     "csjs-inject": "^1.0.1",
-    "dat-sdk": "^0.1.0",
-    "express": "^4.17.1",
-    "highlight.js": "^9.15.9"
+    "dat-sdk": "^0.1.0"
   }
 }
