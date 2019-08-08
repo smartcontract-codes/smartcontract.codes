@@ -5001,7 +5001,8 @@ function toByteArray (b64) {
     ? validLen - 4
     : validLen
 
-  for (var i = 0; i < len; i += 4) {
+  var i
+  for (i = 0; i < len; i += 4) {
     tmp =
       (revLookup[b64.charCodeAt(i)] << 18) |
       (revLookup[b64.charCodeAt(i + 1)] << 12) |
@@ -11324,7 +11325,9 @@ function checkValue (b, q) {
 module.exports = verify
 
 }).call(this,require("buffer").Buffer)
-},{"./curves.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/browser/curves.json","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","elliptic":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic.js","parse-asn1":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js":[function(require,module,exports){
+},{"./curves.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign/browser/curves.json","bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js","elliptic":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/lib/elliptic.js","parse-asn1":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/parse-asn1/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/lib/_empty.js":[function(require,module,exports){
+arguments[4]["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browser-resolve/empty.js"][0].apply(exports,arguments)
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/node_modules/events/events.js":[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -12160,7 +12163,7 @@ function typedArraySupport () {
   // Can typed array instances can be augmented?
   try {
     var arr = new Uint8Array(1)
-    arr.__proto__ = { __proto__: Uint8Array.prototype, foo: function () { return 42 } }
+    arr.__proto__ = {__proto__: Uint8Array.prototype, foo: function () { return 42 }}
     return arr.foo() === 42
   } catch (e) {
     return false
@@ -12168,24 +12171,26 @@ function typedArraySupport () {
 }
 
 Object.defineProperty(Buffer.prototype, 'parent', {
-  enumerable: true,
   get: function () {
-    if (!Buffer.isBuffer(this)) return undefined
+    if (!(this instanceof Buffer)) {
+      return undefined
+    }
     return this.buffer
   }
 })
 
 Object.defineProperty(Buffer.prototype, 'offset', {
-  enumerable: true,
   get: function () {
-    if (!Buffer.isBuffer(this)) return undefined
+    if (!(this instanceof Buffer)) {
+      return undefined
+    }
     return this.byteOffset
   }
 })
 
 function createBuffer (length) {
   if (length > K_MAX_LENGTH) {
-    throw new RangeError('The value "' + length + '" is invalid for option "size"')
+    throw new RangeError('Invalid typed array length')
   }
   // Return an augmented `Uint8Array` instance
   var buf = new Uint8Array(length)
@@ -12207,8 +12212,8 @@ function Buffer (arg, encodingOrOffset, length) {
   // Common case.
   if (typeof arg === 'number') {
     if (typeof encodingOrOffset === 'string') {
-      throw new TypeError(
-        'The "string" argument must be of type string. Received type number'
+      throw new Error(
+        'If encoding is specified then the first argument must be a string'
       )
     }
     return allocUnsafe(arg)
@@ -12217,7 +12222,7 @@ function Buffer (arg, encodingOrOffset, length) {
 }
 
 // Fix subarray() in ES2016. See: https://github.com/feross/buffer/pull/97
-if (typeof Symbol !== 'undefined' && Symbol.species != null &&
+if (typeof Symbol !== 'undefined' && Symbol.species &&
     Buffer[Symbol.species] === Buffer) {
   Object.defineProperty(Buffer, Symbol.species, {
     value: null,
@@ -12230,51 +12235,19 @@ if (typeof Symbol !== 'undefined' && Symbol.species != null &&
 Buffer.poolSize = 8192 // not used by this implementation
 
 function from (value, encodingOrOffset, length) {
+  if (typeof value === 'number') {
+    throw new TypeError('"value" argument must not be a number')
+  }
+
+  if (isArrayBuffer(value) || (value && isArrayBuffer(value.buffer))) {
+    return fromArrayBuffer(value, encodingOrOffset, length)
+  }
+
   if (typeof value === 'string') {
     return fromString(value, encodingOrOffset)
   }
 
-  if (ArrayBuffer.isView(value)) {
-    return fromArrayLike(value)
-  }
-
-  if (value == null) {
-    throw TypeError(
-      'The first argument must be one of type string, Buffer, ArrayBuffer, Array, ' +
-      'or Array-like Object. Received type ' + (typeof value)
-    )
-  }
-
-  if (isInstance(value, ArrayBuffer) ||
-      (value && isInstance(value.buffer, ArrayBuffer))) {
-    return fromArrayBuffer(value, encodingOrOffset, length)
-  }
-
-  if (typeof value === 'number') {
-    throw new TypeError(
-      'The "value" argument must not be of type number. Received type number'
-    )
-  }
-
-  var valueOf = value.valueOf && value.valueOf()
-  if (valueOf != null && valueOf !== value) {
-    return Buffer.from(valueOf, encodingOrOffset, length)
-  }
-
-  var b = fromObject(value)
-  if (b) return b
-
-  if (typeof Symbol !== 'undefined' && Symbol.toPrimitive != null &&
-      typeof value[Symbol.toPrimitive] === 'function') {
-    return Buffer.from(
-      value[Symbol.toPrimitive]('string'), encodingOrOffset, length
-    )
-  }
-
-  throw new TypeError(
-    'The first argument must be one of type string, Buffer, ArrayBuffer, Array, ' +
-    'or Array-like Object. Received type ' + (typeof value)
-  )
+  return fromObject(value)
 }
 
 /**
@@ -12298,7 +12271,7 @@ function assertSize (size) {
   if (typeof size !== 'number') {
     throw new TypeError('"size" argument must be of type number')
   } else if (size < 0) {
-    throw new RangeError('The value "' + size + '" is invalid for option "size"')
+    throw new RangeError('"size" argument must not be negative')
   }
 }
 
@@ -12413,16 +12386,20 @@ function fromObject (obj) {
     return buf
   }
 
-  if (obj.length !== undefined) {
-    if (typeof obj.length !== 'number' || numberIsNaN(obj.length)) {
-      return createBuffer(0)
+  if (obj) {
+    if (ArrayBuffer.isView(obj) || 'length' in obj) {
+      if (typeof obj.length !== 'number' || numberIsNaN(obj.length)) {
+        return createBuffer(0)
+      }
+      return fromArrayLike(obj)
     }
-    return fromArrayLike(obj)
+
+    if (obj.type === 'Buffer' && Array.isArray(obj.data)) {
+      return fromArrayLike(obj.data)
+    }
   }
 
-  if (obj.type === 'Buffer' && Array.isArray(obj.data)) {
-    return fromArrayLike(obj.data)
-  }
+  throw new TypeError('The first argument must be one of type string, Buffer, ArrayBuffer, Array, or Array-like Object.')
 }
 
 function checked (length) {
@@ -12443,17 +12420,12 @@ function SlowBuffer (length) {
 }
 
 Buffer.isBuffer = function isBuffer (b) {
-  return b != null && b._isBuffer === true &&
-    b !== Buffer.prototype // so Buffer.isBuffer(Buffer.prototype) will be false
+  return b != null && b._isBuffer === true
 }
 
 Buffer.compare = function compare (a, b) {
-  if (isInstance(a, Uint8Array)) a = Buffer.from(a, a.offset, a.byteLength)
-  if (isInstance(b, Uint8Array)) b = Buffer.from(b, b.offset, b.byteLength)
   if (!Buffer.isBuffer(a) || !Buffer.isBuffer(b)) {
-    throw new TypeError(
-      'The "buf1", "buf2" arguments must be one of type Buffer or Uint8Array'
-    )
+    throw new TypeError('Arguments must be Buffers')
   }
 
   if (a === b) return 0
@@ -12514,7 +12486,7 @@ Buffer.concat = function concat (list, length) {
   var pos = 0
   for (i = 0; i < list.length; ++i) {
     var buf = list[i]
-    if (isInstance(buf, Uint8Array)) {
+    if (ArrayBuffer.isView(buf)) {
       buf = Buffer.from(buf)
     }
     if (!Buffer.isBuffer(buf)) {
@@ -12530,19 +12502,15 @@ function byteLength (string, encoding) {
   if (Buffer.isBuffer(string)) {
     return string.length
   }
-  if (ArrayBuffer.isView(string) || isInstance(string, ArrayBuffer)) {
+  if (ArrayBuffer.isView(string) || isArrayBuffer(string)) {
     return string.byteLength
   }
   if (typeof string !== 'string') {
-    throw new TypeError(
-      'The "string" argument must be one of type string, Buffer, or ArrayBuffer. ' +
-      'Received type ' + typeof string
-    )
+    string = '' + string
   }
 
   var len = string.length
-  var mustMatch = (arguments.length > 2 && arguments[2] === true)
-  if (!mustMatch && len === 0) return 0
+  if (len === 0) return 0
 
   // Use a for loop to avoid recursion
   var loweredCase = false
@@ -12554,6 +12522,7 @@ function byteLength (string, encoding) {
         return len
       case 'utf8':
       case 'utf-8':
+      case undefined:
         return utf8ToBytes(string).length
       case 'ucs2':
       case 'ucs-2':
@@ -12565,9 +12534,7 @@ function byteLength (string, encoding) {
       case 'base64':
         return base64ToBytes(string).length
       default:
-        if (loweredCase) {
-          return mustMatch ? -1 : utf8ToBytes(string).length // assume utf8
-        }
+        if (loweredCase) return utf8ToBytes(string).length // assume utf8
         encoding = ('' + encoding).toLowerCase()
         loweredCase = true
     }
@@ -12714,20 +12681,16 @@ Buffer.prototype.equals = function equals (b) {
 Buffer.prototype.inspect = function inspect () {
   var str = ''
   var max = exports.INSPECT_MAX_BYTES
-  str = this.toString('hex', 0, max).replace(/(.{2})/g, '$1 ').trim()
-  if (this.length > max) str += ' ... '
+  if (this.length > 0) {
+    str = this.toString('hex', 0, max).match(/.{2}/g).join(' ')
+    if (this.length > max) str += ' ... '
+  }
   return '<Buffer ' + str + '>'
 }
 
 Buffer.prototype.compare = function compare (target, start, end, thisStart, thisEnd) {
-  if (isInstance(target, Uint8Array)) {
-    target = Buffer.from(target, target.offset, target.byteLength)
-  }
   if (!Buffer.isBuffer(target)) {
-    throw new TypeError(
-      'The "target" argument must be one of type Buffer or Uint8Array. ' +
-      'Received type ' + (typeof target)
-    )
+    throw new TypeError('Argument must be a Buffer')
   }
 
   if (start === undefined) {
@@ -12806,7 +12769,7 @@ function bidirectionalIndexOf (buffer, val, byteOffset, encoding, dir) {
   } else if (byteOffset < -0x80000000) {
     byteOffset = -0x80000000
   }
-  byteOffset = +byteOffset // Coerce to Number.
+  byteOffset = +byteOffset  // Coerce to Number.
   if (numberIsNaN(byteOffset)) {
     // byteOffset: it it's undefined, null, NaN, "foo", etc, search whole buffer
     byteOffset = dir ? 0 : (buffer.length - 1)
@@ -13058,8 +13021,8 @@ function utf8Slice (buf, start, end) {
     var codePoint = null
     var bytesPerSequence = (firstByte > 0xEF) ? 4
       : (firstByte > 0xDF) ? 3
-        : (firstByte > 0xBF) ? 2
-          : 1
+      : (firstByte > 0xBF) ? 2
+      : 1
 
     if (i + bytesPerSequence <= end) {
       var secondByte, thirdByte, fourthByte, tempCodePoint
@@ -13722,7 +13685,7 @@ Buffer.prototype.fill = function fill (val, start, end, encoding) {
   } else {
     var bytes = Buffer.isBuffer(val)
       ? val
-      : Buffer.from(val, encoding)
+      : new Buffer(val, encoding)
     var len = bytes.length
     if (len === 0) {
       throw new TypeError('The value "' + val +
@@ -13877,16 +13840,15 @@ function blitBuffer (src, dst, offset, length) {
   return i
 }
 
-// ArrayBuffer or Uint8Array objects from other contexts (i.e. iframes) do not pass
-// the `instanceof` check but they should be treated as of that type.
-// See: https://github.com/feross/buffer/issues/166
-function isInstance (obj, type) {
-  return obj instanceof type ||
-    (obj != null && obj.constructor != null && obj.constructor.name != null &&
-      obj.constructor.name === type.name)
+// ArrayBuffers from another context (i.e. an iframe) do not pass the `instanceof` check
+// but they should be treated as valid. See: https://github.com/feross/buffer/issues/166
+function isArrayBuffer (obj) {
+  return obj instanceof ArrayBuffer ||
+    (obj != null && obj.constructor != null && obj.constructor.name === 'ArrayBuffer' &&
+      typeof obj.byteLength === 'number')
 }
+
 function numberIsNaN (obj) {
-  // For IE11 support
   return obj !== obj // eslint-disable-line no-self-compare
 }
 
@@ -15272,7 +15234,7 @@ exports.encode = exports.toStr = encode
 exports.decode = exports.toBuf = decode
 
 },{"safe-buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/safe-buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-sdk/dns-web.js":[function(require,module,exports){
-
+/* global fetch */
 // TODO: Persist to local storage
 
 const DEFAULT_DNS_PROXY = 'gateway.mauve.moe'
@@ -15334,10 +15296,17 @@ module.exports = ({
 function noop () {}
 
 },{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-sdk/index.js":[function(require,module,exports){
+const path = require('path')
+
+// This is a dirty hack for browserify to work. 😅
+if(!path.posix) path.posix = path
+
 const discovery = require('hyperdiscovery')
 const datStorage = require('universal-dat-storage')
 const DatEncoding = require('dat-encoding')
 const crypto = require('hypercore-crypto')
+const RAM = require('random-access-memory')
+const fs = require('fs')
 
 const datDNS = require('dat-dns')
 const hyperdrive = require('hyperdrive')
@@ -15348,7 +15317,8 @@ const DEFAULT_SWARM_OPTS = {
   extensions: []
 }
 const DEFAULT_DRIVE_OPTS = {
-  sparse: true
+  sparse: true,
+  persist: true
 }
 const DEFAULT_CORE_OPTS = {}
 const DEFAULT_DNS_OPTS = {}
@@ -15382,11 +15352,15 @@ function SDK ({ storageOpts, swarmOpts, driveOpts, coreOpts, dnsOpts } = {}) {
       core.close()
     }
 
-    swarm.close(cb)
+    swarm.close().then(cb, cb)
   }
 
   function resolveName (url, cb) {
     return dns.resolveName(url, cb)
+  }
+
+  function deleteStorage (key, cb) {
+    storage.delete(key, cb)
   }
 
   function Hyperdrive (location, opts) {
@@ -15413,12 +15387,37 @@ function SDK ({ storageOpts, swarmOpts, driveOpts, coreOpts, dnsOpts } = {}) {
 
     if (drives.has(stringKey)) return drives.get(stringKey)
 
-    const drive = hyperdrive(storage.getDrive(location), key, opts)
+    const { persist } = opts
+
+    let driveStorage = null
+    try {
+      driveStorage = persist ? storage.getDrive(location) : RAM
+    } catch (e) {
+      if (e.message !== 'Unable to create storage') throw e
+
+      // If the folder isn't a dat archive. Turn it into one.
+      const { publicKey, secretKey } = crypto.keyPair()
+      fs.writeFileSync(path.join(location, '.dat'), publicKey)
+      key = publicKey
+      location = DatEncoding.encode(publicKey)
+      opts.secretKey = secretKey
+
+      driveStorage = persist ? storage.getDrive(location) : RAM
+    }
+
+    const drive = hyperdrive(driveStorage, key, opts)
 
     drives.set(stringKey, drive)
 
     drive.ready(() => {
       swarm.add(drive)
+    })
+
+    drive.once('close', () => {
+      const discoveryKey = DatEncoding.encode(drive.discoveryKey)
+      swarm.leave(discoveryKey)
+      swarm._replicatingFeeds.delete(discoveryKey)
+      drives.delete(stringKey)
     })
 
     return drive
@@ -15448,12 +15447,23 @@ function SDK ({ storageOpts, swarmOpts, driveOpts, coreOpts, dnsOpts } = {}) {
 
     if (cores.has(stringKey)) return cores.get(stringKey)
 
-    const core = hypercore(storage.getCore(location, key, opts))
+    const { persist } = opts
+
+    const coreStorage = persist ? storage.getCore(location) : RAM
+
+    const core = hypercore(coreStorage, key, opts)
 
     cores.set(stringKey, core)
 
     core.ready(() => {
       swarm.add(core)
+    })
+
+    core.once('close', () => {
+      const discoveryKey = DatEncoding.encode(core.discoveryKey)
+      swarm.leave(discoveryKey)
+      swarm._replicatingFeeds.delete(discoveryKey)
+      cores.delete(stringKey)
     })
 
     return core
@@ -15463,11 +15473,12 @@ function SDK ({ storageOpts, swarmOpts, driveOpts, coreOpts, dnsOpts } = {}) {
     Hyperdrive,
     Hypercore,
     resolveName,
+    deleteStorage,
     destroy
   }
 }
 
-},{"dat-dns":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-sdk/dns-web.js","dat-encoding":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-encoding/index.js","hypercore":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/index.js","hypercore-crypto":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-crypto/index.js","hyperdiscovery":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdiscovery/index.js","hyperdrive":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/index.js","universal-dat-storage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/universal-dat-storage/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-swarm-defaults/index.js":[function(require,module,exports){
+},{"dat-dns":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-sdk/dns-web.js","dat-encoding":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-encoding/index.js","fs":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify/lib/_empty.js","hypercore":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore/index.js","hypercore-crypto":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-crypto/index.js","hyperdiscovery":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdiscovery/index.js","hyperdrive":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperdrive/index.js","path":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/path-browserify/index.js","random-access-memory":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-memory/index.js","universal-dat-storage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/universal-dat-storage/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-swarm-defaults/index.js":[function(require,module,exports){
 var DAT_DOMAIN = 'dat.local'
 var DEFAULT_DISCOVERY = [
   'discovery1.datprotocol.com',
@@ -21750,30 +21761,36 @@ utils.intFromLE = intFromLE;
 
 },{"bn.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bn.js/lib/bn.js","minimalistic-assert":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-assert/index.js","minimalistic-crypto-utils":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/minimalistic-crypto-utils/lib/utils.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/elliptic/package.json":[function(require,module,exports){
 module.exports={
-  "_from": "elliptic@^6.0.0",
+  "_args": [
+    [
+      "elliptic@6.5.0",
+      "/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes"
+    ]
+  ],
+  "_development": true,
+  "_from": "elliptic@6.5.0",
   "_id": "elliptic@6.5.0",
   "_inBundle": false,
   "_integrity": "sha512-eFOJTMyCYb7xtE/caJ6JJu+bhi67WCYNbkGSknu20pmM8Ke/bqOfdnZWxyoGN26JgfxTbXrsCkEw4KheCT/KGg==",
   "_location": "/elliptic",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "elliptic@^6.0.0",
+    "raw": "elliptic@6.5.0",
     "name": "elliptic",
     "escapedName": "elliptic",
-    "rawSpec": "^6.0.0",
+    "rawSpec": "6.5.0",
     "saveSpec": null,
-    "fetchSpec": "^6.0.0"
+    "fetchSpec": "6.5.0"
   },
   "_requiredBy": [
     "/browserify-sign",
     "/create-ecdh"
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.5.0.tgz",
-  "_shasum": "2b8ed4c891b7de3200e14412a5b8248c7af505ca",
-  "_spec": "elliptic@^6.0.0",
-  "_where": "/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/browserify-sign",
+  "_spec": "6.5.0",
+  "_where": "/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -21781,7 +21798,6 @@ module.exports={
   "bugs": {
     "url": "https://github.com/indutny/elliptic/issues"
   },
-  "bundleDependencies": false,
   "dependencies": {
     "bn.js": "^4.4.0",
     "brorand": "^1.0.1",
@@ -21791,7 +21807,6 @@ module.exports={
     "minimalistic-assert": "^1.0.0",
     "minimalistic-crypto-utils": "^1.0.0"
   },
-  "deprecated": false,
   "description": "EC cryptography",
   "devDependencies": {
     "brfs": "^1.4.3",
@@ -25055,11 +25070,12 @@ function randomBytes (n) {
 }).call(this,require('_process'))
 },{"./feed":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/feed.js","./messages":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/messages.js","_process":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/process/browser.js","buffer-alloc-unsafe":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-alloc-unsafe/index.js","buffer-from":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer-from/index.js","inherits":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/inherits/inherits_browser.js","readable-stream":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/readable-stream/readable-browser.js","sodium-universal":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sodium-universal/browser.js","sorted-indexof":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/sorted-indexof/index.js","varint":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/node_modules/varint/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hypercore-protocol/messages.js":[function(require,module,exports){
 (function (Buffer){
-// This file is auto generated by the protocol-buffers cli tool
+// This file is auto generated by the protocol-buffers compiler
 
 /* eslint-disable quotes */
 /* eslint-disable indent */
 /* eslint-disable no-redeclare */
+/* eslint-disable camelcase */
 
 // Remember to `npm install --save protocol-buffers-encodings`
 var encodings = require('protocol-buffers-encodings')
@@ -25420,7 +25436,8 @@ function defineInfo () {
 function defineHave () {
   var enc = [
     encodings.varint,
-    encodings.bytes
+    encodings.bytes,
+    encodings.bool
   ]
 
   Have.encodingLength = encodingLength
@@ -25438,6 +25455,10 @@ function defineHave () {
     }
     if (defined(obj.bitfield)) {
       var len = enc[1].encodingLength(obj.bitfield)
+      length += 1 + len
+    }
+    if (defined(obj.ack)) {
+      var len = enc[2].encodingLength(obj.ack)
       length += 1 + len
     }
     return length
@@ -25461,6 +25482,11 @@ function defineHave () {
       enc[1].encode(obj.bitfield, buf, offset)
       offset += enc[1].encode.bytes
     }
+    if (defined(obj.ack)) {
+      buf[offset++] = 32
+      enc[2].encode(obj.ack, buf, offset)
+      offset += enc[2].encode.bytes
+    }
     encode.bytes = offset - oldOffset
     return buf
   }
@@ -25473,7 +25499,8 @@ function defineHave () {
     var obj = {
       start: 0,
       length: 1,
-      bitfield: null
+      bitfield: null,
+      ack: false
     }
     var found0 = false
     while (true) {
@@ -25498,6 +25525,10 @@ function defineHave () {
         case 3:
         obj.bitfield = enc[1].decode(buf, offset)
         offset += enc[1].decode.bytes
+        break
+        case 4:
+        obj.ack = enc[2].decode(buf, offset)
+        offset += enc[2].decode.bytes
         break
         default:
         offset = skip(prefix & 7, buf, offset)
@@ -26821,6 +26852,8 @@ Feed.prototype.seek = function (bytes, opts, cb) {
 
   var self = this
 
+  if (bytes === this.byteLength) return process.nextTick(cb, null, this.length, 0)
+
   this._seek(bytes, function (err, index, offset) {
     if (!err && isBlock(index)) return done(index / 2, offset)
     if (opts.wait === false) return cb(err || new Error('Unable to seek to this offset'))
@@ -28078,6 +28111,7 @@ function replicate (feed, opts) {
       if (!triggerReady()) {
         peer.feed.emit('remote-update', peer)
       }
+      peer.remoteAck = stream.remoteAck
     })
     var firstTime = true
 
@@ -28107,8 +28141,10 @@ function Peer (feed, opts) {
   this.remoteLength = 0
   this.remoteWant = false
   this.remoteTree = null
+  this.remoteAck = false
   this.live = !!opts.live
   this.sparse = feed.sparse
+  this.ack = !!opts.ack
 
   this.remoteDownloading = true
   this.downloading = typeof opts.download === 'boolean' ? opts.download : !feed.writable
@@ -28167,6 +28203,11 @@ Peer.prototype.ondata = function (data) {
   this.feed._putBuffer(data.index, data.value, data, this, function (err) {
     if (err) return self.destroy(err)
     if (data.value) self.remoteBitfield.set(data.index, false)
+    if (self.remoteAck) {
+      // Send acknowledgement.
+      // In the future this could batch several ACKs at once
+      self.stream.have({start: data.index, length: 1, ack: true})
+    }
     if (self._stats && data.value) {
       self._stats.downloadedBlocks += 1
       self._stats.downloadedBytes += data.value.length
@@ -28274,6 +28315,11 @@ Peer.prototype.ontick = function () {
 }
 
 Peer.prototype.onhave = function (have) {
+  if (this.ack && have.ack && !have.bitfield && this.feed.bitfield.get(have.start)) {
+    this.stream.stream.emit('ack', have)
+    return
+  }
+
   var updated = this._first
   if (this._first) this._first = false
 
@@ -29283,7 +29329,7 @@ class Hyperdiscovery extends EventEmitter {
       debug('swarm:listening', { port: this.port })
     })
     this._swarm.on('error', (err) => {
-      if (err && err.code !== 'EADDRINUSE') return this.emit('error', err)
+      if (err && err.code !== 'EADDRINUSE' && err.message !== 'Could not bind') return this.emit('error', err)
       const port = this._portAlts.shift()
       debug(`Port ${this._port} in use. Trying ${port}.`)
       this.listen(port)
@@ -29476,7 +29522,7 @@ var from = require('from2')
 var each = require('stream-each')
 var uint64be = require('uint64be')
 var unixify = require('unixify')
-var path = require('path')
+var path = require('path').posix
 var messages = require('./lib/messages')
 var stat = require('./lib/stat')
 var cursor = require('./lib/cursor')
@@ -29543,6 +29589,7 @@ function Hyperdrive (storage, key, opts) {
   this.metadata.on('append', update)
   this.metadata.on('extension', extension)
   this.metadata.on('error', onerror)
+  this.metadata.once('close', onclose)
   this.ready = thunky(open)
   this.ready(onready)
 
@@ -29560,6 +29607,10 @@ function Hyperdrive (storage, key, opts) {
 
   function onerror (err) {
     if (err) self.emit('error', err)
+  }
+
+  function onclose () {
+    self.emit('close')
   }
 
   function update () {
@@ -45730,7 +45781,7 @@ function header () {
       <img src="/src/assets/images/logo-1.png" alt="smartcontract.codes">
     </div>
     <nav class="${css.nav}">
-      <button class="button ${css.newContarct}">
+      <button class="button ${css.newContract}">
         <span class=${css.icon_new} onclick=${openNew}>
           ${icon('new', svg.new)}
         </span>
@@ -45790,16 +45841,16 @@ const css = csjs`
     overflow: hidden;
     margin-left: 15px;
   }
-  .newContarct {
+  .newContract {
     width: 45px;
     height: 45px;
     background: none;
     transition: all ease-in-out .3s
   }
-  .newContarct:hover {
+  .newContract:hover {
     background-color: var(--button-default-hover);
   }
-  .newContarct span {
+  .newContract span {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46311,7 +46362,7 @@ function pagination ({ contracts, cardsCount = 8 /* cards per page */ }, notify)
   function next (pages) {
     let currentPage = getCurrentPage()
     let newPage = currentPage + 1
-    if (currentPage != lastPage) {
+    if (currentPage != lastPage && lastPage != null) {
       removeActiveEl()
       ;[...pages.children].forEach((li) => {
         let el = li.children[0]
