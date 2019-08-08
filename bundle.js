@@ -40,14 +40,17 @@ function contractsDB (daturl) {
       waitingQuery = [query, done]
       return
     }
-    const match = { sources: [], titles: [], hashes: [] }
-    const formattedSources = [...sources]
-    for (var i = 0; i < sources.length; i++) {
-      const temp = formattedSources[i].replace(/\n. |\r/g, "")
+    const match = []
+    const formattedSources = [...contracts]
+    for (var i = 0; i < contracts.length; i++) {
+      const temp = formattedSources[i].source.replace(/\n. |\r/g, "")
+      const target = formattedSources[i]
       if (temp.includes(query)) {
-        match.sources.push(sources[i])
-        match.titles.push(titles[i])
-        match.hashes.push(hashes[i])
+        match.push({
+          source: target.source,
+          title: target.title,
+          hash: target.hash
+        })
       }
     }
     done(match)
@@ -45722,7 +45725,6 @@ const svg = require('./svg.json')
 module.exports = header
 
 function header () {
-  const editorurl = 'https://ethereum-play.github.io/editor-solidity/'
   return bel`<header class="${css.header}">
     <div class="${css.logo}" onclick=${home}>
       <img src="/src/assets/images/logo-1.png" alt="smartcontract.codes">
@@ -45742,7 +45744,7 @@ function header () {
   </header>`
 }
 function openNew () {
-  window.open(editorurl)
+  window.open('https://ethereum-play.github.io/editor-solidity/')
 }
 function home () {
   location.href = `${window.location.origin}${window.location.pathname}`
@@ -45836,7 +45838,7 @@ module.exports = makeCard
 function makeCard (contract) {
   const { source, title, hash } = contract
   const card = bel`
-    <div class=${css.collectionCard} onclick=${() => openInEditor(contract)}>
+    <div class=${css.collectionCard} onclick=${() => openInEditor(source)}>
       <pre class=${css.code}>${source}</pre>
 
       <div class=${css.cardCover}>
@@ -45907,6 +45909,7 @@ function openInEditor (code) {
         name: 'contract.sol',
         data: code
     }], '*')
+    window.editor.focus()
   }
 }
 const css = csjs`
@@ -46150,17 +46153,16 @@ function makePage (data, notify) {
   </div>`
   db.getAll((err, contracts) => {
     if (err) return console.error(err)
-    const count = contracts.length
-    const pagination = makePagination({ count, cardsCount }, listener)
-    updateCollectionArea(contracts.slice(0, cardsCount - 1))
+    const pagination = makePagination({ contracts, cardsCount }, listener)
+    updateCollectionArea(contracts.slice(0, cardsCount))
     navigation.appendChild(pagination)
   })
   return element
   function listener (action) {
     if (action.type === 'paginate') {
-      const page = action.body
-      const b = page * cardsCount - 1
-      const a = b - cardsCount
+      const { contracts, page } = action.body
+      const b = page != 1 ? page * cardsCount - 1 : cardsCount
+      const a = page != 1 ? b - cardsCount : 0
       updateCollectionArea(contracts.slice(a, b))
     }
   }
@@ -46169,15 +46171,15 @@ function makePage (data, notify) {
     collectionContainer.innerHTML = ''
     collectionContainer.appendChild(collectionArea)
   }
-  function updatePagination ({ count, cardsCount }) {
-    const pagination = makePagination({ count, cardsCount }, listener)
+  function updatePagination ({ contracts, cardsCount }) {
+    const pagination = makePagination({ contracts, cardsCount }, listener)
     navigation.innerHTML = ''
     navigation.appendChild(pagination)
   }
   function showMatches (matchingContracts) {
-    updateCollectionArea(matchingContracts)
+    updateCollectionArea(matchingContracts.slice(0, cardsCount))
     var count = matchingContracts.length
-    updatePagination({ count, cardsCound })
+    updatePagination({ contracts: matchingContracts, cardsCount })
     let url = `${window.location.origin}${window.location.pathname}?page=1`
     history.pushState(null, null, url)
   }
@@ -46244,97 +46246,88 @@ const svg = require('svg')
 
 module.exports = pagination
 
-function pagination ({ count, cardsCount = 8 /* cards per page */ }, notify) {
+function pagination ({ contracts, cardsCount = 8 /* cards per page */ }, notify) {
+  const count = contracts.length
   const lastPage = count <= cardsCount ? null : Math.ceil(count / cardsCount)
   const pageCount = Math.ceil(count / cardsCount)
-  const firstPage = bel`<span onclick=${select} class=${css.active}>1</span>`
-  const active = firstPage
+  let active = {}
   const pages = makePaginationButtons()
   const el = bel`
     <div class=${css.pagination}>
-      <button class="${css.button} ${css.default} ${css.previous}" onclick=${prev}>
-        <span class=${css.icon_arrow_right}>
-          ${icon('arrow-left', svg.arrowLeft)}
-        </span>
+      <button class="${css.button} ${css.default} ${css.previous}" onclick=${() => prev(pages)}>
+        <span class=${css.icon_arrow_right}>${icon('arrow-left', svg.arrowLeft)}</span>
         Previous
       </button>
       ${pages}
-      <button class="${css.button} ${css.default} ${css.next}" onclick=${next}>
+      <button class="${css.button} ${css.default} ${css.next}" onclick=${() => next(pages)}>
         Next
-        <span class=${css.icon_arrow_right}>
-          ${icon('arrow-right', svg.arrowRight)}
-        </span>
+        <span class=${css.icon_arrow_right}>${icon('arrow-right', svg.arrowRight)}</span>
       </button>
     </div>`
   return el
-  function select (e) {
-    selectPage(e, 1)
-  }
-  function prev (e) {
-    goToPrevious(pages)
-  }
-  function next (e) {
-    goToNext(pages)
-  }
+
   function makePaginationButtons () {
-    const pages = bel`<ul class=${css.pages}><li>${firstPage}</li></ul>`
-    const grid = `auto / repeat(${ pageCount < 6 ? pageCount + 1 : 5 }, 45px)`
-    console.log(grid)
+    const pages = bel`<ul class=${css.pages}></ul>`
+    const grid = `auto / repeat(${ pageCount < 6 ? pageCount : 5 }, 45px)`
+    const first = bel`<li><span onclick=${(e) => selectPage(e, 1)} class=${css.active}>1</span></li>`
+    active = { page: 1, el: first.children[0] }
     pages.style.setProperty('--grid-template', grid)
-    const arr = pageCount < 6 ? [...Array(pageCount)].map((_,i) => i + 1) : [
-      2, '...', pageCount-1, pageCount
-    ]
-    arr.forEach(page => {
-      if (page != '...') {
-        pages.appendChild(bel`<li><span
-          onclick=${(e)=>selectPage(e, page)}
-          class=${css.nonactive}>${page}
-          </span></li>`)
-      } else {
-        pages.appendChild(bel`<li><span class=${css.nonactive}>${page}</span></li>`)
+    const arr = pageCount < 6 ?
+      [...Array(pageCount)].map((_,i) => i + 1)
+      : [1, 2, '...', pageCount-1, pageCount]
+    arr.map(page => {
+      if (page === 1) {
+        pages.appendChild(first)
+      }
+      else {
+        if (page === '...') { pages.appendChild(bel`<li><span class=${css.dotdotdot}>${page}</span></li>`) }
+        else {
+          pages.appendChild(
+            bel`<li><span onclick=${(e)=>selectPage(e, page)} class=${css.nonactive}>${page}</span></li>`)
+        }
       }
     })
     return pages
   }
   function selectPage (e, page) {
-    removeActiveEl(active)
-    activateNewEl(e.target)
+    removeActiveEl()
+    updateActive(page, e.target)
     goToUrl(page)
   }
-  function removeActiveEl (active) {
-    if (active) {
-      active.classList.remove(css.active)
-      active.classList.add(css.nonactive)
+  function removeActiveEl () {
+    if (active.el) {
+      active.el.classList.remove(css.active)
+      active.el.classList.add(css.nonactive)
     }
   }
-  function activateNewEl (el) {
+  function updateActive (page, el) {
     el.classList.remove(css.nonactive)
     el.classList.add(css.active)
-    active = el
+    active = { page: page, el: el }
   }
   function getCurrentPage () {
     return parseInt(window.location.href.split('/?page=')[1]) || 1
   }
-  function goToNext (ops, collectionContainer, pages) {
+  function next (pages) {
     let currentPage = getCurrentPage()
     let newPage = currentPage + 1
-    if (currentPage != ops.lastPage) {
-      removeActiveEl(active)
+    if (currentPage != lastPage) {
+      removeActiveEl()
       ;[...pages.children].forEach((li) => {
-        let page = li.children[0]
-        if (parseInt(page.innerText) === newPage) activateNewEl(page)
+        let el = li.children[0]
+        if (parseInt(el.innerText) === newPage) updateActive(newPage, el)
       })
       goToUrl(newPage)
     }
   }
-  function goToPrevious (ops, collectionContainer, pages) {
+  function prev (pages) {
     let currentPage = getCurrentPage()
     let newPage = currentPage - 1
     if (currentPage != 1) {
-      removeActiveEl(active)
+      removeActiveEl()
       ;[...pages.children].forEach((li) => {
-        let page = li.children[0]
-        if (parseInt(page.innerText) === newPage) activateNewEl(page)
+        let el = li.children[0]
+        if (parseInt(el.innerText) === newPage) updateActive(newPage, el)
       })
       goToUrl(newPage)
     }
@@ -46345,7 +46338,7 @@ function pagination ({ count, cardsCount = 8 /* cards per page */ }, notify) {
      : `${window.location.origin}${window.location.pathname}`.split(' ')[0]
     let url = base + `?page=${newPage}`
     history.pushState(null, null, url)
-    notify({ type: 'paginate', body: newPage })
+    notify({ type: 'paginate', body: { contracts, page: newPage } })
   }
 }
 const css = csjs`
@@ -46401,6 +46394,10 @@ const css = csjs`
   .pages li {
     font-size: var(--text-small);
   }
+  .dotdotdot {
+    padding: 4px 8px;
+    color: var(--pages-text);
+  }
   .nonactive {
     border-radius: var(--pages-text-border-radius);
     padding: 4px 8px;
@@ -46450,7 +46447,8 @@ function search (notify) {
   </div>`
   return bel`<div class=${css.searchBar}>
     ${searchArea}
-    <button class=${css.submit} onclick=${()=>searchContracts(query)}>
+    <button class=${css.submit}
+      onclick=${()=>searchContracts(notify, searchArea)}>
       search contracts
     </button>
   </div>`
@@ -46471,12 +46469,12 @@ function preventDefault (e) {
   const keyCode = e.keyCode
   if (keyCode === 13 && !e.shiftKey) e.preventDefault()
 }
-function trigger (e, searchArea) {
+function trigger (e, notify, searchArea) {
   const keyCode = e.keyCode
-  if (keyCode === 13 && !e.shiftKey) return searchContracts(query)
+  if (keyCode === 13 && !e.shiftKey) return searchContracts(notify, searchArea)
   if (keyCode === 27) return clearSearch()
 }
-function searchContracts (notify) {
+function searchContracts (notify, searchArea) {
   const query = getSearchInput(searchArea)
   return notify({ type: 'search', body: query })
 }
