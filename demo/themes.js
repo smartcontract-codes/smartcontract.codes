@@ -50,6 +50,8 @@ const lightTheme = {
   '--card-cover': greyEB,
   '--card-hover-cover': lightGreen,
   '--card-cover-border': transparent,
+  '--card-cover-radius': '0 0 6px 6px',
+  '--card--hover-cover-radius': '6px',
   '--card-border': transparent,
   '--card-hover-border': '0px solid var(--card-border)',
   '--card-code-overlay': 'linear-gradient(0deg, rgba(0,0,0, .1) 0%, rgba(0,0,0, .28) 100%)',
@@ -66,6 +68,7 @@ const lightTheme = {
   '--card-time': grey8D,
   '--card-hover-time': grey8D,
   '--card-visit-icons-fill': dark1d,
+  '--card-icon-fill': dark1d,
   '--search-input': `1px solid var(--search-input-border)`,
   '--search-input-border': 'rgba(255,255,255, 0)',
   '--search-input-background': white,
@@ -92,6 +95,7 @@ const lightTheme = {
   '--collectionCard-border-radius': '6px',
   '--pages-li-color': grey8D,
   '--search-button-border-radius': '30px',
+  '--notify-background-color': lightGreen
 }
 
 const darkTheme = {
@@ -121,6 +125,8 @@ const darkTheme = {
   '--card-cover': grey31,
   '--card-hover-cover': bluePurple,
   '--card-cover-border': transparent,
+  '--card-cover-radius': '0 0 6px 6px',
+  '--card-hover-cover-radius': '6px',
   '--card-border': bluePurple,
   '--card-hover-border': '1px solid var(--card-border)',
   '--card-code-overlay': 'linear-gradient(0deg, rgba(103,0,255, .1) 0%, rgba(103,0,255, .28) 100%)',
@@ -137,6 +143,7 @@ const darkTheme = {
   '--card-time': greyBB,
   '--card-hover-time': white,
   '--card-visit-icons-fill': white,
+  '--card-icon-fill': white,
   '--search-input': `1px solid var(--search-input-border)`,
   '--search-input-border': bluePurple,
   '--search-input-background': 'none',
@@ -162,6 +169,7 @@ const darkTheme = {
   '--collectionArea-grid-gap': '30px',
   '--collectionCard-border-radius': '6px',
   '--search-button-border-radius': '30px',
+  '--notify-background-color': lightGreen
 }
 const themes = { lightTheme, darkTheme }
 select.names = Object.keys(themes)

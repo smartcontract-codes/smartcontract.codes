@@ -2,7 +2,8 @@
 const contractsDB = require('contracts-db')
 const smartcontractcodes = require('../')
 
-const daturl = 'dat://c610858d82e4c9bc9585bb26fedb260c080ed24c6a05bcf3da9ad73a6917ac82/'
+//const daturl = 'dat://ee970fe30a2b564475eb0468acf3de9363fb6b6ef775de26fc3be90ec7dbed72'
+const daturl = 'dat://786130fdd86da6cd579669b6075049cb589f12cbe4c8bf5d9fe350c1b677c5d6'
 const db = contractsDB(daturl)
 
 const element = smartcontractcodes({
@@ -33,6 +34,7 @@ function contractsDB (daturl) {
 
   var counter = 0
   const archive = Hyperdrive(daturl)
+  window.archive = archive
   return { getAll, get }
 
   function get (query, done) {
@@ -55,36 +57,32 @@ function contractsDB (daturl) {
     }
     done(match)
   }
-  // retrieve all sources
+    // retrieve all sources
   function getAll (done) {
+    console.log('Retreiving data from the P2P database')
     archive.ready(() => {
       archive.readdir('.', (err, addresses) => {
         if (err) return done(err)
         if (addresses) {
+          counter = addresses.length
           for (var i=0; i<addresses.length; i++) {
-            getContractsArr(i, addresses, done)
+            getData (addresses, i, done)
           }
         }
       })
     })
   }
-  // loop over address/src/sourcesArr
-  function getContractsArr (x, addresses, done) {
-    archive.readdir(`${addresses[x]}/src/`, (err, sourcesArr) => {
-      if (err) return done(err)
-      if (sourcesArr) {
-        counter = counter + sourcesArr.length
-        for (var i=0; i<sourcesArr.length; i++) {
-          getSourceCode(x, i, addresses, sourcesArr, addresses[x], done)
-        }
-      }
-    })
-  }
-  // get source code and oush it to `sources` array
-  function getSourceCode (x, i, addresses, sourcesArr, hash, done) {
-    archive.readFile(`${addresses[x]}/src/${sourcesArr[i]}`, 'utf8', (err, contract) => {
+  // get data
+  function getData (addresses, i, done) {
+    const filepath = `${addresses[i]}`
+    archive.readFile(filepath, 'utf8', (err, result) => {
       if (err) return done(err) // console.log(err)
-      contracts.push({ source: contract, title: sourcesArr[i], hash: hash })
+      data = JSON.parse(result)
+      contracts.push({
+        source: data.sourceCode,
+        title: data.contractName,
+        hash: data.address })
+      console.log(`Contracts retreived: ${contracts.length}`)
       if (counter === contracts.length) {
         ready = true
         if (waitingQuery) get(waitingQuery[0], waitingQuery[1])
@@ -565,6 +563,8 @@ const lightTheme = {
   '--card-cover': greyEB,
   '--card-hover-cover': lightGreen,
   '--card-cover-border': transparent,
+  '--card-cover-radius': '0 0 6px 6px',
+  '--card--hover-cover-radius': '6px',
   '--card-border': transparent,
   '--card-hover-border': '0px solid var(--card-border)',
   '--card-code-overlay': 'linear-gradient(0deg, rgba(0,0,0, .1) 0%, rgba(0,0,0, .28) 100%)',
@@ -581,6 +581,7 @@ const lightTheme = {
   '--card-time': grey8D,
   '--card-hover-time': grey8D,
   '--card-visit-icons-fill': dark1d,
+  '--card-icon-fill': dark1d,
   '--search-input': `1px solid var(--search-input-border)`,
   '--search-input-border': 'rgba(255,255,255, 0)',
   '--search-input-background': white,
@@ -607,6 +608,7 @@ const lightTheme = {
   '--collectionCard-border-radius': '6px',
   '--pages-li-color': grey8D,
   '--search-button-border-radius': '30px',
+  '--notify-background-color': lightGreen
 }
 
 const darkTheme = {
@@ -636,6 +638,8 @@ const darkTheme = {
   '--card-cover': grey31,
   '--card-hover-cover': bluePurple,
   '--card-cover-border': transparent,
+  '--card-cover-radius': '0 0 6px 6px',
+  '--card-hover-cover-radius': '6px',
   '--card-border': bluePurple,
   '--card-hover-border': '1px solid var(--card-border)',
   '--card-code-overlay': 'linear-gradient(0deg, rgba(103,0,255, .1) 0%, rgba(103,0,255, .28) 100%)',
@@ -652,6 +656,7 @@ const darkTheme = {
   '--card-time': greyBB,
   '--card-hover-time': white,
   '--card-visit-icons-fill': white,
+  '--card-icon-fill': white,
   '--search-input': `1px solid var(--search-input-border)`,
   '--search-input-border': bluePurple,
   '--search-input-background': 'none',
@@ -677,6 +682,7 @@ const darkTheme = {
   '--collectionArea-grid-gap': '30px',
   '--collectionCard-border-radius': '6px',
   '--search-button-border-radius': '30px',
+  '--notify-background-color': lightGreen
 }
 const themes = { lightTheme, darkTheme }
 select.names = Object.keys(themes)
@@ -14098,7 +14104,55 @@ function createString (type) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/core-util-is/lib/util.js":[function(require,module,exports){
+},{"buffer":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/buffer/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/copy-text-to-clipboard/index.js":[function(require,module,exports){
+'use strict';
+
+const copyTextToClipboard = input => {
+	const element = document.createElement('textarea');
+
+	element.value = input;
+
+	// Prevent keyboard from showing on mobile
+	element.setAttribute('readonly', '');
+
+	element.style.contain = 'strict';
+	element.style.position = 'absolute';
+	element.style.left = '-9999px';
+	element.style.fontSize = '12pt'; // Prevent zooming on iOS
+
+	const selection = document.getSelection();
+	let originalRange = false;
+	if (selection.rangeCount > 0) {
+		originalRange = selection.getRangeAt(0);
+	}
+
+	document.body.append(element);
+	element.select();
+
+	// Explicit selection workaround for iOS
+	element.selectionStart = 0;
+	element.selectionEnd = input.length;
+
+	let isSuccess = false;
+	try {
+		isSuccess = document.execCommand('copy');
+	} catch (_) {}
+
+	element.remove();
+
+	if (originalRange) {
+		selection.removeAllRanges();
+		selection.addRange(originalRange);
+	}
+
+	return isSuccess;
+};
+
+module.exports = copyTextToClipboard;
+// TODO: Remove this for the next major release
+module.exports.default = copyTextToClipboard;
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/core-util-is/lib/util.js":[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -45766,7 +45820,118 @@ svg {
   height: 100%;
 }`
 
-},{"csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","makePage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makePage.js","setTheme":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/setTheme.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js":[function(require,module,exports){
+},{"csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","makePage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makePage.js","setTheme":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/setTheme.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/avatar.js":[function(require,module,exports){
+const parser = document.createElement('div')
+const script = document.createElement('script')
+script.setAttribute('src', 'https://cdn.jsdelivr.net/npm/jdenticon@2.2.0')
+document.head.appendChild(script)
+var jdenticon
+script.onload = () => {
+  jdenticon = window.jdenticon
+  delete window.jdenticon
+}
+
+module.exports = avatarGenerator
+
+function avatarGenerator (data = 'hello world', size = 80) {
+  parser.innerHTML = `<svg width="${size}" height="${size}" data-jdenticon-value="${data}"></svg>`
+  const icon = parser.children[0]
+  parser.innerHTML = ''
+  if (jdenticon) jdenticon.update(icon, data + Math.random())
+  return icon
+}
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/copyToClipboard.js":[function(require,module,exports){
+const bel = require('bel')
+var csjs = require('csjs-inject')
+const notify = require('notify')
+const copy = require('copy-text-to-clipboard')
+const icon = require('icon')
+const svg = require('./svg.json')
+
+module.exports = copyToClipboard
+
+let notifyModal
+
+function copyToClipboard(hash) {
+    let copyIcon = bel`<span class="${css['icon-duplicate']}"
+      title="Copy address">${icon('duplicate', svg.duplicate)}</span>`
+    let message = "Contract address successfully copied"
+    copyIcon.onclick = (event) => {
+        event.stopPropagation()
+        let copiableContent
+        try {
+            copiableContent = hash
+        } catch (e) {
+            console.log('copy failed: ', e.message)
+            return
+        }
+        if (copiableContent) {
+            copy(copiableContent)
+            // set new notify message
+            let notification = notify(message)
+            // if notifyModal is null, then add it on the page
+            if (notifyModal == null) {
+                notifyModal = bel`<div id="notify" class=${css.notifyModal}"></div>`
+                document.body.appendChild(notifyModal)
+            }
+            // select #notify after notifyModal created.
+            let target = document.querySelector('#notify')
+            notification.classList.add(css.show)
+            // implement many notifies in notifyModal
+            target.appendChild(notification)
+            // to make each notify will be slowly disappeared.
+            setTimeout(function(){
+                notification.classList.remove(css.show)
+                notification.classList.add(css.hide)
+                setTimeout(function() {
+                    target.removeChild(notification)
+                }, 900)
+            }, 2500)
+        }
+    }
+
+    return copyIcon
+
+  }
+
+let css = csjs`
+  .notifyModal {
+    position: fixed;
+    left: 0;
+    bottom: 20px;
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    z-index:999;
+  }
+  .icon-duplicate {
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    bottom: -8px;
+    width: 22px;
+  }
+  .icon-duplicate svg g {
+    fill: var(--card-icon-fill);
+  }
+  .show {
+    animation: show 1s
+  }
+  .hide {
+    animation: hide 1s
+  }
+  @keyframes show {
+    from { opacity: 0}
+    to { opacity: 1}
+  }
+  @keyframes hide {
+    from { opacity: 1}
+  |  to { opacity: 0}
+  }
+`
+
+},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","copy-text-to-clipboard":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/copy-text-to-clipboard/index.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/icon.js","notify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/notify.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 
@@ -45778,7 +45943,7 @@ module.exports = header
 function header () {
   return bel`<header class="${css.header}">
     <div class="${css.logo}" onclick=${home}>
-      <img src="/src/assets/images/logo-1.png" alt="smartcontract.codes">
+      <img src="./assets/images/logo-1.png" alt="smartcontract.codes">
     </div>
     <nav class="${css.nav}">
       <button class="button ${css.newContract}">
@@ -45788,7 +45953,7 @@ function header () {
       </button>
       <a href="#">
         <span class="${css.avatar}">
-          <img src="/src/assets/images/user-avatar.jpg" alt="User Avatar">
+          <img src="./assets/images/user-avatar.jpg" alt="User Avatar">
         </span>
       </a>
     </nav>
@@ -45807,18 +45972,15 @@ const css = csjs`
     grid-template-areas:
       "logo" "nav";
     grid-template-rows: 120px;
-    grid-template-columns: 10fr 2fr;
+    grid-template-columns: 120px auto 1fr;
     align-items: center;
   }
   .logo {
     grid-area: logo;
     grid-row: 1;
     grid-column: 1;
-  }
-  .logo img {
     vertical-align: middle;
     margin-right: 17px;
-    width: 120px;
   }
   .logo:hover {
     cursor: pointer;
@@ -45826,7 +45988,7 @@ const css = csjs`
   .nav {
     grid-area: nav;
     grid-row: 1;
-    grid-column: 2;
+    grid-column: 3;
     display: grid;
     grid-template-columns: 1fr 60px;
     justify-items: right;
@@ -45845,7 +46007,10 @@ const css = csjs`
     width: 45px;
     height: 45px;
     background: none;
-    transition: all ease-in-out .3s
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    -o-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
   }
   .newContract:hover {
     background-color: var(--button-default-hover);
@@ -45857,7 +46022,10 @@ const css = csjs`
   }
   .icon_new svg g {
     fill: var(--icon-new-fill);
-    transition: all .3s ease-in-out;
+    transition: fill .3s ease-in-out;
+    -webkit-transition: fill .3s ease-in-out;
+    -moz-transition: fill .3s ease-in-out;
+    -o-transition: fill .3s ease-in-out;
   }
 
   @media (max-width: 639px) {
@@ -45878,47 +46046,81 @@ function icon (name, svg) {
   </svg>`
 }
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCard.js":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/loading.js":[function(require,module,exports){
+const bel = require('bel')
+const csjs = require('csjs-inject')
+
+module.exports = loadingInProgress
+
+function loadingInProgress () {
+  return bel`<div class=${css.loading}></div>`
+}
+
+const css = csjs`
+  .loading{
+  width:100%;
+  height:100%;
+  display:block;
+  position:absolute
+  }
+
+  .loading:before,
+  .loading:after,
+  .loading>div{
+  width:100px;
+  height:100px;
+  top:20%;
+  left:48.5%;
+  display:block;
+  position:absolute;
+  border-radius:50%;
+  border:4px solid #6700ff
+  }
+
+  .loading:before
+  {content:"";animation:scale 1s ease-in infinite}
+
+  .loading:after
+  {content:"";animation:scale 2s ease-in infinite}
+
+  .loading>div{animation:scale 3s ease-in infinite}
+
+  @keyframes scale{
+  from{transform:translate(-50%,-50%) scale(0,0)}
+  to{transform:translate(-50%,-50%) scale(1,1)}
+  }
+`
+
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCard.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 const icon = require('icon')
 const svg = require('./svg.json')
+const avatar = require('avatar')
+const copyToClipboard = require('copyToClipboard')
 
 module.exports = makeCard
 
 function makeCard (contract) {
   const { source, title, hash } = contract
   const card = bel`
-    <div class=${css.collectionCard} onclick=${() => openInEditor(source)}>
-      <pre class=${css.code}>${source}</pre>
-
+    <div class=${css.collectionCard}>
+      <pre class=${css.code} onclick=${() => openInEditor(source)}><code>${source}</code></pre>
       <div class=${css.cardCover}>
         <div class=${css.avatar}>
-          <img src="https://1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=200&r=pg&d=mp">
+          ${avatar(hash)}
         </div>
         <div class=${css.coverInfo}>
           <h5 class=${css.coverTitle}>${title}</h5>
-          <p class=${css.cardUserInfo}>${hash.substring(0,15)}</p>
-          <span class=${css.cardTime}>A year ago</span>
+          <p class=${css.cardUserInfo}>${hash.substring(0,10)}...${hash.substring(hash.length-10), hash.substring(hash.length-10)}</p>
+          ${copyToClipboard(hash)}
         </div>
-        <aside class=${css.cardVisitInfo}>
-          <span>
-            <i class="icon">${icon('view', svg.view)}</i>
-            1,068,298
-          </span>
-          <span>
-            <i class="icon">${icon('view', svg.share)}</i>
-            6,321
-          </span>
-          <span>
-            <i class="icon">${icon('view', svg.favorite)}</i>
-            15,023
-          </span>
-        </aside>
       </div>
     </div>`
   return card
 }
+
+
 
 // ===== helpers =====
 var editor_url = 'https://ethereum-play.github.io/editor-solidity/'
@@ -45968,18 +46170,19 @@ const css = csjs`
     width: 100%;
     height: 100%;
     border-radius: var(--collectionCard-border-radius);
-    overflow: hidden;
     position: relative;
     background-color: var(--editor-preview);
     border: 0px solid var(--card-cover-border);
-    transition: all 0.4s ease-in-out;
+    transition: transform .4s, background-color .4s, border .4s, box-shadow .4s ease-in-out;
+    -webkit-transition: transform .4s, background-color .4s, border .4s, box-shadow .4s ease-in-out;
+    -moz-transition: transform .4s, background-color .4s, border .4s, box-shadow .4s ease-in-out;
+    -o-transition: transform .4s, background-color .4s, border .4s, box-shadow .4s ease-in-out;
     box-shadow: var(--card-shadow);
   }
   .collectionCard:hover {
-    margin-left: -20px;
-    margin-top: -15px;
-    width: calc(100% * 1.1);
-    height: calc(100% * 1.1);
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
     cursor: pointer;
     border: var(--card-hover-border);
     box-shadow: var(--card-hover-shadow);
@@ -45990,25 +46193,27 @@ const css = csjs`
     opacity: 1;
   }
   .cardCover {
-    pointer-events: none;
     position: absolute;
     z-index: 1;
+    cursor: auto;
     background-color: var(--card-cover);
     width: 100%;
-    height: 45px;
     bottom: 0;
     left: 0;
     display: grid;
     grid-template-columns: 63px 1fr;
     grid-template-rows: 1fr auto;
-    grid-gap: 10px 5px;
-    transition: all .3s ease-in-out;
-    padding: 10px 0 5px 0;
+    grid-column-gap: 5px;
+    transition: bottom .3s, background-color .3s, border-radius .3s ease-in-out;
+    -webkit-transition: bottom .3s, background-color .3s, border-radius .3s ease-in-out;
+    -moz-transition: bottom .3s, background-color .3s, border-radius .3s ease-in-out;
+    -o-transition: bottom .3s, background-color .3s, border-radius .3s ease-in-out;
+    padding: 10px 0 8px 0;
+    border-radius: var(--card-cover-radius);
   }
   .collectionCard:hover .cardCover {
     background-color: var(--card-hover-cover);
-    height: 70px;
-    border-radius: 6px 6px 0 0;
+    border-radius: var(--card-hover-cover-radius);
   }
   .avatar {
     width: 43px;
@@ -46020,16 +46225,20 @@ const css = csjs`
   }
   .coverInfo {
     display: grid;
-    grid-template-rows: 55% 45%;
-    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr;
+    position: relative;
   }
   .coverTitle {
     color: var(--card-cover-title);
     font-weight: normal;
     grid-row: 1;
-    grid-column: 1 / col-end 2;
+    grid-column: 1;
     align-self: end;
-    transition: all .3s ease-in-out;
+    transition: color .3s ease-in-out;
+    -webkit-transition: color .3s ease-in-out;
+    -moz-transition: color .3s ease-in-out;
+    -o-transition: color .3s ease-in-out;
   }
   .collectionCard:hover .coverTitle,  .collectionCard:hover .cardTime {
     color: var(--card-hover-cover-title);
@@ -46039,73 +46248,22 @@ const css = csjs`
     font-size: var(--text-xsmall);
     color: var(--card-cover-userInfo);
   }
-  .cardUserInfo:after {
-    display: inline-block;
-    content: '...';
-  }
-  .cardTime {
-    grid-row: 2;
-    grid-column: 2 / col-end 2;
-    justify-self: end;
-    align-self: center;
-    padding-right: 10px;
-    color: var(--card-time);
-    font-size: var(--text-xsmall);
-    transition: all .3s ease-in-out;
-  }
-  .cardVisitInfo {
-    opacity: 0;
-    width: 100%;
-    height: 30px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    grid-column: 1 / span 2;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-    align-items: start;
-    font-size: var(--text-xsmall);
-    transition: all .8s ease-in-out;
-  }
-  .cardVisitInfo i {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    vertical-align: text-bottom;
-    margin-right: 2px;
-  }
-  .collectionCard:hover .cardVisitInfo {
-    opacity: 1;
-  }
-  .cardVisitInfo svg g {
-    fill: var(--card-visit-icons-fill);
-  }
   .code {
     width: var(--card-code-width);
     height: var(--card-code-height);
     margin: 0;
     padding: var(--card-code-padding);
-    word-break: break-word;
+    word-break: break-all;
     word-wrap: break-word;
     white-space: pre-wrap;
     font-family: var(--code-font);
     font-size: var(--card-code-text);
     line-height: var(--card-code-text-line-height);
-  }
-  @media (max-width: 768px) {
-    .collectionCard:hover {
-      margin-left: -35px;
-    }
-  }
-  @media (max-width: 420px) {
-    .collectionCard:hover {
-      margin-left: -15px;
-    }
+    overflow: hidden;
   }
 `
 
-},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/icon.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js":[function(require,module,exports){
+},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json","avatar":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/avatar.js","bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","copyToClipboard":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/copyToClipboard.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/icon.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 const makeCard = require('makeCard')
@@ -46113,10 +46271,12 @@ const makeCard = require('makeCard')
 module.exports = makeCollectionArea
 
 function makeCollectionArea (contracts) {
-  const cards = contracts.length ?
-    contracts.map(contract => makeCard(contract))
-    : bel`<div class=${css.noResult}>No matches found</div>`
-  return bel`<div class=${css.collectionArea}>${cards}</div>`
+  if (contracts.length)  {
+    const cards = contracts.map(contract => makeCard(contract))
+    return bel`<div class=${css.collectionArea}>${cards}</div>`
+  } else {
+    return bel`<div class=${css.noResult}>No matches found</div>`
+  }
 }
 const css = csjs`
   .collectionArea {
@@ -46180,13 +46340,14 @@ const header = require('header')
 const search = require('search')
 const makePagination = require('pagination')
 const makeCollectionArea = require('makeCollectionArea')
+const loading = require('loading')
 
 module.exports = makePage
 
 function makePage (data, notify) {
   const { db, themes } = data
   const cardsCount = 8
-  const collectionContainer = bel`<div></div>`
+  const collectionContainer = bel`<div>${loading()}</div>`
   const navigation = bel`<div></div>`
   const element = bel`<div class=${css.wrapper}>
       ${header()}
@@ -46289,7 +46450,44 @@ const css = csjs`
   }
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","header":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js","search":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/search.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","header":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js","loading":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/loading.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js","search":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/search.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/notify.js":[function(require,module,exports){
+let bel = require('bel')
+let csjs = require('csjs-inject') 
+
+module.exports = notify
+
+function notify(msg) {
+    return bel`
+        <div class=${css.notify}>${msg}</div>
+    `
+}
+
+let css = csjs`
+    .notify {
+        width: 30%;
+        margin-bottom: 5px;
+        padding: 8px;
+        text-align: center;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+        box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+        background-color: var(--notify-background-color);
+        color: #000;
+        font-size: 1.4rem;
+    }
+
+    @media (max-width: 960px) {
+        .notify {
+            width: 50%;
+        }
+    }
+    @media (max-width: 768px) {
+        .notify {
+            width: 65%;
+        }
+    }
+`
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 const icon = require('icon')
@@ -46298,6 +46496,7 @@ const svg = require('svg')
 module.exports = pagination
 
 function pagination ({ contracts, cardsCount = 8 /* cards per page */ }, notify) {
+  if (!contracts.length) return
   const count = contracts.length
   const lastPage = count <= cardsCount ? null : Math.ceil(count / cardsCount)
   const pageCount = Math.ceil(count / cardsCount)
@@ -46307,11 +46506,9 @@ function pagination ({ contracts, cardsCount = 8 /* cards per page */ }, notify)
     <div class=${css.pagination}>
       <button class="${css.button} ${css.default} ${css.previous}" onclick=${() => prev(pages)}>
         <span class=${css.icon_arrow_right}>${icon('arrow-left', svg.arrowLeft)}</span>
-        Previous
       </button>
       ${pages}
       <button class="${css.button} ${css.default} ${css.next}" onclick=${() => next(pages)}>
-        Next
         <span class=${css.icon_arrow_right}>${icon('arrow-right', svg.arrowRight)}</span>
       </button>
     </div>`
@@ -46403,13 +46600,16 @@ const css = csjs`
     vertical-align: middle;
   }
   .default {
-    padding: var(--button-default-padding);
+    padding: 6px 20px;
     border: var(--button-border);
     color: var(--button-default-text);
     background-color: var(--button-default);
     box-shadow: var(--button-box-shadow);
     border-radius: var(--button-default-radius);
-    transition: all .3s ease-in-out;
+    transition: background-color .3s ease-in-out;
+    -webkit-transition: background-color .3s ease-in-out;
+    -moz-transition: background-color .3s ease-in-out;
+    -o-transition: background-color .3s ease-in-out;
   }
   .default:hover {
     background-color: var(--button-default-hover);
@@ -46424,15 +46624,16 @@ const css = csjs`
   }
   .icon_arrow_left svg g, .icon_arrow_right svg g {
     fill: var(--pagination-button-icon-fill);
-    transition: all .3s ease-in-out;
+    transition: fill .3s ease-in-out;
+    -webkit-transition: fill .3s ease-in-out;
+    -moz-transition: fill .3s ease-in-out;
+    -o-transition: fill .3s ease-in-out;
   }
   .previous {
     border: var(--button-border);
-    padding-right: var(--button-padding-right);
     background: transparent;
   }
   .next {
-    padding-left: var(--button-padding-left);
   }
   .pages {
     margin: 0 10px;
@@ -46491,19 +46692,24 @@ const csjs = require('csjs-inject')
 module.exports = search
 
 function search (notify) {
-  const searchArea = bel`<div contenteditable="true" class=${css.textarea}"
+  const searchArea = bel`
+  <div contenteditable="true" class=${css.textarea}"
     onclick=${(e) => select(e)}
     onkeyup=${(e) => trigger(e, notify, searchArea)}
     onkeypress=${(e) => preventDefault(e)}>
   </div>`
-  return bel`<div class=${css.searchBar}>
+  return bel`
+  <div class=${css.searchBar}>
     ${searchArea}
     <button class=${css.submit}
-      onclick=${()=>searchContracts(notify, searchArea)}>
+      onclick=${()=>showMatches(ops, searchArea)}>
       search contracts
     </button>
   </div>`
 }
+
+// ===== helpers =====
+
 function getSearchInput (searchArea) {
   let searchInput = searchArea.innerText.trim()
   searchInput = searchInput.replace(/\n. |\r/g, "")
@@ -46520,9 +46726,9 @@ function preventDefault (e) {
   const keyCode = e.keyCode
   if (keyCode === 13 && !e.shiftKey) e.preventDefault()
 }
-function trigger (e, notify, searchArea) {
+function trigger (e, ops, searchArea) {
   const keyCode = e.keyCode
-  if (keyCode === 13 && !e.shiftKey) return searchContracts(notify, searchArea)
+  if (keyCode === 13 && !e.shiftKey) return searchContracts(ops, searchArea)
   if (keyCode === 27) return clearSearch()
 }
 function searchContracts (notify, searchArea) {
@@ -46532,7 +46738,26 @@ function searchContracts (notify, searchArea) {
 function clearSearch () {
   searchArea.innerText = ''
 }
+function getMatches (contracts, val) {
+  let match = []
+  let formattedContracts = [...contracts]
+  for(var i=0; i<contracts.length; i++) {
+    let temp = formattedContracts[i].replace(/\n. |\r/g, "")
+    let contract = contracts[i]
+    if (temp.includes(val)) match.push(contract)
+  }
+  return match
+}
+
+// ===== css =====
+
 const css = csjs`
+  .noResult {
+    font-size: var(--text-large);
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 200;
+  }
   .searchBar {
     margin: 0 auto 50px auto;
     width: 650px;
@@ -46548,6 +46773,9 @@ const css = csjs`
     cursor: pointer;
     border-radius: var(--search-button-border-radius);
     transition: all .3s ease-in-out;
+    -webkit-transition: background-color .3s ease-in-out;
+    -moz-transition: background-color .3s ease-in-out;
+    -o-transition: background-color .3s ease-in-out;
   }
   .submit:hover {
     color: var(--search-button-color);
@@ -46563,6 +46791,7 @@ const css = csjs`
     padding: 15px;
     color: var(--body-color);
     word-break: break-all;
+    word-wrap: break-word;
     margin-bottom: 10px;
     outline: none;
     min-height: 15px;
@@ -46601,7 +46830,8 @@ module.exports={
   "view": ["M28.25,15.18c-13,0-19.94,10.62-19.94,12.69,0,1.8,6,13.18,19.94,13.18S48.19,29.67,48.19,27.87C48.19,25.73,41.5,15.18,28.25,15.18Zm0,23.37c-11.43,0-16.76-8.83-17.4-10.64a19.63,19.63,0,0,1,17.4-10.23c11.53,0,17,8.84,17.43,10.2C45.27,29.34,40.2,38.55,28.25,38.55Z", "M28.25,20.57a7.55,7.55,0,1,0,7.55,7.55A7.56,7.56,0,0,0,28.25,20.57Zm0,12.59a5,5,0,1,1,5-5A5.05,5.05,0,0,1,28.25,33.16Z"],
   "share": ["M11,41.16a1.87,1.87,0,0,1-1.1-.35,1.89,1.89,0,0,1-.66-2.26c.14-.35,3.49-8.64,8.53-13.69a24.23,24.23,0,0,1,5.92-4.28l-3.35-4.65a1.9,1.9,0,0,1,1.92-3L46,17.89a1.9,1.9,0,0,1,1.41,1.26h0A1.89,1.89,0,0,1,47,21L30.88,39.06a1.94,1.94,0,0,1-2.09.51,1.9,1.9,0,0,1-1.23-1.75l-.07-5.41a38,38,0,0,0-4.92,1.44c-4.33,1.67-10.26,6.79-10.32,6.84A1.89,1.89,0,0,1,11,41.16Zm.56-1.68ZM23.28,15.72l3.31,4.61a1.27,1.27,0,0,1,.2,1.05,1.3,1.3,0,0,1-.7.82,22.33,22.33,0,0,0-6.54,4.43,40.54,40.54,0,0,0-7,10.56,41,41,0,0,1,9.09-5.67,43,43,0,0,1,6.81-1.87,1.27,1.27,0,0,1,1,.25,1.32,1.32,0,0,1,.46,1L30,36.24,44.43,20.13Zm22.17,4.62Z"],
   "favorite": ["M28.25,46.9a1.23,1.23,0,0,1-.75-.25A84.63,84.63,0,0,1,16.4,36.41c-7.11-8-9.15-14.45-6-19.19,1.74-2.66,3.93-4.07,6.51-4.19,4.76-.23,9.42,4.14,11.39,6.27,2-2.13,6.58-6.51,11.39-6.27,2.59.12,4.77,1.53,6.51,4.19h0c3.1,4.74,1.06,11.2-6,19.19A84.63,84.63,0,0,1,29,46.65,1.23,1.23,0,0,1,28.25,46.9Zm-11-31.38H17c-1.77.08-3.25,1.08-4.54,3-4.72,7.24,9.17,20.33,15.81,25.5,6.64-5.17,20.53-18.26,15.81-25.5h0c-1.29-2-2.77-3-4.53-3-4.89-.25-10.25,6.38-10.3,6.45a1.25,1.25,0,0,1-1,.47h0a1.25,1.25,0,0,1-1-.47C27.22,21.92,22,15.52,17.23,15.52Z"],
-  "search": ["M46.13,44.29,35,33.25A15.46,15.46,0,1,0,33.25,35l11.12,11a1.23,1.23,0,0,0,1.76,0A1.25,1.25,0,0,0,46.13,44.29Zm-35.78-21A12.93,12.93,0,1,1,23.28,36.2,12.94,12.94,0,0,1,10.35,23.28Z"]
+  "search": ["M46.13,44.29,35,33.25A15.46,15.46,0,1,0,33.25,35l11.12,11a1.23,1.23,0,0,0,1.76,0A1.25,1.25,0,0,0,46.13,44.29Zm-35.78-21A12.93,12.93,0,1,1,23.28,36.2,12.94,12.94,0,0,1,10.35,23.28Z"],
+  "duplicate": ["M34.6,16.87H11.9a1.25,1.25,0,0,0-1.25,1.25V46a1.25,1.25,0,0,0,1.25,1.25H34.6A1.25,1.25,0,0,0,35.85,46V18.12A1.25,1.25,0,0,0,34.6,16.87ZM33.35,44.78H13.15V19.37h20.2Z", "M44.6,9.22H21.9a1.25,1.25,0,0,0-1.25,1.25v3.41a1.25,1.25,0,1,0,2.5,0V11.72h20.2V37.13H39.27a1.25,1.25,0,0,0,0,2.5H44.6a1.25,1.25,0,0,0,1.25-1.25V10.47A1.25,1.25,0,0,0,44.6,9.22Z", "M17,26.56H29.14a1.25,1.25,0,0,0,0-2.5H17a1.25,1.25,0,1,0,0,2.5Z", "M17,33.33H29.14a1.25,1.25,0,0,0,0-2.5H17a1.25,1.25,0,1,0,0,2.5Z", "M17,40.09h8.09a1.25,1.25,0,1,0,0-2.5H17a1.25,1.25,0,1,0,0,2.5Z"]
 }
 
 },{}]},{},["/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/demo/demo.js"]);
