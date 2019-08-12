@@ -34,7 +34,6 @@ function contractsDB (daturl) {
 
   var counter = 0
   const archive = Hyperdrive(daturl)
-  window.archive = archive
   return { getAll, get }
 
   function get (query, done) {
@@ -45943,7 +45942,7 @@ module.exports = header
 function header () {
   return bel`<header class="${css.header}">
     <div class="${css.logo}" onclick=${home}>
-      <img src="./assets/images/logo-1.png" alt="smartcontract.codes">
+      <img src="src/assets/images/logo-1.png" alt="smartcontract.codes">
     </div>
     <nav class="${css.nav}">
       <button class="button ${css.newContract}">
@@ -46692,24 +46691,19 @@ const csjs = require('csjs-inject')
 module.exports = search
 
 function search (notify) {
-  const searchArea = bel`
-  <div contenteditable="true" class=${css.textarea}"
+  const searchArea = bel`<div contenteditable="true" class=${css.textarea}"
     onclick=${(e) => select(e)}
     onkeyup=${(e) => trigger(e, notify, searchArea)}
     onkeypress=${(e) => preventDefault(e)}>
   </div>`
-  return bel`
-  <div class=${css.searchBar}>
+  return bel`<div class=${css.searchBar}>
     ${searchArea}
     <button class=${css.submit}
-      onclick=${()=>showMatches(ops, searchArea)}>
+      onclick=${()=>searchContracts(notify, searchArea)}>
       search contracts
     </button>
   </div>`
 }
-
-// ===== helpers =====
-
 function getSearchInput (searchArea) {
   let searchInput = searchArea.innerText.trim()
   searchInput = searchInput.replace(/\n. |\r/g, "")
@@ -46726,9 +46720,9 @@ function preventDefault (e) {
   const keyCode = e.keyCode
   if (keyCode === 13 && !e.shiftKey) e.preventDefault()
 }
-function trigger (e, ops, searchArea) {
+function trigger (e, notify, searchArea) {
   const keyCode = e.keyCode
-  if (keyCode === 13 && !e.shiftKey) return searchContracts(ops, searchArea)
+  if (keyCode === 13 && !e.shiftKey) return searchContracts(notify, searchArea)
   if (keyCode === 27) return clearSearch()
 }
 function searchContracts (notify, searchArea) {
@@ -46738,26 +46732,7 @@ function searchContracts (notify, searchArea) {
 function clearSearch () {
   searchArea.innerText = ''
 }
-function getMatches (contracts, val) {
-  let match = []
-  let formattedContracts = [...contracts]
-  for(var i=0; i<contracts.length; i++) {
-    let temp = formattedContracts[i].replace(/\n. |\r/g, "")
-    let contract = contracts[i]
-    if (temp.includes(val)) match.push(contract)
-  }
-  return match
-}
-
-// ===== css =====
-
 const css = csjs`
-  .noResult {
-    font-size: var(--text-large);
-    text-align: center;
-    margin-bottom: 60px;
-    font-weight: 200;
-  }
   .searchBar {
     margin: 0 auto 50px auto;
     width: 650px;
@@ -46773,9 +46748,6 @@ const css = csjs`
     cursor: pointer;
     border-radius: var(--search-button-border-radius);
     transition: all .3s ease-in-out;
-    -webkit-transition: background-color .3s ease-in-out;
-    -moz-transition: background-color .3s ease-in-out;
-    -o-transition: background-color .3s ease-in-out;
   }
   .submit:hover {
     color: var(--search-button-color);
@@ -46791,7 +46763,6 @@ const css = csjs`
     padding: 15px;
     color: var(--body-color);
     word-break: break-all;
-    word-wrap: break-word;
     margin-bottom: 10px;
     outline: none;
     min-height: 15px;
