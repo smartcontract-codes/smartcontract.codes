@@ -29,23 +29,30 @@ function contractsDB (daturl) {
   // })
 
   const archive = Hyperdrive(daturl)
-  return { getAllPaths, getData }
+  return { get, getAllPaths, getData }
 
+ // search
   function get (query, done) {
-    // const match = []
-    // const formattedSources = [...contracts]
-    // for (var i = 0; i < contracts.length; i++) {
-    //   const temp = formattedSources[i].source.replace(/\n. |\r/g, "")
-    //   const target = formattedSources[i]
-    //   if (temp.includes(query)) {
-    //     match.push({
-    //       source: target.source,
-    //       title: target.title,
-    //       hash: target.hash
-    //     })
-    //   }
-    // }
-    // done(match, match.length)
+    const match = []
+    const allPaths = getAllPaths((err, allPaths) => {
+      if (err) console.error(err)
+      getData(allPaths, (err, contracts) => {
+        if (err) console.error(err)
+        const formattedSources = [...contracts]
+        for (var i = 0; i < contracts.length; i++) {
+          const temp = formattedSources[i].source.replace(/\n. |\r/g, "")
+          const target = formattedSources[i]
+          if (temp.includes(query)) {
+            match.push({
+              source: target.source,
+              title: target.title,
+              hash: target.hash
+            })
+          }
+        }
+        done(match)
+      })
+    })
   }
     // retrieve all file paths
   function getAllPaths (done) {
@@ -45626,29 +45633,30 @@ const csjs = require('csjs-inject')
 
 module.exports = loadingInProgress
 
-function loadingInProgress () {
+function loadingInProgress (width, height) {
   return bel`<div class=${css.loading}></div>`
 }
 
 const css = csjs`
   .loading{
-  width:100%;
-  height:100%;
-  display:block;
-  position:absolute
+    z-index: 1;
+    width:100%;
+    height:100%;
+    display:block;
+    position:absolute
   }
 
   .loading:before,
   .loading:after,
   .loading>div{
-  width:100px;
-  height:100px;
-  top:20%;
-  left:48.5%;
-  display:block;
-  position:absolute;
-  border-radius:50%;
-  border:4px solid #6700ff
+    width:100px;
+    height:100px;
+    top:20%;
+    left:48.5%;
+    display:block;
+    position:absolute;
+    border-radius:50%;
+    border:4px solid #6700ff
   }
 
   .loading:before
@@ -45929,8 +45937,11 @@ function makePage (data, notify) {
         ${themeSwitch()}
         ${search(action => {
           if (action.type === 'search') {
-            const query = action.body
-            db.get(query, matchingContracts => showMatches(matchingContracts))
+            const query = action.body.query
+            const button = action.body.searchArea.nextSibling
+            button.innerText = 'Searching...'
+            db.get(query, matchingContracts =>
+              showMatches(matchingContracts, button))
           }
         })}
         ${collectionContainer}
@@ -45964,11 +45975,12 @@ function makePage (data, notify) {
     collectionContainer.appendChild(collectionArea)
   }
   function updatePagination ({ contracts, cardsCount }) {
-    const pagination = makePagination({ contracts, cardsCount }, listener)
+    const pagination = makePagination({ filePaths: contracts, cardsCount }, listener)
     navigation.innerHTML = ''
     navigation.appendChild(pagination)
   }
-  function showMatches (matchingContracts) {
+  function showMatches (matchingContracts, button) {
+    button.innerText = 'search contracts'
     updateCollectionArea(matchingContracts.slice(0, cardsCount))
     updatePagination({ contracts: matchingContracts, cardsCount })
     let url = `${window.location.origin}${window.location.pathname}?page=1`
@@ -46308,7 +46320,7 @@ function trigger (e, notify, searchArea) {
 }
 function searchContracts (notify, searchArea) {
   const query = getSearchInput(searchArea)
-  return notify({ type: 'search', body: query })
+  return notify({ type: 'search', body: { query, searchArea} })
 }
 function clearSearch () {
   searchArea.innerText = ''
