@@ -32,25 +32,21 @@ function contractsDB (daturl) {
   return { get, getAllPaths, getData }
 
  // search
-  function get (query, done) {
-    const match = []
+  function get (button, query, notify) {
+    const matches = []
+    button.innerText = 'Searching... 0%'
     const allPaths = getAllPaths((err, allPaths) => {
       if (err) console.error(err)
-      getData(allPaths, (err, contracts) => {
+      searchData(button, allPaths, (err, contract, contracts, isDone) => {
         if (err) console.error(err)
-        const formattedSources = [...contracts]
-        for (var i = 0; i < contracts.length; i++) {
-          const temp = formattedSources[i].source.replace(/\n. |\r/g, "")
-          const target = formattedSources[i]
-          if (temp.includes(query)) {
-            match.push({
-              source: target.source,
-              title: target.title,
-              hash: target.hash
-            })
-          }
-        }
-        done(match)
+        const temp = contract.source.replace(/\n. |\r/g, "")
+        if (temp.includes(query)) matches.push({
+          source: contract.source,
+          title: contract.title,
+          hash: contract.hash
+        })
+        if (isDone) button.innerText = 'search contracts'
+        notify({ type: 'searchDB', body: matches })
       })
     })
   }
@@ -89,6 +85,40 @@ function contractsDB (daturl) {
       if (counter === contracts.length) done(null, contracts)
     })
   }
+
+  /*----------------------------------
+                  SEARCH
+  ---------------------------------- */
+
+    function searchData (button, filePaths, done) {
+      const contracts = []
+      const counter =filePaths.length
+      if (filePaths) {
+        for (var i=0; i<counter; i++) {
+          getSearchFile(button, contracts, counter, filePaths[i], done)
+        }
+      }
+    }
+
+    // get data from search
+    function getSearchFile (button, contracts, counter, filepath, done) {
+      archive.readFile(filepath, 'utf8', (err, result) => {
+        if (err) return done(err) // console.log(err)
+        const data = JSON.parse(result)
+        button.innerText = `Searching... ${Math.floor(contracts.length/counter * 100)}%`
+        const contract = {
+          source: data.sourceCode,
+          title: data.contractName,
+          hash: data.address
+        }
+        contracts.push(contract)
+        const isDone = (counter === contracts.length)
+        console.log(`Contracts retreived: ${contracts.length}`)
+        return done(err, contract, contracts, isDone)
+      })
+    }
+
+
 }
 
 },{"dat-sdk":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-sdk/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/demo/themes.js":[function(require,module,exports){
@@ -45939,9 +45969,7 @@ function makePage (data, notify) {
           if (action.type === 'search') {
             const query = action.body.query
             const button = action.body.searchArea.nextSibling
-            button.innerText = 'Searching...'
-            db.get(query, matchingContracts =>
-              showMatches(matchingContracts, button))
+            db.get(button, query, listener)
           }
         })}
         ${collectionContainer}
@@ -45950,7 +45978,7 @@ function makePage (data, notify) {
   </div>`
   db.getAllPaths((err, filePaths) => {
     if (err) return console.error(err)
-    const pagination = makePagination({ filePaths, cardsCount }, listener)
+    const pagination = makePagination({ array: filePaths, cardsCount }, listener)
     db.getData(filePaths.slice(0, cardsCount - 1), (err, contracts) => {
       if (err) return console.error(err)
       updateCollectionArea(contracts)
@@ -45960,13 +45988,23 @@ function makePage (data, notify) {
   return element
   function listener (action) {
     if (action.type === 'paginate') {
-      const { filePaths, page } = action.body
+      const { array, page } = action.body
       const b = page != 1 ? page * cardsCount - 1 : cardsCount
       const a = page != 1 ? b - cardsCount : 0
-      db.getData(filePaths.slice(a, b), (err, contracts) => {
-        if (err) return console.error(err)
-        updateCollectionArea(contracts)
-      })
+      if (typeof(array[0]) === 'string') {
+        const filePaths = array
+        db.getData(filePaths.slice(a, b), (err, contracts) => {
+          if (err) return console.error(err)
+          updateCollectionArea(contracts)
+        })
+      } else {
+        const contracts = array
+        updateCollectionArea(contracts.slice(a, b))
+      }
+    }
+    if (action.type === 'searchDB') {
+      const matchingContracts = action.body
+      showMatches(matchingContracts)
     }
   }
   function updateCollectionArea (contracts) {
@@ -45975,16 +46013,19 @@ function makePage (data, notify) {
     collectionContainer.appendChild(collectionArea)
   }
   function updatePagination ({ contracts, cardsCount }) {
-    const pagination = makePagination({ filePaths: contracts, cardsCount }, listener)
+    const pagination = makePagination({ array: contracts, cardsCount }, listener)
     navigation.innerHTML = ''
     navigation.appendChild(pagination)
   }
-  function showMatches (matchingContracts, button) {
-    button.innerText = 'search contracts'
-    updateCollectionArea(matchingContracts.slice(0, cardsCount))
-    updatePagination({ contracts: matchingContracts, cardsCount })
-    let url = `${window.location.origin}${window.location.pathname}?page=1`
-    history.pushState(null, null, url)
+  function showMatches (contracts) {
+    if (contracts.length) {
+      if (contracts.length < cardsCount) {
+        updateCollectionArea(contracts.slice(0, cardsCount))
+        let url = `${window.location.origin}${window.location.pathname}?page=1`
+        history.pushState(null, null, url)
+      }
+      updatePagination({ contracts, cardsCount })
+    }
   }
 
   function clickAction() { location.url = '' }
@@ -46087,8 +46128,8 @@ const svg = require('svg')
 
 module.exports = pagination
 
-function pagination ({ filePaths, cardsCount = 8 }, notify) {
-  const count = filePaths.length
+function pagination ({ array, cardsCount = 8 }, notify) {
+  const count = array.length
   if (!count) return
   const lastPage = count <= cardsCount ? null : Math.ceil(count / cardsCount)
   const pageCount = Math.ceil(count / cardsCount)
@@ -46178,7 +46219,7 @@ function pagination ({ filePaths, cardsCount = 8 }, notify) {
      : `${window.location.origin}${window.location.pathname}`.split(' ')[0]
     let url = base + `?page=${newPage}`
     history.pushState(null, null, url)
-    notify({ type: 'paginate', body: { filePaths, page: newPage } })
+    notify({ type: 'paginate', body: { array, page: newPage } })
   }
 }
 const css = csjs`
