@@ -37,14 +37,10 @@ function contractsDB (daturl) {
     button.innerText = 'Searching... 0%'
     const allPaths = getAllPaths((err, allPaths) => {
       if (err) console.error(err)
-      searchData(button, allPaths, (err, contract, contracts, isDone) => {
+      searchData(button, allPaths, (err, contract, isDone) => {
         if (err) console.error(err)
         const temp = contract.source.replace(/\n. |\r/g, "")
-        if (temp.includes(query)) matches.push({
-          source: contract.source,
-          title: contract.title,
-          hash: contract.hash
-        })
+        if (temp.includes(query)) matches.push(contract.path)
         if (isDone) button.innerText = 'search contracts'
         notify({ type: 'searchDB', body: matches })
       })
@@ -108,13 +104,12 @@ function contractsDB (daturl) {
         button.innerText = `Searching... ${Math.floor(contracts.length/counter * 100)}%`
         const contract = {
           source: data.sourceCode,
-          title: data.contractName,
-          hash: data.address
+          path: filepath
         }
         contracts.push(contract)
         const isDone = (counter === contracts.length)
         console.log(`Contracts retreived: ${contracts.length}`)
-        return done(err, contract, contracts, isDone)
+        return done(err, contract, isDone)
       })
     }
 
@@ -45663,7 +45658,7 @@ const csjs = require('csjs-inject')
 
 module.exports = loadingInProgress
 
-function loadingInProgress (width, height) {
+function loadingInProgress () {
   return bel`<div class=${css.loading}></div>`
 }
 
@@ -45978,7 +45973,7 @@ function makePage (data, notify) {
   </div>`
   db.getAllPaths((err, filePaths) => {
     if (err) return console.error(err)
-    const pagination = makePagination({ array: filePaths, cardsCount }, listener)
+    const pagination = makePagination({ filePaths, cardsCount }, listener)
     db.getData(filePaths.slice(0, cardsCount - 1), (err, contracts) => {
       if (err) return console.error(err)
       updateCollectionArea(contracts)
@@ -45988,23 +45983,17 @@ function makePage (data, notify) {
   return element
   function listener (action) {
     if (action.type === 'paginate') {
-      const { array, page } = action.body
+      const { filePaths, page } = action.body
       const b = page != 1 ? page * cardsCount - 1 : cardsCount
       const a = page != 1 ? b - cardsCount : 0
-      if (typeof(array[0]) === 'string') {
-        const filePaths = array
-        db.getData(filePaths.slice(a, b), (err, contracts) => {
-          if (err) return console.error(err)
-          updateCollectionArea(contracts)
-        })
-      } else {
-        const contracts = array
-        updateCollectionArea(contracts.slice(a, b))
-      }
+      db.getData(filePaths.slice(a, b), (err, contracts) => {
+        if (err) return console.error(err)
+        updateCollectionArea(contracts)
+      })
     }
     if (action.type === 'searchDB') {
-      const matchingContracts = action.body
-      showMatches(matchingContracts)
+      const matchingPaths = action.body
+      showMatches(matchingPaths)
     }
   }
   function updateCollectionArea (contracts) {
@@ -46013,14 +46002,13 @@ function makePage (data, notify) {
     collectionContainer.appendChild(collectionArea)
   }
   function updatePagination ({ contracts, cardsCount }) {
-    const pagination = makePagination({ array: contracts, cardsCount }, listener)
+    const pagination = makePagination({ filePaths: contracts, cardsCount }, listener)
     navigation.innerHTML = ''
     navigation.appendChild(pagination)
   }
   function showMatches (contracts) {
     if (contracts.length) {
       if (contracts.length < cardsCount) {
-        updateCollectionArea(contracts.slice(0, cardsCount))
         let url = `${window.location.origin}${window.location.pathname}?page=1`
         history.pushState(null, null, url)
       }
@@ -46128,8 +46116,8 @@ const svg = require('svg')
 
 module.exports = pagination
 
-function pagination ({ array, cardsCount = 8 }, notify) {
-  const count = array.length
+function pagination ({ filePaths, cardsCount = 8 }, notify) {
+  const count = filePaths.length
   if (!count) return
   const lastPage = count <= cardsCount ? null : Math.ceil(count / cardsCount)
   const pageCount = Math.ceil(count / cardsCount)
@@ -46219,7 +46207,7 @@ function pagination ({ array, cardsCount = 8 }, notify) {
      : `${window.location.origin}${window.location.pathname}`.split(' ')[0]
     let url = base + `?page=${newPage}`
     history.pushState(null, null, url)
-    notify({ type: 'paginate', body: { array, page: newPage } })
+    notify({ type: 'paginate', body: { filePaths, page: newPage } })
   }
 }
 const css = csjs`
