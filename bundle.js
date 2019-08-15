@@ -17,6 +17,9 @@ document.body.appendChild(element)
 const SDK = require('dat-sdk')
 const { Hypercore, Hyperdrive, resolveName, deleteStorage, destroy } = SDK()
 
+var ids = 1
+const cancelled = {}
+
 module.exports = contractsDB
 
 function contractsDB (daturl) {
@@ -29,26 +32,43 @@ function contractsDB (daturl) {
   // })
 
   const archive = Hyperdrive(daturl)
-  return { get, getAllPaths, getData }
+  return { search, list, get, cancel}
 
- // search
-  function get (button, query, notify) {
-    const matches = []
-    button.innerText = 'Searching... 0%'
-    const allPaths = getAllPaths((err, allPaths) => {
-      if (err) console.error(err)
-      searchData(button, allPaths, (err, contract, isDone) => {
+var id = db.search('asdsaf', listener)
+db.cancel(id)
+
+  function search (query, notify) {
+    const id = ids++
+    setTimeout(() => {
+      list((err, allPaths) => {
+        if (!cancelled[id]) {
+          notify({ type: 'progress', id, body: [0, allPaths.length]})
+        }
         if (err) console.error(err)
-        const temp = contract.source.replace(/\n. |\r/g, "")
-        if (temp.includes(query)) matches.push(contract.path)
-        if (isDone) button.innerText = 'search contracts'
-        notify({ type: 'searchDB', body: matches })
+        searchData(allPaths, (err, contract, progress) => {
+          if (err) console.error(err)
+          const temp = contract.source.replace(/\n. |\r/g, "")
+          if (temp.includes(query)) {
+            if (!cancelled[id]) {
+              notify({
+                type: 'searchResult',
+                id,
+                body: contract.path
+              })
+            }
+          }
+          if (!cancelled[id]) {
+            notify({ type: 'progress', id, body: progress })
+          }
+        })
       })
-    })
+    }, 0)
+    return id
   }
-    // retrieve all file paths
-  function getAllPaths (done) {
-    console.log('Retreiving data from the P2P database')
+  function cancel (id) {
+    cancelled[id] = true
+  }
+  function list (done) {
     archive.ready(() => {
       archive.readdir('.', (err, filePaths) => {
         if (err) return done(err)
@@ -56,18 +76,14 @@ function contractsDB (daturl) {
       })
     })
   }
-
-  function getData (filePaths, done) {
+  function get (filePaths, done) {
+    filePaths = [].concat(filePaths) // if single path, make array
     const contracts = []
-    const counter =filePaths.length
-    if (filePaths) {
-      for (var i=0; i<counter; i++) {
-        getFile(contracts, counter, filePaths[i], done)
-      }
+    const counter = filePaths.length
+    for (var i=0; i<counter; i++) {
+      getFile(contracts, counter, filePaths[i], done)
     }
   }
-
-  // get data
   function getFile (contracts, counter, filepath, done) {
     archive.readFile(filepath, 'utf8', (err, result) => {
       if (err) return done(err) // console.log(err)
@@ -81,38 +97,29 @@ function contractsDB (daturl) {
       if (counter === contracts.length) done(null, contracts)
     })
   }
-
-  /*----------------------------------
-                  SEARCH
-  ---------------------------------- */
-
-    function searchData (button, filePaths, done) {
-      const contracts = []
-      const counter =filePaths.length
-      if (filePaths) {
-        for (var i=0; i<counter; i++) {
-          getSearchFile(button, contracts, counter, filePaths[i], done)
-        }
+  function searchData (filePaths, next) {
+    const contracts = []
+    const counter = filePaths.length
+    if (filePaths) {
+      for (var i=0; i<counter; i++) {
+        getSearchFile(contracts, counter, filePaths[i], next)
       }
     }
+  }
 
-    // get data from search
-    function getSearchFile (button, contracts, counter, filepath, done) {
-      archive.readFile(filepath, 'utf8', (err, result) => {
-        if (err) return done(err) // console.log(err)
-        const data = JSON.parse(result)
-        button.innerText = `Searching... ${Math.floor(contracts.length/counter * 100)}%`
-        const contract = {
-          source: data.sourceCode,
-          path: filepath
-        }
-        contracts.push(contract)
-        const isDone = (counter === contracts.length)
-        console.log(`Contracts retreived: ${contracts.length}`)
-        return done(err, contract, isDone)
-      })
-    }
-
+  function getSearchFile (contracts, counter, filepath, next) {
+    archive.readFile(filepath, 'utf8', (err, result) => {
+      if (err) return done(err) // console.log(err)
+      const data = JSON.parse(result)
+      const contract = {
+        source: data.sourceCode,
+        path: filepath
+      }
+      contracts.push(contract)
+      console.log(`Contracts searched: ${contracts.length}`)
+      return next(err, contract, [contracts.length, counter])
+    })
+  }
 
 }
 
@@ -45860,7 +45867,7 @@ const css = csjs`
     height: var(--card-code-height);
     margin: 0;
     padding: var(--card-code-padding);
-    word-break: break-all;
+    word-break: break-word;
     word-wrap: break-word;
     white-space: pre-wrap;
     font-family: var(--code-font);
@@ -45878,24 +45885,14 @@ const makeCard = require('makeCard')
 module.exports = makeCollectionArea
 
 function makeCollectionArea (contracts) {
-  if (contracts.length)  {
-    const cards = contracts.map(contract => makeCard(contract))
-    return bel`<div class=${css.collectionArea}>${cards}</div>`
-  } else {
-    return bel`<div class=${css.noResult}>No matches found</div>`
-  }
+  const cards = contracts.map(contract => makeCard(contract))
+  return bel`<div class=${css.collectionArea}>${cards}</div>`
 }
 const css = csjs`
   .collectionArea {
     display: grid;
     grid-gap: var(--collectionArea-grid-gap);
     margin-bottom: 60px;
-  }
-  .noResult {
-    font-size: var(--text-large);
-    text-align: center;
-    margin-bottom: 60px;
-    font-weight: 200;
   }
   @media (max-width: 767px) {
     .collectionArea {
@@ -45947,6 +45944,7 @@ const header = require('header')
 const search = require('search')
 const makePagination = require('pagination')
 const makeCollectionArea = require('makeCollectionArea')
+const makeCard = require('makeCard')
 const loading = require('loading')
 
 module.exports = makePage
@@ -45954,6 +45952,7 @@ module.exports = makePage
 function makePage (data, notify) {
   const { db, themes } = data
   const cardsCount = 8
+  let activeSession
   const collectionContainer = bel`<div>${loading()}</div>`
   const navigation = bel`<div></div>`
   const element = bel`<div class=${css.wrapper}>
@@ -45962,38 +45961,60 @@ function makePage (data, notify) {
         ${themeSwitch()}
         ${search(action => {
           if (action.type === 'search') {
-            const query = action.body.query
-            const button = action.body.searchArea.nextSibling
-            db.get(button, query, listener)
+            const query = action.body
+            const searchSession = { query, results: [], cards: 0 }
+            if (activeSession) db.cancel(activeSession.id)
+            searchSession.id = db.search(query, action => {
+              listenSearch(searchSession, action)
+            })
+            activeSession = searchSession
           }
         })}
         ${collectionContainer}
         ${navigation}
       </div>
   </div>`
-  db.getAllPaths((err, filePaths) => {
+  db.list((err, filePaths) => {
     if (err) return console.error(err)
-    const pagination = makePagination({ filePaths, cardsCount }, listener)
-    db.getData(filePaths.slice(0, cardsCount - 1), (err, contracts) => {
+    if (activeSession) return
+    const pagination = makePagination({ filePaths, cardsCount }, listenPagination)
+    db.get(filePaths.slice(0, cardsCount), (err, contracts) => {
       if (err) return console.error(err)
+      if (activeSession) return
       updateCollectionArea(contracts)
       navigation.appendChild(pagination)
     })
   })
   return element
-  function listener (action) {
+  function listenPagination (action) {
     if (action.type === 'paginate') {
       const { filePaths, page } = action.body
       const b = page != 1 ? page * cardsCount - 1 : cardsCount
       const a = page != 1 ? b - cardsCount : 0
-      db.getData(filePaths.slice(a, b), (err, contracts) => {
+      db.get(filePaths.slice(a, b), (err, contracts) => {
         if (err) return console.error(err)
         updateCollectionArea(contracts)
       })
     }
-    if (action.type === 'searchDB') {
-      const matchingPaths = action.body
-      showMatches(matchingPaths)
+  }
+  function listenSearch (session, action) {
+    if (action.type === 'searchResult') {
+      addMatch(session, action.body)
+    }
+    if (action.type === 'progress') {
+      const [current, total] = session.progress = action.body
+      //let progress = Math.floor(current / total * 100)
+      if (current === 0) {
+        collectionContainer.innerHTML = ''
+        navigation.innerHTML = ''
+        let url = `${window.location.origin}${window.location.pathname}?page=1`
+        history.pushState(null, null, url)
+      } else if (current === total) {
+        if (!session.area) {
+          const el = bel`<div class=${css.noResult}>No matches found</div>`
+          collectionContainer.appendChild(el)
+        }
+      }
     }
   }
   function updateCollectionArea (contracts) {
@@ -46001,19 +46022,34 @@ function makePage (data, notify) {
     collectionContainer.innerHTML = ''
     collectionContainer.appendChild(collectionArea)
   }
-  function updatePagination ({ contracts, cardsCount }) {
-    const pagination = makePagination({ filePaths: contracts, cardsCount }, listener)
+  function addMatch (session, filepath) {
+    if (!session.area) {
+      session.area = makeCollectionArea([])
+      collectionContainer.appendChild(session.area)
+    }
+    const filePaths = session.results
+    filePaths.push(filepath)
+    const length = filePaths.length
+    if (length <= cardsCount) {
+      db.get(filepath, (err, contracts) => {
+        session.cards++
+        if (err) return console.error(err)
+        session.area.appendChild(makeCard(contracts[0]))
+      })
+    }
+    if (session.cards === cardsCount) {
+      if (!session.pagination) {
+        session.pagination = true
+        updatePagination({ filePaths, cardsCount })
+      }
+      if (length % cardsCount === 0) updatePagination({ filePaths, cardsCount })
+    }
+  }
+
+  function updatePagination ({ filePaths, cardsCount }) {
+    const pagination = makePagination({ filePaths, cardsCount }, listenPagination)
     navigation.innerHTML = ''
     navigation.appendChild(pagination)
-  }
-  function showMatches (contracts) {
-    if (contracts.length) {
-      if (contracts.length < cardsCount) {
-        let url = `${window.location.origin}${window.location.pathname}?page=1`
-        history.pushState(null, null, url)
-      }
-      updatePagination({ contracts, cardsCount })
-    }
   }
 
   function clickAction() { location.url = '' }
@@ -46034,6 +46070,12 @@ const css = csjs`
     grid-template-rows: 120px 1fr;
     grid-template-columns: 100%;
     padding: var(--wrapper-padding);
+  }
+  .noResult {
+    font-size: var(--text-large);
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 200;
   }
   .content {
     grid-area: content;
@@ -46071,7 +46113,7 @@ const css = csjs`
   }
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","header":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js","loading":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/loading.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js","search":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/search.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/notify.js":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","header":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js","loading":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/loading.js","makeCard":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCard.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js","search":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/search.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/notify.js":[function(require,module,exports){
 let bel = require('bel')
 let csjs = require('csjs-inject') 
 
@@ -46321,7 +46363,7 @@ function search (notify) {
   return bel`<div class=${css.searchBar}>
     ${searchArea}
     <button class=${css.submit}
-      onclick=${()=>searchContracts(notify, searchArea)}>
+      onclick=${()=>searchContracts(searchArea, notify)}>
       search contracts
     </button>
   </div>`
@@ -46344,12 +46386,12 @@ function preventDefault (e) {
 }
 function trigger (e, notify, searchArea) {
   const keyCode = e.keyCode
-  if (keyCode === 13 && !e.shiftKey) return searchContracts(notify, searchArea)
+  if (keyCode === 13 && !e.shiftKey) return searchContracts(searchArea, notify)
   if (keyCode === 27) return clearSearch()
 }
-function searchContracts (notify, searchArea) {
+function searchContracts (searchArea, notify) {
   const query = getSearchInput(searchArea)
-  return notify({ type: 'search', body: { query, searchArea} })
+  return notify({ type: 'search', body: query })
 }
 function clearSearch () {
   searchArea.innerText = ''
