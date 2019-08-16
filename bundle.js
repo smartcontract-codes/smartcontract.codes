@@ -34,9 +34,6 @@ function contractsDB (daturl) {
   const archive = Hyperdrive(daturl)
   return { search, list, get, cancel}
 
-var id = db.search('asdsaf', listener)
-db.cancel(id)
-
   function search (query, notify) {
     const id = ids++
     setTimeout(() => {
@@ -47,8 +44,9 @@ db.cancel(id)
         if (err) console.error(err)
         searchData(allPaths, (err, contract, progress) => {
           if (err) console.error(err)
-          const temp = contract.source.replace(/\n. |\r/g, "")
-          if (temp.includes(query)) {
+          var temp = normalizeWS(contract.source)
+          var formattedQuery = normalizeWS(query)
+          if (temp.includes(formattedQuery)) {
             if (!cancelled[id]) {
               notify({
                 type: 'searchResult',
@@ -64,6 +62,11 @@ db.cancel(id)
       })
     }, 0)
     return id
+  }
+
+  function normalizeWS(s) {
+    s = s.match(/\S+/g);
+    return s ? s.join(' ') : '';
   }
   function cancel (id) {
     cancelled[id] = true
@@ -93,7 +96,7 @@ db.cancel(id)
         title: data.contractName,
         hash: data.address
       })
-      console.log(`Contracts retreived: ${contracts.length}`)
+      console.log(`Source codes retreived: ${contracts.length}`)
       if (counter === contracts.length) done(null, contracts)
     })
   }
@@ -45733,8 +45736,6 @@ function makeCard (contract) {
     </div>`
   return card
 }
-
-
 
 // ===== helpers =====
 var editor_url = 'https://ethereum-play.github.io/editor-solidity/'
