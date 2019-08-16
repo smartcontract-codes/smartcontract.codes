@@ -82,11 +82,9 @@ function contractsDB (daturl) {
   }
   function list (done) {
     reallyReady(archive, () => {
-      archive.ready(() => {
-        archive.readdir('.', (err, filePaths) => {
-          if (err) return done(err)
-          done(null, filePaths)
-        })
+      archive.readdir('.', (err, filePaths) => {
+        if (err) return done(err)
+        done(null, filePaths)
       })
     })
   }
