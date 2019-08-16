@@ -71,11 +71,22 @@ function contractsDB (daturl) {
   function cancel (id) {
     cancelled[id] = true
   }
+  function reallyReady (archive, cb) {
+    if (archive.metadata.peers.length) {
+      archive.metadata.update({ ifAvailable: true }, cb)
+    } else {
+      archive.metadata.once('peer-add', () => {
+        archive.metadata.update({ ifAvailable: true }, cb)
+      })
+    }
+  }
   function list (done) {
-    archive.ready(() => {
-      archive.readdir('.', (err, filePaths) => {
-        if (err) return done(err)
-        done(null, filePaths)
+    reallyReady(archive, () => {
+      archive.ready(() => {
+        archive.readdir('.', (err, filePaths) => {
+          if (err) return done(err)
+          done(null, filePaths)
+        })
       })
     })
   }
