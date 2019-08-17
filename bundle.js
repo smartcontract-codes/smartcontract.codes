@@ -46218,7 +46218,7 @@ function makePage (data, notify) {
         if (err) return console.error(err)
         const pagination = makePagination({ count }, listenPagination)
         const filepaths = chunkedArr.filepaths
-        console.log(`Searching P2P database for filepaths: ${filepaths}`)
+        console.log(`Searching P2P database for files: ${filepaths}`)
         db.get(filepaths, (err, contracts) => {
           if (err) return console.error(err)
           if (activeSession) return
@@ -46328,7 +46328,7 @@ function makePage (data, notify) {
     const count = Math.floor(length/cardsCount)
     if (length <= cardsCount) {
       db.get(filepath, (err, contracts) => {
-        console.log(`Appending new card: ${contracts[0]}`)
+        console.log(`Appending new card`)
         session.cards++
         if (err) return console.error(err)
         session.area.appendChild(makeCard(contracts[0]))
