@@ -4,25 +4,31 @@ const smartcontractcodes = require('../')
 
 //const daturl = 'dat://ee970fe30a2b564475eb0468acf3de9363fb6b6ef775de26fc3be90ec7dbed72'
 const daturl = 'dat://786130fdd86da6cd579669b6075049cb589f12cbe4c8bf5d9fe350c1b677c5d6'
-const db = contractsDB(daturl)
+const cardsCount = 8
+const db = contractsDB(daturl, cardsCount)
 
 const element = smartcontractcodes({
   contracts: db,
-  themes: require('./themes.js')
+  themes: require('./themes.js'),
+  cardsCount
 })
 
 document.body.appendChild(element)
 
 },{"../":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/app.js","./themes.js":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/demo/themes.js","contracts-db":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/demo/node_modules/contracts-db/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/demo/node_modules/contracts-db/index.js":[function(require,module,exports){
 const SDK = require('dat-sdk')
+const RAI = require('random-access-idb')
 const { Hypercore, Hyperdrive, resolveName, deleteStorage, destroy } = SDK()
+const Idbkv = require('idb-kv')
+let store = new Idbkv('example-store')
 
 var ids = 1
 const cancelled = {}
+window.store = store
 
 module.exports = contractsDB
 
-function contractsDB (daturl) {
+function contractsDB (daturl, pageSize) {
   // ADD MOLOCH DAO - for the demo @TODO remove after the demo
   // const moloch = require('./moloch-demo.sol')
   // contracts.push({
@@ -31,8 +37,8 @@ function contractsDB (daturl) {
   //   hash: '0x1234567345678903456'
   // })
 
-  const archive = Hyperdrive(daturl)
-  return { search, list, get, cancel}
+  const archive = Hyperdrive(daturl, { storage: RAI(location) })
+  return { search, list, get, cancel, getPage, getPagesCount }
 
   function search (query, notify) {
     const id = ids++
@@ -80,23 +86,51 @@ function contractsDB (daturl) {
       })
     }
   }
-  function list (done) {
+  async function getPage (page, done) {
+    const key = `page-${page}`
+    const results =  await store.get(key)
+    return done(null, results)
+  }
+  async function getPagesCount (done) {
+    const results = await store.get('pagesCount')
+    return done(null, results)
+  }
+  async function list (done) {
+    const results =  await store.get('filepaths')
+    if (results) return done(null, results)
     reallyReady(archive, () => {
-      archive.readdir('.', (err, filePaths) => {
-        if (filePaths.length === 0) list(done)
-        else {
-          if (err) return done(err)
-          done(null, filePaths)          
-        }
+      archive.readdir('.', (err, filepaths) => {
+        if (err) return done(err)
+        storeToIndexDB(filepaths)
+        done(null, filepaths)
       })
     })
   }
-  function get (filePaths, done) {
-    filePaths = [].concat(filePaths) // if single path, make array
+  function storeToIndexDB (filepaths) {
+    console.log(`Storing to Indexed DB: ${filepaths}`)
+    store.set('filepaths', filepaths )
+    store.set('pagesCount', Math.floor(filepaths.length/pageSize))
+    let chunkedArr = chunk(filepaths, pageSize)
+    for(var i=0; i<chunkedArr.length; i++) {
+      store.set(`page-${i+1}`,
+        { timestamp: new Date(), filepaths: chunkedArr[i] })
+    }
+  }
+  function chunk(array, size) {
+    const chunkedArr = []
+    let index = 0
+    while (index < array.length) {
+      chunkedArr.push(array.slice(index, size + index))
+      index += size
+    }
+    return chunkedArr
+  }
+  function get (filepaths, done) {
+    filepaths = [].concat(filepaths) // if single path, make array
     const contracts = []
-    const counter = filePaths.length
+    const counter = filepaths.length
     for (var i=0; i<counter; i++) {
-      getFile(contracts, counter, filePaths[i], done)
+      getFile(contracts, counter, filepaths[i], done)
     }
   }
   function getFile (contracts, counter, filepath, done) {
@@ -108,16 +142,16 @@ function contractsDB (daturl) {
         title: data.contractName,
         hash: data.address
       })
-      console.log(`Source codes retreived: ${contracts.length}`)
+      //console.log(`Source codes retreived: ${contracts.length}`)
       if (counter === contracts.length) done(null, contracts)
     })
   }
-  function searchData (filePaths, next) {
+  function searchData (filepaths, next) {
     const contracts = []
-    const counter = filePaths.length
-    if (filePaths) {
+    const counter = filepaths.length
+    if (filepaths) {
       for (var i=0; i<counter; i++) {
-        getSearchFile(contracts, counter, filePaths[i], next)
+        getSearchFile(contracts, counter, filepaths[i], next)
       }
     }
   }
@@ -138,7 +172,7 @@ function contractsDB (daturl) {
 
 }
 
-},{"dat-sdk":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-sdk/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/demo/themes.js":[function(require,module,exports){
+},{"dat-sdk":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/dat-sdk/index.js","idb-kv":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/idb-kv/index.js","random-access-idb":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/random-access-idb/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/demo/themes.js":[function(require,module,exports){
 module.exports = select
 
 function select (theme = 'darkTheme') {
@@ -15073,7 +15107,7 @@ function SDK ({ storageOpts, swarmOpts, driveOpts, coreOpts, dnsOpts } = {}) {
 
     let driveStorage = null
     try {
-      driveStorage = persist ? storage.getDrive(location) : RAM
+      driveStorage = persist ? opts.storage || storage.getDrive(location) : RAM
     } catch (e) {
       if (e.message !== 'Unable to create storage') throw e
 
@@ -15084,7 +15118,7 @@ function SDK ({ storageOpts, swarmOpts, driveOpts, coreOpts, dnsOpts } = {}) {
       location = DatEncoding.encode(publicKey)
       opts.secretKey = secretKey
 
-      driveStorage = persist ? storage.getDrive(location) : RAM
+      driveStorage = persist ? opts.storage || storage.getDrive(location) : RAM
     }
 
     const drive = hyperdrive(driveStorage, key, opts)
@@ -30969,7 +31003,151 @@ var closeRE = RegExp('^(' + [
 ].join('|') + ')(?:[\.#][a-zA-Z0-9\u007F-\uFFFF_:-]+)*$')
 function selfClosing (tag) { return closeRE.test(tag) }
 
-},{"hyperscript-attribute-to-property":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperscript-attribute-to-property/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/ieee754/index.js":[function(require,module,exports){
+},{"hyperscript-attribute-to-property":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/hyperscript-attribute-to-property/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/idb-kv/index.js":[function(require,module,exports){
+/* global indexedDB */
+// use global to allow use in web workers
+
+module.exports = class Idbkv {
+  constructor (dbName, { batchInterval = 10 } = {}) {
+    this.storeName = 'idb-kv'
+    this.batchInterval = batchInterval
+
+    // Promise for the indexeddb DB object
+    this.db = new Promise((resolve, reject) => {
+      const request = indexedDB.open(dbName, 1)
+
+      request.onsuccess = () => resolve(request.result)
+      request.onerror = () => {
+        reject(new Error(`error opening the indexedDB database named ${dbName}: ${request.error}`))
+      }
+
+      // if db doesn't already exist
+      request.onupgradeneeded = () => request.result.createObjectStore(this.storeName)
+    })
+
+    this._actions = []
+    // ^^ A list of pending actions for the next batch transaction
+    // {
+    //   type: (set, get, or delete)
+    //   key:
+    //   value:
+    //   resolve: (resolve get() promise)
+    //   reject: (reject get() promise)
+    // }
+
+    // promise for the currently pending commit to the database if it exists
+    this._commitPromise = null
+  }
+
+  async get (key) {
+    const getPromise = new Promise((resolve, reject) => {
+      this._actions.push({
+        type: 'get',
+        key: key,
+        resolve: resolve,
+        reject: reject
+      })
+    })
+
+    // reject if the commit fails before the get succeeds
+    // to prevent hanging on a failed DB open or other transaction errors
+    await Promise.race([getPromise, this._getOrStartCommit()])
+
+    return getPromise
+  }
+
+  async set (key, value) {
+    this._actions.push({
+      type: 'set',
+      key: key,
+      value: value
+    })
+
+    return this._getOrStartCommit()
+  }
+
+  async delete (key) {
+    this._actions.push({
+      type: 'delete',
+      key: key
+    })
+
+    return this._getOrStartCommit()
+  }
+
+  async destroy () {
+    const db = await this.db
+
+    // the onsuccess event will only be called after the DB closes
+    db.close()
+
+    const request = indexedDB.deleteDatabase(db.name)
+
+    // reject commits after destruction and by extension reject new actions
+    this.db = Promise.reject(new Error('This idb-kv instance has been destroyed'))
+
+    return new Promise((resolve, reject) => {
+      request.onsuccess = () => resolve()
+      request.onerror = () => reject(request.error)
+    })
+  }
+
+  // return the pending commit or a new one if none exists
+  _getOrStartCommit () {
+    if (!this._commitPromise) {
+      this._commitPromise = this._commit()
+    }
+
+    return this._commitPromise
+  }
+
+  // wait for the batchInterval, then commit the queued actions to the database
+  async _commit () {
+    // wait batchInterval milliseconds for more actions
+    await new Promise(resolve => setTimeout(resolve, this.batchInterval))
+
+    // the first queue lasts until the db is opened
+    const db = await this.db
+
+    const transaction = db.transaction(this.storeName, 'readwrite')
+    const store = transaction.objectStore(this.storeName)
+
+    for (const action of this._actions) {
+      switch (action.type) {
+        case 'get':
+          const request = store.get(action.key)
+          request.onsuccess = () => action.resolve(request.result)
+          request.onerror = () => action.reject(request.error)
+          break
+        case 'set':
+          store.put(action.value, action.key)
+          break
+        case 'delete':
+          store.delete(action.key)
+          break
+      }
+    }
+
+    // empty queue
+    this._actions = []
+    this._commitPromise = null
+
+    return new Promise((resolve, reject) => {
+      transaction.oncomplete = () => resolve()
+
+      transaction.onabort = (event) => reject(event.target.error)
+
+      transaction.onerror = () => {
+        // if aborted, onerror is still called, but transaction.error is null
+        if (transaction.error) {
+          reject(transaction.error)
+        }
+      }
+    })
+  }
+}
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/ieee754/index.js":[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = (nBytes * 8) - mLen - 1
@@ -45350,9 +45528,9 @@ const setTheme = require('setTheme')
 
 module.exports = app
 
-function app ({ contracts, themes }) {
+function app ({ contracts, themes, cardsCount }) {
   setTheme(themes())
-  const options = { db: contracts, themes: themes.names }
+  const options = { db: contracts, themes: themes.names, cardsCount }
   return makePage(options, action => {
     if (action.type === 'theme') return setTheme(themes(action.body))
   })
@@ -45559,7 +45737,14 @@ let css = csjs`
   }
 `
 
-},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","copy-text-to-clipboard":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/copy-text-to-clipboard/index.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/icon.js","notify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/notify.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js":[function(require,module,exports){
+},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","copy-text-to-clipboard":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/copy-text-to-clipboard/index.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/icon.js","notify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/notify.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/getCurrentPage.js":[function(require,module,exports){
+module.exports = getCurrentPage
+
+function getCurrentPage () {
+  return parseInt(window.location.href.split('/?page=')[1]) || 1
+}
+
+},{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 
@@ -45674,7 +45859,28 @@ function icon (name, svg) {
   </svg>`
 }
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/loading.js":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/initializing.js":[function(require,module,exports){
+const bel = require('bel')
+const csjs = require('csjs-inject')
+
+module.exports = initializing
+
+function initializing () {
+  return bel`<div class=${css.initializing}>
+    First visit detected. Please hold on while we're initializing the P2P
+    database for you! This might take a while.
+  </div>`
+}
+
+const css = csjs`
+  .initializing {
+    font-size: 12px;
+    text-align: center;
+    font-weight: 200;
+  }
+`
+
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/loading.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 
@@ -45955,26 +46161,39 @@ const csjs = require('csjs-inject')
 
 const header = require('header')
 const search = require('search')
+const loading = require('loading')()
+const progressbar = require('progressbar')()
 const makePagination = require('pagination')
 const makeCollectionArea = require('makeCollectionArea')
 const makeCard = require('makeCard')
-const loading = require('loading')
+const initializing = require('initializing')()
+const getCurrentPage = require('getCurrentPage')
+const Idbkv = require('idb-kv')
+const store = new Idbkv('example-store')
 
 module.exports = makePage
 
 function makePage (data, notify) {
-  const { db, themes } = data
-  const cardsCount = 8
+  const { db, themes,cardsCount } = data
   let activeSession
-  const collectionContainer = bel`<div>${loading()}</div>`
+  const status = bel`<div></div>`
+  if (!localStorage.init) {
+    progressbar.innerText = `0%`
+    progressbar.style.width = `0px`
+    status.appendChild(initializing)
+    status.appendChild(progressbar)
+  }
+  const collectionContainer = bel`<div></div>`
   const navigation = bel`<div></div>`
   const element = bel`<div class=${css.wrapper}>
       ${header()}
       <div class=${css.content}>
         ${themeSwitch()}
+        ${status}
         ${search(action => {
           if (action.type === 'search') {
             const query = action.body
+            console.log(`Starting search query: ${query}`)
             const searchSession = { query, results: [], cards: 0 }
             if (activeSession) db.cancel(activeSession.id)
             searchSession.id = db.search(query, action => {
@@ -45987,47 +46206,110 @@ function makePage (data, notify) {
         ${navigation}
       </div>
   </div>`
-  db.list((err, filePaths) => {
+  db.getPage(getCurrentPage(), (err, chunkedArr) => {
     if (err) return console.error(err)
-    if (activeSession) return
-    const pagination = makePagination({ filePaths, cardsCount }, listenPagination)
-    db.get(filePaths.slice(0, cardsCount), (err, contracts) => {
+    if (!chunkedArr) getList()
+    else {
+      console.log(`Retreiving paths from Indexed DB: ${chunkedArr.filepaths}`)
+      if (activeSession) return
+      collectionContainer.innerHTML = ''
+      collectionContainer.appendChild(loading)
+      db.getPagesCount((err, count) => {
+        if (err) return console.error(err)
+        const pagination = makePagination({ count }, listenPagination)
+        const filepaths = chunkedArr.filepaths
+        console.log(`Searching P2P database for filepaths: ${filepaths}`)
+        db.get(filepaths, (err, contracts) => {
+          if (err) return console.error(err)
+          if (activeSession) return
+          updateCollectionArea(contracts)
+          navigation.appendChild(pagination)
+        })
+      })
+    }
+  })
+
+  function getList () {
+    console.log(`Initializing the P2P database`)
+    db.list((err, filePaths) => {
       if (err) return console.error(err)
       if (activeSession) return
-      updateCollectionArea(contracts)
-      navigation.appendChild(pagination)
+      const count = Math.floor(filePaths.length/cardsCount)
+      console.log(`Creating pagination for ${count} pages`)
+      const pagination =
+        makePagination({ count }, listenPagination)
+      const page = getCurrentPage()
+      db.get(filePaths.slice(page, page + cardsCount), (err, contracts) => {
+        if (err) return console.error(err)
+        if (activeSession) return
+        updateCollectionArea(contracts)
+        navigation.appendChild(pagination)
+      })
+      if (!localStorage.init) {
+        const len = filePaths.length
+        let counter = 0
+        for (var i = 0; i < len; i++) {
+          db.get(filePaths[i], (err, arr) => {
+            if (err) return console.error(err)
+            counter++
+            let progress = Math.floor(counter / len * 100)
+            progressbar.innerText = `${progress}%`
+            progressbar.style.width = `${progress}px`
+            const contract = arr[0]
+            if (counter === len) {
+              localStorage.init = true
+              status.removeChild(initializing)
+              status.removeChild(progressbar)
+            }
+          })
+        }
+      }
     })
-  })
+  }
   return element
   function listenPagination (action) {
     if (action.type === 'paginate') {
-      const { filePaths, page } = action.body
-      const b = page != 1 ? page * cardsCount - 1 : cardsCount
-      const a = page != 1 ? b - cardsCount : 0
-      db.get(filePaths.slice(a, b), (err, contracts) => {
+      collectionContainer.innerHTML = ''
+      const page = action.body
+      db.getPage(page, (err, chunkedArr) => {
         if (err) return console.error(err)
-        updateCollectionArea(contracts)
+        const filepaths = chunkedArr.filepaths
+        db.get(filepaths, (err, contracts) => {
+          if (err) return console.error(err)
+          updateCollectionArea(contracts)
+        })
       })
     }
   }
   function listenSearch (session, action) {
+    console.log(`Starting new search session: ${session.id}`)
+    console.log(`Matches found: ${session.results.length}`)
     if (action.type === 'searchResult') {
+      console.log(`New search result: ${action.body}`)
       addMatch(session, action.body)
     }
     if (action.type === 'progress') {
       const [current, total] = session.progress = action.body
-      //let progress = Math.floor(current / total * 100)
+      let progress = Math.floor(current / total * 100)
       if (current === 0) {
         collectionContainer.innerHTML = ''
         navigation.innerHTML = ''
         let url = `${window.location.origin}${window.location.pathname}?page=1`
         history.pushState(null, null, url)
+        progressbar.innerText = `${progress}%`
+        progressbar.style.width = `${progress}px`
+        status.appendChild(progressbar)
       } else if (current === total) {
+        progressbar.innerText = `${progress}%`
+        progressbar.style.width = `${progress}px`
+        status.removeChild(progressbar)
         if (!session.area) {
           const el = bel`<div class=${css.noResult}>No matches found</div>`
           collectionContainer.appendChild(el)
         }
       }
+      progressbar.innerText = `${progress}%`
+      progressbar.style.width = `${progress}px`
     }
   }
   function updateCollectionArea (contracts) {
@@ -46036,31 +46318,37 @@ function makePage (data, notify) {
     collectionContainer.appendChild(collectionArea)
   }
   function addMatch (session, filepath) {
+    console.log(`New match at: ${filepath}`)
     if (!session.area) {
       session.area = makeCollectionArea([])
       collectionContainer.appendChild(session.area)
     }
-    const filePaths = session.results
-    filePaths.push(filepath)
-    const length = filePaths.length
+    session.results.push(filepath)
+    const length = session.results.length
+    const count = Math.floor(length/cardsCount)
     if (length <= cardsCount) {
       db.get(filepath, (err, contracts) => {
+        console.log(`Appending new card: ${contracts[0]}`)
         session.cards++
         if (err) return console.error(err)
         session.area.appendChild(makeCard(contracts[0]))
       })
     }
     if (session.cards === cardsCount) {
+      console.log(`Creating fresh pagination`)
       if (!session.pagination) {
         session.pagination = true
-        updatePagination({ filePaths, cardsCount })
+        updatePagination(count)
       }
-      if (length % cardsCount === 0) updatePagination({ filePaths, cardsCount })
+      if (length % cardsCount === 0) {
+        updatePagination(count)
+        console.log(`Updating pagination (total): ${length}`)
+      }
     }
   }
 
-  function updatePagination ({ filePaths, cardsCount }) {
-    const pagination = makePagination({ filePaths, cardsCount }, listenPagination)
+  function updatePagination (count) {
+    const pagination = makePagination({ count }, listenPagination)
     navigation.innerHTML = ''
     navigation.appendChild(pagination)
   }
@@ -46083,6 +46371,9 @@ const css = csjs`
     grid-template-rows: 120px 1fr;
     grid-template-columns: 100%;
     padding: var(--wrapper-padding);
+  }
+  .status {
+    height: 100px;
   }
   .noResult {
     font-size: var(--text-large);
@@ -46126,7 +46417,7 @@ const css = csjs`
   }
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","header":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js","loading":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/loading.js","makeCard":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCard.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js","search":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/search.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/notify.js":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","getCurrentPage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/getCurrentPage.js","header":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js","idb-kv":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/idb-kv/index.js","initializing":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/initializing.js","loading":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/loading.js","makeCard":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCard.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js","progressbar":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/progressbar.js","search":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/search.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/notify.js":[function(require,module,exports){
 let bel = require('bel')
 let csjs = require('csjs-inject') 
 
@@ -46168,14 +46459,14 @@ const bel = require('bel')
 const csjs = require('csjs-inject')
 const icon = require('icon')
 const svg = require('svg')
+const getCurrentPage = require('getCurrentPage')
 
 module.exports = pagination
 
-function pagination ({ filePaths, cardsCount = 8 }, notify) {
-  const count = filePaths.length
+function pagination ({ count }, notify) {
   if (!count) return
-  const lastPage = count <= cardsCount ? null : Math.ceil(count / cardsCount)
-  const pageCount = Math.ceil(count / cardsCount)
+  const lastPage = count
+  const pageCount = count
   let active = {}
   const pages = makePaginationButtons()
   const el = bel`
@@ -46229,9 +46520,6 @@ function pagination ({ filePaths, cardsCount = 8 }, notify) {
     el.classList.add(css.active)
     active = { page: page, el: el }
   }
-  function getCurrentPage () {
-    return parseInt(window.location.href.split('/?page=')[1]) || 1
-  }
   function next (pages) {
     let currentPage = getCurrentPage()
     let newPage = currentPage + 1
@@ -46262,7 +46550,7 @@ function pagination ({ filePaths, cardsCount = 8 }, notify) {
      : `${window.location.origin}${window.location.pathname}`.split(' ')[0]
     let url = base + `?page=${newPage}`
     history.pushState(null, null, url)
-    notify({ type: 'paginate', body: { filePaths, page: newPage } })
+    notify({ type: 'paginate', body: newPage })
   }
 }
 const css = csjs`
@@ -46361,7 +46649,28 @@ const css = csjs`
   }
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/icon.js","svg":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/search.js":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","getCurrentPage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/getCurrentPage.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/icon.js","svg":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/progressbar.js":[function(require,module,exports){
+const bel = require('bel')
+const csjs = require('csjs-inject')
+
+module.exports = progressbar
+
+function progressbar () {
+  return bel`<div class=${css.progressbar}></div>`
+}
+
+const css = csjs`
+  .progressbar {
+    padding: 10px;
+    background-color: #6700ff;
+    font-size: var(--text-large);
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 200;
+  }
+`
+
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/search.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 

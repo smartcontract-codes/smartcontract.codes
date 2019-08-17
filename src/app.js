@@ -4,9 +4,9 @@ const setTheme = require('setTheme')
 
 module.exports = app
 
-function app ({ contracts, themes }) {
+function app ({ contracts, themes, cardsCount }) {
   setTheme(themes())
-  const options = { db: contracts, themes: themes.names }
+  const options = { db: contracts, themes: themes.names, cardsCount }
   return makePage(options, action => {
     if (action.type === 'theme') return setTheme(themes(action.body))
   })

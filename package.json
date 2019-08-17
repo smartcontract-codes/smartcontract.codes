@@ -18,7 +18,9 @@
     "bel": "^6.0.0",
     "copy-text-to-clipboard": "^2.1.0",
     "csjs-inject": "^1.0.1",
-    "dat-sdk": "^0.2.0",
-    "hyperdrive": "9.16.0"
+    "dat-sdk": "^0.2.1",
+    "hyperdrive": "9.16.0",
+    "idb-kv": "^2.1.0",
+    "random-access-idb": "^1.2.1"
   }
 }
