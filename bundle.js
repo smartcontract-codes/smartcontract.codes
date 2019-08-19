@@ -71,6 +71,7 @@ function contractsDB (daturl, pageSize) {
   }
 
   function normalizeWS(s) {
+    // searchInput.replace(/\n. |\r/g, "")
     s = s.match(/\S+/g);
     return s ? s.join(' ') : '';
   }
@@ -45650,94 +45651,46 @@ function avatarGenerator (data = 'hello world', size = 80) {
 },{}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/copyToClipboard.js":[function(require,module,exports){
 const bel = require('bel')
 var csjs = require('csjs-inject')
-const notify = require('notify')
+const notification = require('notification')
 const copy = require('copy-text-to-clipboard')
 const icon = require('icon')
 const svg = require('./svg.json')
 
 module.exports = copyToClipboard
 
-let notifyModal
-
-function copyToClipboard(hash) {
-    let copyIcon = bel`<span class="${css['icon-duplicate']}"
-      title="Copy address">${icon('duplicate', svg.duplicate)}</span>`
-    let message = "Contract address successfully copied"
-    copyIcon.onclick = (event) => {
-        event.stopPropagation()
-        let copiableContent
-        try {
-            copiableContent = hash
-        } catch (e) {
-            console.log('copy failed: ', e.message)
-            return
-        }
-        if (copiableContent) {
-            copy(copiableContent)
-            // set new notify message
-            let notification = notify(message)
-            // if notifyModal is null, then add it on the page
-            if (notifyModal == null) {
-                notifyModal = bel`<div id="notify" class=${css.notifyModal}"></div>`
-                document.body.appendChild(notifyModal)
-            }
-            // select #notify after notifyModal created.
-            let target = document.querySelector('#notify')
-            notification.classList.add(css.show)
-            // implement many notifies in notifyModal
-            target.appendChild(notification)
-            // to make each notify will be slowly disappeared.
-            setTimeout(function(){
-                notification.classList.remove(css.show)
-                notification.classList.add(css.hide)
-                setTimeout(function() {
-                    target.removeChild(notification)
-                }, 900)
-            }, 2500)
-        }
+function copyToClipboard (hash) {
+  const copyIcon = bel`
+    <span class="${css['icon-duplicate']}" title="Copy address">
+      ${icon('duplicate', svg.duplicate)}
+    </span>`
+  const message = "Contract address successfully copied"
+  copyIcon.onclick = (event) => {
+    event.stopPropagation()
+    try {
+      var copiableContent = hash
+    } catch (e) {
+      return notification({ type: 'error', body: 'copy failed: ' + e.message})
     }
+    if (copiableContent) {
+      copy(copiableContent)
+      notification(message)
+    }
+  }
+  return copyIcon
+}
+const css = csjs`
+.icon-duplicate {
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  bottom: -8px;
+  width: 22px;
+}
+.icon-duplicate svg g {
+  fill: var(--card-icon-fill);
+}`
 
-    return copyIcon
-
-  }
-
-let css = csjs`
-  .notifyModal {
-    position: fixed;
-    left: 0;
-    bottom: 20px;
-    width: 100%;
-    display: grid;
-    justify-items: center;
-    z-index:999;
-  }
-  .icon-duplicate {
-    cursor: pointer;
-    position: absolute;
-    right: 5px;
-    bottom: -8px;
-    width: 22px;
-  }
-  .icon-duplicate svg g {
-    fill: var(--card-icon-fill);
-  }
-  .show {
-    animation: show 1s
-  }
-  .hide {
-    animation: hide 1s
-  }
-  @keyframes show {
-    from { opacity: 0}
-    to { opacity: 1}
-  }
-  @keyframes hide {
-    from { opacity: 1}
-  |  to { opacity: 0}
-  }
-`
-
-},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","copy-text-to-clipboard":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/copy-text-to-clipboard/index.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/icon.js","notify":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/notify.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/getCurrentPage.js":[function(require,module,exports){
+},{"./svg.json":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/svg.json","bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","copy-text-to-clipboard":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/copy-text-to-clipboard/index.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","icon":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/icon.js","notification":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/notification.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/getCurrentPage.js":[function(require,module,exports){
 module.exports = getCurrentPage
 
 function getCurrentPage () {
@@ -45859,28 +45812,7 @@ function icon (name, svg) {
   </svg>`
 }
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/initializing.js":[function(require,module,exports){
-const bel = require('bel')
-const csjs = require('csjs-inject')
-
-module.exports = initializing
-
-function initializing () {
-  return bel`<div class=${css.initializing}>
-    First visit detected. Please hold on while we're initializing the P2P
-    database for you! This might take a while.
-  </div>`
-}
-
-const css = csjs`
-  .initializing {
-    font-size: 12px;
-    text-align: center;
-    font-weight: 200;
-  }
-`
-
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/loading.js":[function(require,module,exports){
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/loading.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
 
@@ -46166,7 +46098,7 @@ const progressbar = require('progressbar')()
 const makePagination = require('pagination')
 const makeCollectionArea = require('makeCollectionArea')
 const makeCard = require('makeCard')
-const initializing = require('initializing')()
+const notification = require('notification')
 const getCurrentPage = require('getCurrentPage')
 const Idbkv = require('idb-kv')
 const store = new Idbkv('example-store')
@@ -46177,12 +46109,6 @@ function makePage (data, notify) {
   const { db, themes,cardsCount } = data
   let activeSession
   const status = bel`<div></div>`
-  if (!localStorage.init) {
-    progressbar.innerText = `0%`
-    progressbar.style.width = `0px`
-    status.appendChild(initializing)
-    status.appendChild(progressbar)
-  }
   const collectionContainer = bel`<div></div>`
   const navigation = bel`<div></div>`
   const element = bel`<div class=${css.wrapper}>
@@ -46231,7 +46157,21 @@ function makePage (data, notify) {
 
   function getList () {
     console.log(`Initializing the P2P database`)
+    setTimeout(() => {
+      notification(`First visit detected. Initializing the P2P database
+        will start soon!`)
+    }, 3000)
+    setTimeout(() => {
+      notification('Please, hold on, this might take a few minutes!')
+    }, 10000)
+    setTimeout(() => {
+      notification(`We're getting there. Initialization only needs
+      to be done once!`)
+    }, 25000)
+    collectionContainer.appendChild(loading)
     db.list((err, filePaths) => {
+      const msg = `Downloading index completed. Fetching content now!`
+      notification(msg)
       if (err) return console.error(err)
       if (activeSession) return
       const count = Math.floor(filePaths.length/cardsCount)
@@ -46252,14 +46192,10 @@ function makePage (data, notify) {
           db.get(filePaths[i], (err, arr) => {
             if (err) return console.error(err)
             counter++
-            let progress = Math.floor(counter / len * 100)
-            progressbar.innerText = `${progress}%`
-            progressbar.style.width = `${progress}px`
             const contract = arr[0]
             if (counter === len) {
               localStorage.init = true
-              status.removeChild(initializing)
-              status.removeChild(progressbar)
+              notification(`P2P database is now initialized`)
             }
           })
         }
@@ -46269,7 +46205,6 @@ function makePage (data, notify) {
   return element
   function listenPagination (action) {
     if (action.type === 'paginate') {
-      collectionContainer.innerHTML = ''
       const page = action.body
       db.getPage(page, (err, chunkedArr) => {
         if (err) return console.error(err)
@@ -46293,23 +46228,17 @@ function makePage (data, notify) {
       let progress = Math.floor(current / total * 100)
       if (current === 0) {
         collectionContainer.innerHTML = ''
+        collectionContainer.appendChild(loading)
         navigation.innerHTML = ''
         let url = `${window.location.origin}${window.location.pathname}?page=1`
         history.pushState(null, null, url)
-        progressbar.innerText = `${progress}%`
-        progressbar.style.width = `${progress}px`
-        status.appendChild(progressbar)
       } else if (current === total) {
-        progressbar.innerText = `${progress}%`
-        progressbar.style.width = `${progress}px`
-        status.removeChild(progressbar)
         if (!session.area) {
+          collectionContainer.innerHTML = ''
           const el = bel`<div class=${css.noResult}>No matches found</div>`
           collectionContainer.appendChild(el)
         }
       }
-      progressbar.innerText = `${progress}%`
-      progressbar.style.width = `${progress}px`
     }
   }
   function updateCollectionArea (contracts) {
@@ -46320,6 +46249,7 @@ function makePage (data, notify) {
   function addMatch (session, filepath) {
     console.log(`New match at: ${filepath}`)
     if (!session.area) {
+      collectionContainer.innerHTML = ''
       session.area = makeCollectionArea([])
       collectionContainer.appendChild(session.area)
     }
@@ -46417,43 +46347,79 @@ const css = csjs`
   }
 `
 
-},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","getCurrentPage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/getCurrentPage.js","header":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js","idb-kv":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/idb-kv/index.js","initializing":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/initializing.js","loading":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/loading.js","makeCard":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCard.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js","progressbar":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/progressbar.js","search":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/search.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/notify.js":[function(require,module,exports){
-let bel = require('bel')
-let csjs = require('csjs-inject') 
+},{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js","getCurrentPage":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/getCurrentPage.js","header":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/header.js","idb-kv":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/idb-kv/index.js","loading":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/loading.js","makeCard":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCard.js","makeCollectionArea":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/makeCollectionArea.js","notification":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/notification.js","pagination":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js","progressbar":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/progressbar.js","search":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/search.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/notification.js":[function(require,module,exports){
+const bel = require('bel')
+const csjs = require('csjs-inject')
+
+var notifyModal
 
 module.exports = notify
 
-function notify(msg) {
-    return bel`
-        <div class=${css.notify}>${msg}</div>
-    `
+function notify (msg) {
+  if (!notifyModal) {
+    notifyModal = bel`<div id="notify" class=${css.notifyModal}"></div>`
+    document.body.appendChild(notifyModal)
+  }
+  if (typeof msg === 'string') msg = { type: 'ok', body: msg }
+  if (msg.type === 'error') console.error(msg.body)
+  const notification = bel`<div class="${css.notify} ${css.show}">
+    ${msg.body}
+  </div>`
+  notifyModal.appendChild(notification)
+  setTimeout(function(){
+    notification.classList.remove(css.show)
+    notification.classList.add(css.hide)
+    setTimeout(() => notifyModal.removeChild(notification), 900)
+  }, 2500)
 }
 
-let css = csjs`
-    .notify {
-        width: 30%;
-        margin-bottom: 5px;
-        padding: 8px;
-        text-align: center;
-        border-radius: 4px;
-        -webkit-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
-        box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
-        background-color: var(--notify-background-color);
-        color: #000;
-        font-size: 1.4rem;
-    }
+const css = csjs`
+.notify {
+  width: 30%;
+  margin-bottom: 5px;
+  padding: 8px;
+  text-align: center;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  background-color: var(--notify-background-color);
+  color: #000;
+  font-size: 1.4rem;
+}
+.notifyModal {
+  position: fixed;
+  left: 0;
+  bottom: 20px;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  z-index:999;
+}
+.show {
+  animation: show 1s
+}
+.hide {
+  animation: hide 1s
+}
+@keyframes show {
+  from { opacity: 0}
+  to { opacity: 1}
+}
+@keyframes hide {
+  from { opacity: 1}
+  to { opacity: 0}
+}
+@media (max-width: 960px) {
+  .notify {
+    width: 50%;
+  }
+}
+@media (max-width: 768px) {
+  .notify {
+    width: 65%;
+  }
+}`
 
-    @media (max-width: 960px) {
-        .notify {
-            width: 50%;
-        }
-    }
-    @media (max-width: 768px) {
-        .notify {
-            width: 65%;
-        }
-    }
-`
 },{"bel":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/bel/browser.js","csjs-inject":"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/node_modules/csjs-inject/index.js"}],"/home/ninabreznik/Documents/code/ethereum/play/smartcontract.codes/src/node_modules/pagination.js":[function(require,module,exports){
 const bel = require('bel')
 const csjs = require('csjs-inject')
@@ -46465,86 +46431,48 @@ module.exports = pagination
 
 function pagination ({ count }, notify) {
   if (!count) return
-  const lastPage = count
-  const pageCount = count
-  let active = {}
-  const pages = makePaginationButtons()
-  const el = bel`
-    <div class=${css.pagination}>
-      <button class="${css.button} ${css.default} ${css.previous}" onclick=${() => prev(pages)}>
-        <span class=${css.icon_arrow_right}>${icon('arrow-left', svg.arrowLeft)}</span>
-      </button>
-      ${pages}
-      <button class="${css.button} ${css.default} ${css.next}" onclick=${() => next(pages)}>
-        <span class=${css.icon_arrow_right}>${icon('arrow-right', svg.arrowRight)}</span>
-      </button>
+  let active, now = getCurrentPage(), pagination = makePagination()
+  return pagination
+  function makePagination () {
+    const arr = count < 10 ? [...Array(count)].map((_, i)=>i+1)
+      : now < 5 ? [1, 2, 3, 4, 5, 6, '...', count-1, count]
+        : now < count-4 ?
+          [1, 2, '...', now-1, now, now + 1, '...', count-1, count]
+          : [1, 2, '...', count-5, count-4, count-3, count-2, count-1, count]
+    if (active) {
+      active.classList.remove(css.active)
+      active.classList.add(css.nonactive)
+    }
+    const pages = bel`<ul class=${css.pages} onclick=${(e)=>selectPage(e)}>
+      ${arr.map(x => x === '...' ?
+        bel`<li class=${css.dotdotdot}>${x}</li>`
+        : x === now ?
+          (active = bel`<li class="${css.active}" data-page=${x}>${x}</li>`)
+          : bel`<li class="${css.nonactive}" data-page=${x}>${x}</li>`
+      )}
     </div>`
-  return el
-
-  function makePaginationButtons () {
-    const pages = bel`<ul class=${css.pages}></ul>`
-    const grid = `auto / repeat(${ pageCount < 6 ? pageCount : 5 }, 45px)`
-    const first = bel`<li><span onclick=${(e) => selectPage(e, 1)} class=${css.active}>1</span></li>`
-    active = { page: 1, el: first.children[0] }
+    const grid = `auto / repeat(${count < 10 ? count : 9}, 45px)`
     pages.style.setProperty('--grid-template', grid)
-    const arr = pageCount < 6 ?
-      [...Array(pageCount)].map((_,i) => i + 1)
-      : [1, 2, '...', pageCount-1, pageCount]
-    arr.map(page => {
-      if (page === 1) {
-        pages.appendChild(first)
-      }
-      else {
-        if (page === '...') { pages.appendChild(bel`<li><span class=${css.dotdotdot}>${page}</span></li>`) }
-        else {
-          pages.appendChild(
-            bel`<li><span onclick=${(e)=>selectPage(e, page)} class=${css.nonactive}>${page}</span></li>`)
-        }
-      }
-    })
-    return pages
+    return bel`
+      <div class=${css.pagination}>
+        ${now !== 1 && count > 1 ? bel`<button class="${css.button} ${css.default} ${css.previous}" onclick=${prev}>
+          <span class=${css.icon_arrow_right}>${icon('arrow-left', svg.arrowLeft)}</span>
+        </button>`: ''}
+        ${pages}
+        ${now !== count && count > 1 ? bel`<button class="${css.button} ${css.default} ${css.next}" onclick=${next}>
+          <span class=${css.icon_arrow_right}>${icon('arrow-right', svg.arrowRight)}</span>
+        </button>` : ''}
+      </div>`
   }
-  function selectPage (e, page) {
-    removeActiveEl()
-    updateActive(page, e.target)
-    goToUrl(page)
-  }
-  function removeActiveEl () {
-    if (active.el) {
-      active.el.classList.remove(css.active)
-      active.el.classList.add(css.nonactive)
-    }
-  }
-  function updateActive (page, el) {
-    el.classList.remove(css.nonactive)
-    el.classList.add(css.active)
-    active = { page: page, el: el }
-  }
-  function next (pages) {
-    let currentPage = getCurrentPage()
-    let newPage = currentPage + 1
-    if (currentPage != lastPage && lastPage != null) {
-      removeActiveEl()
-      ;[...pages.children].forEach((li) => {
-        let el = li.children[0]
-        if (parseInt(el.innerText) === newPage) updateActive(newPage, el)
-      })
-      goToUrl(newPage)
-    }
-  }
-  function prev (pages) {
-    let currentPage = getCurrentPage()
-    let newPage = currentPage - 1
-    if (currentPage != 1) {
-      removeActiveEl()
-      ;[...pages.children].forEach((li) => {
-        let el = li.children[0]
-        if (parseInt(el.innerText) === newPage) updateActive(newPage, el)
-      })
-      goToUrl(newPage)
-    }
-  }
-  function goToUrl(newPage) {
+  function selectPage (e) { gotoPage(e.target.dataset.page) }
+  function next () { gotoPage(Number(active.dataset.page) + 1) }
+  function prev () {  gotoPage(Number(active.dataset.page) - 1) }
+  function gotoPage (newPage) {
+    now = Number(newPage)
+    if (!now) return
+    const newPagination = makePagination()
+    pagination.replaceWith(newPagination)
+    pagination = newPagination
     const base = getCurrentPage() != 1 ?
      `${window.location.origin}${window.location.pathname}`.split('/?page=')[0]
      : `${window.location.origin}${window.location.pathname}`.split(' ')[0]
@@ -46691,9 +46619,7 @@ function search (notify) {
   </div>`
 }
 function getSearchInput (searchArea) {
-  let searchInput = searchArea.innerText.trim()
-  searchInput = searchInput.replace(/\n. |\r/g, "")
-  return searchInput
+  return searchArea.innerText
 }
 function select (el) {
   const range = document.createRange()
