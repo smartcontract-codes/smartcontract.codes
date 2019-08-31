@@ -46608,7 +46608,7 @@ module.exports = search
 
 function search (notify) {
   const searchArea = bel`<div contenteditable="true"
-    placeholder='Enter keyword, contract name or code snippet'
+    placeholder='Enter a keyword, contract name or code snippet'
     class=${css.textarea}"
     onclick=${(e) => select(e)}
     onkeyup=${(e) => trigger(e, notify, searchArea)}
