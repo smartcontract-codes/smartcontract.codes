@@ -95,7 +95,8 @@ const lightTheme = {
   '--collectionCard-border-radius': '6px',
   '--pages-li-color': grey8D,
   '--search-button-border-radius': '30px',
-  '--notify-background-color': lightGreen
+  '--notify-background-color': lightGreen,
+  '--placeholder': grey8D
 }
 
 const darkTheme = {
@@ -169,7 +170,8 @@ const darkTheme = {
   '--collectionArea-grid-gap': '30px',
   '--collectionCard-border-radius': '6px',
   '--search-button-border-radius': '30px',
-  '--notify-background-color': lightGreen
+  '--notify-background-color': lightGreen,
+  '--placeholder': grey8D
 }
 const themes = { lightTheme, darkTheme }
 select.names = Object.keys(themes)

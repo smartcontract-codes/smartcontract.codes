@@ -271,7 +271,8 @@ const lightTheme = {
   '--collectionCard-border-radius': '6px',
   '--pages-li-color': grey8D,
   '--search-button-border-radius': '30px',
-  '--notify-background-color': lightGreen
+  '--notify-background-color': lightGreen,
+  '--placeholder': grey8D
 }
 
 const darkTheme = {
@@ -345,7 +346,8 @@ const darkTheme = {
   '--collectionArea-grid-gap': '30px',
   '--collectionCard-border-radius': '6px',
   '--search-button-border-radius': '30px',
-  '--notify-background-color': lightGreen
+  '--notify-background-color': lightGreen,
+  '--placeholder': grey8D
 }
 const themes = { lightTheme, darkTheme }
 select.names = Object.keys(themes)
@@ -46605,7 +46607,9 @@ const csjs = require('csjs-inject')
 module.exports = search
 
 function search (notify) {
-  const searchArea = bel`<div contenteditable="true" class=${css.textarea}"
+  const searchArea = bel`<div contenteditable="true"
+    placeholder='Enter keyword, contract name or code snippet'
+    class=${css.textarea}"
     onclick=${(e) => select(e)}
     onkeyup=${(e) => trigger(e, notify, searchArea)}
     onkeypress=${(e) => preventDefault(e)}>
@@ -46664,6 +46668,10 @@ const css = csjs`
   .submit:hover {
     color: var(--search-button-color);
     background-color: var(--search-button-hover-background);
+  }
+  [contenteditable=true]:empty::before {
+    content: attr(placeholder);
+    color: var(--placeholder);
   }
   .textarea {
     width: calc(100% - 65px);
