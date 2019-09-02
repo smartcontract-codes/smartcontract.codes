@@ -45874,7 +45874,6 @@ module.exports = makeCard
 
 function makeCard (contract) {
   const { source, title, hash, metadata } = contract
-  debugger
   const card = bel`
     <div class=${css.collectionCard}>
       <pre class=${css.code} onclick=${() => openInEditor(source)}><code>${source}</code></pre>
