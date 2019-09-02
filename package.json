@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "searchpage",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "p2p search user interface",
   "main": "src/app.js",
   "scripts": {

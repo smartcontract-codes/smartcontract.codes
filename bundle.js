@@ -141,7 +141,8 @@ function contractsDB (daturl, pageSize) {
       contracts.push({
         source: data.sourceCode,
         title: data.contractName,
-        hash: data.address
+        hash: data.address,
+        metadata: data
       })
       //console.log(`Source codes retreived: ${contracts.length}`)
       if (counter === contracts.length) done(null, contracts)
@@ -163,7 +164,8 @@ function contractsDB (daturl, pageSize) {
       const data = JSON.parse(result)
       const contract = {
         source: data.sourceCode,
-        path: filepath
+        path: filepath,
+        metadata: data
       }
       contracts.push(contract)
       console.log(`Contracts searched: ${contracts.length}`)
@@ -45871,7 +45873,8 @@ const copyToClipboard = require('copyToClipboard')
 module.exports = makeCard
 
 function makeCard (contract) {
-  const { source, title, hash } = contract
+  const { source, title, hash, metadata } = contract
+  debugger
   const card = bel`
     <div class=${css.collectionCard}>
       <pre class=${css.code} onclick=${() => openInEditor(source)}><code>${source}</code></pre>
@@ -45907,7 +45910,8 @@ window.addEventListener('message', event => {
       'open',               // type
       {                     // body
         name: 'contract.sol',
-        data: _code
+        data: _code,
+        metadata: _metadata
     }], '*')
     _code = void 0
   }
@@ -45927,7 +45931,8 @@ function openInEditor (code) {
       'open',               // type
       {                     // body
         name: 'contract.sol',
-        data: code
+        data: code,
+        metadata: _metadata
     }], '*')
     window.editor.focus()
   }
