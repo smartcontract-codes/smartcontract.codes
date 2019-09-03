@@ -2,14 +2,13 @@
   "private": true,
   "name": "searchpage",
   "version": "0.0.1",
-  "description": "p2p search user interface",
+  "description": "p2p search interface for solidity source codes",
   "main": "src/app.js",
   "scripts": {
     "start": "budo demo/demo.js:bundle.js --dir . --title $npm_package_name --force-default-index --open --live --ssl",
     "build": "browserify --full-paths demo/demo.js > bundle.js"
   },
   "keywords": [],
-  "author": "smartcontract.codes",
   "license": "MIT",
   "devDependencies": {
     "budo": "^11.6.3"
