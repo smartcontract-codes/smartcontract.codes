@@ -43,8 +43,22 @@ git commit -m 'Commit message here'
 git push
 ```
 
+## P2P search engine architecture
+
+Consists of different kind of network nodes:
+
+
+1. DHT nodes - help with discovery
+
+2. source code nodes - collect source code
+
+3. target list nodes - collect crawler targets
+
+4. crawler & scraper nodes - add new source codes to the network
+
+
+Find out more about it in [our slides](http://slides.com/serapath/deck-18#/)
+
 ## License
 
 MIT
-
-![img](https://i.imgur.com/fpZ4EfE.png)
