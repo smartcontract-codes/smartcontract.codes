@@ -15,6 +15,34 @@ p2p search interface for solidity source codes
 
 smartcontract.codes is a search engine that allows you to search, browse and interact with solidity source code
 
+### Pull from Github
+
+```
+git clone https://github.com/ethereum-play/smartcontract.codes.git
+cd smarcontract.codes
+```
+
+### Install node modules defined in package.json
+
+```
+npm install
+```
+
+### Start the app in the browser
+
+```
+npm start
+```
+
+### To commit changes
+
+```
+npm run build
+git add -A
+git commit -m 'Commit message here'
+git push
+```
+
 ## License
 
 MIT
