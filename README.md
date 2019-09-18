@@ -1,7 +1,7 @@
 # smartcontract.codes
 p2p search interface for solidity source codes
 
-[demo](https://ethereum-play.github.io/smartcontract.codes/)
+[smartcontract.codes](https://ethereum-play.github.io/smartcontract.codes/) - a search interface for verified solidity source code
 
 [![Join the chat at https://gitter.im/ethereum/play](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ethereum/play?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -45,6 +45,7 @@ git push
 
 ## P2P search engine architecture
 
+
 Consists of different kind of network nodes:
 
 
@@ -58,6 +59,7 @@ Consists of different kind of network nodes:
 
 
 Find out more about it in [our slides](http://slides.com/serapath/deck-18#/)
+
 
 ## License
 
