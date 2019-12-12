@@ -18,7 +18,10 @@
     "copy-text-to-clipboard": "^2.1.0",
     "csjs-inject": "^1.0.1",
     "dat-sdk": "^0.2.1",
-    "hyperdrive": "9.16.0",
+    "end-of-stream": "^1.4.4",
+    "hypercore": "^7.7.1",
+    "hypertrie": "^3.8.0",
+    "hyperswarm-proxy-ws": "github:rangermauve/hyperswarm-proxy-ws#tests",
     "idb-kv": "^2.1.0",
     "random-access-idb": "^1.2.1"
   }
