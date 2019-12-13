@@ -7,8 +7,9 @@ module.exports = app
 function app ({ contracts, themes, cardsCount }) {
   setTheme(themes())
   const options = { db: contracts, themes: themes.names, cardsCount }
-  return makePage(options, action => {
-    if (action.type === 'theme') return setTheme(themes(action.body))
+  return makePage(options, message => {
+    const { type, data } = message
+    if (type === 'theme') return setTheme(themes(data))
   })
 }
 const css = csjs`
@@ -16,6 +17,8 @@ const css = csjs`
 @import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
 html {
   font-size: 62.5%;
+  height: 100%;
+  scroll-behavior: smooth;
 }
 body {
   height: 100%;
@@ -100,4 +103,10 @@ ul, li {
 svg {
   width: 100%;
   height: 100%;
-}`
+}
+@media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+`
