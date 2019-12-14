@@ -2,7 +2,7 @@
 const contractsDB = require('contracts-db')
 const smartcontractcodes = require('../')
 
-const dat = '48a050618e16da68395cbe8fd7b3c0b0df667dab1fcdb1b0f1094f5bf6466ca4'
+const dat = '505d45d6e9c1d08220003e7caad33402d6e815746d2a71986adeec57e07f53bf'
 const cardsCount = 8
 const db = contractsDB(dat, cardsCount)
 
@@ -35,7 +35,6 @@ function contractsDB (dat, pageSize) {
   const key = Buffer.from(dat, "hex")
   const feed = new hypercore(ram, key)
   const trie = hypertrie(null, { feed })
-  swarm.join(key, { live: true })
   swarm.on('connection', (connection, info) => {
     console.log('connection found')
     connection.pipe(feed.replicate(info.client)).pipe(connection)
@@ -44,7 +43,9 @@ function contractsDB (dat, pageSize) {
       if (err) return console.log('stream had an error or closed early', err);
       console.log('stream has ended', this === connection);
     });
+    console.log('SWARM CONNECTIONS', swarm.connections)
   })
+  swarm.join(key)
 
   isReallyReady()
   return { getStream, getBatch, search, cancel, getPagesCount, getSamples }
@@ -131,6 +132,7 @@ function contractsDB (dat, pageSize) {
           readStream.on('close', console.log('stream closed'))
         }
       })
+      //swarm.leave(key)
     }
   }
 
@@ -26059,28 +26061,6 @@ function makePage (data, notify) {
   const viewport = bel`<meta name="viewport" content="width=device-width, initial-scale=1.0">`
   document.head.appendChild(viewport)
   const names = ['All', 'Basic', 'OpenZeppelin', 'Audited', 'Newest', 'Popular', 'Featured']
-  // const element = bel`<div class=${css.wrapper}>
-  //     ${header()}
-  //     <div class=${css.content}>
-  //       ${themeSwitch()}
-  //       ${status}
-  //       ${search(action => {
-  //         if (action.type === 'search') {
-  //           const query = action.body
-  //           console.log(`Starting search query: ${query}`)
-  //           const searchSession = { query, results: [], cards: 0 }
-  //           if (activeSession) db.cancel(activeSession.id)
-  //           searchSession.id = db.search(query, action => {
-  //             listenSearch(searchSession, action)
-  //           })
-  //           activeSession = searchSession
-  //         }
-  //       })}
-  //       ${filterButtons(names, handleFilters)}
-  //       ${collectionContainer}
-  //       ${navigation}
-  //     </div>
-  // </div>`
 
   const element = bel`
     <div class=${css.wrapper}>

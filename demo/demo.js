@@ -1,7 +1,7 @@
 const contractsDB = require('contracts-db')
 const smartcontractcodes = require('../')
 
-const dat = '48a050618e16da68395cbe8fd7b3c0b0df667dab1fcdb1b0f1094f5bf6466ca4'
+const dat = '505d45d6e9c1d08220003e7caad33402d6e815746d2a71986adeec57e07f53bf'
 const cardsCount = 8
 const db = contractsDB(dat, cardsCount)
 
