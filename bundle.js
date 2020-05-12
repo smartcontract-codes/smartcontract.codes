@@ -25472,7 +25472,7 @@ function footer() {
         <a class="${css.button} ${css.link}" href="https://twitter.com/SmartContractC3" target="_blank">
             <span class="${css.icon} ${css['icon-twitter']}">${icon('twitter', svg.twitter)}</span>
         </a>
-        <a class="${css.button} ${css.link}" href="https://github.com/ethereum-play/smartcontract.codes" target="_blank">
+        <a class="${css.button} ${css.link}" href="https://github.com/playproject-io/smartcontract.codes" target="_blank">
             <span class="${css.icon} ${css['icon-github']}">${icon('twitter', svg.github)}</span>
         </a>
         <a class="${css.button} ${css.link}" href="https://gitter.im/playproject-io/community" target="_blank">
@@ -25555,7 +25555,7 @@ function footerSticker() {
 }
 
 function openNew () {
-    window.open('https://ethereum-play.github.io/editor-solidity/')
+    window.open('https://playproject.io/play-ed/')
 }
 
 const css = csjs`
@@ -25851,7 +25851,7 @@ function makeCard (contract) {
 
 
 // ===== helpers =====
-var editor_url = 'https://ethereum-play.github.io/editor-solidity/'
+var editor_url = 'https://playproject.io/play-ed/'
 // var editor_url = 'https://10.0.2.15:9966/'
 var counter = 1
 const editors = {}

@@ -1,6 +1,6 @@
 # smartcontract.codes
 
-[smartcontract.codes](https://ethereum-play.github.io/smartcontract.codes/) - a search interface for verified solidity source code
+[smartcontract.codes](https://smartcontract.codes/) - a search interface for verified solidity source code
 
 ![Alt Text](https://media.giphy.com/media/kyLlNLMrOYKrTUYBbU/giphy.gif)
 
